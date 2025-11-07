@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>CourseOverview_IntroductionToAI</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <link rel="icon" type="image/x-icon" href="../../../outfit/images/favicons/favicon.png">
+    <link rel="stylesheet" href="../../../lib/reveal.js/css/reveal.css">
+    <link rel="stylesheet" href="../../../outfit/css/themes/projector.css" id="theme">
+    <script>
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match( /print-pdf/gi ) ? '../../../lib/reveal.js/css/print/pdf.css' : '../../../lib/reveal.js/css/print/paper.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../../../outfit/css/reveal.js.css">
+    <base target="_blank">
+
+    <style>
+        .reveal .slides >section.first{
+            position: fixed !important;
+            /* width: 100vw;
+            height: 100vh; */
+            top:0 !important;
+            bottom:0 !important;
+            left: 0 !important;
+            right: 0 !important;
+            background: url('./images/the_future_of_generative_ai_with_course_logo_3.png');
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+        }
+        section.main-section-title:nth-child(1)>h1{
+            width: 12em;
+            margin: 0 auto;
+            margin-top:45vh;
+            padding-bottom: 10px;
+            background:#0009;
+            color:#FFF;
+        }
+        #about_me>h3>a{
+            font-size: .7em;
+            /* float: right; */
+            position: relative;
+            bottom:.1em;
+            margin-left: .6em;
+            vertical-align: middle;
+            color:#FFF;
+            background-color:#3c8bda;
+            border-radius:5px;
+        }
+        #about_me>h3>a:hover{
+            background-color:#0a66c2;
+        }
+        #about_me>h3>a>i{
+            padding: 3px 5px;
+        }
+        .copyright>.company img{
+            background: #fff9;
+        }
+        #attention{
+            display:block;
+            font-size: 1.3em;
+            margin-top:1.7em;
+        }
+    </style>
+</head>
+<body>
+    <div class="reveal default center" data-transition-speed="default" data-background-transition="default">
+        <div class="top_links">
+            <a class="home_link" href="../../../index.html#CourseIntro" target="_top"><i class="fa fa-home"></i></a>
+            <span class="help_link"><i class="fa fa-question"></i></span>
+            <div class="help_text">
+                <div class="note">Keyboard shortcuts:</div>
+                <div><span>N/Спейс</span><span>Next Slide</span></div>
+                <div><span>P</span><span>Previous Slide</span></div>
+                <div><span>O</span><span>Slides Overview</span></div>
+                <div><span>ctrl+left click</span><span>Zoom Element</span></div>
+                <div class="print-howto"><br>If you want print version => add '<code>?print-pdf</code>' <br> at the end of slides URL (remove '#' fragment) and then print. <br>
+                Like: https://wwwcourses.github.io/...CourseIntro.html?print-pdf </div>
+            </div>
+        </div>
+        <div class="footer theme_switch">
+            <a href="#" onclick="document.getElementById('theme').setAttribute('href','../../../outfit/css/themes/dark.css'); return false;">Dark</a>
+            <a href="#" onclick="document.getElementById('theme').setAttribute('href','../../../outfit/css/themes/light.css'); return false;">Light</a>
+            <a href="#" onclick="document.getElementById('theme').setAttribute('href','../../../outfit/css/themes/projector.css'); return false;">Projector</a>
+        </div>
+        <div class="slides">
+
+<section class="main-section-title first"><h1>Представяне на курса</h1></section>
+<section data-transition="zoom" class="main-section-title">
+    <section>
+        <div class="copyright">
+            <div class="note">
+                </div>
+            <div class="company">
+                <a href="https://progressbg.net/">
+                <img src="../../../outfit/images/logos/ProgressBG_logo_529_127.png" alt="ProgressBG_logo">
+                </a>
+            </div>
+        </div>
+    </section>
+</section>
+
+
+<section class="sub-sections"><h2>За преподавателя</h2>
+    <section id="about_me"><h3>Ива Е. Попова <a href="https://www.linkedin.com/in/ivapopova/" id="link_linkedin"><i class="fa-brands fa-linkedin"></i></a></h3>
+        <dl class="fa">
+            <dt><b>Преподавателски опит</b>:
+                <dd>5 години като асистент в <a href="https://tu-sofia.bg/faculties/read/27">Технически Университет, гр. София</a>.
+                <div style="margin-left: 2em;">Курсове: "Програмни Езици", "Дискретна математика", "Експертни системи и Изкуствен Интелект".</div></dd>
+                <dd>7+ години към водещи частни учебни центрове.
+                    <div style="margin-left: 2em;">Курсове: "Data Bases (MySQL)", "Front-End Development", "Python", "Machine Learning".</div>
+                </dd>
+            </dt>
+            <dt><b>Професионален опит</b>:
+                <dd>7+ години като софтуерен инженер (4 от които като старши инженер и ръководител на екип) в международни IT компании (<a href="https://en.wikipedia.org/wiki/Comptel">Comptel(&lt;Nokia)</a>, <a href="https://dev.bg/company/internet-securities-bulgaria/">Internet Securities</a>, <a href="https://www.datamax.bg/?p=about">Datamax</a>, <a href="https://www.experian.bg/about">Experian</a>).</dd>
+                <dd>6+ години като изследовател и консултант в стартъп компания в областта на Изкуствения Интелект (Sentiment Analysis , Ontologies, NLP(+LLM)).</dd>
+            </dt>
+            <dt><b>Образование</b>:
+                <dd>Средно образование, <span class="keyword"><a href="http://uktc-bg.com/">НПГ по КТС - гр. Правец</a></span></dd>
+                <dd>Маг. инж. по Компютърни Системи, <a href="https://tu-sofia.bg/faculties/read/27">Технически Университет, гр. София</a>:</dd>
+                <dd>Докторант по Системи с Изкуствен Интелект, <a href="https://tu-sofia.bg/faculties/read/27">Технически Университет, гр. София</a></dd>
+            </dt>
+
+        </dl>
+    </section>
+</section>
+
+<section class="main-section-title"><h1>Какво ще научите по време на курса?</h1></section>
+<section class="sub-sections"><h2>Какво ще научите по време на курса?</h2>
+    <section><h3>Как работи ChatGPT и Големите Езикови Модели (LLM)</h3>
+        <dl class="fa">
+            <dt>Концепцията за **Големи Езикови Модели (LLM)**: Какво представляват и защо са "големи".</dt>
+            <dt>Архитектурата **Трансформър (Transformer)**: Основата на GPT (Generative Pre-trained Transformer).</dt>
+            <dt>LLM като усъвършенствана система за **предсказване на следващата дума (next token prediction)**.</dt>
+            <dt>Концепцията за **Токенизация** и **Embeddings**: Как текстът се превръща в числов формат за модела.</dt>
+            <dt>Разлика между **Pre-training**  и **Fine-tuning** </dt>
+        </dl>
+        <a href="./images/Huggingface_Transformers.png">
+            <img src="./images/Huggingface_Transformers.png" alt="Huggingface_Transformers.png" style="height: 35vh;">
+        </a>
+    </section>
+    <section><h3>Реални примери и приложения в бизнеса и ежедневието</h3>
+        <dl class="fa">
+            <dt>Автоматизация на рутинни задачи (писане на имейли, обобщаване на срещи).</dt>
+            <dt>Поддръжка на клиенти (Чатботове и виртуални асистенти, базирани на LLM).</dt>
+            <dt>Генериране на **маркетингово съдържание** и креативни текстове.</dt>
+            <dt>**AI асистенти за програмиране** (GitHub Copilot, Cursor). Vibe Coding</dt>
+            <dt>Използване за **NLP и анализ на текст** (Sentiment Analysis, класификация на документи).</dt>
+        </dl>
+    </section>
+    <section><h3>Настройване на работната среда (Hands-on)</h3>
+        <dl class="fa">
+            <dt>Инсталация на **Python 3.x** </dt>
+            <dt>Запознаване с **Jupyter Notebooks / Google Colab** (предимства за ML/AI).</dt>
+            <dt>Създаване на **Виртуална Среда (Virtual Environment)** </dt>
+            <dt>Инсталация и работа с първите необходими библиотеки (`pandas`, `numpy`, `openai`).</dt>
+        </dl>
+    </section>
+</section>
+
+
+<section class="main-section-title"><h1>Какво е Изкуствени Интелект (ИИ)?</h1></section>
+<section class="sub-sections"><h2>Какво е Изкуствени Интелект (ИИ)?</h2>
+    <section>
+        <dl class="fa" style="min-width:80vw; font-size: 1.1em;">
+            <dt>Изкуственият интелект (ИИ) е интердисциплинарна област, целяща създаването на системи способни да изпълняват задачи, изискващи човешка интелигентност - като разпознаване на реч/образи, вземане на решения, игри и др. Достиженията в следните науки играят решаваща роля за развитието на ИИ:</dt>
+            <dd><b><i class="fa fa-desktop" aria-hidden="true"></i> Информатика и компютърни науки</b> - основа на алгоритмите, програмирането и изчислителните модели.</dd>
+            <dd><b><i class="fa fa-calculator" aria-hidden="true"></i> Математика и статистика</b> - използват се за моделиране, анализ на данни и вероятностни изводи.</dd>
+            <dd><b><i class="fa fa-comments" aria-hidden="true"></i> Лингвистика</b> - прилага се в обработката на естествен език (**Natural Language Processing - NLP**).</dd>
+            <dd><b><i class="fa fa-brain" aria-hidden="true"></i> Невронауки (невробиология)</b> - вдъхновяват модели като невронните мрежи, базирани на структурата на мозъка.</dd>
+            <dd><b><i class="fa fa-users" aria-hidden="true"></i> Психология и когнитивни науки</b> - изучават мисленето, възприятието и ученето, за да се моделират интелигентни поведения.</dd>
+            <dd><b><i class="fa fa-balance-scale" aria-hidden="true"></i> Философия</b> - разглежда въпросите за съзнанието, знанието и **етиката** на интелигентните системи.</dd>
+            <dd><b><i class="fa fa-cogs" aria-hidden="true"></i> Инженерни науки и роботика</b> - за физическото приложение на ИИ в машини и автономни системи.</dd>
+        </dl>
+    </section>
+</section>
+
+<section class="main-section-title"><h1>Какво е "Машинно обучение" и какви са неговите приложения?</h1></section>
+<section class="sub-sections"><h2>Какво е "Машинно обучение" и какви са неговите приложения?</h2>
+    <section>
+        <dl class="fa">
+            <dt><b>Машинно Обучение (ML)</b> е подобласт на Изкуствения Интелект (AI), която дава възможност на системите **да се учат от данни** и да подобряват изпълнението си на дадена задача, без да бъдат изрично програмирани за нея.</dt>
+			<a href="./images/machine-learning-approach.png"><img src="./images/machine-learning-approach.png" alt="machine-learning-approach.png"></a>
+            <dt>Основната идея: Даваме на алгоритъма данни и очаквани резултати, а той открива **скритите модели и правила**, които свързват входа с изхода.</dt>
+            <dt>ML моделите се делят на три основни типа:</dt>
+            <dd><b>Supervised Learning</b> (Наблюдавано обучение): Учи се от *маркирани* данни (напр. снимки с етикет "котка"). Използва се за **Класификация** и **Регресия**.</dd>
+            <dd><b>Unsupervised Learning</b> (Ненаблюдавано обучение): Намира *скрити структури* в немаркирани данни. Използва се за **Клъстериране** и **Намаляване на размерността**.</dd>
+            <dd><b>Reinforcement Learning</b> (Обучение с подсилване): Агентът се учи чрез **опит и грешки** в интерактивна среда, получавайки награди или наказания.</dd>
+        </dl>
+    </section>
+    <section><h3>Класификация и Разпознаване на Образи (Supervised Learning)</h3>
+        <dl class="fa">
+            <dt><b>Разпознаване на обекти/лица</b>: Системи, които идентифицират хора, предмети или животни в снимки и видеоклипове.</dt>
+            <dt><b>Филтриране на Спам</b>: ML моделът класифицира входящия имейл като "спам" или "не-спам" въз основа на съдържанието.</dt>
+            <dt><b>Медицинска Диагностика</b>: Анализ на рентгенови снимки или ЯМР за автоматично откриване на аномалии или заболявания.</dt>
+        </dl>
+        <div style="text-align:center;">
+            <a href="./images/ML_Classification_Example.jpg"><img src="./images/ML_Classification_Example.jpg" alt="ML Classification Example" style="height: 40vh; margin-top: 1em;"></a>
+        </div>
+    </section>
+    <section><h3>Регресия и Прогнозиране (Supervised Learning)</h3>
+        <dl class="fa">
+            <dt><b>Прогнозиране на цени</b>: Предсказване на бъдещи цени на имоти, акции или суровини въз основа на исторически данни и пазарни фактори.</dt>
+            <dt><b>Кредитен риск</b>: Оценка на вероятността даден клиент да изплати заем (кредитен скоринг).</dt>
+            <dt><b>Прогноза за времето</b>: Използване на сложни ML модели за по-точни и локализирани метеорологични прогнози.</dt>
+        </dl>
+        <iframe style="width:70vw;height:50vh; margin-top:1em;" src="https://www.youtube.com/embed/v2eSSVPxiXs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </section>
+    <section><h3>Системи за Препоръки и NLP (Unsupervised & Supervised)</h3>
+        <dl class="fa">
+            <dt><b>Recommendation Systems</b>: Алгоритми (като Collaborative Filtering), които анализират потребителското поведение, за да предлагат продукти, филми или музика (Netflix, Amazon, Spotify).</dt>
+            <dt><b>Обработка на Естествен Език (NLP)</b>: Техники за машинно разбиране и генериране на човешки език. Основа за **ChatGPT** и LLM.</dt>
+            <dt><b>Sentiment Analysis</b>: Определяне на емоционалния тон (положителен, отрицателен, неутрален) на текст - ключов компонент във втория проект на курса.</dt>
+        </dl>
+        <iframe style="width:80vw;height:60vh;margin-top:1em;" src="https://www.youtube.com/embed/lXUQ-DdSDoE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </section>
+    <section><h3>Генеративен AI (Generative AI) и Асистенти</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt><b>Content Generation</b>: Създаване на нов, оригинален текст, изображения, музика или видеоклипове (като DALL-E, Midjourney).</dt>
+            <dt><b>AI Асистенти</b>: Чатботове и виртуални помощници, използващи **LLM** за сложни, контекстуални разговори и решаване на задачи (ChatGPT, Claude, Gemini).</dt>
+            <dt><b>AI-assisted Coding</b>: Инструменти като GitHub Copilot, Cursor, и пр., които генерират и помагат за писането на код, базирайки се на въведения контекст и коментари.</dt>
+        </dl>
+        <a href="./images/The_hottest_programming_language_Andrej.jpeg"><img src="./images/The_hottest_programming_language_Andrej.jpeg" alt=""></a>
+    </section>
+</section>
+
+
+<section class="main-section-title"><h1>(Не толкова) кратка история на AI и ML</h1></section>
+<section class="sub-sections"><h2>(Не толкова) кратка история на AI и ML</h2>
+    <section style="font-size: 1em"><h3>Началото</h3>
+        <dl class="fa">
+            <dt><span class="note">1950</span> - <a href="https://en.wikipedia.org/wiki/Turing_test">The Turing Test</a></dt>
+            <dt><span class="note">1956</span> - <a href="https://en.wikipedia.org/wiki/Dartmouth_workshop">Dartmouth Conference: the birth of AI</a></dt>
+            <dt><span class="note">1958</span> - <a href="https://en.wikipedia.org/wiki/Perceptron">F. Rosenblatt created the Perceptron algorithm</a></dt>
+            <dt><span class="note">1959</span> - <a href="https://en.wikipedia.org/wiki/Arthur_Samuel">A.Samuel coined the term "machine learning"</a></dt>
+            <dt><span class="note">1964</span> - <a href="https://en.wikipedia.org/wiki/ELIZA">Joseph Weizenbaum created ELIZA (the first chat bot)</a></dt>
+            <dt><span class="note">1958 - 1972</span> - <a href="https://en.wikipedia.org/wiki/History_of_artificial_intelligence#The_optimism">AI Optimism</a></dt>
+            <dt><span class="note">1970 - 1973</span> - <a href="http://www.humanoid.waseda.ac.jp/booklet/kato_2.html">The WABOT-1</a></dt>
+            <dt><span class="note">1974 - 1980</span> - <a href="https://en.wikipedia.org/wiki/AI_winter">The first AI winter </a></dt>
+            <dt><span class="note">1969 - 1986</span> - <a href="https://en.wikipedia.org/wiki/History_of_artificial_intelligence#Perceptrons_and_the_dark_age_of_connectionism">The dark age of connectionism</a></dt>
+            <dt><span class="note">1986</span> - <a href="https://en.wikipedia.org/wiki/Mobile_robot">Ernst Dickmanns builds the first robot cars</a></dt>
+            <dt><span class="note">1980-1987</span> - <a href="https://en.wikipedia.org/wiki/Expert_system">The Boom of Expert Systems</a></dt>
+        </dl>
+    </section>
+    <section style="font-size: .9em"><h3>2000та</h3>
+        <dl class="fa">
+            <dt><span class="note">1996</span> - <a href="https://en.wikipedia.org/wiki/Deep_Blue_(chess_computer)">"Deep Blue"</a> became the first machine to win a chess game against a world champion</dt>
+            <dt><span class="note">2007</span> - Facebook started working on <a href="https://en.wikipedia.org/wiki/DeepFace">DeepFace</a></dt>
+            <dt><span class="note">2009</span> - Google starts the <a href="https://www.google.com/selfdrivingcar/">self-driving car project</a></dt>
+            <dt><span class="note">2011</span> - IBM's <a href="https://en.wikipedia.org/wiki/Watson_(computer)">Watson</a> computer defeated television game show Jeopardy! champions</dt>
+            <iframe style="height:70vh; margin:1em 0 0 0" src="https://www.youtube.com/embed/YgYSv2KSyWg" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </dl>
+    </section>
+    <section>
+        <dl class="fa" style="min-width:80vw">
+            <dt><span class="note">2011 - 2014</span> - The boom of virtual assistants: Apple's <a href="https://en.wikipedia.org/wiki/Siri">Siri</a>, Google's <a href="https://en.wikipedia.org/wiki/Google_Now">Google Now</a>, and Microsoft's <a href="https://en.wikipedia.org/wiki/Cortana">Cortana</a></dt>
+            <dt><span class="note">2014</span> - Google acquires <a href="https://en.wikipedia.org/wiki/DeepMind">DeepMind</a></dt>
+            <dt><span class="note">2015</span> - <a href="https://www.bbc.com/news/technology-35082344">Elon Musk and other tech giants donated 1 billion dollars for OpenAI</a></dt>
+            <dt><span class="note">2016</span> - Google's <a href="https://en.wikipedia.org/wiki/AlphaGo">AlphaGo</a> program beat a human professional Go player</dt>
+            <dt><span class="note">2018</span> - OpenAI's <a href="https://en.wikipedia.org/wiki/OpenAI_Five">OpenAI Five</a> defeats professional Dota 2 players</dt>
+            <iframe style="height:50vh; margin:1em 0 0 0" src="https://www.youtube.com/embed/wiOopO9jTZw" title="Dendi vs. OpenAI at The International 2017" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </dl>
+    </section>
+    <section>
+        <dl class="fa" style="min-width:80vw">
+            <dt><span class="note">2019</span> - OpenAI releases <a href="https://en.wikipedia.org/wiki/GPT-2">GPT-2</a></dt>
+            <dt><span class="note">2020</span> - OpenAI releases <a href="https://en.wikipedia.org/wiki/GPT-3">GPT-3</a> (175 billion parameters)</dt>
+            <dt><span class="note">2020</span> - Google’s <a href="https://en.wikipedia.org/wiki/AlphaFold">AlphaFold</a> demonstrates breakthrough performance in protein folding predictions</dt>
+            <dt><span class="note">2021</span> - OpenAI introduces <a href="https://en.wikipedia.org/wiki/DALL-E">DALL-E</a></dt>
+            <dt><span class="note">2023</span> - <a href="https://ai.meta.com/blog/large-language-model-llama-meta-ai/">Meta introduced LLaMA</a></dt>
+            <dt><span class="note">2023</span> - OpenAI releases <a href="https://en.wikipedia.org/wiki/ChatGPT">ChatGPT</a>, based on GPT-4</dt>
+            <dt><span class="note">2023</span> - Anthropic introduces <a href="https://www.anthropic.com/">Claude</a></dt>
+            <dt><span class="note">2023</span> - <a href="https://blog.google/technology/ai/bard-google-ai-search-updates/">Google introduces Bard (now Gemini)</a></dt>
+            <dt><span class="note">2024</span> - <a href="https://insait.ai/insait-announced-bggpt/">INSAIT announced BgGPT</a>, the first open AI model for Bulgarian language</dt>
+        </dl>
+    </section>
+
+    <section style="font-size: 1em"><h3>AI и ML в България</h3>
+        <dl class="fa">
+            <dt><span class="note">1964</span> - Институт по техническа кибернетика към <a href="http://css.iict.bas.bg/history.html">Българска Академия на Науките</a></dt>
+            <dt><span class="note">1978 - 1990</span> -  Институт по инженерна кибернетика и роботика към <a href="http://www.iict.bas.bg/">Българска Академия на Науките</a></dt>
+            <dt><span class="note">1983 - 1991</span> - <a href="http://oldweb.tu-sofia.bg/eng_new/index.html">Технически Университет - София</a>: проф. Людмил Даковски създава първата научноизследователска лаборатория по изкуствен интелект.</dt>
+            <dt>От 1990та: ТУ, СУ (ФМИ), НБУ и др. включват в магистърските си програми множество дисциплини, свързани с AI, ML и Роботика.</dt>
+        </dl>
+    </section>
+    <section><h3>AI и ML в България</h3>
+        <dl class="fa">
+            <dt>През 2022г. в България официално отвори врати Институтът за компютърни науки, изкуствен интелект и технологии ( <a href="https://insait.ai/category/events/">INSAIT</a> ). </dt>
+        </dl>
+        <iframe style="width: 80%; height:80vh; margin-top:1em" src="https://www.youtube.com/embed/L1Do_YuF7Hg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </section>
+</section>
+
+
+<section class="main-section-title"><h1>Как ще протича обучението</h1></section>
+<section class="sub-sections"><h2>Как ще протича обучението</h2>
+    <section>
+        <a href="./images/Learning_Retention_Pyramid.JPG"><img src="./images/Learning_Retention_Pyramid.JPG" alt="Learning_Retention_Pyramid.JPG" style="height: 80vh;"></a>
+    </section>
+    <section>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Презентациите ще бъдат достъпни онлайн, като ще могат да бъдат свалени в PDF формат.</dt>
+            <dd>освен теоретичен материал, съдържат множество примери, линкове към подбрани безплатни ресурси (блогове, видеа)</dd>
+            <dt>Live Coding</dt>
+            <dd>Ще илюстрираме темите и ще се упражняваме с код, много код...</dd>
+            <dd>Ще имате достъп до GitHub репото за курса и кода който пишем в часовете.</dd>
+            <a href="./images/LiveCoddingMeme.webp"><img src="./images/LiveCoddingMeme.webp" alt="" style="height: 60vh; width: 50vw; margin-left: 5vw;"></a>
+        </dl>
+    </section>
+</section>
+
+
+<section class="disclaimer" data-background="../../../outfit/images/for_slides/the_end_on_sand.jpg">
+     <p>These slides are made by</p>
+     <p>customized version of </p>
+     <p><a href="http://hakim.se/">Hakimel</a>'s <a href="http://lab.hakim.se/reveal-js">reveal.js</a></p>
+     <p>framework</p>
+</section>
+</div>
+    </div>
+    <script src="../../../outfit/js/slides.js"></script>
+    <script src="../../../lib/reveal.js/lib/js/head.min.js"></script>
+    <script src="../../../lib/reveal.js/js/reveal.js"></script>
+    <script>
+        // Full list of configuration options available at:
+        // https://github.com/hakimel/reveal.js#configuration
+        var highlightjsTabSize = '  ';
+        Reveal.initialize({
+            controls: true,
+            progress: true,
+            slideNumber: 'c/t',
+            keyboard: true,
+            history: true,
+            center: true,
+            width: 1920,
+            height: 1280,
+            maxScale: 1,
+            // slide transition
+            transition: 'concave', // none/fade/slide/convex/concave/zoom
+            // Factor of the display size that should remain empty around the content
+            margin: 0.1,
+            // shift+maouse click to zoom in/out element
+            zoomKey: 'ctrl',
+            // theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+            // transition: Reveal.getQueryHash().transition || 'default'
+            // Optional reveal.js plugins
+            dependencies: [
+                { src: '../../../lib/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                { src: '../../../lib/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                { src: '../../../lib/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                { src: '../../../lib/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.configure({tabReplace: highlightjsTabSize}); hljs.initHighlightingOnLoad(); } },
+                { src: '../../../lib/reveal.js/plugin/zoom-js/zoom.js', async: true },
+                { src: '../../../lib/reveal.js/plugin/notes/notes.js', async: true }
+            ]
+        });
+    </script>
+    </body>
+</html>

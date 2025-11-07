@@ -1,373 +1,196 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Agenda - ChatGPT_and_ML Course</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="/ProgressBG-ChatGPT_and_ML-Slides/images/favicons/favicon-32.png">
-    <!-- VENDORs -->
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-    <!-- CUSTOMs -->
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="/ProgressBG-ChatGPT_and_ML-Slides/outfit/css/master.css">
     <link rel="stylesheet" type="text/css" href="/ProgressBG-ChatGPT_and_ML-Slides/outfit/css/agenda.css">
     <base target="_blank">
 </head>
+
 <body class="background_gradient_left_right">
-<header class="dark_centered_background_gradient">
-    <h1>ChatGPT_and_ML Course</h1>
-    <h2><img src="/ProgressBG-ChatGPT_and_ML-Slides/outfit/images/logos/ProgressBG_logo.png" alt=""></h2>
-    <h3>Agenda</h3>
-</header>
-<main>
-    <!-- <section class="course_about"><h1></h1></section> -->
-    <section class="syllabus">
-        <!-- <h1>Syllabus</h1> -->
-        <div class="toggleButtons">
-            <!-- <span class="toggleThemes">Toggle Themes</span> -->
-            <span class="toggleSubThemes">Toggle sub-themes</span>
-        </div>
-        <div class="themes">
-            <article><h1>Python basics</h1>
-                <section id="CourseIntro" data-hours="0.5">
-                    <h3>Course Intro.</h3>
-                    <ol>
-                        <li>About Iva E. Popova</li>
-                        <li>Course Resources.</li>
-                    </ol>
-                </section>
-                <section id="introductionToPython" data-hours="3">
-                    <h3>Python Introduction: interpreters, distributions, IDEs.</h3>
-                    <ol>
-                        <li>What's the use of Python?</li>
-                        <li>Python distributions.</li>
-                        <li>Install and setting up Python (on Windows, Mac, Linux).</li>
-                        <li>Run Python Code in CLI</li>
-                        <li>Python IDEs and text editors.</li>
-                        <li>Write Python in VS Code</li>
-                    </ol>
-                </section>
-                <section id="CLI_Overview" data-hours="0.5">
-                    <h3>Introduction to CLI, Terminal</h3>
-                    <ol>
-                        <li>CLI and "terminal" overview</li>
-                        <li>Command Prompt Basics</li>
-                        <li>Current Working Directory (CWD)</li>
-                        <li>Viewing Folder Contents</li>
-                        <li>Navigating Through Folders</li>
-                    </ol>
-                </section>
-                <section id="stringsNumbersVariablesComments" data-hours="2.5">
-                    <h3>Core types: int, float, complex, strings. Variables.</h3>
-                    <ol>
-                        <li>What's in a Python program?</li>
-                        <li>Numeric Types: integers, floating point numbers, and complex numbers.</li>
-                        <li>Python arithmetic.</li>
-                        <li>Strings. Common operations.</li>
-                        <li>Variables and naming conventions.</li>
-                        <li>How to comment our code?</li>
-                        <li>Exercises.</li>
-                    </ol>
-                </section>
-                <section id="basicIOFormatedStrings" data-hours="1.5">
-                    <h3>Basic IO. String formatting</h3>
-                    <ol>
-                        <li>Escape Sequences. </li>
-                        <li>Basic IO.</li>
-                        <li>Formatted strings.</li>
-                    </ol>
-                </section>
-                <section id="logicalExpressionsAndConditionalStatements" data-hours="4">
-                    <h3>Booleans and Logical operations. Conditional Statements. Expressions and Operator precedence</h3>
-                    <ol>
-                        <li>Boolean type.</li>
-                        <li>Logical operators.</li>
-                        <li>if:elif:else statements.</li>
-                        <li>Statement vs Expression in Python.</li>
-                        <li>Operator precedence.</li>
-                        <li>Exercises</li>
-                    </ol>
-                </section>
-                <section id="sequenceDataTypes" data-hours="3">
-                    <h3>Data structures: Sequence Types (list, tuple,range objects).</h3>
-                    <ol>
-                        <li>Lists</li>
-                        <li>Tuples</li>
-                        <li>Range Objects</li>
-                        <li>Strings as sequence</li>
-                    </ol>
-                </section>
-                <section id="dictAndSetDataTypes" data-hours="2">
-                    <h3>Data structures: Dictionaries and Sets</h3>
-                    <ol>
-                        <li>Dictionaries</li>
-                        <li>Operations with Dictionaries</li>
-                        <li>Sets</li>
-                        <li>Set Operations</li>
-                    </ol>
-                </section>
-                <section id="loopsAndComprehensions" data-hours="3">
-                    <h3>Loops in Python: for, while, break, continue.</h3>
-                    <ol>
-                        <li>while/do loops.</li>
-                        <li>for loops.</li>
-                        <li>break, continue.</li>
-                    </ol>
-                </section>
-                <section id="functions" data-hours="8">
-                    <h3>Functions</h3>
-                    <ol>
-                        <li>What are Functions?</li>
-                        <li>Function Definition</li>
-                        <li>Function Call</li>
-                        <li>Function Parameters (positional, keywords)</li>
-                        <li>Arguments unpacking - the <code>**</code> operator</li>
-                        <li>Function Return Values</li>
-                        <li>Variables Scope</li>
-                    </ol>
-                </section>
-                <section id="OOP" data-hours="8">
-                    <h3>OOP: Classes, encapsulation, inheritance, operator overloading.</h3>
-                    <ol>
-                        <li>OOP - Main Concepts</li>
-                        <li>Classes and Objects in Python</li>
-                        <li>Attributes</li>
-                        <li>Class Constructor</li>
-                        <li>Magic (dunder) methods</li>
-                        <li>Encapsulation and Data Hiding</li>
-                        <li>Inspecting Classes and Objects.</li>
-                        <li>Inheritance</li>
-                        <li>Method overriding</li>
-                        <li>Operator overloading</li>
-                    </ol>
-                </section>
-                <section id="exceptions" data-hours="1">
-                    <h3>Exceptions: raising and handling</h3>
-                    <ol>
-                        <li>What are Exceptions</li>
-                        <li>Exceptions Handling</li>
-                        <li>Handling different Exception Types</li>
-                        <li>Raising Exceptions</li>
-                    </ol>
-                </section>
-                <section id="iteratorsGenerators" data-hours="1" >
-                    <h3>Iterators. Generators. Comprehensions</h3>
-                    <ol>
-                        <li>Iterators in Python</li>
-                        <li>Iterables vs Iterators</li>
-                        <li>Creating custom Iterator Types</li>
-                        <li>Generators in Python</li>
-                        <li>Creating custom Generator function</li>
-                        <li>Custom Generator vs Custom Iterator - example</li>
-                        <li>List, dict and generator comprehensions</li>
-                    </ol>
-                </section>
-                <section id="FP_Basics" data-hours="2">
-                    <h3>Functional topics: map/filter/reduce.</h3>
-                    <ol>
-                        <li>map/filter/reduce.</li>
-                    </ol>
-                </section>
-                <section id="modulesAndPackages" data-hours="1.5">
-                    <h3>Organizing code: imports, modules, packages</h3>
-                    <ol>
-                        <li>Creating a custom Python modules</li>
-                        <li>Import module</li>
-                        <li>Module alias</li>
-                        <li>Import object from module</li>
-                        <li>Where <code>import</code> looks for a module?</li>
-                        <!-- <li>Relative import</li> -->
-                        <li>Python's built-in and third-party modules</li>
-                        <li>Packages in Python</li>
-                        <li>Import-related module attributes (__name__, __file__)</li>
-                    </ol>
-                </section>
-                <section id="virtualenvAndModulesInstall" data-hours="1.5">
-                    <h3>Practicalities: Virtual Environments</h3>
-                    <ol>
-                        <li>PIP - the Python Package Manager</li>
-                        <li>Python Virtual Environments </li>
-                        <li></li>
-                    </ol>
-                </section>
-                <section id="practicalities" data-hours="1">
-                    <h3>Practicalities: linting, formatting, documentation</h3>
-                    <ol>
-                        <li>Python Best Practises: PEP8 && PEP20</li>
-                        <li>Linters</li>
-                        <li>Formatters</li>
-                        <li>Documentation Conventions</li>
-                        <!-- <li>Unit test</li>
-                        <li>Intro to py.test</li> -->
-                    </ol>
-                </section>
-                <section id="notableStandardLibraryModules" data-hours="1">
-                    <h3>Notable Standard Library Modules</h3>
-                    <ol>
-                        <li>sys - interface with Python Interpreter</li>
-                        <li>command line arguments</li>
-                    </ol>
-                </section>
-                <section id="dateAndTime" data-hours="1">
-                    <h3>Date and Time support</h3>
-                    <ol>
-                        <li>datetime.date</li>
-                        <li>datetime.time</li>
-                        <li>datetime.datetime</li>
-                        <li>datetime.timedelta</li>
-                    </ol>
-                </section>
-                <!-- <section id="processesAndOSServices" data-hours="1" data-wip>
-                    <h3>The Python process and OS services</h3>
-                    <ol>
-                        <li>Execute external commands with Python</li>
-                    </ol>
-                </section> -->
-                <section id="usingTheFilesystem" data-hours="1">
-                    <h3>Using the file-system</h3>
-                    <ol>
-                        <li>Introduction to OS Module</li>
-                        <li>Basic Concepts: Paths and Current Working Directory</li>
-                        <li>Directory Manipulations</li>
-                        <li>Files Manipulations</li>
-                    </ol>
-                </section>
-                <section id="variousFormatsHandling" data-hours="2">
-                    <h3>Various formats handling</h3>
-                    <ol>
-                        <li>Parse JSON</li>
-                        <li>Parse CSV</li>
-                        <li>Parse XML</li>
-                    </ol>
-                </section>
-                <section id="unicodeTopics" data-hours="1">
-                    <h3>Encoding. Unicode in Python</h3>
-                    <ol>
-                        <li>Unicode Overview</li>
-                        <li>Python’s Unicode Support</li>
-                        <li>Encode-Decode Flow</li>
-                        <li>encode() and decode() functions</li>
-                        <li>base64</li>
-                    </ol>
-                </section>
-                <section id="reflection" data-hours="1">
-                    <h3>Reflection in Python</h3>
-                    <ol>
-                        <li>dir(), type() and id() functions</li>
-                        <li>hasattr(), getattr() and setattr()</li>
-                        <li>isinstance() and issubclass() functions</li>
-                        <li>the <code>inspect</code> built-in module</li>
-                    </ol>
-                </section>
-                <section id="debug" data-hours="1">
-                    <h3>Debugging Python applications</h3>
-                    <ol>
-                        <li>How to Debug A Python Code?</li>
-                        <li>Overview of VSCode Debugger</li>
-                        <li>Debug menu</li>
-                        <li>Setup/Launch configurations</li>
-                        <li>Basic debug Commands (Start/Stop; Continue/Pause; Step Over/Into/Out;  )</li>
-                        <li>Set Breakpoints</li>
-                        <li>Watch Variables</li>
-                    </ol>
-                </section>
-                <section id="regexes" data-hours="2">
-                    <h3>Regular Expressions in Python</h3>
-                    <ol>
-                        <li>Regular Expressions Overview</li>
-                        <li>Regular Expressions in Python - the <code>re</code> module</li>
-                    </ol>
-                </section>
-                <section id="parallelProgramming" data-hours="2">
-                    <h3>Parallel programming: multithreading and multiprocessing</h3>
-                    <ol>
-                        <li>Shape the concepts: multithreading, multiprocessing</li>
-                        <li>Example using the built-in multiprocessing module</li>
-                    </ol>
-                </section>
-                <!-- <section id="asyncio" data-hours="1" data-wip>
-                    <h3>Async programming: asyncio</h3>
-                    <ol>
-                        <li>Asynchronous vs Synchronous vs Parallel Execution</li>
-                        <li>Basics of Python asyncio library</li>
-                        <li>An async consumer-producer example</li>
-                    </ol>
-                </section> -->
-                <section id="dataScienceBasics" data-hours="2">
-                    <h3>Data science basics. Working with Numpy, Pandas and Jupyter Notebooks.</h3>
-                    <ol>
-                        <li>Data Science process overview.</li>
-                        <li>Get familiar with numpy and pandas</li>
-                        <li>Working with Jupiter Notebook</li>
-                    </ol>
-                </section>
-                <section id="SQLAlchemy" data-hours="2">
-                    <h3>Databases: SQLAlchemy</h3>
-                    <ol>
-                        <li>What is an ORM?</li>
-                        <li>SQLAlchemy - the Python ORM</li>
-                        <li>Connect, Declare a Mapping,Create a Schema</li>
-                        <li>Demo example with SQLAlchemy and SQLite3</li>
-                    </ol>
-                </section>
-                <section id="PyQt" data-hours="1">
-                    <h3>GUI: PyQt.</h3>
-                    <ol>
-                        <li>PyQt - Overview</li>
-                        <li>Create a simple desktop GUI app with PyQt</li>
-                    </ol>
-                </section>
-                <section id="WebProgramming" data-hours="2">
-                    <h3>Web Programming with Python. Django. FastAPI.</h3>
-                    <ol>
-                        <li>An overview of Django -The (Python) web framework for perfectionists with deadlines.</li>
-                        <li>A demo example of ToDo List app with FastAPI</li>
-                        <li>A demo example of ToDo List app with Django</li>
-                        <!-- <li>Web Scraping with Python - Live Demo</li> -->
-                    </ol>
-                </section>
-            </article>
+    <header class="dark_centered_background_gradient">
+        <h1>ChatGPT и Машинно Обучение: Създай свой AI асистент с Python</h1>
+        <h2><img src="/ProgressBG-ChatGPT_and_ML-Slides/outfit/images/logos/ProgressBG_logo.png" alt=""></h2>
+        <h3>Програма</h3>
+    </header>
+    <main>
+        <section class="syllabus">
+            <div class="toggleButtons">
+                <span class="toggleSubThemes">Toggle sub-themes</span>
+            </div>
+            <div class="themes">
 
-            <article><h1>Course Project</h1>
-                <section id="CourseProjectTasks" data-hours="0">
-                    <h3>Course Project Task</h3>
-                    <ol>
-                        <li></li>
-                    </ol>
-                </section>
-                <section id="CourseProjectBestPractices" data-hours="1" data-wip>
-                    <h3>Best Practices for Python Project</h3>
-                    <ol>
-                        <li>Project Structure</li>
-                        <li>Git</li>
-                        <li>Virtual Environment</li>
-                    </ol>
-                </section>
-            </article>
-            <article><h1>Appendix</h1>
-                <section id="UsefulVSCodeShortcuts" data-hours="0" data-wip><h3><a href="https://ProgressBG-ChatGPT_and_ML-course.github.io/ProgressBG-ChatGPT_and_ML-Slides/pages/themes/introductionToPython/introductionToPython.html#/UsefulKeyboardShortcutsBasic">Useful VSCode Shortcuts</a></h3>
-                </section>
+                <article>
+                    <h1>Въведение в AI, ChatGPT и Python Основи</h1>
+                    <section id="CourseOverview_IntroductionToAI" data-hours="4">
+                        <h3>Въведение в AI и ChatGPT (4 УЧ)</h3>
+                        <ol>
+                            <li>Какво е **AI, Machine Learning (ML) и Generative AI**?</li>
+                            <li>Как работи **ChatGPT и Големите Езикови Модели (LLM)**.</li>
+                            <li>Реални примери и приложения в бизнеса и ежедневието.</li>
+                            <li>Настройване на работната среда (Python, Jupyter/Colab).</li>
+                        </ol>
+                    </section>
+                    <section id="Module2_PythonBasics" data-hours="10">
+                        <h3>Запознаване с Python (От нулата) (10 УЧ)</h3>
+                        <ol>
+                            <li>Основи на програмирането: Променливи, типове данни, оператори.</li>
+                            <li>Условни конструкции (`if/elif/else`) и цикли (`for/while`).</li>
+                            <li>Функции и Структури от данни: Списъци (Lists), Речници (Dictionaries), Кортежи (Tuples).
+                            </li>
+                            <li>Библиотеки за данни I: **NumPy** – операции с n-мерни масиви.</li>
+                            <li>Библиотеки за данни II: **Pandas** – DataFrames, зареждане и инспекция на данни.</li>
+                            <li>Pandas: Предварителна обработка на данни (липсващи стойности, филтриране).</li>
+                            <li>Визуализация: Matplotlib/Seaborn – създаване на основни графики.</li>
+                            <li>**Практическо Упражнение:** Python за анализ на данни.</li>
+                        </ol>
+                    </section>
+                </article>
 
-                <section id="onlineFreeResources" data-hours="0" data-wip><h3><a href="/ProgressBG-ChatGPT_and_ML-Slides/pages/readings/UsefulResources.html">Online resources</a></h3>
-                </section>
+                <article>
+                    <h1>Основи на ML и Първи Проект</h1>
+                    <section id="Module3_ML_Basics" data-hours="8">
+                        <h3>Основи на Машинното Обучение (8 УЧ)</h3>
+                        <ol>
+                            <li>Какво е ML модел и как се обучава (пайплайн).</li>
+                            <li>**Supervised vs. Unsupervised Learning** (Класификация, Регресия, Клъстериране).</li>
+                            <li>Предварителна обработка на данни за ML (Scaling, One-Hot Encoding).</li>
+                            <li>Въведение в **scikit-learn**: обща структура на моделите.</li>
+                            <li>Имплементация на Класификатор (Decision Tree).</li>
+                            <li>Оценяване на точността I: Train/Test Split, Метрики (Accuracy, Precision, Recall).</li>
+                            <li>Оценяване на точността II: Матрица на объркване (Confusion Matrix).</li>
+                        </ol>
+                    </section>
+                    <section id="Module4_Project1" data-hours="8">
+                        <h3>Първи Проект: Класификация на данни (8 УЧ)</h3>
+                        <ol>
+                            <li>Поставяне на проблема: Изграждане на **Спам Филтър**.</li>
+                            <li>Feature Engineering и подготовка на текстови данни за класификация.</li>
+                            <li>Имплементация и обучение на модел (Logistic Regression/Naive Bayes).</li>
+                            <li>Тестване, оценка и анализ на грешките.</li>
+                            <li>**Менторска Работа (Група 4):** Индивидуален код ревю и оптимизация.</li>
+                            <li>Финализиране и мини-представяне на резултатите.</li>
+                        </ol>
+                    </section>
+                </article>
 
-                <section id="moreExercises" data-hours="0" data-wip><h3><a href="/ProgressBG-ChatGPT_and_ML-Slides/pages/themes/Appendix/MoreTasks/moreTasks.html">More Exercises</a></h3>
-                </section>
-            </article>
+                <article>
+                    <h1>LLM, ChatGPT API и NLP</h1>
+                    <section id="Module5_ChatGPT_API" data-hours="8">
+                        <h3>Работа с ChatGPT API (8 УЧ)</h3>
+                        <ol>
+                            <li>Въведение в **OpenAI API**: Настройка, API ключ, ценообразуване.</li>
+                            <li>Основни API заявки с **Python SDK**.</li>
+                            <li>**Промпт Инженерство I**: System Prompt, Context, Constraints.</li>
+                            <li>Промпт Инженерство II: Few-Shot Learning, Chain-of-Thought (CoT), структуриран JSON
+                                изход.</li>
+                            <li>Ограничения и етика при работа с AI (халюцинации).</li>
+                            <li>Практическо Упражнение: Създаване на LLM асистент с дефинирана "личност".</li>
+                            <li>Напреднали настройки на API: `temperature`, `max_tokens`.</li>
+                        </ol>
+                    </section>
+                    <section id="Module6_VibeCoding" data-hours="3">
+                        <h3>Vibe Coding с AI асистенти (3 УЧ)</h3>
+                        <ol>
+                            <li>Обзор на инструменти: **GitHub Copilot, Cursor, Claude Code**.</li>
+                            <li>Техники за ефективна колаборация с AI при генериране и рефакториране на код.</li>
+                            <li>Валидиране на генериран код и разпознаване на грешки.</li>
+                        </ol>
+                    </section>
+                    <section id="Module7_NLP" data-hours="5">
+                        <h3>NLP и анализ на текст (5 УЧ)</h3>
+                        <ol>
+                            <li>NLP: Как ML „разбира“ езика.</li>
+                            <li>Предварителна обработка на текст: **Токенизация**, стоп думи, нормализация.</li>
+                            <li>Стъминг (Stemming) и Лематизация (Lemmatization).</li>
+                            <li>Векторизация на текст: Bag-of-Words (BoW) и **TF-IDF**.</li>
+                            <li>Практическа задача: Подготовка на данни за Sentiment Analysis.</li>
+                        </ol>
+                    </section>
+                </article>
+
+                <article>
+                    <h1>AI Асистент, Деплоймент и Финален Проект</h1>
+                    <section id="Module8_Project2_Assistant" data-hours="6">
+                        <h3>Втори Проект: AI Асистент (6 УЧ)</h3>
+                        <ol>
+                            <li>Обучение на ML модел за **Sentiment Analysis** (анализ на емоции).</li>
+                            <li>Дизайн на логиката: Свързване на ML модела с **ChatGPT за контекстуален отговор**.</li>
+                            <li>**Индивидуална Менторска Работа:** Имплементация на динамична логика (Python).</li>
+                            <li>Тестване и фина настройка на AI чатбота според настроението на потребителя.</li>
+                        </ol>
+                    </section>
+                    <section id="Module9_Deployment" data-hours="4">
+                        <h3>Визуализация и автоматизация (4 УЧ)</h3>
+                        <ol>
+                            <li>Въведение във **Flask или Streamlit** за уеб интерфейс (препоръчва се Streamlit).</li>
+                            <li>Имплементация на UI и свързване на AI логиката с уеб приложението.</li>
+                        </ol>
+                    </section>
+                    <section id="Module10_Cloud" data-hours="3">
+                        <h3>Деплоймент в облака (3 УЧ)</h3>
+                        <ol>
+                            <li>Подготовка за деплоймент: `requirements.txt`, управление на зависимости.</li>
+                            <li>**Практическа Сесия:** Качване на AI асистента онлайн (Streamlit Cloud или подобна).
+                            </li>
+                            <li>Тестване и споделяне на проекта.</li>
+                        </ol>
+                    </section>
+                    <section id="Module11_FinalProject" data-hours="9">
+                        <h3>Финален Проект и Портфолио (9 УЧ)</h3>
+                        <ol>
+                            <li>Избор и Планиране на собствена идея за **AI асистент** (с подкрепа от преподавателя).
+                            </li>
+                            <li>**Индивидуална/Групова Работа** по проекта и менторски насоки (4 УЧ).</li>
+                            <li>Подготовка за Представяне.</li>
+                            <li>**Представяне на Финалните Проекти** (3 УЧ).</li>
+                            <li>Съвети за **CV, LinkedIn** и портфолио за AI специалисти.</li>
+                        </ol>
+                    </section>
+                </article>
+
+                <article>
+                    <h1>Appendix</h1>
+                    <section id="UsefulVSCodeShortcuts" data-hours="0">
+                        <h3><a
+                                href="https://ProgressBG-ChatGPT_and_ML-course.github.io/ProgressBG-ChatGPT_and_ML-Slides/pages/themes/introductionToPython/introductionToPython.html#/UsefulKeyboardShortcutsBasic">Полезни
+                                VSCode клавишни комбинации</a></h3>
+                    </section>
+                    <section id="onlineFreeResources" data-hours="0">
+                        <h3><a href="/ProgressBG-ChatGPT_and_ML-Slides/pages/readings/UsefulResources.html">Онлайн
+                                ресурси</a></h3>
+                    </section>
+                    <section id="moreExercises" data-hours="0">
+                        <h3><a href="/ProgressBG-ChatGPT_and_ML-Slides/pages/themes/Appendix/MoreTasks/moreTasks.html">Допълнителни
+                                упражнения</a></h3>
+                    </section>
+                </article>
+            </div>
+            <div class="stats">
+                <div id="total_hours"></div>
+                <div id="total_days"></div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="license left">
+            <p><span><a href="//www.linkedin.com/in/ivapopova">Iva E. Popova.</a></span>, 2016-2025.
+                <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img
+                        alt="Creative Commons License" style="border-width:0"
+                        src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a>
+            </p>
         </div>
-        <div class="stats">
-            <div id="total_hours"></div>
-            <div id="total_days"></div>
+        <div class="right">Created for <a href="http://progressbg.net">Компютърно образователен център Progress</a>
         </div>
-    </section>
-</main>
-<footer><div class="license left">
-        <p><span><a href="//www.linkedin.com/in/ivapopova">Iva E. Popova.</a></span>, 2016-2025.
-        <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a></p>
-        </div>
-        <div class="right">Created for <a href="http://progressbg.net">Компютърно образователен център Progress</a></div>
-</footer>
-<script type="text/javascript" src="/ProgressBG-ChatGPT_and_ML-Slides/outfit/js/CustomDOM.js"></script>
-<script type="text/javascript" src="/ProgressBG-ChatGPT_and_ML-Slides/outfit/js/agenda.js"></script>
-<!-- <script type="text/javascript" src="/ProgressBG-ChatGPT_and_ML-Slides/outfit/js/components/modalDialog.js"></script> -->
+    </footer>
+    <script type="text/javascript" src="/ProgressBG-ChatGPT_and_ML-Slides/outfit/js/CustomDOM.js"></script>
+    <script type="text/javascript" src="/ProgressBG-ChatGPT_and_ML-Slides/outfit/js/agenda.js"></script>
 </body>
+
 </html>
