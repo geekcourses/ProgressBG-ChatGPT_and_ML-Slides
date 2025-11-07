@@ -1,0 +1,37 @@
+# [tool.ruff]
+# # Set the maximum allowed line length to 80 characters
+# line-length = 80
+
+# # Select which rules to enable
+# # "ALL" enables every single rule that Ruff supports
+# select = [
+#     "ALL",
+# ]
+
+# # Specify which rules to ignore
+# ignore = [
+#     "D100",   # Ignore missing module docstrings (top-level docstrings in files)
+#     "T201",   # Ignore warnings about print statements (useful for debugging/learning)
+# ]
+
+# # Exclude files and directories from being checked
+# # These are typically system directories or generated code
+# exclude = [
+#     ".git",
+#     ".mypy_cache",
+#     ".ruff_cache",
+#     "venv",
+#     ".venv",
+#     "__pycache__",
+# ]
+
+# # Configuration for the linting component of Ruff
+# [tool.ruff.lint]
+# # Allow Ruff to automatically fix all fixable violations
+# # This makes it easy to clean up code with a single command
+# fixable = ["ALL"]
+
+# # Configuration for the formatting component of Ruff
+# [tool.ruff.format]
+# # Use double quotes for strings (similar to Black's default style)
+# quote-style = "double"

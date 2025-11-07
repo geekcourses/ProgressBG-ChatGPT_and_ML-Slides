@@ -1,0 +1,20 @@
+# Distribution / packaging
+env/
+.venv/
+build/
+python_apps
+**/__pycache__
+
+#other
+*.sublime-workspace
+nohup.*
+/students
+
+__*
+.*
+!/.gitignore
+
+*.zip
+.TODO
+
+
