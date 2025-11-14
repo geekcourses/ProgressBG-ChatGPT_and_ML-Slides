@@ -1,0 +1,1106 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>PythonForAI_FromScratch</title>
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+	<link rel="shortcut icon" href="/ProgressBG-ChatGPT_and_ML-Slides/images/favicons/favicon-32.png">
+	<!-- css & themes include -->
+	<link rel="stylesheet" href="/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/css/reveal.css">
+	<link rel="stylesheet" href="/ProgressBG-ChatGPT_and_ML-Slides/outfit/css/themes/light.css" id="theme">
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement( 'link' );
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match( /print-pdf/gi ) ? '/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/css/print/pdf.css' : '/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/css/print/paper.css';
+		document.getElementsByTagName( 'head' )[0].appendChild( link );
+	</script>
+	<!--[if lt IE 9]>
+	<script src="lib/js/html5shiv.js"></script>
+	<![endif]-->
+	<!-- CUSTOM -->
+	<base target="_blank">
+</head>
+<body>
+	<div class="reveal default center" data-transition-speed="default" data-background-transition="default">
+		<div class="top_links">
+			<a class="home_link" href="/ProgressBG-ChatGPT_and_ML-Slides/pages/agenda/agenda.html#PythonForAI_FromScratch" target="_top"><i class="fa fa-home"></i></a>
+			<span class="help_link" href="#"><i class="fa fa-question"></i></span>
+			<div class="help_text">
+				<div class="note">Keyboard shortcuts:</div>
+				<div><span>N/Space</span><span>Next Slide</span></div>
+				<div><span>P</span><span>Previous Slide</span></div>
+				<div><span>O</span><span>Slides Overview</span></div>
+				<div><span>ctrl+left click</span><span>Zoom Element</span></div>
+				<div class="print-howto"><br>If you want print version => add '<code>?print-pdf</code>' <br> at the end of slides URL (remove '#' fragment) and then print. <br>
+				Like: https://ProgressBG-ChatGPT_and_ML-course.github.io/...CourseIntro.html?print-pdf </div>
+			</div>
+		</div>
+		<div class="footer theme_switch">
+			<a href="#" onclick="document.getElementById('theme').setAttribute('href','/ProgressBG-ChatGPT_and_ML-Slides/outfit/css/themes/dark.css'); return false;">Dark</a>
+			<a href="#" onclick="document.getElementById('theme').setAttribute('href','/ProgressBG-ChatGPT_and_ML-Slides/outfit/css/themes/light.css'); return false;">Light</a>
+			<a href="#" onclick="document.getElementById('theme').setAttribute('href','/ProgressBG-ChatGPT_and_ML-Slides/outfit/css/themes/projector.css'); return false;">Projector</a>
+		</div>
+		<div class="slides">
+<!--
+########################################################
+##################### SLIDES START #####################
+########################################################
+-->
+<section><h1>Основи на програмирането с Python</h1></section>
+<section data-transition="zoom">
+	<!-- linkedin badge -->
+	<!--<script type="text/javascript" src="https://platform.linkedin.com/badges/js/profile.js" async defer></script>-->
+	<section class="copyright" data-transition="zoom">
+		<div class="note">
+			<p>Created for</p>
+		</div>
+		<div class="company">
+			<a href="http://progressbg.net/програмиране-с-python-2/">
+			<img style="height:80%" src="/ProgressBG-ChatGPT_and_ML-Slides/outfit/images/logos/ProgressBG_logo_529_127.png">
+			</a>
+		</div>
+		<div class="author">
+			<span class="note">Iva E. Popova, 2016-2025,</span>
+			<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"></a>
+		</div>
+	</section>
+	<section class="copyright" data-transition="zoom" style="margin-top: -2em;">
+		<div class="company">
+			 <div class="LI-profile-badge"  data-version="v1" data-size="large" data-locale="en_US" data-type="vertical" data-theme="dark" data-vanity="ivapopova"><a class="LI-simple-link" href='https://bg.linkedin.com/in/ivapopova?trk=profile-badge'>Iva E. Popova on LinkedIn</a></div>
+		</div>
+	</section>
+</section>
+
+
+<section class="main-sesction-title" id="PythonIntro"><h1>Запознаване с Python</h1></section>
+<section class="sub-sections"><h2>Запознаване с Python</h2>
+	<section><h3>Въведение</h3>
+		<dl class="fa" style="min-width:80vw">
+			<dt>Python е един от най-популярните езици за програмиране, особено в областите:</dt>
+			<dd>Наука за данните (Data Science)</dd>
+			<dd>Машинно обучение (Machine Learning)</dd>
+			<dd>Уеб разработка (Web Development)</dd>
+			<dt>Защо Python?</dt>
+			<dd><span class="note">Прост и четлив синтаксис</span>: Прилича на естествен английски език, което го прави лесен за научаване от начинаещи.</dd>
+			<dd><span class="note">Огромна общност и библиотеки</span>: Има хиляди готови инструменти (библиотеки) за почти всяка задача.</dd>
+			<dd><span class="note">Гъвкавост</span>: Може да се използва за различни цели - от малки скриптове до големи корпоративни системи.</dd>
+		</dl>
+	</section>
+	<section>
+		<a href="images/Python_vs_Java-programming_lang_as_an_essay.jpg"><img src="images/Python_vs_Java-programming_lang_as_an_essay.jpg" style="height: 100vh;"></a>
+		<p class="fontsize_06">picture source: <a href="http://i.imgur.com/ZyeCO.jpg">@imgur.com</a><br>
+		from <a href="https://www.reddit.com/r/programming/comments/fqtqk/if_programming_languages_were_essays/">If programming languages were essays...</a></p>
+	</section>
+	<section><h3>Какво съдържа една Python програма</h3>
+		<dl class="fa">
+			<dt>Програмата представлява набор от инструкции, които компютърът изпълнява.</dt>
+			<dt>В Python всяка инструкция се записва на нов ред.</dt>
+			<dt>Инструкции, които изпълняват една обща задача, се отделят като <code class="note">блок</code>.</dt>
+			<dt>В Python блокът не се огражда с фигурни скоби, както в други езици, а се определя чрез <span class="note">еднакво отстъпване</span> на инструкциите в него.</dt>
+		</dl>
+	</section>
+
+	<section><h3>Чист синтаксис</h3>
+		<dl class="fa">
+			<dt>Инструкциите приключват с <a href="https://en.wikipedia.org/wiki/Newline">EOL</a> (нов ред), а не със запетайка!</dt>
+			<dd>Все пак може да използвате запетаи, ако желаете</dd>
+			<dt>Блокът от инструкции се определя чрез <span class="note">еднакво отстъпване</span>, а не чрез фигурни скоби</dt>
+			<dd>Може да използвате <span class="note">интервали или табулации</span> за отстъп.</dd>
+			<dd>Смесването на интервали и табулации може да доведе до грешки или бъгове.</dd>
+		</dl>
+	</section>
+	<section><h3>Python синтаксис vs JavaScript синтаксис (демо)</h3>
+		<dl class="fa">
+			<dt>И двата примера решават една и съща задача: намиране на сумата и произведението на масив</dt>
+		</dl>
+		<pre style="width: 50vw; height: 40vh; display: inline-block; vertical-align: top; margin-right: 1em;"><code rel="Python" class="python" style="height: 95%;">
+			numbers = [1, 2, 3, 4]
+			product = 1
+
+			for i in numbers:
+						product *= i
+
+			total = sum(numbers)
+			print(total, product)
+		</code></pre>
+		<pre style="width: 50vw; height: 40vh; display: inline-block; vertical-align: top"><code rel="JavaScript" class="js" style="height: 95%;">
+			var numbers = [1, 2, 3, 4],
+						total = 0,
+						product = 1;
+
+			for (i = 0; i < numbers.length; i += 1) {
+						total += numbers[i];
+						product *= numbers[i];
+			}
+			console.log(total, product)
+		</code></pre>
+		<dl class="fa">
+			<dt>Още примери за сравнение между Python и други езици можете да намерите в: <a href="https://www.rosettacode.org/wiki/Category:Programming_Tasks">rosettacode.org</a> </dt>
+		</dl>
+	</section>
+	<section><h3>Еднакъв отстъп!</h3>
+		<a href="images/IndentationError.png"><img src="images/IndentationError.png"></a>
+		<p>Този код ще доведе до <span class="note">IndentationError</span>, тъй като инструкциите в блока не са с еднакъв отстъп!п</p>
+	</section>
+	<section><h3>Не смесвайте интервали и табулации</h3>
+		<a href="images/mixed_indent_c.png"><img src="images/mixed_indent_c.png"></a>
+		<p>Този код ще доведе до <span class="note">IndentationError</span>, тъй като подравняването е със таб и спейсове.</p>
+	</section>
+	<section><h3>Грешният отстъп може да причини бъгове!</h3>
+		<a href="images/indentation_bug.png"><img src="images/indentation_bug.png"></a>
+		<p>Можете ли да откриете бъга?</p>
+	</section>
+</section>
+
+<section class="main-section-title"><h1>Типове данни. Променливи. Оператори.</h1></section>
+<section class="sub-sections"><h2>Типове данни. Променливи. Оператори.</h2>
+	<section><h3>Basic data types</h3>
+		<dl class="fa" style="min-width:80vw">
+			<dt><strong><code>int</code></strong> (Integer)</dt>
+			<dd>Цели числа (без десетична част). <strong>Пример:</strong> <code>42</code>, <code>-5</code></dd>
+			<dt><strong><code>float</code></strong></dt>
+			<dd>Числа с десетична запетая. <strong>Пример:</strong> <code>3.14</code>, <code>1.0</code></dd>
+			<dt><strong><code>str</code></strong> (String)</dt>
+			<dd>Текст, ограден в кавички. <strong>Пример:</strong> <code>"Hello World!"</code>, <code>'Python'</code></dd>
+			<dt><strong><code>bool</code></strong> (Boolean)</dt>
+			<dd>Логическа стойност: <code>True</code> (вярно) или <code>False</code> (грешно).</dd>
+			<dt>Примери:</dt>
+			<dd>
+				<pre><code rel="Python" class="python" style="min-height: 1vh;">
+					whole_number = 10
+					decimal_number = 2.5
+					print(type(whole_number))   # &lt;class &apos;int&apos;&gt;
+					print(type(decimal_number)) # &lt;class &apos;float&apos;&gt;
+				</code></pre>
+			</dd>
+		</dl>
+	</section>
+	<section><h3>Variables</h3>
+		<dl class="fa" style="min-width:80vw">
+			<dt><strong>Променливи</strong></dt>
+			<dd>Именувано място в паметта, което съхранява стойност.</dd>
+			<dt>Пример за представяне променливите и данните в паметта</dt>
+			<pre><code rel="Python" class="python">
+				x = 99
+				y = 3.141516
+				first_name = "ada"
+				sur_name = "byron"
+				num_list = [1,2,3,4,5]
+			</code></pre>
+			<div style="margin-left: 1.5em;">
+				<a href="images/python_variables_in_RAM.png"><img src="images/python_variables_in_RAM.png" style="height: 70vh;"></a>
+			</div>
+		</dl>
+	</section>
+	<section><h3>Правила за именуване на променливи</h3>
+		<dl class="fa" style="min-width:80vw">
+			<dt>Могат да съдържат само <b>букви</b> (a-z, A-Z), <b>цифри</b> (0-9) и <b>долна черта</b> (_)</dt>
+			<dt><b>Не могат да започват с цифра</b></dt>
+			<dt>Не могат да съдържат интервали или специални символи (напр. !, @, #, $, %, ^, &, *, (, ), -, +, =, {, }, [, ], |, \, :, ;, ", ',/)</dt>
+			<dt>Не могат да бъдат запазени думи (keywords) в Python (напр. <code>if</code>, <code>else</code>, <code>while</code>, <code>for</code>, <code>def</code>, <code>class</code>)</dt>
+			<dt>Препоръки:</dt>
+			<dd>Използвайте описателни имена (напр. <code>age</code>, <code>total_price</code>)</dd>
+			<dd>Използвайте долна черта (_) за разделяне на думи (напр. <code>first_name</code>)</dd>
+			<dd>Избягвайте прекалено кратки имена (напр. <code>x</code>, <code>a</code>) освен в контексти като цикли или кратки функции.</dd>
+		</dl>
+	</section>
+	<section><h3>Operators</h3>
+		<dl class="fa" style="min-width:80vw">
+			<dt><strong>Аритметични Оператори</strong></dt>
+			<dd><strong><code>+</code>, <code>-</code>, <code>*</code>, <code>/</code></strong> (основни), <strong><code>**</code></strong> (степенуване), <strong><code>%</code></strong> (остатък).</dd>
+			<dt><strong>Сравнителни Оператори</strong></dt>
+			<dd><strong><code>==</code></strong> (равно), <strong><code>!=</code></strong> (не е равно), <strong><code>></code>, <code><</code>, <code>>=</code>, <code><=</code></strong>.</dd>
+			<dt>Пример:</dt>
+			<pre><code rel="Python" class="python" style="min-height: 1vh;">
+				x = 5
+				y = 3
+				is_equal = (x == y) # False
+				is_true = (x > 0 and y < 10) # True
+			</code></pre>
+		</dl>
+	</section>
+	<section><h3>Интерполация на низове (f-strings)</h3>
+		<dl class="fa">
+			<dt>Python 3.6 добавя „f-strings“ - начин да вложим изрази директно в низове чрез минимален синтаксис</dt>
+			<pre><code rel="Python" class="python">
+				value = 42
+				# str.format() метод:
+				'Стойността е {}.'.format(value)
+
+				# f-strings:
+				f'Стойността е {value}'
+			</code></pre>
+			<dt>Повече за f-strings:</dt>
+			<dd><a href="https://docs.python.org/3/tutorial/inputoutput.html#tut-f-strings">Formatted String Literals</a> @python tutorial</dd>
+			<dd><a href="https://docs.python.org/3/library/string.html#formatstrings">Format String Syntax</a> @python docs</dd>
+		</dl>
+		</section>
+	<section><h3>Примери</h3>
+		<pre><code rel="Python" class="python">
+				user_name = input("hi, what's your name: ")
+				user_surname = input("will you tell me your sur name?:")
+
+				print(f"Nice to meet you, {user_name} {user_surname} !")
+		</code></pre>
+	</section>
+</section>
+
+<section class="main-section-title"><h1>Условни Оператори</h1></section>
+<section class="sub-sections"><h2>Условни Оператори</h2>
+	<section><h3>Conditional Statements (<code>if</code>, <code>elif</code>, <code>else</code>)</h3>
+		<dl class="fa" style="min-width:80vw">
+			<dt>Употреба</dt>
+			<dd>Позволяват изпълнението на код да зависи от дадено условие.</dd>
+			<dt>Пример</dt>
+			<dd>
+				<pre><code rel="Python" class="python" style="min-height: 1vh;">
+					temperature = 25
+					if temperature > 30:
+						print("Hot")
+					elif temperature > 20:
+						print("Ideal") # Executes
+					else:
+						print("Cold")
+				</code></pre>
+			</dd>
+		</dl>
+	</section>
+</section>
+
+<section class="main-section-title"><h1>Цикли</h1></section>
+<section class="sub-sections"><h2>Loops</h2>
+	<section><h3>Цикли (<code>for</code>, <code>while</code>)</h3>
+		<dl class="fa" style="min-width:80vw">
+			<dt><strong><code>for</code> цикъл</strong></dt>
+			<dd>Повтаря се за всеки елемент в дадена последователност (напр. списък).</dd>
+			<dt><strong><code>while</code> цикъл</strong></dt>
+			<dd>Повтаря се, докато дадено условие е вярно (<code>True</code>).</dd>
+			<dt>Пример (<code>for</code>):</dt>
+			<dd>
+				<pre><code rel="Python" class="python" style="min-height: 1vh;">
+					fruits = ["apple", "banana"]
+					for fruit in fruits:
+						print(f"I like {fruit}.")
+				</code></pre>
+			</dd>
+		</dl>
+	</section>
+</section>
+
+<section class="sub-sections"><h1>Структури от Данни (Колекции)</h1></section>
+<section class="sub-sections"><h2>Sequences: list и tupple</h2>
+	<section><h3>Sequence data types: lists and tupple</h3>
+		<dl class="fa" style="min-width:80vw">
+			<dt><strong><code>list</code> (Списък)</strong></dt>
+			<dd>Подредена, <strong>променлива</strong> колекция от елементи. <strong>Пример:</strong> <code>[1, "a", True]</code></dd>
+			<dt><strong><code>tuple</code> (Кортеж)</strong></dt>
+			<dd>Подредена, <strong>непроменлива</strong> колекция. <strong>Пример:</strong> <code>(1, "a", True)</code></dd>
+			<dt>Позицията на елемент в последователността се нарича <span class="note">индекс</span>.</dt>
+			<dt class="note">Индексите започват от 0.</dt>
+			<a href="images/sequenceStructure.png"><img src="images/sequenceStructure.png"></a>
+			<dt>Всички последователни типове данни в Python поддържат общ набор от операции.</dt>
+			<dd><code>length, indexing, slicing, concatenation, <br> repetition, membership test, min, max, count, index</code>.</dd>
+			<dt>Всеки тип последователност има и собствени методи за по-специфични операции.</dt>
+		</dl>
+	</section>
+	<section><h3>Примери</h3>
+		<dl class="fa">
+			<dl class="fa" style="min-width:80vw">
+				<dt>Достъпване на елементите чрез индексиране</dt>
+				<pre><code rel="Python" class="python" style="min-height: 1vh;">
+					# list и tupple : достъпване на елементите по индекс
+					my_list = [10, 20, 30, 40, 50]
+					my_tuple = (10, 20, 30, 40, 50)
+
+					print("List element at index 2:", my_list[2])  # Извежда 30
+					print("Tuple element at index 2:", my_tuple[2])  # Извежда 30
+
+					# Промяна на елемент в list
+					my_list[2] = 99
+					print("Modified list:", my_list)  # Извежда [10, 20, 99, 40, 50]
+
+					# Опит за промяна на елемент в tupple (ще доведе до грешка)
+					# my_tuple[2] = 99  # Това ще предизвика TypeError, защото tupple е неизменяем
+
+				</code></pre>
+			</dl>
+		</dl>
+	</section>
+	<section><h3>Цикъл върху списък</h3>
+		<dl class="fa" style="min-width:80vw">
+			<dt>Пример:
+				<pre><code rel="Python" class="python" style="min-height: 1vh;">
+					fruits = ["ябълка", "банан", "портокал", "круша"]
+
+					for fruit in fruits:
+						print(fruit)
+				</code></pre>
+			</dt>
+		</dl>
+	</section>
+
+</section>
+<section class="sub-sections"><h2>Речник (dictioanry)</h2>
+	<section><h3>Dictionaries</h3>
+		<dl class="fa" style="min-width:80vw">
+			<dt><strong><code>dict</code> (Речник)</strong></dt>
+			<dd>Неподредена колекция от двойки <strong>ключ:стойност</strong>. <strong>Пример:</strong> <code>{"name": "Ivan", "age": 30}</code></dd>
+			<dt>Достъп до стойности чрез ключове</dt>
+			<dd>Можете да получите стойността, свързана с определен ключ, като използвате квадратни скоби:</dd>
+			<pre><code rel="Python" class="python" style="min-height: 1vh;">
+				my_dict = {"name": "Ivan", "age": 30}
+				print(my_dict["name"])  # Извежда "Ivan"
+			</code></pre>
+		</dl>
+	</section>
+	<section><h3>Примери за работа с речници</h3>
+		<dl class="fa" style="min-width:80vw">
+			<dt>Създаване на речник</dt>
+			<pre><code rel="Python" class="python" style="min-height: 1vh;">
+				person = {
+					"name": "Alice",
+					"age": 28,
+					"city": "New York"
+				}
+			</code></pre>
+			<dt>Достъп до стойности чрез ключове</dt>
+			<pre><code rel="Python" class="python" style="min-height: 1vh;">
+				print(person["name"])  # Извежда "Alice"
+			</code></pre>
+			<dt>Добавяне или промяна на елементи</dt>
+			<pre><code rel="Python" class="python" style="min-height: 1vh;">
+				person["age"] = 29  # Промяна на съществуващ ключ
+				person["profession"] = "Engineer"  # Добавяне на нов ключ
+			</code></pre>
+			<dt>Премахване на елементи</dt>
+			<pre><code rel="Python" class="python" style="min-height: 1vh;">
+				del person["city"]  # Премахване на ключ "city"
+			</code></pre>
+		</dl>
+	</section>
+	<section><h3>Цикъл върху речници</h3>
+		<dl class="fa" style="min-width:80vw">
+			<dt>Примери:
+				<pre><code rel="Python" class="python" style="min-height: 1vh;">
+					clients = {"Иван": 25, "Мария": 30, "Петър": 22}
+
+					# цикъл върху ключовете
+					for name in clients.keys():
+								print(name)
+
+					# цикъл върху стойностите
+					for age in clients.values():
+								print(age)
+
+					# цикъл върху ключ, стойност
+					for name, age in clients.items():
+								print(name, age)
+				</code></pre>
+			</dt>
+		</dl>
+	</section>
+</section>
+
+<section id="WhatAreFunctions" class="main-section-title"><h1>Функции в Python</h1></section>
+<section class="sub-sections"><h2>Какво са функциите?</h2>
+	<section>
+		<dl class="fa">
+			<dt>Функцията е <span class="note">именуван блок от инструкции</span> (т.е. поредица от команди), който изпълнява една концептуална задача.</dt>
+			<dt>Типичен пример за функция в реалния живот е рецепта в готварска книга.</dt>
+			<dt>Инструкциите във функцията се изпълняват <span class="note">само след като функцията бъде извикана</span>.</dt>
+			<dt>Функциите ни помагат да организираме кода си (<span class="note">разделят задача на подзадачи</span>).</dt>
+			<pre><code rel="Python" class="python">
+				def task_1():
+					pass
+
+				def task_2():
+					pass
+
+				...
+
+				def task_n():
+					pass
+			</code></pre>
+		</dl>
+	</section>
+</section>
+<section class="sub-sections"><h2>Дефиниция на функция</h2>
+	<section><h3>Function Definition</h3>
+		<pre><code rel="Syntax" class="python" data-noescape>
+			<b>def</b> <b>function_name(</b><em>param_list</em><b>)</b><b>:</b>
+				<em>'''docstring'''</em>
+				statements
+				<em>return [expression]</em>
+		</code></pre>
+		<dl class="fa" style="font-size: 1em">
+			<dt>def</dt>
+			<dd>Ключова дума, която започва дефиницията на функцията</dd>
+			<dt>function_name</dt >
+			<dd>Трябва да бъде валидно <a href="https://docs.python.org/3/reference/lexical_analysis.html#identifiers">име на променлива</a>.</dd>
+			<dt><em>param_list</em></dt>
+			<dd>Опционално. Списък с параметри на функцията. <span class="note">Скобите са задължителни</span>, дори ако списъкът е празен.</dd>
+			<dt><em>'''docstring'''</em></dt>
+			<dd>Опционално. Стринг за документация на функцията.</dd>
+			<dt>statements</dt>
+			<dd>Блок от инструкции, наричан още <span class="note">тяло на функцията</span>. Трябва да съдържа поне една инструкция.</dd>
+			<dt><em>return [expression]</em></dt>
+			<dd>Опционално. Определя <span class="note">стойността, която функцията ще върне</span>.</dd>
+		</dl>
+	</section>
+	<section><h3>Най-прост пример</h3>
+		<pre><code rel="Python" class="python">
+			def greet():
+				"""Просто отпечатва 'Hello'"""
+
+				print("Hello!")
+		</code></pre>
+		<dl class="fa">
+			<dt class="note">Забележка: този код няма да отпечата нищо, ако го стартирате директно</dt>
+			<dt>Това е само дефиницията на функцията</dt>
+			<dt>За да се изпълнят инструкциите в нея, <span class="note">функцията трябва да бъде извикана</span>!</dt>
+		</dl>
+	</section>
+</section>
+<section class="sub-sections"><h2>Извикване на функция (синоним: Изпълнение на функция)</h2>
+	<section><h3>Function call/execution</h3>
+		<dl class="fa">
+			<dt>Инструкциите в тялото на функцията се изпълняват само когато функцията бъде извикана:</dt>
+			<pre><code rel="Syntax" class="python" data-noescape>
+				<b>function_name(</b><em>opt_arg_list</em><b>)</b>
+			</code></pre>
+			<dt><i>opt_arg_list</i> е опционален, но <span class="note">скобите са задължителни</span></dt>
+			<pre><code rel="Python" class="python">
+				### дефинираме функцията greet()
+				def greet():
+					"""Просто отпечатва 'Hello'"""
+
+					print("Hello!")
+
+				### извикваме функцията greet():
+				greet()
+			</code></pre>
+			<dt>Забележка: скобите след името на функцията са задължителни!</dt>
+		</dl>
+	</section>
+	<section>
+		<dl class="fa">
+			<dt class="note">Функцията трябва да бъде дефинирана преди да бъде извикана, иначе ще се получи <b>NameError</b>!</dt>
+			<pre><code rel="Python" class="python">
+				# извикваме функцията greet():
+				greet()
+
+				# дефинираме функцията greet():
+				def greet():
+				  print("Hello!")
+
+				# NameError: name 'greet' is not defined
+			</code></pre>
+			<dt>Извикване на функция - правилният начин:</dt>
+			<pre><code rel="Python" class="python">
+				# дефинираме функцията greet():
+				def greet():
+				  print("Hello!")
+
+				# извикваме функцията greet():
+				greet()
+
+				# Hello!
+			</code></pre>
+		</dl>
+	</section>
+</section>
+<section class="sub-sections"><h2>Function Parameters</h2>
+	<section>
+		<dl class="fa">
+			<dt>Функцията не е много полезна, ако работи само със същите стойности</dt>
+			<pre><code rel="Python" class="python">
+				def add():
+					print(2+3)
+
+				add()
+				add()
+				add()
+
+				# 5
+				# 5
+				# 5
+			</code></pre>
+			<dt>По-добре би било да можем да направим:</dt>
+			<pre><code rel="Python" class="python">
+				# извикване на add с различни аргументи:
+				add(20, 22)
+				add(123, 321)
+				add(16, 10)
+
+				# ЖЕЛАН ИЗХОД:
+				# 42
+				# 444
+				# 26
+			</code></pre>
+		</dl>
+	</section>
+	<section><h3></h3>
+		<dl class="fa">
+			<dt class="note">Параметрите са локални променливи на функцията, които получават стойности, когато функцията бъде извикана с конкретни аргументи.</dt>
+			<a href="images/passing_arguments.png"><img src="images/passing_arguments.png"></a>
+			<dt>Можете да дефинирате функция с параметри, като ги изброите в скобите.</dt>
+			<dt>Имената на параметрите трябва да са валидни имена на променливи.</dt>
+			<dt>При извикване на функцията, в скобите се задават стойностите на съответните параметри (наречени <span class="note">аргументи</span>).</dt>
+		</dl>
+	</section>
+	<section><h3>Positional Arguments</h3>
+		<dl class="fa">
+			<dt>Преминаването на стойности на аргументи към параметрите може да се извърши по позиция. В този случай говорим за <span class="note">позиционни аргументи/параметри</span>:</dt>
+			<dd>първият параметър получава стойността на първия аргумент</dd>
+			<dd>вторият параметър - стойността на втория аргумент</dd>
+			<dd>и така нататък...</dd>
+			<a href="images/passing_arguments_2.png"><img src="images/passing_arguments_2.png"></a>
+		</dl>
+	</section>
+	<section><h3>Positional Arguments</h3>
+		<dl class="fa">
+			<dt>Броят на предадените аргументи трябва да е равен на броя на параметрите!</dt>
+		</dl>
+		<pre><code rel="Python" class="python">
+			def sub(x,y):
+				""" изважда y от x и отпечатва резултата """
+				print(x - y)
+
+			sub(99)
+			# TypeError: sub() missing 1 required positional argument: 'y'
+
+			sub(99, 3, 3)
+			# TypeError: sub() takes 2 positional arguments but 3 were given
+		</code></pre>
+	</section>
+	<section id="DefaultParametersValues"><h3>Default Parameter Values</h3>
+		<dl class="fa">
+			<dt>Може да се зададе стойност по подразбиране на параметрите, която ще се използва, ако не е подаден аргумент за този параметър.</dt>
+		</dl>
+		<pre><code rel="Python" class="python">
+			def greet(name="Nobody"):
+				""" поздравява потребителя """
+				print("Hello", name)
+
+			greet("Maria")
+			greet()
+
+			# Hello Maria
+			# Hello Nobody
+		</code></pre>
+
+	</section>
+	<section><h3>Default Parameter Values</h3>
+		<p class="note">Параметрите със стойности по подразбиране трябва да следват тези без стойности по подразбиране!</p>
+		<pre><code rel="Python" class="python">
+			def greet(msg="Hi", name):
+				print(f"{msg} {name}!")
+
+			greet("Maria")
+			# SyntaxError: non-default argument follows default argument
+		</code></pre>
+		<pre><code rel="Python" class="python">
+			def greet(name, msg="Hi"):
+				print(f"{msg} {name}!")
+
+			greet("Maria")
+			# Hi Maria!
+		</code></pre>
+	</section>
+	<section><h3>Keyword Arguments</h3>
+		<dl class="fa">
+			<dt>Ако изрично зададете името на параметъра в списъка с аргументи, този параметър ще получи стойността си, независимо от позицията му.</dt>
+		</dl>
+		<pre><code rel="Python" class="python">
+			def greet(msg, name):
+				print(f"{msg} {name}!")
+
+			greet(name="Maria",  msg="Hi")
+		</code></pre>
+	</section>
+	<section><h3>Keyword Arguments</h3>
+		<p class="note">Именованите аргументи трябва да следват позиционните!</p>
+		<pre><code rel="Python" class="python">
+			def greet(msg, name):
+				print(f"{msg} {name}!")
+
+			greet(name="Maria", "Hi")
+			# SyntaxError: positional argument follows keyword argument
+		</code></pre>
+	</section>
+</section>
+<section class="sub-sections"><h2>Function Return value</h2>
+	<section><h3>Function Return value</h3>
+		<dl class="fa">
+			<dt>Функциите в Python могат да връщат стойности чрез инструкцията <code class="note">return</code>:</dt>
+		</dl>
+		<pre><code rel="Syntax" class="python" data-noescape>
+			def f():
+				<em>statements</em>
+				return [<em>expression</em>]
+		</code></pre>
+		<pre><code rel="Python" class="python" data-noescape>
+			def add(x,y):
+				return x+y
+
+			print(<b>add(2,4)</b>**2)
+
+			# 36
+		</code></pre>
+		<p>Инструкцията return прекъсва функцията! Всякакъв код след <code>return</code> няма да бъде изпълнен:</p>
+		<pre><code rel="Python" class="python">
+			def add(x,y):
+				return x+y
+				# следващият ред никога няма да се изпълни:
+				print("След return")
+
+			print(add(2,4))
+		</code></pre>
+	</section>
+	<section><h3>Пример</h3>
+		<pre><code rel="Python" class="python">
+			def is_even(n):
+				""" връща True, ако n е четно, иначе False """
+				if n % 2 == 0:
+					return True
+				else:
+					return False
+
+			print(is_even(4))  # True
+			print(is_even(7))  # False
+		</code></pre>
+	</section>
+</section>
+
+<section id="ScopeAndNamespaces" class="main-section-title"><h1>Област на видимост и пространства от имена</h1></section>
+<section class="sub-sections"><h2>Scope and namespace</h2>
+	<section>
+		<dl class="fa">
+			<dt>Пространство от имена (<span class="note">namespace</span>) съхранява съответствието между имена (променливи) и обекти. Обикновено се реализира вътрешно като речник.</dt>
+			<dt>Област на видимост (<span class="note">scope</span>) е лексикална (текстова) зона на програмата, където пространството от имена е директно достъпно (т.е. без префикс).</dt>
+			<dt>Можете да мислите за областта на видимост като част от програмата, където променлива може да бъде достъпвана (използвана, видима).</dt>
+		</dl>
+		<a href="images/scope.png"><img src="images/scope.png"></a>
+	</section>
+	<section><h3>Local Scope</h3>
+		<dl class="fa">
+			<dt>Имената, създадени <span class="note">вътре във функция</span>, са <span class="note">локални</span> за функцията и са видими само вътре в нея.</dt>
+			<dt>Параметрите на функцията също са дефинирани в локалното пространство от имена на функцията. Т.е. те са локални за тази функция.</dt>
+		</dl>
+		<pre><code rel="Python" class="python">
+			def f1():
+			  y = 2
+			  print(f"y = {y} във f1")
+
+			f1()
+			# y = 2 във f1
+
+			print(f"y = {y} извън f1")
+			# NameError: name 'y' is not defined
+		</code></pre>
+	</section>
+	<section><h3>Global Scope</h3>
+		<dl class="fa">
+			<dt>Име, дефинирано извън функции, е <span class="note">глобално</span> и може да бъде достъпвано от всяко място в този файл  след неговата дефиниция.</dt>
+		</dl>
+		<pre><code rel="Python" class="python">
+			x = 10
+
+			def foo():
+				print("x = {} във foo()".format(x))
+
+			foo()
+			# x = 10 във foo()
+			print("x = {} извън foo()".format(x))
+			# x = 10 извън foo()
+		</code></pre>
+	</section>
+	<section><h3>Names resolution</h3>
+		<dl class="fa">
+			<dt style="font-size: .8em">Когато на име се присвоява стойност вътре в тялото на функция, това име се създава в локалната област на функцията, дори ако същото име вече съществува в глобалната област.</dt>
+			<pre><code rel="Python" class="python">
+				x = 1
+
+				def foo():
+				  x = 99
+				  print(f"x = {x} във foo")
+
+				foo()
+				# x = 99 във foo
+
+				print(f"x = {x} извън foo")
+				# x = 1 извън foo
+			</code></pre>
+		</dl>
+		<p class="note">Променливи със едно и също име, дефинирани в различни области на видимост, се считат за различни променливи!</p>
+	</section>
+</section>
+
+
+<section class="sub-sections"><h1>Използване на вградени модули/библиотеки</h1></section>
+<section class="sub-sections"><h2>Използване на вградени модули/библиотеки</h2>
+	<section><h3>Modules in Python</h3>
+		<dl class="fa" style="min-width:80vw">
+			<dt>Модул</dt>
+			<dd>Файл с Python код, който съдържа функции, класове и променливи, които могат да бъдат използвани в други програми.</dd>
+			<dt>Библиотека</dt>
+			<dd>Колекция от модули, които предоставят готова функционалност.</dd>
+			<dt>Python има богата <strong>стандартна библиотека</strong> с вградени модули.</dt>
+		</dl>
+	</section>
+	<section><h3>Импортиране на модули (<code>import</code>)</h3>
+		<dl class="fa" style="min-width:80vw">
+			<dt>Синтаксис</dt>
+			<pre><code rel="Python" class="python" style="min-height: 1vh;">
+				import име_на_модул
+			</code></pre>
+			<dt>Пример за импорт на модула <code>math</code>:</dt>
+			<pre><code rel="Python" class="python" style="min-height: 1vh;">
+				import math
+
+				print(math.pi)  # Извежда 3.141592653589793
+				print(math.sqrt(16))  # Извежда 4.0
+			</code></pre>
+			<dt>Импортиране на конкретни имена от модул:</dt>
+			<pre><code rel="Python" class="python" style="min-height: 1vh;">
+					from math import sqrt, pi
+
+					print(pi)  # Извежда 3.141592653589793
+					print(sqrt(25))  # Извежда 5.0
+				</code></pre>
+			<dt>Импортиране с псевдоним:</dt>
+			<pre><code rel="Python" class="python" style="min-height: 1vh;">
+				import math as m
+
+				print(m.pi)  # Извежда 3.141592653589793
+			</code></pre>
+		</dl>
+	</section>
+	<section><h3>Достъп до функции от модул</h3>
+		<dl class="fa" style="min-width:80vw">
+			<dt>Ако импортираме целия модул, то за да достъпим имената дефинирани в него използваме <strong>точка (.)</strong></dt>
+			<dd>Синтаксис: <code>име_на_модул.име_на_функция()</code></dd>
+			<pre><code rel="Python" class="python" style="min-height: 1vh;">
+				import math
+
+				print(math.sqrt(16))  # Достъпваме функцията sqrt от модула math
+				print(math.pi)        # Достъпваме константата pi от модула math
+			</code></pre>
+			<dt class="note">Точката показва, че даденото име принадлежи на модула.</dt>
+		</dl>
+	</section>
+	<section><h3>Примери с популярни модули</h3>
+		<dl class="fa" style="min-width:80vw">
+			<dt><strong>Модул <code>random</code></strong> - генериране на случайни числа</dt>
+			<dd>
+				<pre><code rel="Python" class="python" style="min-height: 1vh;">
+					import random
+
+					# Случайно число между 1 и 10
+					num = random.randint(1, 10)
+					print(num)
+
+					# Избор на случаен елемент от списък
+					fruits = ["ябълка", "банан", "портокал"]
+					choice = random.choice(fruits)
+					print(choice)
+				</code></pre>
+			</dd>
+			<dt><strong>Модул <code>datetime</code></strong> - работа с дата и час</dt>
+			<dd>
+				<pre><code rel="Python" class="python" style="min-height: 1vh;">
+					from datetime import datetime
+
+					# Текуща дата и час
+					now = datetime.now()
+					print(now)  # Извежда текущата дата и час
+
+					# Форматиране на дата
+					formatted = now.strftime("%d.%m.%Y %H:%M")
+					print(formatted)  # Например: "14.11.2025 10:30"
+				</code></pre>
+			</dd>
+		</dl>
+	</section>
+</section>
+
+<section class="main-sesction-title" id="VirtualEnvironments"><h1>Виртуални Среди (Virtual Environments)</h1></section>
+<section class="sub-sections"><h2>Виртуални Среди (Virtual Environments)</h2>
+	<section><h3>Какво е Виртуална Среда?</h3>
+		<dl class="fa" style="min-width:80vw">
+			<dt>Дефиниция</dt>
+			<dd>Виртуалната среда е <b>изолирана Python инсталация</b> за конкретен проект.</dd>
+			<dt>Защо  са необходими?</dt>
+			<dd><span class="note"><strong>Изолация</strong></span>: Предотвратява конфликти между библиотеките, необходими за различни проекти (напр. Pandas 1.0 срещу Pandas 2.0).</dd>
+			<dd><span class="note"><strong>Чиста работна среда</strong></span>: Поддържа глобалната ви Python инсталация чиста.</dd>
+			<dd><span class="note"><strong>Лесно споделяне</strong></span>: Позволява лесно експортиране на списъка с точните версии на всички използвани библиотеки в даден проект.</dd>
+		</dl>
+	</section>
+
+	<section><h3>Създаване и активиране на виртуална среда</h3>
+		<dl class="fa" style="min-width:80vw">
+			<dt>1. Създаване на среда</dt>
+			<pre><code rel="Python" class="bash" style="min-height: 1vh;">
+				python -m venv .venv
+			</code></pre>
+			<dd>".venv" е името на папката, където се създава средата.</dd>
+			<dd>Може да използвате каквото и да е име, но най-често се използва ".venv"  </dd>
+			<dt>2. Активиране на средата</dt>
+			<dd>Активирането на средата е необходимо, за да може да се инсталират и използват библиотеки в дадената среда.</dd>
+			<dd>VSCode автоматично разпознава и активира виртуалната среда при отваряне на проекта, ако папката се казва <code>.venv</code>.
+			</dd>
+			<dd>Ако трябва да активирате средата в терминал</dd>
+			<pre><code rel="Python" class="bash" style="min-height: 1vh;">
+				# За Windows (Command Prompt/PowerShell)
+				.\.venv\Scripts\activate
+
+				# За macOS/Linux
+				source .venv/bin/activate
+			</code></pre>
+			<dd>След активиране, името на средата (напр. <code>(.venv)</code>) се появява пред промпта в командния ред.</dd>
+		</dl>
+	</section>
+
+	<section><h3>Инсталиране на пакети/библиотеки в средата</h3>
+		<dl class="fa" style="min-width:80vw">
+			<dt>За да инсталирате дадена библиотека в средата за вашия проект, трябва да я активирате в терминал, и да използвате командата <code>pip</code></dt>
+			<pre><code rel="Python" class="bash" style="min-height: 1vh;">
+				# инсталиране на numpy
+				(.venv) pip install numpy
+
+				# инсталиране на няколко библиотеки
+				(.venv) pip install pandas matplotlib
+			</code></pre>
+			<dt>Експортиране на използваните в проекта библиотеки ( project dependencies)</dt>
+			<dd>За да споделите проекта, създайте файл със списък на всички библиотеки и техните версии.</dd>
+			<pre><code rel="Python" class="bash" style="min-height: 1vh;">
+				(.venv) pip freeze > requirements.txt
+			</code></pre>
+			<dt>Възстановяване на средата и зависимостите</dt>
+			<dd>Друг потребител може да създаде същата среда от този файл.</dd>
+			<pre><code rel="Python" class="bash" style="min-height: 1vh;">
+				(new_env) pip install -r requirements.txt
+			</code></pre>
+		</dl>
+	</section>
+
+	<section><h3>Деактивиране на средата</h3>
+		<dl class="fa" style="min-width:80vw">
+			<dd>Когато приключите работа по проекта, деактивирайте средата, за да се върнете към глобалния Python (или просто затворете терминала).</dd>
+			<dt>Команда</dt>
+			<pre><code rel="Python" class="bash" style="min-height: 1vh;">
+				(.venv) deactivate
+			</code></pre>
+		</dl>
+	</section>
+</section>
+
+
+<section class="main-section-title"><h1>Работа с Git и GitHub</h1></section>
+<section class="sub-sections">Какво е git и как улеснява работата?</h2>
+    <section>
+        <dl class="fa">
+            <dt>Git е инструмент, който записва всички промени по един проект. Това позволява да се връщаме назад, да работим безопасно и да споделяме работата си с други хора. Най-просто казано - Git пази "история" на проекта.</dt>
+            <dt>Защо да използваме Git?</dt>
+			<dd><strong>История на промените:</strong> можем да видим какво е променено, кога и от кого.</dd>
+			<dd><strong>Безопасни експерименти:</strong> можем да тестваме идеи, или да оправяме бъгове, без риск да счупим проекта.</dd>
+			<dd><strong>Работа в екип:</strong> няколко души могат да работят по един проект, без да си пречат.</dd>
+        </dl>
+    </section>
+</section>
+<section class="sub-sections"><h2>Как работи git?</h2>
+    <section><h3>Общ преглед</h3>
+        <a href="images/distributed_concepts_overview.png">
+            <img src="images/distributed_concepts_overview.png" style="height: 80vh;">
+        </a>
+    </section>
+	<section>
+        <dl class="fa" style="font-size: .9em;">
+            <dt><b>Working Copy:</b></dt>
+            <dd>Файловете, по които работите локално.</dd>
+
+            <dt><b>Repository:</b></dt>
+            <dd>Историята и файловете на проекта - локално или remote.</dd>
+
+            <dt><b>Local Repository:</b></dt>
+            <dd>Пълно копие на историята на проекта на вашата машина.</dd>
+
+            <dt><b>Remote Repository:</b></dt>
+            <dd>Онлайн/мрежово копие, използвано за споделяне.</dd>
+
+            <dt><b>Commit:</b></dt>
+            <dd>Записване на промени в локалното репо.</dd>
+
+            <dt><b>Pull:</b></dt>
+            <dd>Изтегляне на промени от remote.</dd>
+
+            <dt><b>Push:</b></dt>
+            <dd>Качване на локалните commit-и в remote.</dd>
+        </dl>
+    </section>
+</section>
+<section class="section-subtitle"><h2>Какво е GitHub?</h2>
+	<section class="section-text">
+		<dl class="fa" style="min-width:80vw">
+			<dt>GitHub е онлайн място, където качваме проектите си, за да ги съхраняваме, споделяме и организираме.</dt>
+			<dt>Може да се мисли като "Google Drive за Git проекти", улесняващ колаборацията на различни програмисти върху даден проект.</dt>
+		</dl>
+	</section>
+</section>
+
+
+
+<section class="main-section-title" id="CommandPromptBasicsForGit"><h1 class="advanced">Terminal/CLI: Основни понятия за работа с Git</h1></section>
+<section class="sub-sections"><h2 class="advanced">Какво е терминал?</h2>
+    <section>
+        <dl class="fa">
+            <dt>Терминалът позволява изпълнение на команди чрез текст.</dt>
+            <dt>Използва се за навигация, управление на файлове и стартиране на инструменти като Git.</dt>
+			<dt>Под Windows може да работим с терминала, чрез Command Prompt (CMD)</dt>
+			<dt>Под linux и MacOS, имаме вградена програма Terminal</dt>
+        </dl>
+    </section>
+
+    <section><h3>Отваряне на Command Prompt</h3>
+        <dl class="fa">
+            <dt><b>Как да го отворите:</b></dt>
+            <dd>Windows + R, пишете 'cmd' и потвърждавате с Enter</dd>
+        </dl>
+    </section>
+
+    <section><h3>Current Working Directory</h3>
+        <dl class="fa">
+            <dt>Показва директорията, в която работи терминалът.</dt>
+            <dt><b>Проверка:</b> <code>cd</code></dt>
+        </dl>
+    </section>
+
+    <section><h3>Навигация</h3>
+        <dl class="fa">
+            <dt><b>Влизане в директория:</b> <code>cd Folder</code></dt>
+            <dt><b>Назад:</b> <code>cd ..</code></dt>
+        </dl>
+    </section>
+</section>
+
+<section class="main-section-title" id="GitBasics"><h1>Инсталиране и настройка на Git</h1></section>
+<section class="sub-sections"><h2>Инсталиране и настройка на Git</h2>
+
+    <section><h3>Инсталиране на Git</h3>
+        <dl class="fa">
+            <dt>Изтеглете Git от официалния сайт: <a href="https://git-scm.com/downloads">git-scm.com</a>.</dt>
+            <dt>Процесът е стандартен - Next → Next → Finish.</dt>
+            <dt>Проверка на инсталацията:</dt>
+            <pre><code rel="Terminal" class="bash">git --version</code></pre>
+        </dl>
+    </section>
+
+    <section><h3>Настройка на user name и email</h3>
+        <dl class="fa">
+            <dt>Задаваме user name и email, за да може Git да отбелязва кой прави промените.</dt>
+            <pre><code rel="Terminal" class="bash">
+				git config --global user.name "Your Name"
+				git config --global user.email "you@mail.com"
+            </code></pre>
+            <dt>Проверка:</dt>
+            <pre><code rel="Terminal" class="bash">
+				git config user.name
+				git config user.email
+            </code></pre>
+        </dl>
+    </section>
+
+    <section><h3>Настройка на VSCode като Git editor</h3>
+        <dl class="fa">
+            <dt>За редактиране на commit съобщения във VSCode:</dt>
+            <pre><code rel="Terminal" class="bash">git config --global core.editor "code --wait"</code></pre>
+        </dl>
+    </section>
+</section>
+
+<section class="main-section-title"><h1>Работа с GitHub</h1></section>
+<section class="sub-sections"><h2>Работа с GitHub</h2>
+    <section><h3>Качване на файлове чрез VSCode</h3>
+        <dl class="fa">
+            <dt>Ръководство: <a href="https://github.com/geekcourses/GitHubTutorial-Using-VSCode?tab=readme-ov-file#how-to-upload-files-on-github-using-vscode">Как да качим файлове в GitHub</a></dt>
+        </dl>
+    </section>
+</section>
+
+
+
+
+<section id="hw">
+	<section><h1>Homework</h1></section>
+	<section id="task1"><h3>Homework</h3>
+		<dl class="fa">
+			<dt>The tasks are given in next <a href="https://gist.githubusercontent.com/geekcourses/22a0d73b87db205a577243f3147c1c22/raw/18d06bcc04bc696cf31d1ebf49b2110f0b170921/gistfile1.txt">file</a></dt>
+			<dt>You can copy it and work directly on it. Just put your code under "### Your code here".</dt>
+		</dl>
+	</section>
+</section>
+
+
+
+
+
+<section class="disclaimer" data-background="/ProgressBG-ChatGPT_and_ML-Slides/outfit/images/for_slides/the_end_on_sand.jpg">
+	<p>These slides are based on</p>
+	<p>customised version of </p>
+	<p><a href="http://hakim.se/">Hakimel</a>'s <a href="http://lab.hakim.se/reveal-js">reveal.js</a></p>
+	<p>framework</p>
+</section>
+<!--
+########################################################
+##################### SLIDES END   #####################
+########################################################
+-->
+		</div>
+	</div>
+	<!-- Custom processing -->
+	<script src="/ProgressBG-ChatGPT_and_ML-Slides/outfit/js/slides.js"></script>
+	<!-- external scripts -->
+	<script src="/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/lib/js/head.min.js"></script>
+	<script src="/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/js/reveal.js"></script>
+	 <!-- init reveal -->
+	<script>
+		// Full list of configuration options available at:
+		// https://github.com/hakimel/reveal.js#configuration
+		var highlightjsTabSize = '  ';
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			slideNumber: 'c/t',
+			keyboard: true,
+			history: true,
+			center: true,
+			width: 1920,
+			height: 1280,
+			// Bounds for smallest/largest possible scale to apply to content
+			// minScale: .5,
+			maxScale: 1,
+			// slide transition
+			transition: 'concave', // none/fade/slide/convex/concave/zoom
+			// Factor of the display size that should remain empty around the content
+			margin: 0.1,
+			// shift+mouse click to zoom in/out element
+			zoomKey: 'ctrl',
+			// theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+			// transition: Reveal.getQueryHash().transition || 'default'
+			// Optional reveal.js plugins
+			dependencies: [
+				{ src: '/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+				{ src: '/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: '/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: '/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.configure(); hljs.initHighlightingOnLoad(); } },
+				{ src: '/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/plugin/zoom-js/zoom.js', async: true },
+				{ src: '/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/plugin/notes/notes.js', async: true }
+			]
+		});
+	</script>
+</body>
+</html>
