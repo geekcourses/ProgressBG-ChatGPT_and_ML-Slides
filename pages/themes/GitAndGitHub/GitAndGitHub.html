@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>DataScienceIntroAndTools</title>
+    <title>GitAndGitHub</title>
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -27,7 +27,7 @@
 <body>
     <div class="reveal default center" data-transition-speed="default" data-background-transition="default">
         <div class="top_links">
-            <a class="home_link" href="/ProgressBG-ChatGPT_and_ML-Slides/pages/agenda/agenda.html#DataScienceIntroAndTools" target="_top"><i class="fa fa-home"></i></a>
+            <a class="home_link" href="/ProgressBG-ChatGPT_and_ML-Slides/pages/agenda/agenda.html#GitAndGitHub" target="_top"><i class="fa fa-home"></i></a>
             <span class="help_link" href="#"><i class="fa fa-question"></i></span>
             <div class="help_text">
                 <div class="note">Keyboard shortcuts:</div>
@@ -50,7 +50,7 @@
 ##################### SLIDES START #####################
 ########################################################
 -->
-<section><h1>Introduction to Data Science and Tools</h1></section>
+<section><h1>Working with Git and Github</h1></section>
 <section data-transition="zoom">
     <!-- linkedin badge -->
     <!--<script type="text/javascript" src="https://platform.linkedin.com/badges/js/profile.js" async defer></script>-->
@@ -76,55 +76,130 @@
 </section>
 
 
-<section class="main-section-title"><h1>Framing the concepts</h1></section>
-<section class="sub-sections"><h2>Framing the concepts</h2>
-    <section><h3>AI vs ML vs DL vs DS</h3>
-
-        <a href="./images/AI_ML_DL_DS _vibrant.png">
-            <img src="./images/AI_ML_DL_DS _vibrant.png" alt="AI_ML_DL_DS _vibrant.png">
-        </a>
-
+<section class="main-section-title"><h1>Working with Git and Github</h1></section>
+<section class="sub-sections">Какво е git и как улеснява работата?</h2>
+    <section>
+        <dl class="fa">
+            <dt>Git е инструмент, който записва всички промени по един проект. Това позволява да се връщаме назад, да работим безопасно и да споделяме работата си с други хора. Най-просто казано - Git пази "история" на проекта.</dt>
+            <dt>Защо да използваме Git?</dt>
+			<dd><strong>История на промените:</strong> можем да видим какво е променено, кога и от кого.</dd>
+			<dd><strong>Безопасни експерименти:</strong> можем да тестваме идеи, или да оправяме бъгове, без риск да счупим проекта.</dd>
+			<dd><strong>Работа в екип:</strong> няколко души могат да работят по един проект, без да си пречат.</dd>
+        </dl>
     </section>
 </section>
+<section class="sub-sections"><h2>Как работи git?</h2>
+    <section><h3>Общ преглед</h3>
+        <a href="images/distributed_concepts_overview.png">
+            <img src="images/distributed_concepts_overview.png" style="height: 80vh;">
+        </a>
+    </section>
+	<section>
+        <dl class="fa" style="font-size: .9em;">
+            <dt><b>Working Copy:</b></dt>
+            <dd>Файловете, по които работите локално.</dd>
 
-<section class="main-sesction-title" id="WhatIsDataScience"><h1>What is Data Science</h1></section>
-<section class="sub-sections"><h2>What is Data Science</h2>
+            <dt><b>Repository:</b></dt>
+            <dd>Историята и файловете на проекта - локално или remote.</dd>
+
+            <dt><b>Local Repository:</b></dt>
+            <dd>Пълно копие на историята на проекта на вашата машина.</dd>
+
+            <dt><b>Remote Repository:</b></dt>
+            <dd>Онлайн/мрежово копие, използвано за споделяне.</dd>
+
+            <dt><b>Commit:</b></dt>
+            <dd>Записване на промени в локалното репо.</dd>
+
+            <dt><b>Pull:</b></dt>
+            <dd>Изтегляне на промени от remote.</dd>
+
+            <dt><b>Push:</b></dt>
+            <dd>Качване на локалните commit-и в remote.</dd>
+        </dl>
+    </section>
+</section>
+<section class="section-subtitle"><h2>Какво е GitHub?</h2>
+	<section class="section-text">
+		<dl class="fa" style="min-width:80vw">
+			<dt>GitHub е онлайн място, където качваме проектите си, за да ги съхраняваме, споделяме и организираме.</dt>
+			<dt>Може да се мисли като "Google Drive за Git проекти", улесняващ колаборацията на различни програмисти върху даден проект.</dt>
+		</dl>
+	</section>
+</section>
+
+<section class="main-section-title" id="CommandPromptBasicsForGit"><h1 class="advanced">Terminal/CLI: Основни понятия за работа с Git</h1></section>
+<section class="sub-sections"><h2 class="advanced">Какво е терминал?</h2>
     <section>
-        <dl class="fa" style="min-width:80vw">
-            <dt><strong>Data Science</strong> is a multidisciplinary field that uses <i>statistics</i>, <i>mathematics</i>, <i>programming</i>, <i>ML techniques</i>, and <i>domain knowledge</i> to analyze data and derive actionable insights.</dt>
-            <dt>The goal of Data Science is to understand data, find patterns, and support decision-making.</dt>
-            <dt>Data Science uses Machine Learning as one of its tools.</dt>
-            <dt>Data Science vs ML vs AI:</dt>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Concept</th>
-                        <th>Role</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>AI</td>
-                        <td>The <strong>goal</strong>: build intelligent systems</td>
-                    </tr>
-                    <tr>
-                        <td>ML</td>
-                        <td>The <strong>method</strong>: let machines learn from data</td>
-                    </tr>
-                    <tr>
-                        <td>Data Science</td>
-                        <td>The <strong>process</strong>: analyze data to extract meaning and build models</td>
-                    </tr>
-                </tbody>
-            </table>
-
+        <dl class="fa">
+            <dt>Терминалът позволява изпълнение на команди чрез текст.</dt>
+            <dt>Използва се за навигация, управление на файлове и стартиране на инструменти като Git.</dt>
+			<dt>Под Windows може да работим с терминала, чрез Command Prompt (CMD)</dt>
+			<dt>Под linux и MacOS, имаме вградена програма Terminal</dt>
+        </dl>
+    </section>
+    <section><h3>Отваряне на Command Prompt</h3>
+        <dl class="fa">
+            <dt><b>Как да го отворите:</b></dt>
+            <dd>Windows + R, пишете 'cmd' и потвърждавате с Enter</dd>
+        </dl>
+    </section>
+    <section><h3>Current Working Directory</h3>
+        <dl class="fa">
+            <dt>Показва директорията, в която работи терминалът.</dt>
+            <dt><b>Проверка:</b> <code>cd</code></dt>
+        </dl>
+    </section>
+    <section><h3>Навигация</h3>
+        <dl class="fa">
+            <dt><b>Влизане в директория:</b> <code>cd Folder</code></dt>
+            <dt><b>Назад:</b> <code>cd ..</code></dt>
         </dl>
     </section>
 </section>
 
+<section class="main-section-title" id="GitBasics"><h1>Инсталиране и настройка на Git</h1></section>
+<section class="sub-sections"><h2>Инсталиране и настройка на Git</h2>
+    <section><h3>Инсталиране на Git</h3>
+        <dl class="fa">
+            <dt>Изтеглете Git от официалния сайт: <a href="https://git-scm.com/downloads">git-scm.com</a>.</dt>
+            <dt>Процесът е стандартен - Next → Next → Finish.</dt>
+            <dt>Проверка на инсталацията:</dt>
+            <pre><code rel="Terminal" class="bash">git --version</code></pre>
+        </dl>
+    </section>
+    <section><h3>Настройка на user name и email</h3>
+        <dl class="fa">
+            <dt>Задаваме user name и email, за да може Git да отбелязва кой прави промените.</dt>
+            <pre><code rel="Terminal" class="bash">
+				git config --global user.name "Your Name"
+				git config --global user.email "you@mail.com"
+            </code></pre>
+            <dt>Проверка:</dt>
+            <pre><code rel="Terminal" class="bash">
+				git config user.name
+				git config user.email
+            </code></pre>
+        </dl>
+    </section>
+    <section><h3>Настройка на VSCode като Git editor</h3>
+        <dl class="fa">
+            <dt>За редактиране на commit съобщения във VSCode:</dt>
+            <pre><code rel="Terminal" class="bash">git config --global core.editor "code --wait"</code></pre>
+        </dl>
+    </section>
+</section>
 
+<section class="main-section-title"><h1>Работа с GitHub</h1></section>
+<section class="sub-sections"><h2>Работа с GitHub</h2>
+    <section><h3>Качване на файлове чрез VSCode</h3>
+        <dl class="fa">
+            <dt>Ръководство: <a href="https://github.com/geekcourses/GitHubTutorial-Using-VSCode?tab=readme-ov-file#how-to-upload-files-on-github-using-vscode">Как да качим файлове в GitHub</a></dt>
+        </dl>
+    </section>
+</section>
 
-<section id="hw">
+<!-- <section id="hw">
     <section><h1>Homework</h1></section>
     <section id="task1"><h3>Homework</h3>
         <dl class="fa">
@@ -132,7 +207,7 @@
             <dt>You can copy it and work directly on it. Just put your code under "### Your code here".</dt>
         </dl>
     </section>
-</section>
+</section> -->
 
 
 
@@ -147,7 +222,7 @@
     <dl class="fa">
         <dt>Please, prefix your filenames/archive with your name initials, before sending.</dt>
         <dd>For instance: <b>iep_task1.py</b> or <b>iep_tasks.rar</b></dd>
-        <dt>Send files to <a href="mailto:progressbg.python.course@gmail.com?Subject=HW: DataScienceIntroAndTools">progressbg.python.course@gmail.com</a></dt>
+        <dt>Send files to <a href="mailto:progressbg.python.course@gmail.com?Subject=HW: GitAndGitHub">progressbg.python.course@gmail.com</a></dt>
     </dl>
 </section> -->
 
