@@ -1,0 +1,543 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>DataScienceAndMLTools</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <link rel="shortcut icon" href="/ProgressBG-ChatGPT_and_ML-Slides/images/favicons/favicon-32.png">
+    <!-- css & themes include -->
+    <link rel="stylesheet" href="/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/css/reveal.css">
+    <link rel="stylesheet" href="/ProgressBG-ChatGPT_and_ML-Slides/outfit/css/themes/light.css" id="theme">
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? '/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/css/print/pdf.css' : '/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+    <!-- CUSTOM -->
+    <base target="_blank">
+</head>
+
+<body>
+    <div class="reveal default center" data-transition-speed="default" data-background-transition="default">
+        <div class="top_links">
+            <a class="home_link" href="/ProgressBG-ChatGPT_and_ML-Slides/pages/agenda/agenda.html#DataScienceAndMLTools"
+                target="_top"><i class="fa fa-home"></i></a>
+            <span class="help_link" href="#"><i class="fa fa-question"></i></span>
+            <div class="help_text">
+                <div class="note">Keyboard shortcuts:</div>
+                <div><span>N/Space</span><span>Next Slide</span></div>
+                <div><span>P</span><span>Previous Slide</span></div>
+                <div><span>O</span><span>Slides Overview</span></div>
+                <div><span>ctrl+left click</span><span>Zoom Element</span></div>
+                <div class="print-howto"><br>If you want print version => add '<code>?print-pdf</code>' <br> at the end
+                    of slides URL (remove '#' fragment) and then print. <br>
+                    Like: https://ProgressBG-ChatGPT_and_ML-course.github.io/...CourseIntro.html?print-pdf </div>
+            </div>
+        </div>
+        <div class="footer theme_switch">
+            <a href="#"
+                onclick="document.getElementById('theme').setAttribute('href','/ProgressBG-ChatGPT_and_ML-Slides/outfit/css/themes/dark.css'); return false;">Dark</a>
+            <a href="#"
+                onclick="document.getElementById('theme').setAttribute('href','/ProgressBG-ChatGPT_and_ML-Slides/outfit/css/themes/light.css'); return false;">Light</a>
+            <a href="#"
+                onclick="document.getElementById('theme').setAttribute('href','/ProgressBG-ChatGPT_and_ML-Slides/outfit/css/themes/projector.css'); return false;">Projector</a>
+        </div>
+        <div class="slides">
+            <!--
+########################################################
+##################### SLIDES START #####################
+########################################################
+-->
+            <section>
+                <h1>Introduction to Data Science and ML Tools</h1>
+            </section>
+            <section data-transition="zoom">
+                <!-- linkedin badge -->
+                <!--<script type="text/javascript" src="https://platform.linkedin.com/badges/js/profile.js" async defer></script>-->
+                <section class="copyright" data-transition="zoom">
+                    <div class="note">
+                        <p>Created for</p>
+                    </div>
+                    <div class="company">
+                        <a href="http://progressbg.net/програмиране-с-python-2/">
+                            <img style="height:80%"
+                                src="/ProgressBG-ChatGPT_and_ML-Slides/outfit/images/logos/ProgressBG_logo_529_127.png">
+                        </a>
+                    </div>
+                    <div class="author">
+                        <span class="note">Iva E. Popova, 2016-2025,</span>
+                        <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img
+                                alt="Creative Commons License" style="border-width:0"
+                                src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"></a>
+                    </div>
+                </section>
+                <section class="copyright" data-transition="zoom" style="margin-top: -2em;">
+                    <div class="company">
+                        <div class="LI-profile-badge" data-version="v1" data-size="large" data-locale="en_US"
+                            data-type="vertical" data-theme="dark" data-vanity="ivapopova"><a class="LI-simple-link"
+                                href='https://bg.linkedin.com/in/ivapopova?trk=profile-badge'>Iva E. Popova on
+                                LinkedIn</a></div>
+                    </div>
+                </section>
+            </section>
+
+
+            <section class="main-section-title"><h1>Framing the concepts</h1></section>
+            <section class="sub-sections"><h2>Framing the concepts</h2>
+                <section><h3>AI vs ML vs DL vs DS</h3>
+                    <a href="./images/AI_ML_DL_DS _vibrant.png">
+                        <img src="./images/AI_ML_DL_DS _vibrant.png" alt="AI_ML_DL_DS _vibrant.png">
+                    </a>
+                </section>
+                <section><h3>DS vs ML vs AI</h3>
+                    <dl class="fa" style="min-width:80vw">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Concept</th>
+                                    <th>Role</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>AI</td>
+                                    <td>The <strong>goal</strong>: build intelligent systems</td>
+                                </tr>
+                                <tr>
+                                    <td>ML</td>
+                                    <td>The <strong>method</strong>: let machines learn from data</td>
+                                </tr>
+                                <tr>
+                                    <td>Data Science</td>
+                                    <td>The <strong>process</strong>: analyze data to extract meaning and build models
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </dl>
+                </section>
+            </section>
+
+            <section class="main-section-title"><h1>Introduction to Data Science</h1></section>
+            <section class="sub-sections"><h2>Introduction to Data Science</h2>
+                <section><h3>What is Data Science?</h3>
+                    <dl class="fa" style="min-width:80vw">
+                        <dt><strong>Data Science</strong> is a multidisciplinary field that uses <i>statistics</i>,
+                            <i>mathematics</i>, <i>programming</i>, <i>ML techniques</i>, and <i>domain knowledge</i> to analyze data and derive actionable insights.
+                        </dt>
+                        <dt>The goal of Data Science is to understand data, find patterns, and support decision-making.
+                        </dt>
+                        <dt>The data used for analysis can come from many <span class="note">different sources</span> and presented in <span class="note">various formats</span>.</dt>
+                    </dl>
+                </section>
+                <section><h3>Data Science Fields</h3>
+                    <a href="./images/DataScience_ML_Domains.png"><img src="./images/DataScience_ML_Domains.png" alt="DataScience_ML_Domains.png" style="width: 40vw;"></a>
+                </section>
+            </section>
+
+
+            <section data-min="50" class="main-section-title"><h1>What is Dataset?</h1></section>
+            <section class="sub-sections"><h2>What is Dataset?</h2>
+                <section><h3>What is data?</h3>
+                    <dl class="fa">
+                        <dt>Data is just a value which is observed or measured without being interpreted or analyzed.</dt>
+                        <dt>Information is data that is interpreted and has some meaningful inference for the user.</dt>
+                        <dt>Knowlege is combination of inferred information, experiences, learning, and insights</dt>
+                    </dl>
+                    <a href="./images/dataVSknowledge.png"><img src="./images/dataVSknowledge.png" alt="dataVSknowledge.png" style="width:80vw"></a>
+                </section>
+                <section><h3>What is a dataset?</h3>
+                    <a href="./images/DatasetAsExcelIris.png"><img src="./images/DatasetAsExcelIris.png" alt="DatasetAsExcelIris.png" style="min-height: 50vh;"></a>
+                    <dl class="fa">
+                        <dt><span class="note">Datasets are collections of data</span></dt>
+                        <dd>They can consist of various types of data such as numerical, categorical, images, text, and more.</dd>
+                        <dt>A dataset typically covers one topic at a time.</dt>
+                        <dt>In statistics, datasets usually come from actual observations and each row corresponds to one observation.</dt>
+                        <dt>Datasets play a crucial role in machine learning as they directly influence the performance and effectiveness of algorithms.</dt>
+                        <dt>The quality, relevance, and size of a dataset can significantly affect the outcome of machine learning projects.</dt>
+                    </dl>
+                </section>
+                <section><h3>Types of Datasets used in ML</h3>
+                    <dl class="fa" style="min-width:80vw">
+                        <dt>Supervised Learning Datasets: These datasets are labeled, meaning each training instance is paired with an answer (label).</dt>
+                        <dd>Example: A dataset for a spam detection system might include emails along with labels indicating whether each email is 'spam' or 'not spam'.</dd>
+                        <dt>Unsupervised Learning Datasets: These datasets are not labeled, and the model tries to learn the structure or patterns from the data itself.</dt>
+                        <dd>Example: A collection of articles can be used to find natural clusters of similar articles without predefined categories.</dd>
+                        <dt>Reinforcement Learning Datasets: These datasets are generated through interactions with an environment, used to train models that make decisions sequentially.</dt>
+                        <dd>Example: A dataset containing the state of a game at each step, the action taken by the player, and the subsequent reward received.</dd>
+                    </dl>
+                </section>
+                <section><h3>Dataset Concepts</h3>
+                    <a href="./images/DatasetConceptsIris.jpg"><img src="./images/DatasetConceptsIris.jpg" alt="DatasetConceptsIris.jpg" style="min-height: 60vh;"></a>
+                    <dl class="fa">
+                        <dt>The datasets used in Machine Learning are typically organized in tables.</dt>
+                        <dt>Each row (record) represent an observation (also called example, sample, data point, data object) about some attributes (also called features, variables).</dt>
+                        <dt>The data itself can be of various types (numerical, categorical and so on).</dt>
+                    </dl>
+                </section>
+                <section id="LabelsAndTargets"><h3>Labels and Targets</h3>
+                    <dl class="fa" style="min-width:80vw">
+                        <dt>Labels (or Targets) are the outputs or responses that a machine learning model is trained to predict.</dt>
+                        <dt>In a supervised learning task, each example in the dataset is paired with a label.</dt>
+                        <dd>For instance, in a spam detection model, emails are labeled as 'spam' or 'not spam'.</dd>
+                    </dl>
+                </section>
+            </section>
+
+
+            <section class="main-section-title"><h1>Data Science and ML Tools Overview</h1></section>
+            <section class="sub-sections"><h2>Programming Languages</h2>
+                <section><h3>Programming Languages for Data Science & ML</h3>
+                    <dl class="fa">
+                        <dt><a href="https://www.python.org/">Python</a> - <span>The <strong>dominant</strong> language
+                                for ML/AI, known for its <strong>simplicity</strong>, vast library ecosystem (NumPy,
+                                Pandas, TensorFlow, PyTorch), and rapid development capabilities.</span></dt>
+                        <dd><span class="note">cons: </span>Slower execution speed compared to compiled languages
+                            (overcome by optimized libraries like NumPy).</dd>
+                        <dt><a href="https://www.r-project.org/">R Programming Language</a> - <span>A free software
+                                environment primarily used for <strong>statistical computing</strong>, data
+                                visualization, and academic research. Excellent for in-depth statistical
+                                analysis.</span></dt>
+                        <dd><span class="note">cons: </span>Steeper learning curve for general programming; less
+                            integrated for production/deployment of complex ML systems.</dd>
+                        <dt><a href="https://julialang.org/">Julia</a> - <span>A high-level, high-performance language
+                                designed specifically for <strong>numerical and scientific computing</strong>. Aims to
+                                solve the "two-language problem" (easy to write like Python, fast like C).</span></dt>
+                        <dd><span class="note">cons: </span>Smaller community and ecosystem compared to Python; still
+                            maturing.</dd>
+                    </dl>
+                </section>
+                <section><h3>Python's pros and cons</h3>
+                    <dl class="fa">
+                        <dt>Pros:</dt>
+                        <dd>Clean syntax - easy to write <span class="note">and read</span></dd>
+                        <dd>Matured <span class="note">Multipurpose</span> Programming Language</dd>
+                        <dd>Vibrant community - scientists, programmers</dd>
+                        <dd>Enormous ecosystem of libraries available</dd>
+                        <dt>Cons:</dt>
+                        <dd>Slow speed and not memory efficient. But this problem is overcome by libraries, like numpy,
+                            pandas, etc.</dd>
+                        <dd>"Dependency Conflicts" when using many libraries. This problem is overcome by virtual
+                            environments and dependency management tools.</dd>
+                    </dl>
+                </section>
+            </section>
+            <section class="sub-sections"><h2>Jupyter Notebook</h2>
+                <section id="jupyter_notebook"><h3>Jupyter Notebook: The Scientist's Lab</h3>
+                    <dl class="fa">
+                        <dt>Jupyter Notebook is an open-source, web-based <strong>interactive environment</strong> that
+                            mixes <i>code</i>, <i>text</i>,
+                            <i>graphics</i>, and <i>formulas</i>. It allows you to execute code step-by-step, which is
+                            ideal for experiments and data analysis.
+                        </dt>
+                        <dt>Key Features:</dt>
+                        <dd><strong>Interactive:</strong> Run code in chunks (cells) and see results immediately.</dd>
+                        <dd><strong>Exploratory:</strong> Perfect for data cleaning, transformation, and visualization.
+                        </dd>
+                        <dd><strong>Shareable:</strong> Export to HTML, PDF, or share via GitHub and more.</dd>
+                        <dt>Reference: <a href="http://jupyter.org/">jupyter.org</a></dt>
+                    </dl>
+                </section>
+                <section id="jupyter_notebook_example"><h3>Jupyter Notebook Example</h3>
+                    <dl class="fa" style="min-width:80vw">
+                        <dt><a
+                                href="https://nbviewer.org/github/geekcourses/ProgressBG-ChatGPT_and_ML-Slides/blob/main/pages/themes/DataScienceAndMLToolsOverview/examples/simple_salary_analyses.ipynb">Simple
+                                salary analysis</a></dt>
+                    </dl>
+                </section>
+                <section id="jupyterlab"><h3>JupyterLab</h3>
+                    <dl class="fa">
+                        <dt>JupyterLab is the <strong>Next-Generation</strong> IDE for Project Jupyter.</dt>
+                        <dd><strong>Integrated Environment:</strong> Manage notebooks, terminals, text files, and data
+                            in a single tabbed interface.</dd>
+                        <dd><strong>Flexible Layout:</strong> Drag-and-drop to arrange multiple documents side-by-side
+                            (Split View).</dd>
+                        <dd><strong>Extensible:</strong> Modular design allows for rich extensions (Git, Table of
+                            Contents, Debuggers).</dd>
+                        <dd><strong>File Support:</strong> Native viewers for CSV, JSON, Markdown, PDF, and images.</dd>
+                        <dt>Reference: <a href="https://jupyterlab.readthedocs.io/en/stable/">JupyterLab
+                                Documentation</a></dt>
+                    </dl>
+                </section>
+                <section><h3>Working with Jupyter Lab Locally</h3>
+                    <dl class="fa">
+                        <dt>1. Create Virtual Environment</dt>
+                        <pre><code rel="Terminal" class="bash" data-trim>
+                            # Create
+                            python -m venv .venv
+
+                            # Activate (Windows)
+                            .venv\Scripts\activate
+
+                            # Activate (Linux/Mac)
+                            source .venv/bin/activate
+                        </code></pre>
+                        <dt>2. Install JupyterLab</dt>
+                        <pre><code rel="Terminal" class="bash" data-trim>
+                            pip install jupyterlab
+                        </code></pre>
+                        <dt>3. Start the Server</dt>
+                        <pre><code rel="Terminal" class="bash" data-trim>
+                            jupyter lab
+                        </code></pre>
+                        <dt>VSCode Support</dt>
+                        <dd>VSCode supports writing and running Jupyter Notebooks natively. It detects your virtual
+                            environment and provides a rich interface.</dd>
+                    </dl>
+                </section>
+                <section id="google_colab"><h3>Google Colab (Colaboratory)</h3>
+                    <dl class="fa">
+                        <dt>Hosted Jupyter Notebook service by Google ("Jupyter in the Cloud").</dt>
+                        <dd><strong>Zero Configuration:</strong> Runs entirely in the browser. No installation required.
+                        </dd>
+                        <dd><strong>Free Compute Resources:</strong> Access to powerful <strong>GPUs</strong> (Tesla T4)
+                            and <strong>TPUs</strong>. Critical for Deep Learning.</dd>
+                        <dd><strong>Google Drive Integration:</strong> Seamlessly save notebooks and load data from
+                            Drive.</dd>
+                        <dd><strong>Collaboration:</strong> Share, comment, and edit in real-time (like Google Docs).
+                        </dd>
+                        <dd><strong>Pre-installed Libraries:</strong> Comes with most Data Science libraries (Pandas,
+                            NumPy, TensorFlow, PyTorch) pre-installed.</dd>
+                        <dt>Reference: <a href="https://colab.research.google.com/">colab.research.google.com</a></dt>
+                    </dl>
+                </section>
+                <section><h3>Local vs Cloud Jupyter</h3>
+                    <dl class="fa">
+                        <dt><strong>Local JupyterLab</strong>:</dt>
+                        <dd><strong>Pros:</strong> You have <i>full control</i> over the environment, install the
+                            necessary packages, and work with <strong>Sensitive Data</strong> offline. This is the
+                            preferred method for corporate development.</dd>
+                        <dd><strong>Cons:</strong> Requires setup and maintenance, limited by local hardware.</dd>
+                        <dt><strong>Google Colab</strong>:</dt>
+                        <dd><strong>Pros:</strong> No setup, free access to GPUs/TPUs, easy sharing and collaboration.
+                        </dd>
+                        <dd><strong>Cons:</strong> Dependent on internet, limited session time, less control over
+                            environment.</dd>
+                    </dl>
+                </section>
+            </section>
+            <section class="sub-sections"><h2>NumPy: The fundamental package for scientific computing with Python</h2>
+                <section id="numpy"><h3>NumPy</h3>
+                    <dl class="fa">
+                        <dt>NumPy is the fundamental package for scientific computing with Python.</dt>
+                        <dt>It contains among other things:</dt>
+                        <dd>a powerful N-dimensional array object</dd>
+                        <dd>sophisticated (broadcasting) functions</dd>
+                        <dd>tools for integrating C/C++ and Fortran code</dd>
+                        <dd>useful linear algebra, Fourier transform, and random number capabilities</dd>
+                        <dt>Reference: <a href="http://www.numpy.org/">numpy.org</a></dt>
+                    </dl>
+                </section>
+                <section id="numpy_example"><h3>NumPy Example</h3>
+                    <pre><code rel="Python" class="python" style="min-height: 80vh;">
+                        import numpy as np
+
+                        # Create a 2D array (matrix)
+                        matrix = np.array([[1, 2, 3], [4, 5, 6]])
+                        print("Original Matrix:")
+                        print(matrix)
+
+                        # Transpose matrix
+                        print("Transposed Matrix:")
+                        print(matrix.T)
+
+                        # Element-wise multiplication
+                        result = matrix * 3
+
+                        print("Matrix Multiplication Result:")
+                        print(result)
+                    </code></pre>
+                </section>
+            </section>
+            <section class="sub-sections"><h2>Pandas: Python Data Analysis Library</h2>
+                <section id="pandas"><h3>Pandas: Python Data Analysis Library</h3>
+                    <dl class="fa">
+                        <dt>The backbone of Data Science in Python. Built on top of NumPy.</dt>
+                        <dt><strong>Core Data Structures:</strong></dt>
+                        <dd><strong>Series:</strong> 1D labeled array (like a column in a spreadsheet).</dd>
+                        <dd><strong>DataFrame:</strong> 2D labeled data structure (like a SQL table or Excel sheet).
+                        </dd>
+                        <dt><strong>Key Capabilities:</strong></dt>
+                        <dd><strong>Data Loading:</strong> Read/Write CSV, Excel, SQL, JSON, Parquet, etc.
+                            (<code>pd.read_csv()</code>)</dd>
+                        <dd><strong>Data Cleaning:</strong> Handle missing data (<code>dropna()</code>,
+                            <code>fillna()</code>), filter rows, rename columns.
+                        </dd>
+                        <dd><strong>Data Analysis:</strong> Grouping (<code>groupby()</code>), aggregation, pivot
+                            tables, statistical summaries (<code>describe()</code>).</dd>
+                        <dt>Reference: <a href="https://pandas.pydata.org/">pandas.pydata.org</a></dt>
+                    </dl>
+                </section>
+                <section><h3>Pandas DataFrame Example</h3>
+                    <pre><code class="python" rel="Python" style="min-height: 80vh;">
+                        import pandas as pd
+
+                        # Create a DataFrame
+                        data = {
+                            'Name': ['Alice', 'Bob', 'Charlie'],
+                            'Age': [25, 30, 35],
+                            'City': ['New York', 'London', 'Paris']
+                        }
+                        df = pd.DataFrame(data)
+
+                        # View first few rows
+                        print(df.head())
+
+                        # Calculate mean age
+                        print(df['Age'].mean())
+                    </code></pre>
+                </section>
+            </section>
+            <section class="sub-sections"><h2>Data Visualization & ML Libraries</h2>
+                <section id="matplotlib"><h3>Matplotlib</h3>
+                    <dl class="fa">
+                        <dt>A Python 2D plotting library</dt>
+                        <dd>Produces publication quality figures in a variety of formats</dd>
+                        <dd>Matplotlib tries <i>to make easy things easy and hard things possible</i></dd>
+                        <dd>Can generate <span class="note">plots</span>, <span class="note">histograms</span>, <span
+                                class="note">power spectra</span>, <span class="note">bar charts</span>, <span
+                                class="note">errorcharts</span>, <span class="note">scatterplots</span>, etc., with just
+                            a few lines of code</dd>
+                        <dt>Reference: <a href="https://matplotlib.org/">matplotlib.org</a></dt>
+                    </dl>
+                </section>
+                <section id="seaborn"><h3>seaborn</h3>
+                    <dl class="fa">
+                        <dt>Seaborn is a sofisticated Python data visualization library</dt>
+                        <dd>Based on <span class="note">matplotlib</span></dd>
+                        <dd>Closely integrated with <span class="note">pandas</span> data structures</dd>
+                        <dd>Features: <a href="https://seaborn.pydata.org/introduction.html#introduction">An
+                                introduction to seaborn</a></dd>
+                        <dt>Reference: <a href="https://seaborn.pydata.org/">seaborn.pydata.org</a></dt>
+                    </dl>
+                </section>
+            </section>
+            <section class="sub-sections"><h2>Machine Learning Frameworks</h2>
+                <section id="scikit_learn"><h3>scikit-learn</h3>
+                    <dl class="fa">
+                        <dt>scikit-learn - Machine Learning in Python</dt>
+                        <dd>Simple and efficient tools for data mining and data analysis</dd>
+                        <dd>Accessible to everybody, and reusable in various contexts</dd>
+                        <dd>Built on NumPy, SciPy, and matplotlib</dd>
+                        <dd>Open source, commercially usable - BSD license</dd>
+                        <dt>Reference: <a href="http://scikit-learn.org/stable/index.html">scikit-learn.org</a></dt>
+                    </dl>
+                </section>
+                <section id="tensorflow"><h3>tensorflow</h3>
+                    <dl class="fa">
+                        <dt>TensorFlow is an <strong>end-to-end</strong> open source machine learning platform developed
+                            by <strong>Google</strong>.</dt>
+                        <dd>It is primarily used for <strong>Deep Learning</strong> (the engine behind technologies like
+                            ChatGPT and image recognition).</dd>
+                        <dd>It handles complex calculations using <strong>Tensors</strong> (multi-dimensional arrays,
+                            similar to NumPy but optimized for GPUs).</dd>
+                        <dd>It features <strong>Keras</strong>, an intuitive, high-level API that makes building neural
+                            networks much simpler for beginners.</dd>
+                        <dd>Supports easy deployment of models to the cloud, browsers (TensorFlow.js), or mobile
+                            devices.</dd>
+                        <dt>Reference: <a href="https://www.tensorflow.org/">tensorflow.org</a></dt>
+                    </dl>
+                </section>
+                <section id="pytorch"><h3>PyTorch</h3>
+                    <dl class="fa">
+                        <dt>PyTorch is an open-source machine learning framework developed by <strong>Meta (formerly
+                                Facebook)</strong>.</dt>
+                        <dd>It is the primary competitor to TensorFlow, especially dominant in <strong>Deep Learning
+                                research</strong> and academic communities.</dd>
+                        <dd>Its core feature is its use of <strong>dynamic computation graphs</strong>, which allows for
+                            more flexible and intuitive coding for complex models.</dd>
+                        <dd>PyTorch is known for its "Pythonic" feel, making it easier for those already familiar with
+                            Python programming.</dd>
+                        <dd>Uses the <strong>TorchScript</strong> tool to transition models from research (flexible,
+                            dynamic) to production (stable, optimized).</dd>
+                        <dt>Reference: <a href="https://pytorch.org/">pytorch.org</a></dt>
+                    </dl>
+                </section>
+            </section>
+
+
+            <!-- <section class="main-sesction-title" id="hw"><h1>Exercises</h1></section>
+<section class="sub-sections"><h2>Task1</h2>
+    <section><h3>The Task</h3>
+
+    </section>
+</section> -->
+
+            <!-- <section><h3>Submission</h3>
+    <dl class="fa">
+        <dt>Please, prefix your filenames/archive with your name initials, before sending.</dt>
+        <dd>For instance: <b>iep_task1.py</b> or <b>iep_tasks.rar</b></dd>
+        <dt>Send files to <a href="mailto:progressbg.python.course@gmail.com?Subject=HW: DataScienceAndMLTools">progressbg.python.course@gmail.com</a></dt>
+    </dl>
+</section> -->
+
+
+
+            <section class="disclaimer"
+                data-background="/ProgressBG-ChatGPT_and_ML-Slides/outfit/images/for_slides/the_end_on_sand.jpg">
+                <p>These slides are based on</p>
+                <p>customised version of </p>
+                <p><a href="http://hakim.se/">Hakimel</a>'s <a href="http://lab.hakim.se/reveal-js">reveal.js</a></p>
+                <p>framework</p>
+            </section>
+            <!--
+########################################################
+##################### SLIDES END   #####################
+########################################################
+-->
+        </div>
+    </div>
+    <!-- Custom processing -->
+    <script src="/ProgressBG-ChatGPT_and_ML-Slides/outfit/js/slides.js"></script>
+    <!-- external scripts -->
+    <script src="/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/lib/js/head.min.js"></script>
+    <script src="/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/js/reveal.js"></script>
+    <!-- init reveal -->
+    <script>
+        // Full list of configuration options available at:
+        // https://github.com/hakimel/reveal.js#configuration
+        var highlightjsTabSize = '  ';
+        Reveal.initialize({
+            controls: true,
+            progress: true,
+            slideNumber: 'c/t',
+            keyboard: true,
+            history: true,
+            center: true,
+            width: 1920,
+            height: 1280,
+            // Bounds for smallest/largest possible scale to apply to content
+            // minScale: .5,
+            maxScale: 1,
+            // slide transition
+            transition: 'concave', // none/fade/slide/convex/concave/zoom
+            // Factor of the display size that should remain empty around the content
+            margin: 0.1,
+            // shift+mouse click to zoom in/out element
+            zoomKey: 'ctrl',
+            // theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+            // transition: Reveal.getQueryHash().transition || 'default'
+            // Optional reveal.js plugins
+            dependencies: [
+                { src: '/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/lib/js/classList.js', condition: function () { return !document.body.classList; } },
+                { src: '/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/plugin/markdown/marked.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+                { src: '/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/plugin/markdown/markdown.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+                { src: '/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/plugin/highlight/highlight.js', async: true, callback: function () { hljs.configure(); hljs.initHighlightingOnLoad(); } },
+                { src: '/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/plugin/zoom-js/zoom.js', async: true },
+                { src: '/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/plugin/notes/notes.js', async: true }
+            ]
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>HandsOnWithPandasInJupyterNotebook</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <link rel="shortcut icon" href="/ProgressBG-ChatGPT_and_ML-Slides/images/favicons/favicon-32.png">
+    <!-- css & themes include -->
+    <link rel="stylesheet" href="/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/css/reveal.css">
+    <link rel="stylesheet" href="/ProgressBG-ChatGPT_and_ML-Slides/outfit/css/themes/light.css" id="theme">
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? '/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/css/print/pdf.css' : '/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+    <!-- CUSTOM -->
+    <base target="_blank">
+</head>
+
+<body>
+    <div class="reveal default center" data-transition-speed="default" data-background-transition="default">
+        <div class="top_links">
+            <a class="home_link"
+                href="/ProgressBG-ChatGPT_and_ML-Slides/pages/agenda/agenda.html#HandsOnWithPandasInJupyterNotebook"
+                target="_top"><i class="fa fa-home"></i></a>
+            <span class="help_link" href="#"><i class="fa fa-question"></i></span>
+            <div class="help_text">
+                <div class="note">Keyboard shortcuts:</div>
+                <div><span>N/Space</span><span>Next Slide</span></div>
+                <div><span>P</span><span>Previous Slide</span></div>
+                <div><span>O</span><span>Slides Overview</span></div>
+                <div><span>ctrl+left click</span><span>Zoom Element</span></div>
+                <div class="print-howto"><br>If you want print version => add '<code>?print-pdf</code>' <br> at the end
+                    of slides URL (remove '#' fragment) and then print. <br>
+                    Like: https://ProgressBG-ChatGPT_and_ML-course.github.io/...CourseIntro.html?print-pdf </div>
+            </div>
+        </div>
+        <div class="footer theme_switch">
+            <a href="#"
+                onclick="document.getElementById('theme').setAttribute('href','/ProgressBG-ChatGPT_and_ML-Slides/outfit/css/themes/dark.css'); return false;">Dark</a>
+            <a href="#"
+                onclick="document.getElementById('theme').setAttribute('href','/ProgressBG-ChatGPT_and_ML-Slides/outfit/css/themes/light.css'); return false;">Light</a>
+            <a href="#"
+                onclick="document.getElementById('theme').setAttribute('href','/ProgressBG-ChatGPT_and_ML-Slides/outfit/css/themes/projector.css'); return false;">Projector</a>
+        </div>
+        <div class="slides">
+            <!--
+########################################################
+##################### SLIDES START #####################
+########################################################
+-->
+            <section>
+                <h1>Hands-On with Pandas in Jupyter Notebook</h1>
+            </section>
+            <section data-transition="zoom">
+                <!-- linkedin badge -->
+                <!--<script type="text/javascript" src="https://platform.linkedin.com/badges/js/profile.js" async defer></script>-->
+                <section class="copyright" data-transition="zoom">
+                    <div class="note">
+                        <p>Created for</p>
+                    </div>
+                    <div class="company">
+                        <a href="http://progressbg.net/програмиране-с-python-2/">
+                            <img style="height:80%"
+                                src="/ProgressBG-ChatGPT_and_ML-Slides/outfit/images/logos/ProgressBG_logo_529_127.png">
+                        </a>
+                    </div>
+                    <div class="author">
+                        <span class="note">Iva E. Popova, 2016-2025,</span>
+                        <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img
+                                alt="Creative Commons License" style="border-width:0"
+                                src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"></a>
+                    </div>
+                </section>
+                <section class="copyright" data-transition="zoom" style="margin-top: -2em;">
+                    <div class="company">
+                        <div class="LI-profile-badge" data-version="v1" data-size="large" data-locale="en_US"
+                            data-type="vertical" data-theme="dark" data-vanity="ivapopova"><a class="LI-simple-link"
+                                href='https://bg.linkedin.com/in/ivapopova?trk=profile-badge'>Iva E. Popova on
+                                LinkedIn</a></div>
+                    </div>
+                </section>
+            </section>
+
+
+            <section class="main-sesction-title" id="working_with_jupyter">
+                <h1>Working locally with Jupyter Lab</h1>
+            </section>
+            <section class="sub-sections">
+                <h2>Jupyter Lab Interface</h2>
+                <section>
+                    <a href="./images/JupyterLabHomeUI.png"><img src="./images/JupyterLabHomeUI.png"
+                            alt="JupyterLabHomeUI.png"></a>
+                    <dl class="fa" style="min-width:80vw">
+                        <dt><b>The Launcher:</b> Your starting point to create Notebooks, Consoles, or Terminals.</dt>
+                        <dt><b>File Browser:</b> (Left sidebar) Manage files and folders.</dt>
+                        <dt><b>The Notebook Area:</b> Where you write code and text.</dt>
+                        <dd><b>Code Cells:</b> Execute Python code.</dd>
+                        <dd><b>Markdown Cells:</b> Write formatted text (like this slide!).</dd>
+                    </dl>
+                </section>
+                <section>
+                    <h3>Running Code</h3>
+                    <dl class="fa" style="min-width:80vw">
+                        <dt>To run a cell:</dt>
+                        <dd>Click the <b>Play</b> button in the toolbar.</dd>
+                        <dd>Or press <code>Shift + Enter</code> (Runs and moves to next cell).</dd>
+                        <dd>Or press <code>Ctrl + Enter</code> (Runs and stays in current cell).</dd>
+                    </dl>
+                </section>
+            </section>
+
+            <section class="sub-sections">
+                <h2>Google Colab Basics</h2>
+                <section>
+                    <h3>Google Colab:  Accessing and Creating Notebooks</h3>
+                    <dl class="fa" style="min-width:80vw">
+                        <dt><b>Step 1:</b> Go to <a
+                                href="https://colab.research.google.com">colab.research.google.com</a>.</dt>
+                        <dt><b>Step 2:</b> Log in with your Google Account.</dt>
+                        <dt><b>Step 3:</b> Click on <b>New Notebook</b> in the bottom right of the welcome modal, or go
+                            to <b>File > New notebook</b>.</dt>
+                        <dt><b>Step 4:</b> Rename your notebook by clicking on the file name at the top left.</dt>
+                    </dl>
+                </section>
+                <section>
+                    <h3>The Interface & Runtime</h3>
+                    <dl class="fa" style="min-width:80vw">
+                        <dt><b>Connect:</b> Click "Connect" (top right) to allocate server resources (RAM/Disk).</dt>
+                        <dt><b>Code & Text:</b> Use "+ Code" or "+ Text" buttons to add cells.</dt>
+                        <dt><b>Files:</b> Click the folder icon on the left sidebar to view temporary files.</dt>
+                    </dl>
+                </section>
+                <section>
+                    <h3>Mounting Google Drive</h3>
+                    <dl class="fa" style="min-width:80vw">
+                        <dt>To access files from your Drive:</dt>
+                        <pre><code rel="Python" class="python" style="min-height: 10vh;">
+                from google.colab import drive
+                drive.mount('/content/drive')
+            </code></pre>
+                        <dt>This allows you to read/write datasets directly to your cloud storage.</dt>
+                    </dl>
+                </section>
+                <section>
+                    <h3>Sharing and Exporting</h3>
+                    <dl class="fa" style="min-width:80vw">
+                        <dt><b>Sharing:</b> Click the <b>Share</b> button (top right) to let others view or edit (just
+                            like Google Docs).</dt>
+                        <dt><b>Exporting:</b> Go to <b>File > Download</b>.</dt>
+                        <dd>Download <code>.ipynb</code> to run in Jupyter Lab/Notebook locally.</dd>
+                        <dd>Download <code>.py</code> to get the raw Python script.</dd>
+                    </dl>
+                </section>
+            </section>
+
+            <section class="main-sesction-title" id="intro">
+                <h1>Introduction to Pandas</h1>
+            </section>
+            <section class="sub-sections">
+                <h2>What is Pandas?</h2>
+                <section>
+                    <h3>Overview</h3>
+                    <dl class="fa" style="min-width:80vw">
+                        <dt>Pandas is a fast, powerful, flexible and easy to use open source data analysis and
+                            manipulation tool.</dt>
+                        <dt>It is built on top of the Python programming language.</dt>
+                        <dt>Key structures:</dt>
+                        <dd><b>Series</b>: 1D labeled array (like a column).</dd>
+                        <dd><b>DataFrame</b>: 2D labeled data structure (like a table).</dd>
+                    </dl>
+                </section>
+            </section>
+
+            <section class="sub-sections">
+                <h2>Getting Started</h2>
+                <section>
+                    <h3>Importing Pandas</h3>
+                    <dl class="fa" style="min-width:80vw">
+                        <dt>To use Pandas, you must first import it.</dt>
+                        <dt>The standard alias is <code>pd</code>.</dt>
+                        <pre><code rel="Python" class="python" style="min-height: 10vh;">
+                import pandas as pd
+            </code></pre>
+                    </dl>
+                </section>
+            </section>
+
+            <section class="sub-sections">
+                <h2>The DataFrame</h2>
+                <section>
+                    <h3>Creating a DataFrame</h3>
+                    <dl class="fa" style="min-width:80vw">
+                        <dt>You can create a DataFrame from a dictionary.</dt>
+                        <pre><code rel="Python" class="python" style="min-height: 20vh;">
+                data = {
+                    'Name': ['Alice', 'Bob', 'Charlie'],
+                    'Age': [25, 30, 35],
+                    'City': ['New York', 'London', 'Paris']
+                }
+                df = pd.DataFrame(data)
+                print(df)
+            </code></pre>
+                    </dl>
+                </section>
+            </section>
+
+            <section class="sub-sections">
+                <h2>Loading Data</h2>
+                <section>
+                    <h3>Reading CSV Files</h3>
+                    <dl class="fa" style="min-width:80vw">
+                        <dt>Pandas makes it easy to read data from CSV files.</dt>
+                        <pre><code rel="Python" class="python" style="min-height: 10vh;">
+                # Read a CSV file into a DataFrame
+                df = pd.read_csv('data.csv')
+            </code></pre>
+                        <dt>Other formats supported: Excel, JSON, SQL, etc.</dt>
+                    </dl>
+                </section>
+            </section>
+
+            <section class="sub-sections">
+                <h2>Inspecting Data</h2>
+                <section>
+                    <h3>Basic Inspection Methods</h3>
+                    <dl class="fa" style="min-width:80vw">
+                        <dt><code>df.head()</code>: View the first 5 rows.</dt>
+                        <dt><code>df.tail()</code>: View the last 5 rows.</dt>
+                        <dt><code>df.info()</code>: Summary of the DataFrame (columns, types, non-null counts).</dt>
+                        <dt><code>df.describe()</code>: Statistical summary of numerical columns.</dt>
+                    </dl>
+                </section>
+            </section>
+
+            <section class="sub-sections">
+                <h2>Selecting Data</h2>
+                <section>
+                    <h3>Selecting Columns</h3>
+                    <dl class="fa" style="min-width:80vw">
+                        <dt>Select a single column:</dt>
+                        <pre><code rel="Python" class="python" style="min-height: 5vh;">
+                ages = df['Age']
+            </code></pre>
+                        <dt>Select multiple columns:</dt>
+                        <pre><code rel="Python" class="python" style="min-height: 5vh;">
+                name_city = df[['Name', 'City']]
+            </code></pre>
+                    </dl>
+                </section>
+            </section>
+
+            <section class="sub-sections">
+                <h2>Basic Filtering</h2>
+                <section>
+                    <h3>Filtering Rows</h3>
+                    <dl class="fa" style="min-width:80vw">
+                        <dt>Select rows based on a condition.</dt>
+                        <pre><code rel="Python" class="python" style="min-height: 10vh;">
+                # Select people older than 28
+                older_than_28 = df[df['Age'] > 28]
+            </code></pre>
+                    </dl>
+                </section>
+            </section>
+
+
+
+            <section class="disclaimer"
+                data-background="/ProgressBG-ChatGPT_and_ML-Slides/outfit/images/for_slides/the_end_on_sand.jpg">
+                <p>These slides are based on</p>
+                <p>customised version of </p>
+                <p><a href="http://hakim.se/">Hakimel</a>'s <a href="http://lab.hakim.se/reveal-js">reveal.js</a></p>
+                <p>framework</p>
+            </section>
+            <!--
+########################################################
+##################### SLIDES END   #####################
+########################################################
+-->
+        </div>
+    </div>
+    <!-- Custom processing -->
+    <script src="/ProgressBG-ChatGPT_and_ML-Slides/outfit/js/slides.js"></script>
+    <!-- external scripts -->
+    <script src="/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/lib/js/head.min.js"></script>
+    <script src="/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/js/reveal.js"></script>
+    <!-- init reveal -->
+    <script>
+        // Full list of configuration options available at:
+        // https://github.com/hakimel/reveal.js#configuration
+        var highlightjsTabSize = '  ';
+        Reveal.initialize({
+            controls: true,
+            progress: true,
+            slideNumber: 'c/t',
+            keyboard: true,
+            history: true,
+            center: true,
+            width: 1920,
+            height: 1280,
+            // Bounds for smallest/largest possible scale to apply to content
+            // minScale: .5,
+            maxScale: 1,
+            // slide transition
+            transition: 'concave', // none/fade/slide/convex/concave/zoom
+            // Factor of the display size that should remain empty around the content
+            margin: 0.1,
+            // shift+mouse click to zoom in/out element
+            zoomKey: 'ctrl',
+            // theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+            // transition: Reveal.getQueryHash().transition || 'default'
+            // Optional reveal.js plugins
+            dependencies: [
+                { src: '/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/lib/js/classList.js', condition: function () { return !document.body.classList; } },
+                { src: '/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/plugin/markdown/marked.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+                { src: '/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/plugin/markdown/markdown.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+                { src: '/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/plugin/highlight/highlight.js', async: true, callback: function () { hljs.configure(); hljs.initHighlightingOnLoad(); } },
+                { src: '/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/plugin/zoom-js/zoom.js', async: true },
+                { src: '/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/plugin/notes/notes.js', async: true }
+            ]
+        });
+    </script>
+</body>
+
+</html>
