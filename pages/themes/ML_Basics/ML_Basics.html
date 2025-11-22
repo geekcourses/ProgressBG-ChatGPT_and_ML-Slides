@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>ML_Basics</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <link rel="shortcut icon" href="/ProgressBG-ChatGPT_and_ML-Slides/images/favicons/favicon-32.png">
+    <!-- css & themes include -->
+    <link rel="stylesheet" href="/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/css/reveal.css">
+    <link rel="stylesheet" href="/ProgressBG-ChatGPT_and_ML-Slides/outfit/css/themes/light.css" id="theme">
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? '/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/css/print/pdf.css' : '/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+    <!-- CUSTOM -->
+    <base target="_blank">
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']] // This enables both $...$ and \(...\)
+            },
+            // Remove 'async' from the main script if you use this pre-configuration block
+        };
+    </script>
+    <script id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+</head>
+
+<body>
+    <div class="reveal default center" data-transition-speed="default" data-background-transition="default">
+        <div class="top_links">
+            <a class="home_link" href="/ProgressBG-ChatGPT_and_ML-Slides/pages/agenda/agenda.html#ML_Basics"
+                target="_top"><i class="fa fa-home"></i></a>
+            <span class="help_link" href="#"><i class="fa fa-question"></i></span>
+            <div class="help_text">
+                <div class="note">Keyboard shortcuts:</div>
+                <div><span>N/Space</span><span>Next Slide</span></div>
+                <div><span>P</span><span>Previous Slide</span></div>
+                <div><span>O</span><span>Slides Overview</span></div>
+                <div><span>ctrl+left click</span><span>Zoom Element</span></div>
+                <div class="print-howto"><br>If you want print version => add '<code>?print-pdf</code>' <br> at the end
+                    of slides URL (remove '#' fragment) and then print. <br>
+                    Like: https://ProgressBG-ChatGPT_and_ML-course.github.io/...CourseIntro.html?print-pdf </div>
+            </div>
+        </div>
+        <div class="footer theme_switch">
+            <a href="#"
+                onclick="document.getElementById('theme').setAttribute('href','/ProgressBG-ChatGPT_and_ML-Slides/outfit/css/themes/dark.css'); return false;">Dark</a>
+            <a href="#"
+                onclick="document.getElementById('theme').setAttribute('href','/ProgressBG-ChatGPT_and_ML-Slides/outfit/css/themes/light.css'); return false;">Light</a>
+            <a href="#"
+                onclick="document.getElementById('theme').setAttribute('href','/ProgressBG-ChatGPT_and_ML-Slides/outfit/css/themes/projector.css'); return false;">Projector</a>
+        </div>
+        <div class="slides">
+            <!--
+########################################################
+##################### SLIDES START #####################
+########################################################
+-->
+            <section><h1>Machine Learning basics</h1></section>
+            <section data-transition="zoom">
+                <!-- linkedin badge -->
+                <!--<script type="text/javascript" src="https://platform.linkedin.com/badges/js/profile.js" async defer></script>-->
+                <section class="copyright" data-transition="zoom">
+                    <div class="note">
+                        <p>Created for</p>
+                    </div>
+                    <div class="company">
+                        <a href="http://progressbg.net/програмиране-с-python-2/">
+                            <img style="height:80%"
+                                src="/ProgressBG-ChatGPT_and_ML-Slides/outfit/images/logos/ProgressBG_logo_529_127.png">
+                        </a>
+                    </div>
+                    <div class="author">
+                        <span class="note">Iva E. Popova, 2016-2025,</span>
+                        <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img
+                                alt="Creative Commons License" style="border-width:0"
+                                src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"></a>
+                    </div>
+                </section>
+                <section class="copyright" data-transition="zoom" style="margin-top: -2em;">
+                    <div class="company">
+                        <div class="LI-profile-badge" data-version="v1" data-size="large" data-locale="en_US"
+                            data-type="vertical" data-theme="dark" data-vanity="ivapopova"><a class="LI-simple-link"
+                                href='https://bg.linkedin.com/in/ivapopova?trk=profile-badge'>Iva E. Popova on
+                                LinkedIn</a></div>
+                    </div>
+                </section>
+            </section>
+
+
+            <section class="main-sesction-title" id="IntroToML"><h1>Introduction to Machine Learning</h1></section>
+            <section class="sub-sections"><h2>Introduction to Machine Learning</h2>
+                <section><h3>What are ML models?</h3>
+                    <dl class="fa" style="min-width:80vw">
+                        <dt>Definition</dt>
+                        <dd>Machine Learning is a subset of AI that focuses on building systems that learn from data.
+                        </dd>
+                        <dt>How they learn?</dt>
+                        <dd>Instead of explicit programming rules, ML models find patterns and relationships in data to
+                            make predictions or decisions.</dd>
+                        <dt>Key Components</dt>
+                        <dd>Data (Training Set), Model (Algorithm), Evaluation (Testing).</dd>
+                    </dl>
+                </section>
+                <section><h3>Machine Learning - Definitions</h3>
+                    <dl class="fa">
+                        <blockquote cite="https://en.wikipedia.org/wiki/Arthur_Samuel_(computer_scientist)">
+                            "Machine learning is a field of study that gives computers the ability to learn without being explicitly programmed."
+                            <footer><a href="https://en.wikipedia.org/wiki/Arthur_Samuel_(computer_scientist)" target="_blank">Arthur Samuel</a>, 1959. </footer>
+                        </blockquote>
+                        <blockquote cite="https://en.wikipedia.org/wiki/Machine_learning">
+                            Machine learning (ML) is a field of study in Artificial Intelligence concerned with the development and study of statistical algorithms that can learn from data and generalise to unseen data, and thus perform tasks without explicit instructions.
+                            <footer><a href="https://en.wikipedia.org/wiki/Machine_learning">https://en.wikipedia.org/wiki/Machine_learning</a></footer>
+                        </blockquote>
+                    </dl>
+                </section>
+                <section><h3>ML vs Traditional Programming</h3>
+                    <dl class="fa" style="min-width:80vw">
+                        <dt>Traditional Programming</dt>
+                        <dd>Data (Input) + Program (Rules) = Result (Output)</dd>
+                        <dt>Machine Learning</dt>
+                        <dd>Data (Input) + Result (Output) = Program (Model)</dd>
+                        <a href="./images/ML_vs_TraditionalProgramming.png"><img src="./images/ML_vs_TraditionalProgramming.png" alt="ML_vs_Traditional_Programming.png" style="width: 60vw;"></a>
+                    </dl>
+                </section>
+                <section><h3>Algorithm and Model in ML - concepts clarification</h3>
+                    <dl class="fa" style="min-width:80vw">
+                        <dt><strong>ML Algorithm</strong></dt>
+                        <dd>A set of mathematical rules and procedures used to find patterns in data and build a model.
+                        </dd>
+                        <a href="images/Classification-of-the-most-common-machine-learning-algorithms.png"><img src="images/Classification-of-the-most-common-machine-learning-algorithms.png" style="height: 80vh;"></a>
+                        <dt><strong>ML Model</strong></dt>
+                        <dd>The output of an ML algorithm after training on data.</dd>
+                        <dd>It represents the learned patterns and can make predictions on new data.</dd>
+                    </dl>
+                </section>
+                <section><h3>Types of Machine Learning</h3>
+                    <a href="./images/ML_algorithms_types.png"><img src="./images/ML_algorithms_types.png" alt="ML_algorithms_types.png" style="width:100vw;"></a>
+                </section>
+            </section>
+
+            <section data-min="10" class="main-section-title"><h1>Supervised Learning Basics </h1></section>
+            <section class="sub-sections"><h2>Supervised Learning Basics</h2>
+                <section><h3>It's all about training</h3>
+                    <a href="./images/TraingML.png"><img src="./images/TraingML.png" alt="TraingML.png" style="height: 100vh; "></a>
+                </section>
+                <section><h3>Overview</h3>
+                    <dl class="fa">
+                        <dt>Supervised ML algorithms are the most used algorithms in practice.</dt>
+                        <dt>Supervised ML is when we have historical <span class="note">data with mapped input => output pairs</span> and we use an algorithm to learn the mapping function from the input to the output.</dt>
+                        <dt>Input data are called <i class="note">features</i> or <i class="note">input (free) variables (<b>X</b>)</i></dt>
+                        <dt>Output data is called <i class="note">target</i> or <i class="note">dependent variable (<b>y</b>)</i></dt>
+                        <a href="./images/SupervisedML.png" style="display: block; float: left;"><img src="./images/SupervisedML.png" alt="SupervisedML.png" style="height: 70vh;"></a>
+                        <a href="./images/feature_target_concepts.png" style="display: block; float: left;"><img src="./images/feature_target_concepts.png" alt="feature_target_concepts " style="height: 70vh;"></a>
+                    </dl>
+                </section>
+                <section><h3>Overview</h3>
+                    <dl class="fa">
+                        <dt>The goal is to <span class="note">approximate the mapping function</span>: <span>$ {Y = f(X)} $</span>, so well that when we have new input data (X) we can predict the output variables (Y) for that data.</dt>
+                        <dt>The model is trained until it can detect the underlying patterns and relationships between the input data and the output labels, enabling it to yield accurate labeling results when presented with never-before-seen data</dt>
+                        <dt>The job of modeling algorithm is to find the best mapping function, such that will minimize the error on prediction.
+                    </dl>
+                    <a href="./animations/regression_fitting.gif"><img src="./animations/regression_fitting.gif" alt="mapping_function.jpeg" style="width: 7 0vw;"></a>
+                </section>
+                <section><h3>Problems that solves</h3>
+                    <dl class="fa">
+                        <dt>Two main problems categories:</dt>
+                        <dt class="note">classification</dt>
+                        <dd>predicting a <span class="note">discrete class label</span> output for an example.</dd>
+                        <dd>example: determining if an email is spam or not</dd>
+                        <dt class="note">regression</dt>
+                        <dd>predicting a <span class="note">continuous quantity (value)</span> output for an example.</dd>
+                        <dd>example: predict the price of a house</dd>
+                        <dd><a href="https://blog.minitab.com/en/blog/statistics-and-quality-data-analysis/so-why-is-it-called-regression-anyway">So Why Is It Called Regression Anyway</a></dd>
+                    </dl>
+                </section>
+            </section>
+
+
+
+
+            <section class="main-sesction-title" id="ScikitLearn"><h1>Scikit-Learn & Examples</h1></section>
+            <section class="sub-sections"><h2>Scikit-Learn & Examples</h2>
+                <section><h3>Introduction to scikit-learn</h3>
+                    <dl class="fa" style="min-width:80vw">
+                        <dt>What is scikit-learn?</dt>
+                        <dd>A robust and simple tool for data mining and data analysis in Python.</dd>
+                        <dt>Key Features</dt>
+                        <dd>Built on NumPy, SciPy, and matplotlib.</dd>
+                        <dd>Unified API: <code>estimator.fit(X, y)</code>, <code>estimator.predict(X)</code>.</dd>
+                    </dl>
+                </section>
+                <section><h3>Simple Regression Example</h3>
+                    <dl class="fa" style="min-width:80vw">
+                        <dt>Linear Regression</dt>
+                        <dd>Predicting a continuous target variable.</dd>
+                        <pre><code rel="Python" class="python" style="min-height: 10vh;">
+                            from sklearn.linear_model import LinearRegression
+                            import numpy as np
+
+                            # Data
+                            X = np.array([[1], [2], [3], [4]])
+                            y = np.array([2, 4, 6, 8])
+
+                            # Model
+                            model = LinearRegression()
+                            model.fit(X, y)
+
+                            # Prediction
+                            print(model.predict([[5]])) # Output: [10.]
+                        </code></pre>
+                    </dl>
+                </section>
+                <section><h3>Simple Classification Example</h3>
+                    <dl class="fa" style="min-width:80vw">
+                        <dt>Logistic Regression (Binary Classification)</dt>
+                        <dd>Predicting a class label (0 or 1).</dd>
+                        <pre><code rel="Python" class="python" style="min-height: 10vh;">
+                            from sklearn.linear_model import LogisticRegression
+
+                            # Data (Features: [Age, Salary], Label: Bought)
+                            X = [[20, 20000], [25, 30000], [40, 60000], [50, 80000]]
+                            y = [0, 0, 1, 1]
+
+                            # Model
+                            clf = LogisticRegression()
+                            clf.fit(X, y)
+
+                            # Prediction
+                            print(clf.predict([[45, 70000]])) # Output: [1]
+                        </code></pre>
+                    </dl>
+                </section>
+            </section>
+
+
+            <section class="main-sesction-title" id="ModelEval"><h1>Model Evaluation</h1></section>
+            <section class="sub-sections"><h2>Model Evaluation</h2>
+                <section><h3>Evaluation Metrics</h3>
+                    <dl class="fa" style="min-width:80vw">
+                        <dt>Accuracy</dt>
+                        <dd>Ratio of correctly predicted observations to the total observations.</dd>
+                        <dt>Confusion Matrix</dt>
+                        <dd>A table used to describe the performance of a classification model (TP, TN, FP, FN).</dd>
+                        <dt>Precision</dt>
+                        <dd>Ratio of correctly predicted positive observations to the total predicted positives.</dd>
+                        <dt>Recall (Sensitivity)</dt>
+                        <dd>Ratio of correctly predicted positive observations to the all observations in actual class.
+                        </dd>
+                    </dl>
+                </section>
+            </section>
+
+
+            <section id="hw">
+                <section><h1>Homework</h1></section>
+                <section id="task1"><h3>Homework</h3>
+                    <dl class="fa">
+                        <dt>The tasks are given in next <a href="__URL__">file</a></dt>
+                        <dt>You can copy it and work directly on it. Just put your code under "### Your code here".</dt>
+                    </dl>
+                </section>
+            </section>
+
+
+
+            <section class="disclaimer"
+                data-background="/ProgressBG-ChatGPT_and_ML-Slides/outfit/images/for_slides/the_end_on_sand.jpg">
+                <p>These slides are based on</p>
+                <p>customised version of </p>
+                <p><a href="http://hakim.se/">Hakimel</a>'s <a href="http://lab.hakim.se/reveal-js">reveal.js</a></p>
+                <p>framework</p>
+            </section>
+            <!--
+########################################################
+##################### SLIDES END   #####################
+########################################################
+-->
+        </div>
+    </div>
+    <!-- Custom processing -->
+    <script src="/ProgressBG-ChatGPT_and_ML-Slides/outfit/js/slides.js"></script>
+    <!-- external scripts -->
+    <script src="/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/lib/js/head.min.js"></script>
+    <script src="/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/js/reveal.js"></script>
+    <!-- init reveal -->
+    <script>
+        // Full list of configuration options available at:
+        // https://github.com/hakimel/reveal.js#configuration
+        var highlightjsTabSize = '  ';
+        Reveal.initialize({
+            controls: true,
+            progress: true,
+            slideNumber: 'c/t',
+            keyboard: true,
+            history: true,
+            center: true,
+            width: 1920,
+            height: 1280,
+            // Bounds for smallest/largest possible scale to apply to content
+            // minScale: .5,
+            maxScale: 1,
+            // slide transition
+            transition: 'concave', // none/fade/slide/convex/concave/zoom
+            // Factor of the display size that should remain empty around the content
+            margin: 0.1,
+            // shift+mouse click to zoom in/out element
+            zoomKey: 'ctrl',
+            // theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+            // transition: Reveal.getQueryHash().transition || 'default'
+            // Optional reveal.js plugins
+            dependencies: [
+                { src: '/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/lib/js/classList.js', condition: function () { return !document.body.classList; } },
+                { src: '/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/plugin/markdown/marked.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+                { src: '/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/plugin/markdown/markdown.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+                { src: '/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/plugin/highlight/highlight.js', async: true, callback: function () { hljs.configure(); hljs.initHighlightingOnLoad(); } },
+                { src: '/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/plugin/zoom-js/zoom.js', async: true },
+                { src: '/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/plugin/notes/notes.js', async: true }
+            ]
+        });
+    </script>
+</body>
+
+</html>

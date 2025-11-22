@@ -1,0 +1,7 @@
+# This file is used internally by FFMPEG.
+file 'file:/data/projects/courses/ProgressBG/ProgressBG-ChatGPT_and_ML/ProgressBG-ChatGPT_and_ML-Slides/media/videos/regression_fitting_manim/480p15/partial_movie_files/RegressionFitting/1185818338_4087958052_3140997133.mp4'
+file 'file:/data/projects/courses/ProgressBG/ProgressBG-ChatGPT_and_ML/ProgressBG-ChatGPT_and_ML-Slides/media/videos/regression_fitting_manim/480p15/partial_movie_files/RegressionFitting/624642324_1839128356_1923445367.mp4'
+file 'file:/data/projects/courses/ProgressBG/ProgressBG-ChatGPT_and_ML/ProgressBG-ChatGPT_and_ML-Slides/media/videos/regression_fitting_manim/480p15/partial_movie_files/RegressionFitting/624642324_2585840332_3522351764.mp4'
+file 'file:/data/projects/courses/ProgressBG/ProgressBG-ChatGPT_and_ML/ProgressBG-ChatGPT_and_ML-Slides/media/videos/regression_fitting_manim/480p15/partial_movie_files/RegressionFitting/624642324_1839128356_1473659604.mp4'
+file 'file:/data/projects/courses/ProgressBG/ProgressBG-ChatGPT_and_ML/ProgressBG-ChatGPT_and_ML-Slides/media/videos/regression_fitting_manim/480p15/partial_movie_files/RegressionFitting/624642324_980578641_91070970.mp4'
+file 'file:/data/projects/courses/ProgressBG/ProgressBG-ChatGPT_and_ML/ProgressBG-ChatGPT_and_ML-Slides/media/videos/regression_fitting_manim/480p15/partial_movie_files/RegressionFitting/624642324_2408024828_3537841450.mp4'
