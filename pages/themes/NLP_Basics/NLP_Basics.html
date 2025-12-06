@@ -58,8 +58,7 @@
 ##################### SLIDES START #####################
 ########################################################
 -->
-            <section>
-                <h1>Natural Language Processing (NLP) Basics</h1>
+            <section><h1>Natural Language Processing (NLP) Basics</h1>
             </section>
             <section data-transition="zoom">
                 <!-- linkedin badge -->
@@ -238,8 +237,8 @@
                 <section><h3>Removing Stopwords</h3>
                     <dl class="fa" style="min-width:80vw">
                         <dt>Stopwords are common words that carry little meaning: "the", "is", "at", "which", "a", etc.</dt>
-                        <dt>For next example, we will use <a href="https://spacy.io/">spaCy</a> - a powerful library for natural language processing (NLP) in Python. You can install it using <code>pip install spacy</code>. </dt> 
-                        <dt>The model for English language must be installed first (run once):</dt>                        
+                        <dt>For next example, we will use <a href="https://spacy.io/">spaCy</a> - a powerful library for natural language processing (NLP) in Python. You can install it using <code>pip install spacy</code>. </dt>
+                        <dt>The model for English language must be installed first (run once):</dt>
                         <dd><code>python -m spacy download en_core_web_sm</code></dd>
                         <pre><code rel="Python" class="python" style="min-height: 70vh;">
                             import spacy
@@ -268,7 +267,7 @@
                             print(f"Filtered Tokens: {filtered_tokens}")
                         </code></pre>
                     </dl>
-                </section> 
+                </section>
                 <section><h3>Stemming and Lemmatization</h3>
                     <dl class="fa" style="min-width:80vw">
                         <dt>Both stemming and lemmatization are techniques used in NLP to reduce words to their base or root form</dt>
@@ -315,20 +314,20 @@
 
                         </code></pre>
                     </dl>
-                </section>               
-            </section> 
+                </section>
+            </section>
             <section class="sub-sections"><h2>Tokenization</h2>
-                <section><h3>What is Tokenization?</h3>  
-                    <dl class="fa">                        
+                <section><h3>What is Tokenization?</h3>
+                    <dl class="fa">
                         <dt>Tokenization is the fundamental first step in processing text for any Natural Language Processing (NLP) or Large Language Model (LLM) task.</dt>
                         <dt>It is the process of breaking down a stream of text into smaller, meaningful units called "tokens".</dt>
                         <dt>A <strong>token</strong> can be a single word, a part of a word (a subword), characters, numbers, or any significant element in the text, depending on the type of tokenizer used</dt>
-                        <dt>For example, if the input is: <i>"Don't stop!"</i>, the resulting tokens might be ["Don", "'t", "stop", "!"]</dt>            
-                        <dd>Reference: <a href="https://platform.openai.com/tokenizer">OpenAI Tokenizer</a></dd>         
-                        <dt>There is no single "right" way to tokenize text. While the goal is the same—to segment text—the methodology varies widely</dt>                                               
+                        <dt>For example, if the input is: <i>"Don't stop!"</i>, the resulting tokens might be ["Don", "'t", "stop", "!"]</dt>
+                        <dd>Reference: <a href="https://platform.openai.com/tokenizer">OpenAI Tokenizer</a></dd>
+                        <dt>There is no single "right" way to tokenize text. While the goal is the same—to segment text—the methodology varies widely</dt>
                     </dl>
                 </section>
-                <section><h3>Word Tokenization (Traditional NLP)</h3>  
+                <section><h3>Word Tokenization (Traditional NLP)</h3>
                     <dl class="fa">
                         <dt>This is the simplest form. It breaks text into tokens based on delimiters, typically spaces and punctuation.</dt>
                         <dt>Process: Splits on whitespace, then handles punctuation.</dt>
@@ -336,8 +335,8 @@
                         <dt>Drawback: Struggles with contractions (don't), hyphenated words (state-of-the-art), and different languages.</dt>
                     </dl>
                 </section>
-                <section><h3>Word Tokenization - Example with spaCy</h3>  
-                    <dl class="fa">                        
+                <section><h3>Word Tokenization - Example with spaCy</h3>
+                    <dl class="fa">
                         <pre><code rel="Python" class="python" style="min-height: 1vh;">
                             import spacy
 
@@ -390,7 +389,7 @@
                 <section><h3>Why Tokenization Matters?</h3>
                     <dl class="fa">
                         <dt>The choice of tokenization strategy directly impacts how a model learns and generalizes. Different tokenization affects the final output because it changes the size of the vocabulary, how out-of-vocabulary (OOV) words are handled, and how input text is segmented.</dt>
-                        <dt>Here are examples illustrating how Subword (BPE/WordPiece) and Word Tokenization affect model performance in handling Out-Of-Vocabulary (OOV) Words, like processing a new, unseen technical term or a typo:</dt><br>                        
+                        <dt>Here are examples illustrating how Subword (BPE/WordPiece) and Word Tokenization affect model performance in handling Out-Of-Vocabulary (OOV) Words, like processing a new, unseen technical term or a typo:</dt><br>
                         <table border="1" style="display: block; width: 100%; border-collapse: collapse;">
                             <thead>
                                 <tr>
@@ -406,7 +405,7 @@
                                 <td style="border: 1px solid black;">The cryptotoken failed.</td>
                                 <td style="border: 1px solid black;">['The', 'cryptotoken', 'failed', '.']</td>
                                 <td style="border: 1px solid black;">
-                                    The word "cryptotoken" is not in the model's vocabulary. It is replaced with an 
+                                    The word "cryptotoken" is not in the model's vocabulary. It is replaced with an
                                     <code>&lt;UNK&gt;</code> (Unknown) token. The model completely loses the semantic meaning of that word.
                                 </td>
                                 </tr>
@@ -415,7 +414,7 @@
                                 <td style="border: 1px solid black;">The cryptotoken failed.</td>
                                 <td style="border: 1px solid black;">['The', 'crypto', '##token', 'failed', '.']</td>
                                 <td style="border: 1px solid black;">
-                                    The tokenizer breaks the word into known subword pieces: <strong>crypto</strong> (known) and <strong>##token</strong> (known). 
+                                    The tokenizer breaks the word into known subword pieces: <strong>crypto</strong> (known) and <strong>##token</strong> (known).
                                     The model retains most of the word's semantic meaning and can infer its purpose.
                                 </td>
                                 </tr>
@@ -424,24 +423,24 @@
                     </dl>
                 </section>
             </section>
-            
+
             <section class="sub-sections"><h2>Text Vectorization</h2>
-                <section><h3>Overview</h3>
+                <section id="TextVectorizationOverview"><h3>Overview</h3>
                     <dl class="fa" style="min-width:80vw">
                         <dt>Computers don't understand text - they work with numbers.</dt>
                         <dt>Vectorization converts text into numerical representations (vectors or arrays of numbers)</dt>
                     </dl>
                 </section>
-                <section><h3>Bag of Words (BoW) approach</h3>
+                <section id="BoW"><h3>Bag of Words (BoW) approach</h3>
                     <dl class="fa" style="min-width:80vw">
                         <dt>This is the simplest form of vectorization. It converts text into a fixed-size vector based on <strong>word frequency</strong>.</dt>
                         <dt>Concepts:</dt>
                         <div style="font-size: .8em; margin-left: 2em;">
                             <div><b>Document 1</b>: "I love dogs"</div>
                             <div><b>Document 2</b>: "I adore cats"</div>
-                            
+
                             <div style="margin: 1em 0;"><b>Vocabulary</b>: ['adore' 'cats' 'dogs' 'love']</div>
-                            
+
                             <div><b>Vector 1</b>: [0 0 1 1]</div>
                             <div><b>Vector 2</b>: [1 1 0 0]</div>
                         </div>
@@ -465,34 +464,34 @@
                         </code></pre>
                     </dl>
                 </section>
-                <section><h3>Limitations of BoW:</h3>
+                <section id="LimitationsOfBoW"><h3>Limitations of BoW:</h3>
                     <dl class="fa">
                         <dt>Ignores word order: "dog bites man" = "man bites dog"</dt>
                         <dt>Ignores word frequency across documents</dt>
                         <dt>Creates huge, sparse matrices</dt>
                     </dl>
                 </section>
-                <section><h3>TF-IDF (Term Frequency - Inverse Document Frequency)</h3>
+                <section id="TF-IDF"><h3>TF-IDF (Term Frequency - Inverse Document Frequency)</h3>
                     <dl class="fa">
-                        <dt>TF-IDF improves on BoW by considering how important a word is to a document relative to all documents.</dt>                        
+                        <dt>TF-IDF improves on BoW by considering how important a word is to a document relative to all documents.</dt>
                         <dd>TF (Term Frequency): How often word appears in document</dd>
                         <dd>IDF (Inverse Document Frequency): How rare the word is across all documents</dd>
                         <dt>Formula: TF-IDF = TF × IDF</dt>
                         <dd>Words that appear often in one document but rarely in others get high scores.</dd>
-                        <dd>Words that appear often in all documents get low scores.</dd>                        
+                        <dd>Words that appear often in all documents get low scores.</dd>
                     </dl>
                 </section>
-                <section><h3>Concepts clarification: sparse vs dense matrix</h3>
+                <section id="SparseVsDense"><h3>Concepts clarification: sparse vs dense matrix</h3>
                     <dl class="fa">
                         <dt>Sparse matrix:</dt>
                         <dd><b>Definition:</b> A matrix where most of the elements are zero.</dd>
                         <dd><b>Storage:</b> It only stores the location (row, column) and value of the non-zero elements. It ignores the zeros entirely.</dd>
-                        <dd><b>Why use it?</b> For a vocabulary of 50,000 words and 10,000 documents, most documents only use a tiny fraction of the vocabulary. Storing all those zeros would waste enormous amounts of memory and processing power.</dd>     
-                        
+                        <dd><b>Why use it?</b> For a vocabulary of 50,000 words and 10,000 documents, most documents only use a tiny fraction of the vocabulary. Storing all those zeros would waste enormous amounts of memory and processing power.</dd>
+
                         <dt>Dense matrix:</dt>
                         <dd><b>Definition:</b> A matrix where every element is stored explicitly, even if the value is zero.</dd>
                         <dd><b>Storage:</b> Stores every element in contiguous memory blocks.</dd>
-                        <dd><b>Why use it?</b> Required for compatibility with many general-purpose functions, easy visualization (like converting to a pandas DataFrame), and traditional mathematical operations.</dd>                 
+                        <dd><b>Why use it?</b> Required for compatibility with many general-purpose functions, easy visualization (like converting to a pandas DataFrame), and traditional mathematical operations.</dd>
                     </dl>
                 </section>
             </section>
