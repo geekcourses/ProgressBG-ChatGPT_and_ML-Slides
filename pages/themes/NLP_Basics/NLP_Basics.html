@@ -120,7 +120,7 @@
                 </section>
             </section>
             <section class="sub-sections"><h2>Why is NLP Challenging?</h2>
-                <section><h3>Ambiguity</h3>
+                <section id="Ambiguity"><h3>Ambiguity</h3>
                     <dl class="fa" style="min-width:80vw">
                        <dt>Words or sentences can have multiple meanings.</dt>
                        <ul>
@@ -132,7 +132,7 @@
                        </ul>
                     </dl>
                 </section>
-                <section><h3>Context Dependence</h3>
+                <section id="ContextDependence"><h3>Context Dependence</h3>
                     <dl class="fa" style="min-width:80vw">
                         <dt>Meaning often depends on context.</dt>
                         <ul>
@@ -141,7 +141,7 @@
                         </ul>
                     </dl>
                 </section>
-                <section><h3>Idioms and Figurative Language</h3>
+                <section id="IdiomsFigurativeLanguage"><h3>Idioms and Figurative Language</h3>
                     <dl class="fa" style="min-width:80vw">
                         <dt>Expressions rarely mean what the words literally say.</dt>
                         <ul>
@@ -151,7 +151,7 @@
                         </ul>
                     </dl>
                 </section>
-                <section><h3>Sarcasm and Tone</h3>
+                <section id="SarcasmTone"><h3>Sarcasm and Tone</h3>
                     <dl class="fa" style="min-width:80vw">
                         <dt>Machines struggle because the literal meaning is often the opposite.</dt>
                         <ul>
@@ -160,7 +160,7 @@
                         </ul>
                     </dl>
                 </section>
-                <section><h3>Unstructured and Noisy Input</h3>
+                <section id="UnstructuredNoisyInput"><h3>Unstructured and Noisy Input</h3>
                     <dl class="fa" style="min-width:80vw">
                         <dt>Real-world text is messy.</dt>
                         <ul>
@@ -170,7 +170,7 @@
                         </ul>
                     </dl>
                 </section>
-                <section><h3>Variability in Expression</h3>
+                <section id="VariabilityExpression"><h3>Variability in Expression</h3>
                     <dl class="fa" style="min-width:80vw">
                         <dt>There are many ways to express the same idea.</dt>
                         <ul>
@@ -192,7 +192,7 @@
                 </section>
             </section>
             <section class="sub-sections"><h2>Text Preprocessing: Cleaning and Normalizing Text</h2>
-                <section><h3>Lowercasing</h3>
+                <section id="Lowercasing"><h3>Lowercasing</h3>
                     <dl class="fa" style="min-width:80vw">
                         <dt>Convert all text to lowercase to standardize the data.</dt>
                         <dt>Example:</dt>
@@ -204,7 +204,7 @@
                         </code></pre>
                     </dl>
                 </section>
-                <section><h3>Removing Punctuation</h3>
+                <section id="RemovingPunctuation"><h3>Removing Punctuation</h3>
                     <dl class="fa" style="min-width:80vw">
                         <dt>Punctuation often doesn't add meaning for basic tasks.</dt>
                         <dt>Example:</dt>
@@ -220,7 +220,7 @@
                         </code></pre>
                     </dl>
                 </section>
-                <section><h3>Removing Numbers</h3>
+                <section id="RemovingNumbers"><h3>Removing Numbers</h3>
                     <dl class="fa" style="min-width:80vw">
                         <dt>Sometimes numbers aren't relevant to our analysis.</dt>
                         <dt>Example:</dt>
@@ -234,7 +234,7 @@
                         </code></pre>
                     </dl>
                 </section>
-                <section><h3>Removing Stopwords</h3>
+                <section id="RemovingStopwords"><h3>Removing Stopwords</h3>
                     <dl class="fa" style="min-width:80vw">
                         <dt>Stopwords are common words that carry little meaning: "the", "is", "at", "which", "a", etc.</dt>
                         <dt>For next example, we will use <a href="https://spacy.io/">spaCy</a> - a powerful library for natural language processing (NLP) in Python. You can install it using <code>pip install spacy</code>. </dt>
@@ -268,7 +268,7 @@
                         </code></pre>
                     </dl>
                 </section>
-                <section><h3>Stemming and Lemmatization</h3>
+                <section id="StemmingLemmatization"><h3>Stemming and Lemmatization</h3>
                     <dl class="fa" style="min-width:80vw">
                         <dt>Both stemming and lemmatization are techniques used in NLP to reduce words to their base or root form</dt>
                         <dt><strong>Stemming</strong> is a crude heuristic process that lops off the ends of words, usually generating a "stem" that is often not a real word</dt>
@@ -317,7 +317,7 @@
                 </section>
             </section>
             <section class="sub-sections"><h2>Tokenization</h2>
-                <section><h3>What is Tokenization?</h3>
+                <section id="WhatIsTokenization"><h3>What is Tokenization?</h3>
                     <dl class="fa">
                         <dt>Tokenization is the fundamental first step in processing text for any Natural Language Processing (NLP) or Large Language Model (LLM) task.</dt>
                         <dt>It is the process of breaking down a stream of text into smaller, meaningful units called "tokens".</dt>
@@ -327,7 +327,7 @@
                         <dt>There is no single "right" way to tokenize text. While the goal is the same—to segment text—the methodology varies widely</dt>
                     </dl>
                 </section>
-                <section><h3>Word Tokenization (Traditional NLP)</h3>
+                <section id="WordTokenization"><h3>Word Tokenization (Traditional NLP)</h3>
                     <dl class="fa">
                         <dt>This is the simplest form. It breaks text into tokens based on delimiters, typically spaces and punctuation.</dt>
                         <dt>Process: Splits on whitespace, then handles punctuation.</dt>
@@ -335,7 +335,7 @@
                         <dt>Drawback: Struggles with contractions (don't), hyphenated words (state-of-the-art), and different languages.</dt>
                     </dl>
                 </section>
-                <section><h3>Word Tokenization - Example with spaCy</h3>
+                <section id="WordTokenizationSpaCy"><h3>Word Tokenization - Example with spaCy</h3>
                     <dl class="fa">
                         <pre><code rel="Python" class="python" style="min-height: 1vh;">
                             import spacy
@@ -352,7 +352,7 @@
                         <dt>Reference: <a href="https://spacy.io/usage/linguistic-features#tokenization">spaCy Tokenization</a></dt>
                     </dl>
                 </section>
-                <section><h3>Subword Tokenization (Modern LLMs)</h3>
+                <section id="SubwordTokenization"><h3>Subword Tokenization (Modern LLMs)</h3>
                     <dl class="fa">
                         <dt>This is the dominant method used by models like GPT, BERT, and T5. It finds a balance between word and character tokenization by breaking rare words into smaller, frequently occurring units (subwords).</dt>
                         <dt><strong>Process</strong>: Uses statistical methods (like Byte-Pair Encoding (BPE) or WordPiece) to build a vocabulary of common subword units.</dt>
@@ -362,7 +362,7 @@
                         <dd><strong>Handles Morphology</strong>: Implicitly handles stemming/lemmatization by splitting inflected words (e.g., "running" → "run" + "##ning").</dd>
                     </dl>
                 </section>
-                <section><h3>Subword Tokenization - Example with BertTokenizer</h3>
+                <section id="SubwordTokenizationBert"><h3>Subword Tokenization - Example with BertTokenizer</h3>
                     <dl class="fa">
                         <dt>In next example we will use a pretrained subword tokenizer: <a href="https://huggingface.co/docs/transformers/quicktour">BertTokenizer</a> from Hugging Face Transformers library — which uses the WordPiece algorithm.</dt>
                         <dt>Install the transformers Library: <a href="https://huggingface.co/docs/transformers/installation">Hugging Face Transformers Installation</a> and the <a href="https://pytorch.org/get-started/locally/">PyTorch</a> framework that it depends on.</dt>
@@ -386,7 +386,7 @@
                         </code></pre>
                     </dl>
                 </section>
-                <section><h3>Why Tokenization Matters?</h3>
+                <section id="WhyTokenizationMatters"><h3>Why Tokenization Matters?</h3>
                     <dl class="fa">
                         <dt>The choice of tokenization strategy directly impacts how a model learns and generalizes. Different tokenization affects the final output because it changes the size of the vocabulary, how out-of-vocabulary (OOV) words are handled, and how input text is segmented.</dt>
                         <dt>Here are examples illustrating how Subword (BPE/WordPiece) and Word Tokenization affect model performance in handling Out-Of-Vocabulary (OOV) Words, like processing a new, unseen technical term or a typo:</dt><br>
