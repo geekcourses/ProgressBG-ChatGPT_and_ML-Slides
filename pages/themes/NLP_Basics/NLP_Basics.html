@@ -423,7 +423,6 @@
                     </dl>
                 </section>
             </section>
-
             <section class="sub-sections"><h2>Text Vectorization</h2>
                 <section id="TextVectorizationOverview"><h3>Overview</h3>
                     <dl class="fa" style="min-width:80vw">
@@ -471,16 +470,6 @@
                         <dt>Creates huge, sparse matrices</dt>
                     </dl>
                 </section>
-                <section id="TF-IDF"><h3>TF-IDF (Term Frequency - Inverse Document Frequency)</h3>
-                    <dl class="fa">
-                        <dt>TF-IDF improves on BoW by considering how important a word is to a document relative to all documents.</dt>
-                        <dd>TF (Term Frequency): How often word appears in document</dd>
-                        <dd>IDF (Inverse Document Frequency): How rare the word is across all documents</dd>
-                        <dt>Formula: TF-IDF = TF × IDF</dt>
-                        <dd>Words that appear often in one document but rarely in others get high scores.</dd>
-                        <dd>Words that appear often in all documents get low scores.</dd>
-                    </dl>
-                </section>
                 <section id="SparseVsDense"><h3 class="advanced">Concepts clarification: sparse vs dense matrix</h3>
                     <dl class="fa">
                         <dt>Sparse matrix:</dt>
@@ -494,36 +483,269 @@
                         <dd><b>Why use it?</b> Required for compatibility with many general-purpose functions, easy visualization (like converting to a pandas DataFrame), and traditional mathematical operations.</dd>
                     </dl>
                 </section>
-            </section>
-
-            <!-- <section id="hw">
-                <section>
-                    <h1>Homework</h1>
-                </section>
-                <section id="task1">
-                    <h3>Homework</h3>
+                <section id="TF-IDF"><h3>TF-IDF (Term Frequency - Inverse Document Frequency)</h3>
                     <dl class="fa">
-                        <dt>The tasks are given in next <a href="__URL__">file</a></dt>
-                        <dt>You can copy it and work directly on it. Just put your code under "### Your code here".</dt>
+                        <dt>TF-IDF improves on BoW by considering how important a word is to a document relative to all documents.</dt>
+                        <dd>TF (Term Frequency): How often word appears in document</dd>
+                        <dd>IDF (Inverse Document Frequency): How rare the word is across all documents</dd>
+                        <dt>Formula: TF-IDF = TF × IDF</dt>
+                        <dd>Words that appear often in one document but rarely in others get high scores.</dd>
+                        <dd>Words that appear often in all documents get low scores.</dd>
                     </dl>
                 </section>
-            </section> -->
+                <section><h3>TF-IDF Example</h3>
+                    <pre><code rel="Python" class="python" style="min-height: 100vh;">
+                        from sklearn.feature_extraction.text import TfidfVectorizer
+                        import pandas as pd
+
+                        # Define the corpus
+                        documents = [
+                            "I love machine learning",
+                            "I love coding",
+                            "Machine learning is amazing",
+                            "Deep learning is a subset of machine learning",
+                        ]
+
+                        # Create TF-IDF vectorizer
+                        tfidf_vectorizer = TfidfVectorizer()
+
+                        # Fit the vectorizer to the documents and transform the documents into the TF-IDF matrix
+                        # The result is a sparse matrix (efficient for large datasets)
+                        tfidf_matrix = tfidf_vectorizer.fit_transform(documents)
+
+                        # Get the feature names (vocabulary)
+                        vocabulary = tfidf_vectorizer.get_feature_names_out()
+
+                        ### Convert the sparse TF-IDF matrix to a DataFrame
+                        # Convert to a dense NumPy array and round the scores for readability
+                        tfidf_array = tfidf_matrix.toarray().round(4)
+
+                        # Define descriptive indices for the documents (rows)
+                        document_indices = [f"Doc {i + 1}" for i in range(len(documents))]
+
+                        # Create a DataFrame
+                        df_tfidf = pd.DataFrame(tfidf_array, columns=vocabulary, index=document_indices)
+
+                        print("## TF-IDF Matrix as DataFrame")
+                        print("-----------------------------")
+                        print(df_tfidf)
+
+                        # Optional: Print the original documents for easy reference
+                        print("\n## Original Documents")
+                        print("---------------------------------")
+                        for i, doc in enumerate(documents):
+                            print(f"Doc {i + 1}: {doc}")
+
+                    </code></pre>
+                </section>
+                <section><h3>Limitations of TF-IDF</h3>
+                    <dl class="fa">
+                        <dt>TF-IDF ignores word order</dt>
+                        <dt>TF-IDF doesn't capture semantic meaning</dt>
+                        <dt>TF-IDF can be sensitive to stop words</dt>
+                    </dl>
+                </section>
+                <section><h3>When to use TF-IDF</h3>
+                    <dl class="fa">
+                        <dt>Text classification</dt>
+                        <dt>Information retrieval</dt>
+                        <dt>Document similarity</dt>
+                        <dt>When rare words are more important than common ones</dt>
+                    </dl>
+                </section>
+                <section><h3>Word Embeddings</h3>
+                    <dl class="fa">
+                        <dt>Represent words as dense vectors in continuous space where similar words are close together.</dt>
+                        <dt><i><strong>Key idea:</i> Words with similar meanings have similar vectors.</strong></dt>
+                    </dl>
+                    <a href="./images/WordEmbeddings.png"><img src="./images/WordEmbeddings.png" alt="Word Embeddings" style="height:50vh"></a>
+                    <p>Reference: <a href="https://www.cs.cmu.edu/~dst/WordEmbeddingDemo/tutorial.html">www.cs.cmu.edu/~dst/WordEmbeddingDemo/tutorial.html</a></p>
+                </section>
+                <section><h3>Popular Word Embedding Models</h3>
+                    <dl class="fa">
+                        <dt><strong>Word2Vec</strong>: Google's model (2013)</dt>
+                        <dt><strong>GloVe</strong>: Stanford's model</dt>
+                        <dt><strong>FastText</strong>: Facebook's model (handles unknown words better)</dt>
+                        <dt><strong>Modern contextual embeddings</strong>: BERT, GPT</dt>
+                    </dl>
+                </section>
+                </section>
+                <section><h3>Word Embeddings - Example</h3>
+                    <dl class="fa">
+                        <dt>Next example uses <a href="https://radimrehurek.com/gensim/models/word2vec.html">gensim</a> library</dt>
+                    </dl>
+                    <pre><code rel="Python" class="python" style="min-height: 100vh;">
+                        from gensim.models import Word2Vec
+
+                        ## Training Data - list of tokenized sentences
+                        sentences = [
+                            ["machine", "learning", "is", "fun"],
+                            ["deep", "learning", "is", "powerful"],
+                            ["machine", "learning", "uses", "algorithms"],
+                            ["deep", "learning", "uses", "neural", "networks"],
+                        ]
+
+                        ## Train Word2Vec model
+                        model = Word2Vec(sentences, vector_size=50, window=3, min_count=1, workers=4)
+                        # The hyperparameter settings are:
+                        # vector_size=50: Sets the dimensionality of the resulting word vectors. Every word will be represented by a 50-element vector (instead of the standard 300 for large models).
+                        # window=3: Sets the context window size. When training, the model considers words up to 3 positions away from the target word to be its context.
+                        # min_count=1: Ignores all words with a total frequency lower than this. Since it's set to 1, all words in our small dataset are included in the final vocabulary.
+                        # workers=4: Uses 4 parallel threads (CPU cores) to speed up the training process.
+
+                        ## Get vocabulary
+                        # model.wv is a dictionary-like object which holds the trained embeddings (word vectors)
+                        vocabulary = model.wv.index_to_key
+                        print(f"Vocabulary: {vocabulary}")
+
+                        # Get vector for a word
+                        vector = model.wv["learning"]
+                        print(f"Vector for 'learning': {vector[:5]}...")  # Show first 5 dimensions
+
+                        # Find similar words
+                        similar_words = model.wv.most_similar("learning", topn=3)
+                        print(f"\nWords similar to 'learning': {similar_words}")
+                    </code></pre>
+                </section>
+            </section>
+
+            <section class="main-sesction-title" id="BasicNLPTasks"><h1>Basic NLP Tasks</h1></section>
+            <section class="sub-sections"><h2>Text Classification</h2>
+                <section><h3>Overview</h3>
+                    <dl class="fa" style="min-width:80vw">
+                        <dt>Text classification is the task of assigning a label or class to a piece of text.</dt>
+                        <dt>It is a fundamental task in NLP and has a wide range of applications.</dt>
+                        <dt>Examples:</dt>
+                        <dd>Spam detection (spam/not spam)</dd>
+                        <dd>Sentiment analysis (positive/negative/neutral)</dd>
+                        <dd>Topic classification (sports/politics/tech)</dd>
+                    </dl>
+                </section>
+            </section>
+            <section class="sub-sections"><h2>Named Entity Recognition (NER)</h2>
+                <section><h3>Overview</h3>
+                    <dl class="fa" style="min-width:80vw">
+                        <dt>Named Entity Recognition (NER) is the task of identifying and classifying named entities in text.</dt>
+                        <dt>Example: Let's have the sentence <i>"Apple Inc. is planning to open a new store in New York next month."</i>. We can extract the following entities:</dt>
+                        <dd>Apple Inc. is an organization (ORG)</dd>
+                        <dd>New York is a geopolitical entity (GPE)</dd>
+                        <dd>next month is a date (DATE)</dd>
+                    </dl>
+                </section>
+                <section><h3>Example</h3>
+                    <dl class="fa">
+                        <pre><code rel="Python" class="python" style="min-height: 1vh;">
+                            import spacy
+
+                            # Load English model
+                            nlp = spacy.load("en_core_web_sm")
+
+                            text = "Apple Inc. is planning to open a new store in New York next month."
+                            doc = nlp(text)
+
+                            print("Named Entities:")
+                            for ent in doc.ents:
+                                print(f"{ent.text}: {ent.label_}")
+                            # Apple Inc.: ORG (Organization)
+                            # New York: GPE (Geopolitical Entity)
+                            # next month: DATE
+                        </code></pre>
+                    </dl>
+                </section>
+            </section>
+            <section class="sub-sections"><h2>Part-of-Speech (POS) Tagging</h2>
+                <section>
+                    <dl class="fa" style="min-width:80vw">
+                        <dt>Part-of-Speech (POS) Tagging is the task of identifying and classifying the grammatical roles of words in text.</dt>
+                        <pre><code rel="Python" class="python" style="min-height: 1vh;">
+                            import spacy
+
+                            # Load English model
+                            nlp = spacy.load("en_core_web_sm")
+
+                            text = "The quick brown fox jumps over the lazy dog"
+
+                            doc = nlp(text)
+                            for token in doc:
+                                print(f"{token.text}: {token.pos_}")
+                        </code></pre>
+                    </dl>
+                </section>
+            </section>
+            <section class="sub-sections"><h2>Text Similarity</h2>
+                <section>
+                    <dl class="fa" style="min-width:80vw">
+                        <dt>Text Similarity is the task of measuring the similarity between two pieces of text.</dt>
+                        <pre><code rel="Python" class="python" style="min-height: 1vh;">
+                            from sklearn.metrics.pairwise import cosine_similarity
+                            from sklearn.feature_extraction.text import TfidfVectorizer
+
+                            texts = [
+                                "I love machine learning",
+                                "I enjoy machine learning",
+                                "The weather is nice today"
+                            ]
+
+                            vectorizer = TfidfVectorizer()
+                            vectors = vectorizer.fit_transform(texts)
+
+                            similarity = cosine_similarity(vectors[0:1], vectors[1:2])
+                            print(f"Similarity between text 1 and 2: {similarity[0][0]:.3f}")
+
+                            similarity = cosine_similarity(vectors[0:1], vectors[2:3])
+                            print(f"Similarity between text 1 and 3: {similarity[0][0]:.3f}")
+                        </code></pre>
+                    </dl>
+                </section>
+            </section>
 
 
-            <!-- <section class="main-sesction-title" id="hw"><h1>Exercises</h1></section>
-<section class="sub-sections"><h2>Task1</h2>
-    <section><h3>The Task</h3>
+            <section class="main-section-title"><h1>Classification Metrix</h1></section>
+            <section class="sub-sections"><h2>Classification Metrix</h2>
+                <section><h3>Accuracy</h3>
+                    <dl class="fa" style="min-width:80vw">
+                        <dt>Accuracy is the ratio of correctly predicted instances to the total instances.</dt>
+                        <dt>Accuracy gives us the percentage of correct predictions</dt>
+                    </dl>
+                </section>
+                <section><h3>Confusion Matrix</h3>
+                    <dl class="fa" style="min-width:80vw">
+                        <dt>A confusion matrix is a table used to evaluate the performance of a classification model.</dt>
+                        <dt>It helps you understand whether it confuses positive and negatives, helping you improve its accuracy.</dt>
+                        <div style="text-align: center;">
+                          <img src="./images/confusion_matrix.png" alt="Confusion Matrix" style="width: 50%;">
+                        </div>
+                        <dt>True Positive (TP): The model correctly predicts the positive class.</dt>
+                        <dt>True Negative (TN): The model correctly predicts the negative class.</dt>
+                        <dt>False Positive (FP): The model incorrectly predicts the positive class (Type I error).</dt>
+                        <dt>False Negative (FN): The model incorrectly predicts the negative class (Type II error).</dt>
+                    </dl>
+                </section>
+                <section><h3>Precision and recall</h3>
+                    <dl class="fa" style="min-width:80vw">
+                        <dt>Precision is the ratio of correctly predicted positive observations to the total predicted positives.</dt>
+                        <dd>Precision = TP / (TP + FP)</dd>
+                        <dt>Recall (Sensitivity) is the ratio of correctly predicted positive observations to all actual positives.</dt>
+                        <dd>Recall = TP / (TP + FN)</dd>
+                        <div style="display: flex; justify-content: space-around; align-items: flex-start;">
+                          <img src="./images/Precision_Recall_part1.png" alt="Precision_Recall_part1" style="width: 40%;">
+                          <img src="./images/Precision_Recall_part2.png" alt="Precision_Recall_part2" style="width: 40%; margin-top: 4em;">
+                        </div>
+                    </dl>
+                </section>
+            </section>
 
-    </section>
-</section> -->
+            <section class="main-section-title"><h1>Practical example: Simple Sentiment Analysis model</h1></section>
+            <section class="sub-sections"><h2>Practical example: Simple Sentiment Analysis model</h2>
+                <section>
+                    <dl class="fa" style="min-width:80vw">
+                        <dt>The project is given in next <a href="https://github.com/geekcourses/ProgressBG-ChatGPT_and_ML-Slides/blob/main/pages/themes/NLP_Basics/examples/SentimentAnalysis/PracticalExample-SimpleSentimentAnalysisModel.ipynb">PracticalExample-SimpleSentimentAnalysisModel.ipynb</a> file.</dt>
+                        <dd>You can view it at <a href="https://nbviewer.org/github/geekcourses/ProgressBG-ChatGPT_and_ML-Slides/blob/main/pages/themes/NLP_Basics/examples/SentimentAnalysis/PracticalExample-SimpleSentimentAnalysisModel.ipynb">PracticalExample-SimpleSentimentAnalysisModel @nbviewer</a>.</dd>
+                    </dl>
+                </section>
+            </section>
 
-            <!-- <section><h3>Submission</h3>
-    <dl class="fa">
-        <dt>Please, prefix your filenames/archive with your name initials, before sending.</dt>
-        <dd>For instance: <b>iep_task1.py</b> or <b>iep_tasks.rar</b></dd>
-        <dt>Send files to <a href="mailto:progressbg.python.course@gmail.com?Subject=HW: NLP_Basics">progressbg.python.course@gmail.com</a></dt>
-    </dl>
-</section> -->
+
 
 
 
