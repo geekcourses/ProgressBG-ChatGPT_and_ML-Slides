@@ -1,0 +1,624 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>IntroductionToLLM</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <link rel="shortcut icon" href="/ProgressBG-ChatGPT_and_ML-Slides/images/favicons/favicon-32.png">
+    <!-- css & themes include -->
+    <link rel="stylesheet" href="/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/css/reveal.css">
+    <link rel="stylesheet" href="/ProgressBG-ChatGPT_and_ML-Slides/outfit/css/themes/light.css" id="theme">
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match( /print-pdf/gi ) ? '/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/css/print/pdf.css' : '/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/css/print/paper.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- add MathJax support -->
+    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <base target="_blank">
+</head>
+<body>
+    <div class="reveal default center" data-transition-speed="default" data-background-transition="default">
+        <div class="top_links">
+            <a class="home_link" href="/ProgressBG-ChatGPT_and_ML-Slides/pages/agenda/agenda.html#IntroductionToLLM" target="_top"><i class="fa fa-home"></i></a>
+            <span class="help_link" href="#"><i class="fa fa-question"></i></span>
+            <div class="help_text">
+                <div class="note">Keyboard shortcuts:</div>
+                <div><span>N/Space</span><span>Next Slide</span></div>
+                <div><span>P</span><span>Previous Slide</span></div>
+                <div><span>O</span><span>Slides Overview</span></div>
+                <div><span>ctrl+left click</span><span>Zoom Element</span></div>
+                <div class="print-howto"><br>If you want print version => add '<code>?print-pdf</code>' <br> at the end of slides URL (remove '#' fragment) and then print. <br>
+                Like: https://ProgressBG-ChatGPT_and_ML-course.github.io/...CourseIntro.html?print-pdf </div>
+            </div>
+        </div>
+        <div class="footer theme_switch">
+            <a href="#" onclick="document.getElementById('theme').setAttribute('href','/ProgressBG-ChatGPT_and_ML-Slides/outfit/css/themes/dark.css'); return false;">Dark</a>
+            <a href="#" onclick="document.getElementById('theme').setAttribute('href','/ProgressBG-ChatGPT_and_ML-Slides/outfit/css/themes/light.css'); return false;">Light</a>
+            <a href="#" onclick="document.getElementById('theme').setAttribute('href','/ProgressBG-ChatGPT_and_ML-Slides/outfit/css/themes/projector.css'); return false;">Projector</a>
+        </div>
+        <div class="slides">
+<!--
+########################################################
+##################### SLIDES START #####################
+########################################################
+-->
+<section><h1>Introduction to LLM and ChatGPT</h1></section>
+<section data-transition="zoom">
+    <!-- linkedin badge -->
+    <!--<script type="text/javascript" src="https://platform.linkedin.com/badges/js/profile.js" async defer></script>-->
+    <section class="copyright" data-transition="zoom">
+        <div class="note">
+            <p>Created for</p>
+        </div>
+        <div class="company">
+            <a href="http://progressbg.net/програмиране-с-python-2/">
+            <img style="height:80%" src="/ProgressBG-ChatGPT_and_ML-Slides/outfit/images/logos/ProgressBG_logo_529_127.png">
+            </a>
+        </div>
+        <div class="author">
+            <span class="note">Iva E. Popova, 2016-2025,</span>
+            <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"></a>
+        </div>
+    </section>
+    <section class="copyright" data-transition="zoom" style="margin-top: -2em;">
+        <div class="company">
+             <div class="LI-profile-badge"  data-version="v1" data-size="large" data-locale="en_US" data-type="vertical" data-theme="dark" data-vanity="ivapopova"><a class="LI-simple-link" href='https://bg.linkedin.com/in/ivapopova?trk=profile-badge'>Iva E. Popova on LinkedIn</a></div>
+        </div>
+    </section>
+</section>
+
+
+
+
+<section data-min="__Y__" class="main-section-title"><h1>Overview</h1></section>
+<section class="sub-sections"><h2>Overview</h2>
+    <section>
+        <dl class="fa">
+            <dt>Artificial Neural Networks (ANNs) are a subfield of Machine Learning and AI that is inspired by the structure and function of the human brain.</dt>
+            <dt>ANNs are composed of a large number of interconnected processing units called neurons, which are organized in layers.</dt>
+            <dt>ANNs are used to model complex nonlinear relationships between input and output data.</dt>
+        </dl>
+        <a href="./images/DL.gif"><img src="./images/DL.gif" alt="" style="height: 50vh;"></a>
+    </section>
+    <section><h3>The inspiration</h3>
+        <dl class="fa">
+            <dt>Artificial Neural Networks (ANNs) are inspired by the structure and function of the human brain. The idea of ANNs is based on the concept that the brain is a network of interconnected neurons that communicate with each other to process and transmit information. </dt>
+            <dt>Biological neurons communicate through electrochemical signals, while artificial neurons use mathematical functions to process inputs and produce outputs.</dt>
+        </dl>
+        <a href="./images/bioneuron_vs_artneuron.webp"><img src="./images/bioneuron_vs_artneuron.webp" alt="bioneuron_vs_artneuron" style="height: 80vh; margin-top:2em"></a>
+    </section>
+    <section><h3>The Artificial Neuron (Perceptron Model)</h3>
+        <a href="./images/Perceptron.png"><img src="./images/Perceptron.png" alt="Perceptron.png"></a>
+        <dl class="fa">
+            <dt><strong>Input Signals ($\mathbf{x}$):</strong> The neuron receives multiple input data points, $x_1, x_2, \ldots, x_n$, which form the input vector $\mathbf{x}$.</dt>
+            <dt><strong>Weights ($\mathbf{w}$):</strong> Each input is multiplied by an adjustable weight, $w_1, w_2, \ldots, w_n$, which is a real-valued number that determines the importance of the feature.</dt>
+            <dd>During the training process, the neural network adjusts these weights to assign the correct "importance" to each input feature for the task at hand.</dd>
+            <dt><strong>Bias and Summation:</strong> A bias ($w_0 = \theta$) is often included to shift the threshold (or decision boundary), allowing the neuron to activate even when inputs are zero. All weighted inputs and the bias are then summed up (($\Sigma$)).</dt>
+            <dt><strong>Activation/Output:</strong> The summed signal is passed through an activation function (like the step function shown) to produce the final output $out(t)$.</dt>
+        </dl>
+    </section>
+</section>
+
+<section data-min="50" class="main-section-title"><h1>ANN Structure</h1></section>
+<section class="sub-sections"><h2>ANN Structure</h2>
+    <section>
+        <dl class="fa">
+            <dt>The structure of an ANN can be described as a directed graph, where each neuron in one layer is connected to every neuron in the next layer. </dt>
+            <dt>The input layer is where the data is fed into the network, and the output layer produces the result. </dt>
+            <dt>In between, there can be one or more hidden layers, which are used to extract relevant features from the input data.</dt>
+            <a href="./images/ANN_Structure.png"><img src="./images/ANN_Structure.png" alt="ANN_Structure.png"></a>
+        </dl>
+    </section>
+    <section><h3>Layers</h3>
+        <dl class="fa">
+            <dt>Input layer</dt>
+            <dd>This is the layer where the input data is fed into the network.</dd>
+            <dd>The number of neurons in the input layer is determined by the size of the input data.</dd>
+            <dd>For example, if we are using a neural network for image classification, the input layer will have neurons corresponding to the pixels of the image.</dd>
+            <dt>Hidden layer</dt>
+            <dd>This is the layer that lies between the input and output layers of the network.</dd>
+            <dd>The number of hidden layers and the number of neurons in each hidden layer can vary depending on the complexity of the problem being solved</dd>
+            <dd>The hidden layer(s) are used to extract relevant features from the input data</dd>
+            <dt>Output layer</dt>
+            <dd>This is the final layer of the network that produces the output. </dd>
+            <dd>The number of neurons in the output layer is determined by the type of problem being solved. </dd>
+            <dd>For example, in a binary classification problem, the output layer will have two neurons corresponding to the two possible classes.</dd>
+        </dl>
+    </section>
+
+    <section><h3>Example of a Dense Layer in Keras</h3>
+        <dl class="fa" style="min-width:80vw">
+
+            <pre><code rel="Python" class="python" style="min-height: 1vh;">
+                from keras.models import Sequential
+                from keras.layers import Dense
+
+                # Create a simple model with a Dense layer
+                model = Sequential()
+                # Add a Dense layer with 32 neurons and ReLU activation
+                model.add(Dense(32, input_dim=8, activation='relu'))
+            </code></pre>
+
+            <dt>The layer contains 32 neurons. Each neuron receives input from every neuron in the previous layer (or the input data).</dt>
+            <dt>The layer expects an input of 8 features. This means the input to the network has 8 dimensions or attributes, which are passed to each of the 32 neurons.</dt>
+            <dt>Each of the 32 neurons has 8 corresponding weights (one for each input feature) and a bias term.</dt>
+            <dd>The total number of trainable parameters for this layer is \( (8 \times 32) + 32 = 288 \) (weights + biases).</dd>
+            <dt>The ReLU (Rectified Linear Unit) activation function is applied to the output of each neuron. This introduces non-linearity, making the network capable of learning complex patterns.</dt>
+        </dl>
+    </section>
+</section>
+
+<section data-min="50" class="main-section-title"><h1>Activation Function</h1></section>
+<section class="sub-sections"><h2>Activation Function</h2>
+    <section>
+        <dl class="fa">
+            <dt>Activation functions are an essential part of Neural Networks as they are responsible for introducing non-linearity into the model. Without activation functions, Neural Networks would essentially be a series of linear operations, which would severely limit the model's capacity to learn complex patterns.</dt>
+            <dt>There are several types of activation functions used in ANNs, including sigmoid, ReLU, and tanh. </dt>
+            <dt>The choice of activation function depends on the problem being solved and the type of data being processed.</dt>
+        </dl>
+    </section>
+    <section><h3>Sigmoid Function</h3>
+        <dl class="fa">
+            <dt>
+                The Sigmoid function is one of the earliest and most widely used activation functions in Neural Networks. The Sigmoid function maps any input value to a value between 0 and 1, which makes it useful in binary classification problems. The mathematical formula for the Sigmoid function is given below:
+
+                $$\\sigma(x) = \frac{1}{1 + e^{-x}}$$
+
+            </dt>
+            <dt>The Sigmoid function has the following properties:</dt>
+            <dd>It is a smooth, continuous function.</dd>
+            <dd>Its output is always between 0 and 1.</dd>
+            <dd>The output is centered around 0.5, which can make it problematic in cases where the input values are very large or very small.</dd>
+        </dl>
+        <img src="./images/sigmoit-plot.png" alt="">
+    </section>
+    <section><h3>ReLU Function</h3>
+        <dl class="fa">
+            <dt>The Rectified Linear Unit (ReLU) function is another popular activation function used in Neural Networks. The ReLU function maps any input value to either 0 or the input value itself, which makes it useful in cases where we want to introduce sparsity in the model. The mathematical formula for the ReLU function is given below:
+
+                $$ReLU(x) = max(0, x)$$</dt>
+            <dt>The ReLU function has the following properties:</dt>
+            <dd>It is a simple, non-linear function.</dd>
+            <dd>It is computationally efficient to compute.</dd>
+            <dd>The output is sparse, which can help with overfitting.</dd>
+        </dl>
+
+        <img src="./images/ReLU-plot.png" alt="">
+    </section>
+    <section><h3>Tanh Function</h3>
+        <dl class="fa">
+            <dt>The Tanh function is another popular activation function that maps any input value to a value between -1 and 1. The Tanh function is useful in cases where we want to introduce non-linearity and can help with normalization of the data. The mathematical formula for the Tanh function is given below:
+
+                $$tanh(x) = \frac{e^{x} - e^{-x}}{e^{x} + e^{-x}}$$
+            </dt>
+            <dt>The Tanh function has the following properties:</dt>
+            <dd>It is a smooth, continuous function.</dd>
+            <dd>Its output is always between -1 and 1.</dd>
+            <dd>The output is centered around 0, which can help with normalization of the data.</dd>
+        </dl>
+        <img src="./images/Tanh-plot.png" alt="">
+    </section>
+    <!-- <section><h3>Softmax Function</h3>
+        <dl class="fa">
+            <dt>
+                The Softmax function is commonly used in the output layer of Neural Networks that are designed for multi-class classification tasks. The Softmax function maps a vector of real-valued numbers to a probability distribution over the classes. The mathematical formula for the Softmax function is given below:
+
+                $$softmax(x\_i) = \frac{e^{x\_i}}{\\sum\_{j=1}^{K} e^{x\_j}}$$
+
+                where $K$ is the number of classes.
+            </dt>
+            <dt>
+                The Softmax function has the following properties:</dt>
+                <dd>It produces a probability distribution over the classes.</dd>
+                <dd>The output values are always between 0 and 1 and sum up to 1.</dd>
+        </dl>
+        <img src="./images/softmax-plot.png" alt="softmax">
+    </section> -->
+</section>
+
+<section data-min="50" class="main-section-title"><h1>ANN training</h1></section>
+<section class="sub-sections"><h2>ANN training. Backpropagation.</h2>
+    <section>
+        <dl class="fa">
+            <dt>Training an ANN involves adjusting the weights of the connections between neurons to minimize the error between the predicted output and the actual output. </dt>
+            <dt>This is done using a process called backpropagation, which involves calculating the gradient of the error with respect to each weight and bias in the network, and using this gradient to update the values of the weights and biases in the direction that reduces the error.</dt>
+        </dl>
+        <a href="./images/BackpropagationSimple.gif"><img src="./images/BackpropagationSimple.gif" alt="Backpropagation"></a>
+        <p style="font-size:0.6em">Backpropagation illustration by <a href="https://machinelearningknowledge.ai">machinelearningknowledge.ai</a></p>
+    </section>
+    <section><h3>Backpropagation Algorithm</h3>
+        <p>Here's how it works in simple terms:</p>
+        <dl class="fa">
+            <dt>1. Feedforward: The input data is fed into the network, and the output is calculated by passing it through a series of interconnected nodes, also known as neurons.</dt>
+            <dt>2. Calculate Error: The difference between the predicted output and the actual output is calculated, and this is known as the error.</dt>
+            <dt>3. Backpropagation: The error is then propagated backwards through the network to adjust the weights and biases. The weights and biases are updated in the direction that reduces the error, using an optimization algorithm such as Stochastic Gradient Descent.</dt>
+            <dt>4. Repeat: Steps 1-3 are repeated for each example in the training dataset until the error is minimized.</dt>
+        </dl>
+    </section>
+    <section><h3>Reference</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>"Backpropagation, intuitively" - a video from <a href="https://www.youtube.com/@3blue1brown">3blue1brown</a> </dt>
+            <iframe width="1582" height="597" src="https://www.youtube.com/embed/Ilg3gGewQ5U" title="Backpropagation, intuitively | Deep Learning Chapter 3" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </dl>
+    </section>
+</section>
+
+<section data-min="50" class="main-section-title"><h1>ANN Types</h1></section>
+<section class="sub-sections"><h2>ANN Types</h2>
+    <section><h3>Feedforward Neural Networks (FNNs)</h3>
+        <a href="./images/Feedforward_DigitClassification.gif"><img src="./images/Feedforward_DigitClassification.gif" alt="Feedforward Neural Network" style="width: 60vw"></a>
+        <dl class="fa">
+            <dt>Feedforward Neural Networks (FNNs) are the simplest type of neural network, where the data flows only in one direction, from the input layer to the output layer. </dt>
+            <dt>FNNs can have one or more hidden layers. </dt>
+            <dt>The neurons in the input layer are connected to the neurons in the hidden layer, and the neurons in the hidden layer are connected to the neurons in the output layer.</dt>
+            <dt>The primary use case for FFNs is to act as a universal function approximator for supervised learning tasks like classification and regression, mapping fixed-size inputs to fixed-size outputs by learning complex, non-linear relationships.</dt>
+        </dl>
+    </section>
+   <section><h3>Convolutional Neural Networks (CNNs)</h3>
+       <a href="./images/Convolutional-Neural-Network.webp"><img src="./images/Convolutional-Neural-Network.webp" alt="Convolutional Neural Network Architecture"></a>
+
+       <dl class="fa">
+        <dt>CNNs are specialized deep learning models, primarily designed to process data that has a known grid-like topology, such as <b>images</b>.</dt>
+        <dt>Instead of full connectivity, CNNs use <b>Convolutional Layers</b> where neurons connect only to a small, localized region of the preceding layer's input.</dt>
+        <dt>This local connectivity allows the network to automatically learn and extract hierarchical spatial features, starting with simple patterns like edges and corners in the first layers.</dt>
+        <dt>They use a combination of Convolutional, <b>Pooling</b> (for downsampling), and <b>Fully Connected (Dense)</b> layers to perform tasks like image classification, object detection, and image segmentation.</dt>
+    </dl>
+   </section>
+    <section><h3>Recurrent Neural Networks (RNNs)</h3>
+        <a href="./images/RNN_state.gif"><img src="./images/RNN_state.gif" alt="Recurrent Neural Network Architecture"></a>
+        <dl class="fa">
+            <dt>Recurrent Neural Networks (RNNs) are designed to process <b>sequential data</b> like time series, text, or speech, where the order of information is crucial.</dt>
+            <dt>Unlike FFNs, which operate on fixed input sizes and do not maintain any memory of previous inputs, RNNs can handle variable-length sequences of inputs while retaining information about the past</dt>
+            <dt>RNNs have a <b>feedback loop</b> that allows the output of a neuron to be fed back into the input of the same neuron or other neurons in the network. </dt>
+            <dt>This allows RNNs to model the temporal dependencies in sequential data.</dt>
+        </dl>
+    </section>
+    <section><h3>Long Short-Term Memory Networks (LSTMs)</h3>
+        <a href="./images/LSTM.png"><img src="./images/LSTM.png" alt="LSTM"></a>
+        <dl class="fa">
+            <dt>LSTMs are an advanced type of Recurrent Neural Network designed to overcome the <b>vanishing gradient problem</b> of standard RNNs.</dt>
+            <dt>They achieve this by using a specialized internal structure called the <b>LSTM Cell/Unit</b>, which contains three key 'gates' that regulate the flow of information.</dt>
+            <dt>The <b>Forget Gate</b> determines what information from the previous cell state should be discarded (forgotten).</dt>
+            <dt>The <b>Input Gate</b> and <b>Output Gate</b> control which new information is added to the cell state and which part of the cell state is outputted as the hidden state.</dt>
+            <dt>This regulated flow allows LSTMs to effectively capture and remember **long-term dependencies** in sequences, making them ideal for complex tasks like machine translation and speech recognition.</dt>
+        </dl>
+    </section>
+    <section><h3>References</h3>
+        <dl class="fa">
+            <dt><a href="https://www.asimovinstitute.org/neural-network-zoo/">The neural network zoo</a></dt>
+        </dl>
+    </section>
+</section>
+
+<section class="main-section-title" id="ProsAndConsOfANN"><h1>Pros and Cons of Artificial Neural Networks</h1></section>
+<section class="sub-sections"><h2>Pros and Cons of Artificial Neural Networks</h2>
+    <section id="ProsOfANN"><h3>Pros of Artificial Neural Networks</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>1. <strong>Ability to Learn Nonlinear Relationships:</strong></dt>
+            <dd>ANNs can model complex nonlinear relationships between inputs and outputs, making them effective for tasks such as image recognition, speech processing, and more.</dd>
+
+            <dt>2. <strong>Adaptability:</strong></dt>
+            <dd>ANNs can be trained to solve a variety of problems without needing specific rules, allowing them to generalize to new data once trained.</dd>
+
+            <dt>3. <strong>Scalability:</strong></dt>
+            <dd>ANNs can scale from simple networks to deep architectures, allowing them to be used in small to large-scale applications (e.g., simple classification to deep learning tasks like NLP).</dd>
+        </dl>
+    </section>
+    <section id="ConsOfANN"><h3>Cons of Artificial Neural Networks</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>1. <strong>Computationally Intensive:</strong></dt>
+            <dd>Training ANNs, especially deep networks, requires significant computational resources, often involving GPUs or specialized hardware.</dd>
+
+            <dt>2. <strong>Data Dependency:</strong></dt>
+            <dd>ANNs require large datasets to achieve good performance. Without sufficient data, they are prone to overfitting or underfitting.</dd>
+
+            <dt>3. <strong>Black Box Nature:</strong></dt>
+            <dd>It is difficult to interpret the inner workings of ANNs, making it hard to explain why certain decisions are made, which can be a drawback in critical applications like healthcare or finance.</dd>
+        </dl>
+    </section>
+</section>
+
+
+<section class="main-section-title" id="ApplicationsOfANN"><h1>Applications of Artificial Neural Networks</h1></section>
+<section class="sub-sections"><h2>Applications of Artificial Neural Networks</h2>
+    <section id="LearningTasksForANN"><h3>Learning Tasks for Artificial Neural Networks</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Artificial Neural Networks (ANNs) are applied in various types of learning tasks:</dt>
+
+            <dt>Supervised Learning</dt>
+            <dd>ANNs are widely used for tasks like classification, regression, and predictive modeling, where labeled data is available (e.g., image recognition, speech recognition).</dd>
+
+            <dt>Unsupervised Learning</dt>
+            <dd>ANNs are employed in tasks like clustering, dimensionality reduction, and anomaly detection, typically using techniques like Autoencoders and Self-Organizing Maps (SOM).</dd>
+
+            <dt>Reinforcement Learning</dt>
+            <dd>ANNs are integrated into reinforcement learning for decision-making tasks, particularly in environments where agents learn from rewards (e.g., Deep Q-Networks, AlphaGo).</dd>
+        </dl>
+    </section>
+    <section id="ImageRecognition"><h3>Image Recognition</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Convolutional Neural Networks (CNNs), a type of ANN, are widely used for image classification and object detection tasks.</dt>
+            <dd>They have shown remarkable success in recognizing objects in photos, medical images, and facial recognition systems.</dd>
+            <pre><code rel="Python" class="python" style="min-height: 1vh;">
+                # Example of loading a pre-trained CNN for image recognition
+                from tensorflow.keras.applications import VGG16
+
+                model = VGG16(weights='imagenet')
+                # Model can now be used for image classification
+            </code></pre>
+        </dl>
+    </section>
+
+    <section id="NaturalLanguageProcessing"><h3>Natural Language Processing</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Recurrent Neural Networks (RNNs) and Transformer models are widely used in NLP tasks.</dt>
+            <dd>Applications include language translation, sentiment analysis, and chatbots like GPT, which are based on Transformer architecture.</dd>
+            <pre><code rel="Python" class="python" style="min-height: 1vh;">
+                # Example of using GPT-3 for text generation
+                import openai
+
+                openai.api_key = 'your-api-key'
+                response = openai.Completion.create(
+                    model="text-davinci-003",
+                    prompt="Explain ANN in simple terms.",
+                    max_tokens=50
+                )
+                print(response.choices[0].text.strip())
+            </code></pre>
+        </dl>
+    </section>
+
+    <section id="GameAI"><h3>Game AI</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>ANNs are used to train intelligent agents in games to make decisions, strategize, and even learn from the game environment.</dt>
+            <dt>Deep Reinforcement Learning (which uses Deep Neural Networks) has been applied to create AI that can outperform humans in games like Go and Dota 2.</dt>
+        </dl>
+    </section>
+</section>
+
+<section class="main-section-title" id="UsingPythonLibrariesForANN"><h1>Using Python Libraries for Artificial Neural Networks</h1></section>
+<section class="sub-sections"><h2>Using Python Libraries for Artificial Neural Networks</h2>
+    <section id="TensorFlow"><h3>TensorFlow</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>TensorFlow is an open-source library developed by Google, widely used for building and training machine learning models, especially deep learning models.</dt>
+            <dt>TensorFlow is highly scalable and can be deployed in both research and production environments. It supports both low-level operations and high-level APIs for neural networks.</dt>
+        </dl>
+    </section>
+    <section id="Keras"><h3>Keras</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Keras is a high-level API built on top of TensorFlow that simplifies the process of creating and training deep learning models.</dt>
+            <dt>Keras is known for its user-friendliness, ease of prototyping, and flexibility in building both simple and complex models.</dt>
+        </dl>
+    </section>
+    <section id="KerasVsTensorFlow"><h3>Keras vs TensorFlow</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Purpose</dt>
+            <dd>Keras: Simplifies model building with a high-level API.</dd>
+            <dd>TensorFlow: Offers both high-level APIs and low-level control for custom models.</dd>
+
+            <dt>Use Case</dt>
+            <dd>Keras: Ideal for beginners and rapid prototyping.</dd>
+            <dd>TensorFlow: Suitable for research, production, and complex projects.</dd>
+
+            <dt>Flexibility</dt>
+            <dd>Keras: Limited to predefined layers and operations.</dd>
+            <dd>TensorFlow: Supports custom layers, operations, and optimizations.</dd>
+
+            <dt>Deployment</dt>
+            <dd>Keras: Easier to use in small-scale environments.</dd>
+            <dd>TensorFlow: Supports large-scale deployments and integrations.</dd>
+        </dl>
+    </section>
+
+    <section id="PyTorch"><h3>PyTorch</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>PyTorch is an open-source machine learning library developed by Facebook, widely used for research and prototyping.</dt>
+            <dt>PyTorch provides dynamic computational graphs, allowing for easier debugging and experimentation by enabling code execution in smaller portions without needing to run the entire code.</dt>
+            <dt>It is also known for its flexibility and ease of use in creating complex neural network architectures.</dt>
+        </dl>
+    </section>
+
+</section>
+
+<section class="main-section-title" id="ExampleUsingKeras"><h1>Example: Creating an ANN with Keras</h1></section>
+<section class="sub-sections"><h2>Example: Creating an ANN with Keras</h2>
+    <section id="KerasExample"><h3>Keras Example</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>The network consists of three layers:</dt>
+            <dd>1. <strong>Input Layer:</strong> An input layer that defines the shape of the incoming data with 8 dimensions (features).</dd>
+            <dd>2. <strong>Hidden Layer:</strong> A Dense (fully connected) hidden layer with 32 neurons and ReLU activation function, which processes the input data.</dd>
+            <dd>3. <strong>Output Layer:</strong> A Dense output layer with 1 neuron and a sigmoid activation function, producing a value between 0 and 1, suitable for binary classification tasks.</dd>
+
+            <pre><code rel="Python" class="python" style="min-height: 70vh;">
+                # Import necessary libraries
+                from keras.models import Sequential
+                from keras.layers import Input, Dense
+
+                from sklearn.model_selection import train_test_split
+                from sklearn.datasets import make_classification
+
+                # Example dataset creation
+                X, y = make_classification(n_samples=1000, n_features=8, n_classes=2, random_state=42)
+                X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+                # Initialize a Sequential model
+                model = Sequential()
+
+                # Add an Input layer with 8 features (input shape)
+                model.add(Input(shape=(8,)))
+                # Add a Dense hidden layer with 32 neurons and ReLU activation
+                model.add(Dense(32, activation='relu'))
+                # Add the output layer with 1 neuron and sigmoid activation for binary classification
+                model.add(Dense(1, activation='sigmoid'))
+
+                # Compile the model
+                model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
+
+                # Train the model on the training data (X_train, y_train)
+                model.fit(X_train, y_train, epochs=10, batch_size=32)
+
+            </code></pre>
+        </dl>
+    </section>
+</section>
+
+<section class="main-section-title" id="ExampleUsingPyTorch"><h1>Example: Creating an ANN with PyTorch</h1></section>
+<section class="sub-sections"><h2>Example: Creating an ANN with PyTorch</h2>
+    <section id="PyTorchExample"><h3>PyTorch Example</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>The network consists of three layers:</dt>
+            <dd>1. <strong>Input Layer:</strong> An input layer with 8 features, passed directly into the first hidden layer.</dd>
+            <dd>2. <strong>Hidden Layer:</strong> A fully connected (Dense) hidden layer with 32 neurons and ReLU activation, which processes the input data.</dd>
+            <dd>3. <strong>Output Layer:</strong> A fully connected output layer with 1 neuron and a sigmoid activation function, producing a value between 0 and 1, suitable for binary classification tasks.</dd>
+
+            <pre><code rel="Python" class="python" style="min-height: 70vh;">
+                # Import necessary libraries
+                import torch
+                import torch.nn as nn
+                import torch.optim as optim
+                from sklearn.model_selection import train_test_split
+                from sklearn.datasets import make_classification
+
+                # Example dataset creation
+                X, y = make_classification(n_samples=1000, n_features=8, n_classes=2, random_state=42)
+                X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+                # Convert data to PyTorch tensors
+                X_train = torch.tensor(X_train, dtype=torch.float32)
+                y_train = torch.tensor(y_train, dtype=torch.float32).view(-1, 1)
+                X_test = torch.tensor(X_test, dtype=torch.float32)
+                y_test = torch.tensor(y_test, dtype=torch.float32).view(-1, 1)
+
+                # Define the model
+                class SimpleANN(nn.Module):
+                    def __init__(self):
+                        super(SimpleANN, self).__init__()
+                        self.hidden = nn.Linear(8, 32)  # Hidden layer with 32 neurons
+                        self.output = nn.Linear(32, 1)  # Output layer with 1 neuron
+
+                    def forward(self, x):
+                        x = torch.relu(self.hidden(x))  # ReLU activation for hidden layer
+                        x = torch.sigmoid(self.output(x))  # Sigmoid activation for output layer
+                        return x
+
+                # Initialize the model, loss function, and optimizer
+                model = SimpleANN()
+                criterion = nn.BCELoss()  # Binary Cross-Entropy loss
+                optimizer = optim.Adam(model.parameters(), lr=0.001)
+
+                # Train the model
+                for epoch in range(10):
+                    model.train()
+                    optimizer.zero_grad()
+                    outputs = model(X_train)
+                    loss = criterion(outputs, y_train)
+                    loss.backward()
+                    optimizer.step()
+                    print(f'Epoch {epoch+1}/10, Loss: {loss.item():.4f}')
+            </code></pre>
+        </dl>
+    </section>
+
+</section>
+
+
+
+
+
+<section id="hw">
+    <section><h1>Homework</h1></section>
+    <section id="task1"><h3>Homework</h3>
+        <dl class="fa">
+            <dt>The tasks are given in next <a href="__URL__">file</a></dt>
+            <dt>You can copy it and work directly on it. Just put your code under "### Your code here".</dt>
+        </dl>
+    </section>
+</section>
+
+
+
+<!-- <section class="main-sesction-title" id="hw"><h1>Exercises</h1></section>
+<section class="sub-sections"><h2>Task1</h2>
+    <section><h3>The Task</h3>
+
+    </section>
+</section> -->
+
+<!-- <section><h3>Submission</h3>
+    <dl class="fa">
+        <dt>Please, prefix your filenames/archive with your name initials, before sending.</dt>
+        <dd>For instance: <b>iep_task1.py</b> or <b>iep_tasks.rar</b></dd>
+        <dt>Send files to <a href="mailto:progressbg.python.course@gmail.com?Subject=HW: IntroductionToLLM">progressbg.python.course@gmail.com</a></dt>
+    </dl>
+</section> -->
+
+
+
+<section class="disclaimer" data-background="/ProgressBG-ChatGPT_and_ML-Slides/outfit/images/for_slides/the_end_on_sand.jpg">
+     <p>These slides are based on</p>
+     <p>customised version of </p>
+     <p><a href="http://hakim.se/">Hakimel</a>'s <a href="http://lab.hakim.se/reveal-js">reveal.js</a></p>
+     <p>framework</p>
+</section>
+<!--
+########################################################
+##################### SLIDES END   #####################
+########################################################
+-->
+        </div>
+    </div>
+    <!-- Custom processing -->
+    <script src="/ProgressBG-ChatGPT_and_ML-Slides/outfit/js/slides.js"></script>
+    <!-- external scripts -->
+    <script src="/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/lib/js/head.min.js"></script>
+    <script src="/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/js/reveal.js"></script>
+     <!-- init reveal -->
+    <script>
+        // Full list of configuration options available at:
+        // https://github.com/hakimel/reveal.js#configuration
+        var highlightjsTabSize = '  ';
+        Reveal.initialize({
+            controls: true,
+            progress: true,
+            slideNumber: 'c/t',
+            keyboard: true,
+            history: true,
+            center: true,
+            width: 1920,
+            height: 1280,
+            // Bounds for smallest/largest possible scale to apply to content
+            // minScale: .5,
+            maxScale: 1,
+            // slide transition
+            transition: 'concave', // none/fade/slide/convex/concave/zoom
+            // Factor of the display size that should remain empty around the content
+            margin: 0.1,
+            // shift+mouse click to zoom in/out element
+            zoomKey: 'ctrl',
+            // theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+            // transition: Reveal.getQueryHash().transition || 'default'
+            // Optional reveal.js plugins
+            dependencies: [
+                { src: '/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                { src: '/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                { src: '/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                { src: '/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.configure(); hljs.initHighlightingOnLoad(); } },
+                { src: '/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/plugin/zoom-js/zoom.js', async: true },
+                { src: '/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/plugin/notes/notes.js', async: true },
+                { src: '/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/plugin/math/math.js', async: true }
+            ]
+        });
+    </script>
+</body>
+</html>

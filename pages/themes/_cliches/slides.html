@@ -21,7 +21,10 @@
     <!--[if lt IE 9]>
     <script src="lib/js/html5shiv.js"></script>
     <![endif]-->
-    <!-- CUSTOM -->
+
+    <!-- add MathJax support -->
+    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
     <base target="_blank">
 </head>
 <body>
@@ -170,7 +173,8 @@
                 { src: '/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
                 { src: '/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.configure(); hljs.initHighlightingOnLoad(); } },
                 { src: '/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/plugin/zoom-js/zoom.js', async: true },
-                { src: '/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/plugin/notes/notes.js', async: true }
+                { src: '/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/plugin/notes/notes.js', async: true },
+                { src: '/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/plugin/math/math.js', async: true }
             ]
         });
     </script>
