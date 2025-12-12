@@ -14,12 +14,13 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 # Note: Install required packages first:
-# pip install numpy pandas scikit-learn matplotlib seaborn nltk
+# pip install kagglehub numpy pandas scikit-learn matplotlib seaborn nltk
 
 import nltk
 
 # Download required NLTK data (run once)
 nltk.download("punkt", quiet=True)
+nltk.download("punkt_tab", quiet=True)
 nltk.download("stopwords", quiet=True)
 nltk.download("wordnet", quiet=True)
 
@@ -32,43 +33,16 @@ from nltk.stem import WordNetLemmatizer
 # STEP 1: CREATE SAMPLE DATASET
 # ============================================================================
 def create_dataset():
-    """Create a sample movie review dataset"""
-    sample_reviews = [
-        # Positive reviews (label = 1)
-        ("This movie was excellent! I loved every minute of it.", 1),
-        ("Amazing film with great acting and storyline.", 1),
-        ("Absolutely fantastic! Best movie I've seen this year.", 1),
-        ("Wonderful performances and beautiful cinematography.", 1),
-        ("I really enjoyed this movie. Highly recommend!", 1),
-        ("Great entertainment! The plot was engaging.", 1),
-        ("Superb direction and outstanding cast.", 1),
-        ("This film exceeded all my expectations.", 1),
-        ("Brilliant! A must-watch for everyone.", 1),
-        ("Incredible movie with a powerful message.", 1),
-        ("Loved the story and the characters!", 1),
-        ("Perfect movie night! So entertaining!", 1),
-        ("Exceptional work by the entire team.", 1),
-        ("Highly satisfying and well-made film.", 1),
-        ("One of the best movies ever made!", 1),
-        # Negative reviews (label = 0)
-        ("Terrible movie. Complete waste of time.", 0),
-        ("I hated it. The plot made no sense.", 0),
-        ("Boring and poorly acted. Don't watch it.", 0),
-        ("Awful film. I couldn't finish it.", 0),
-        ("The worst movie I've ever seen.", 0),
-        ("Disappointing and dull throughout.", 0),
-        ("Poor storyline and bad acting.", 0),
-        ("I strongly dislike this movie.", 0),
-        ("Horrible! Not worth your money.", 0),
-        ("Extremely boring and predictable.", 0),
-        ("Waste of money and time. Terrible!", 0),
-        ("I want my money back. So bad!", 0),
-        ("Poorly made with no redeeming qualities.", 0),
-        ("Absolutely horrible film. Avoid it!", 0),
-        ("Unwatchable. Complete disaster.", 0),
-    ]
+    import kagglehub
 
-    df = pd.DataFrame(sample_reviews, columns=["review", "sentiment"])
+    # Download latest version
+    path = kagglehub.dataset_download(
+        "lakshmi25npathi/imdb-dataset-of-50k-movie-reviews"
+    )
+
+    print("Path to dataset files:", path)
+
+    df = pd.read_csv(path + "/IMDB Dataset.csv")
     return df
 
 
@@ -163,7 +137,7 @@ def predict_sentiment(text, vectorizer, model):
     probabilities = model.predict_proba(vectorized)[0]
 
     sentiment = "Positive 😊" if prediction == 1 else "Negative 😞"
-    confidence = probabilities[prediction] * 100
+    confidence = probabilities[int(prediction)] * 100
 
     return sentiment, confidence
 
@@ -203,6 +177,12 @@ def main():
     # STEP 1: Load and explore data
     print("\n[1/7] Loading dataset...")
     df = create_dataset()
+
+    # Encode string labels to numerical labels
+    df["sentiment"] = (
+        df["sentiment"].replace({"positive": 1, "negative": 0}).astype(int)
+    )
+
     print(f"   Dataset size: {len(df)} reviews")
     print(f"   Positive reviews: {sum(df['sentiment'] == 1)}")
     print(f"   Negative reviews: {sum(df['sentiment'] == 0)}")
@@ -230,9 +210,10 @@ def main():
     # STEP 4: Vectorization (TF-IDF)
     print("\n[4/7] Vectorizing text using TF-IDF...")
     vectorizer = TfidfVectorizer(
-        max_features=100,  # Limit to top 100 features
+        max_features=5000,  # Limit to top 5000 features
         ngram_range=(1, 2),  # Use unigrams and bigrams
-        min_df=1,  # Minimum document frequency
+        min_df=5,  # Minimum document frequency
+        max_df=0.8,  # Maximum document frequency
     )
 
     X_train_tfidf = vectorizer.fit_transform(X_train)
@@ -301,21 +282,21 @@ def main():
 if __name__ == "__main__":
     vectorizer, model = main()
 
-    # Interactive testing
-    print("\n" + "=" * 80)
-    print("Interactive Mode - Test your own reviews!")
-    print("=" * 80)
-    print("Enter 'quit' to exit\n")
+    # # Interactive testing
+    # print("\n" + "=" * 80)
+    # print("Interactive Mode - Test your own reviews!")
+    # print("=" * 80)
+    # print("Enter 'quit' to exit\n")
 
-    while True:
-        user_input = input("Enter a movie review: ").strip()
+    # while True:
+    #     user_input = input("Enter a movie review: ").strip()
 
-        if user_input.lower() in ["quit", "exit", "q"]:
-            print("\nGoodbye!")
-            break
+    #     if user_input.lower() in ["quit", "exit", "q"]:
+    #         print("\nGoodbye!")
+    #         break
 
-        if not user_input:
-            continue
+    #     if not user_input:
+    #         continue
 
-        sentiment, confidence = predict_sentiment(user_input, vectorizer, model)
-        print(f"→ Sentiment: {sentiment} (Confidence: {confidence:.1f}%)\n")
+    #     sentiment, confidence = predict_sentiment(user_input, vectorizer, model)
+    #     print(f"→ Sentiment: {sentiment} (Confidence: {confidence:.1f}%)\n")
