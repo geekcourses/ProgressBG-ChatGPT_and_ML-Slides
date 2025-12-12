@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Introduction to LLM and ChatGPT</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <link rel="icon" type="image/x-icon" href="../../../outfit/images/favicons/favicon.png">
+    <link rel="stylesheet" href="../../../lib/reveal.js/css/reveal.css">
+    <link rel="stylesheet" href="../../../outfit/css/themes/projector.css" id="theme">
+    <script>
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match( /print-pdf/gi ) ? '../../../lib/reveal.js/css/print/pdf.css' : '../../../lib/reveal.js/css/print/paper.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../../../outfit/css/reveal.js.css">
+    <base target="_blank">
+</head>
+<body>
+    <div class="reveal default center" data-transition-speed="default" data-background-transition="default">
+        <div class="top_links">
+            <a class="home_link" href="../../../index.html#IntroductionToLlmAndChatGpt" target="_top"><i class="fa fa-home"></i></a>
+            <span class="help_link"><i class="fa fa-question"></i></span>
+            <div class="help_text">
+                <div class="note">Keyboard shortcuts:</div>
+                <div><span>N/Space</span><span>Next Slide</span></div>
+                <div><span>P</span><span>Previous Slide</span></div>
+                <div><span>O</span><span>Slides Overview</span></div>
+                <div><span>ctrl+left click</span><span>Zoom Element</span></div>
+                <div class="print-howto"><br>If you want print version => add '<code>?print-pdf</code>' <br> at the end of slides URL (remove '#' fragment) and then print. <br>
+                Like: https://wwwcourses.github.io/...CourseIntro.html?print-pdf </div>
+            </div>
+        </div>
+        <div class="footer theme_switch">
+            <a href="#" onclick="document.getElementById('theme').setAttribute('href','../../../outfit/css/themes/dark.css'); return false;">Dark</a>
+            <a href="#" onclick="document.getElementById('theme').setAttribute('href','../../../outfit/css/themes/light.css'); return false;">Light</a>
+            <a href="#" onclick="document.getElementById('theme').setAttribute('href','../../../outfit/css/themes/projector.css'); return false;">Projector</a>
+        </div>
+        <div class="slides">
+
+<section class="main-section-title first"><h1>Introduction to LLM and ChatGPT</h1></section>
+
+<!-- 1. How Neural Networks Work -->
+<section class="main-section-title"><h1>How Neural Networks Work</h1></section>
+<section class="sub-sections"><h2>How Neural Networks Work</h2>
+    <section>
+        <h3>The Concept</h3>
+        <img src="./images/neural_networks_concept_1765367248180.png" alt="Neural Network Concept" style="height: 50vh; border-radius: 10px;">
+    </section>
+    <section>
+        <h3>Biological Inspiration</h3>
+        <dl class="fa">
+            <dt>Inspired by the human brain's network of neurons.</dt>
+            <dt><b>Neuron (Node)</b>: Receives input, processes it, and passes it on.</dt>
+            <dt><b>Synapse (Weight)</b>: Determines the strength of the signal between neurons.</dt>
+        </dl>
+    </section>
+    <section>
+        <h3>Layers of a Neural Network</h3>
+        <dl class="fa">
+            <dt><b>Input Layer</b>: Receives raw data (e.g., pixels of an image).</dt>
+            <dt><b>Hidden Layers</b>: Where the "magic" happens – feature extraction and pattern recognition.</dt>
+            <dt><b>Output Layer</b>: Produces the final prediction (e.g., "Cat" or "Dog").</dt>
+        </dl>
+    </section>
+    <section>
+        <h3>The Learning Process</h3>
+        <dl class="fa">
+            <dt><b>Forward Propagation</b>: Data flows from input to output.</dt>
+            <dt><b>Loss Function</b>: Measures valid predictions vs actual targets.</dt>
+            <dt><b>Backpropagation</b>: Error is sent back through the network to adjust weights and improve accuracy.</dt>
+        </dl>
+    </section>
+</section>
+
+<!-- 2. How LLMs Learn -->
+<section class="main-section-title"><h1>How LLMs Learn</h1></section>
+<section class="sub-sections"><h2>How LLMs Learn</h2>
+    <section>
+        <h3>The Transformer Architecture</h3>
+        <img src="./images/llm_transformer_architecture_1765367264732.png" alt="Transformer Architecture" style="height: 50vh; border-radius: 10px;">
+    </section>
+    <section>
+        <h3>The Breakthrough: Attention Mechanism</h3>
+        <dl class="fa">
+            <dt>Allows the model to weigh the importance of different words in a sentence, regardless of distance.</dt>
+            <dt>Enables understanding of context and relationships (e.g., "bank" of a river vs "bank" for money).</dt>
+        </dl>
+    </section>
+    <section>
+        <h3>Training Stages</h3>
+        <dl class="fa">
+            <dt><b>1. Pre-training</b>: Learning from massive datasets (Internet text). The goal: Predict the next token.</dt>
+            <dd>Result: A "Base Model" that knows grammar and facts but lacks direction.</dd>
+            <dt><b>2. Fine-tuning (Instruction Tuning)</b>: Training on specific Q&A pairs to follow instructions.</dt>
+            <dt><b>3. RLHF (Reinforcement Learning from Human Feedback)</b>: Refining the model to be helpful, harmless, and honest.</dt>
+        </dl>
+    </section>
+</section>
+
+<!-- 3. Real-World Projects -->
+<section class="main-section-title"><h1>Real-World Projects</h1></section>
+<section class="sub-sections"><h2>Real-World Projects</h2>
+    <section>
+        <h3>AI in Action</h3>
+        <img src="./images/ai_real_world_projects_1765367281649.png" alt="Real World Projects" style="height: 50vh; border-radius: 10px;">
+    </section>
+    <section>
+        <h3>Key Applications</h3>
+        <dl class="fa">
+            <dt><b>Content Generation</b>: Marketing copy, blogs, social media posts.</dt>
+            <dt><b>Coding Assistants</b>: GitHub Copilot, Cursor - accelerating development.</dt>
+            <dt><b>Customer Support</b>: 24/7 intelligent chatbots handling complex queries.</dt>
+            <dt><b>Data Analysis</b>: Summarizing reports, extracting insights from unstructured text.</dt>
+            <dt><b>Education</b>: Personalized tutors and learning assistants.</dt>
+        </dl>
+    </section>
+</section>
+
+<!-- 4. OpenAI API -->
+<section class="main-section-title"><h1>Introduction to OpenAI API</h1></section>
+<section class="sub-sections"><h2>Introduction to OpenAI API</h2>
+    <section>
+        <h3>Accessing Intelligence</h3>
+        <img src="./images/openai_api_concept_1765367297573.png" alt="OpenAI API Concept" style="height: 50vh; border-radius: 10px;">
+    </section>
+    <section>
+        <h3>Getting Started</h3>
+        <dl class="fa">
+            <dt><b>API Key</b>: Your secret access token. Never share it publicly!</dt>
+            <dt><b>Models</b>: gpt-4o, gpt-4-turbo, gpt-3.5-turbo. Balancing intelligence vs cost/speed.</dt>
+            <dt><b>Pricing</b>: Pay-per-token. 1,000 tokens ≈ 750 words.</dt>
+        </dl>
+    </section>
+    <section>
+        <h3>Key Concepts</h3>
+        <dl class="fa">
+            <dt><b>System Prompt</b>: Sets the behavior/persona of the assistant.</dt>
+            <dt><b>User Prompt</b>: The specific input/question from the user.</dt>
+            <dt><b>Temperature</b>: Controls randomness (0 = deterministic, 1 = creative).</dt>
+        </dl>
+    </section>
+</section>
+
+<!-- 5. Basic API Requests with Python -->
+<section class="main-section-title"><h1>Basic API Requests with Python</h1></section>
+<section class="sub-sections"><h2>Basic API Requests with Python</h2>
+    <section>
+        <h3>Coding with AI</h3>
+        <img src="./images/python_coding_ai_1765367313815.png" alt="Python Coding AI" style="height: 50vh; border-radius: 10px;">
+    </section>
+    <section>
+        <h3>Installation & Setup</h3>
+        <pre><code class="bash">
+pip install openai python-dotenv
+        </code></pre>
+        <p>Set your API key in a <code>.env</code> file:</p>
+        <pre><code class="bash">
+OPENAI_API_KEY="sk-..."
+        </code></pre>
+    </section>
+    <section>
+        <h3>The Code</h3>
+        <pre><code class="python" style="max-height: 500px">
+from openai import OpenAI
+import os
+from dotenv import load_dotenv
+
+# Load environment variables
+load_dotenv()
+
+client = OpenAI(
+    api_key=os.environ.get("OPENAI_API_KEY"),
+)
+
+response = client.chat.completions.create(
+    model="gpt-4o",
+    messages=[
+        {"role": "system", "content": "You are a helpful assistant."},
+        {"role": "user", "content": "Explain quantum computing in one sentence."}
+    ]
+)
+
+print(response.choices[0].message.content)
+        </code></pre>
+    </section>
+</section>
+
+<section class="disclaimer" data-background="../../../outfit/images/for_slides/the_end_on_sand.jpg">
+     <p>These slides are made by</p>
+     <p>customized version of </p>
+     <p><a href="http://hakim.se/">Hakimel</a>'s <a href="http://lab.hakim.se/reveal-js">reveal.js</a></p>
+     <p>framework</p>
+</section>
+</div>
+    </div>
+    <script src="../../../outfit/js/slides.js"></script>
+    <script src="../../../lib/reveal.js/lib/js/head.min.js"></script>
+    <script src="../../../lib/reveal.js/js/reveal.js"></script>
+    <script>
+        // Full list of configuration options available at:
+        // https://github.com/hakimel/reveal.js#configuration
+        var highlightjsTabSize = '  ';
+        Reveal.initialize({
+            controls: true,
+            progress: true,
+            slideNumber: 'c/t',
+            keyboard: true,
+            history: true,
+            center: true,
+            width: 1920,
+            height: 1280,
+            maxScale: 1,
+            // slide transition
+            transition: 'concave', // none/fade/slide/convex/concave/zoom
+            // Factor of the display size that should remain empty around the content
+            margin: 0.1,
+            // shift+maouse click to zoom in/out element
+            zoomKey: 'ctrl',
+            // theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+            // transition: Reveal.getQueryHash().transition || 'default'
+            // Optional reveal.js plugins
+            dependencies: [
+                { src: '../../../lib/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                { src: '../../../lib/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                { src: '../../../lib/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                { src: '../../../lib/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.configure({tabReplace: highlightjsTabSize}); hljs.initHighlightingOnLoad(); } },
+                { src: '../../../lib/reveal.js/plugin/zoom-js/zoom.js', async: true },
+                { src: '../../../lib/reveal.js/plugin/notes/notes.js', async: true }
+            ]
+        });
+    </script>
+    </body>
+</html>
