@@ -1,5 +1,7 @@
 # Distribution / packaging
 env/
+.env
+
 .venv/
 build/
 python_apps

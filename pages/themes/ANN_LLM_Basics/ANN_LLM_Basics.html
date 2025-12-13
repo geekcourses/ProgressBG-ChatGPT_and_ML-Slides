@@ -773,21 +773,323 @@
 </section>
 
 
-<!-- <section class="main-sesction-title" id="hw"><h1>Exercises</h1></section>
-<section class="sub-sections"><h2>Task1</h2>
-    <section><h3>The Task</h3>
+<section id="IntroductionToLLM" class="main-section-title"><h1>Introduction to Large Language Models (LLMs)</h1></section>
+<section id="LLMOverview" class="sub-sections"><h2>Introduction to LLMs</h2>
+    <section id="WhatIsLLM"><h3>What is an LLM?</h3>
+        <dl class="fa">
+            <dt>Large Language Models (LLMs) are deep learning models trained on humongous datasets (internet data, books, etc.) to understand, generate, and manipulate human language.</dt>
+            <dt>They are built on the <b>Transformer</b> architecture, scaling up the number of parameters and training data.</dt>
+            <dt>LLMs are "Foundation Models" - trained once on vast data, then adapted (fine-tuned) for specific tasks.</dt>
+            <dt><i>The rule of thumb</i>: a model is an LLM if it is a Transformer-based language model capable of broad, general-purpose reasoning  generally requiring at least 7 billion parameters.</dt>
 
+        </dl>
     </section>
-</section> -->
+    <section><h3>How LLMs Work?</h3>
+        <dl class="fa">
+            <dt>During inference, LLMs generate text by sampling from the learned probability distribution of tokens, conditioned on the input prompt.</dt>
+        </dl>
+        <a href="./images/LLM_Next_Word_Prediction.png"><img src="./images/LLM_Next_Word_Prediction.png" alt="LLM_Next_Word_Prediction.png"></a>
+    </section>
+    <section><h3>Reference</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Large Language Models explained briefly @3Blue1Brown</dt>
+            <iframe src="https://www.youtube.com/embed/LPZh9BOjkQs" title="Large Language Models explained briefly" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="height: 70vh; margin-top: 1em;"></iframe>
+        </dl>
+    </section>
+    <section id="LLMKeyConcepts"><h3>Key Concepts</h3>
+        <dl class="fa">
+            <dt><b>Tokens</b>: Text is broken down into chunks called tokens (words, subwords, or characters). Models process tokens, not raw text.</dt>
+            <dd>1 token $\approx$ 0.75 word.</dd>
+            <dd>1000 tokens $\approx$ 750 words.</dd>
+            <dd>1M tokens $\approx$ 750,000 words, 5 to 10 average-length novels (a 300-page book is often around 150,000 to 200,000 tokens).</dd>
+            <dt>Reference: <a href="https://platform.openai.com/tokenizer">OpenAI Tokenizer</a></dt>
+            <dt><b>Context Window</b>: The maximum number of tokens the model can consider at one time (input + output).</dt>
+            <dt><b>Embeddings</b>: Tokens are converted into high-dimensional vectors capturing semantic meaning.</dt>
+            <dt><b>Parameters</b>: The internal variables (weights) learned during training. More parameters generally mean improved capabilities (e.g., Llama-3-8B vs Llama-3-70B).</dt>
+        </dl>
+    </section>
+    <section><h3>LLM Scaling Laws</h3>
+        <dl class="fa">
+            <dt>LLM performance improves predictably with increased model size, dataset size, and compute resources.</dt>
+            <dt>Doubling the number of parameters typically leads to a significant reduction in error rates across various NLP tasks.</dt>
+            <dt>However, returns diminish at extreme scales, and practical considerations (cost, latency) become critical.</dt>
+        </dl>
+        <a href="./images/LLM_ScalingLaws.png"><img src="./images/LLM_ScalingLaws.png" alt="LLM_ScalingLaws" style="height: 80vh;"></a>
+        <p style="font-size:0.6em">Image from <a href="https://towardsdatascience.com/scaling-law-of-language-models-5759de7f830c/">Scaling Law Of Language Models</a> @towardsdatascience.com</p>
+    </section>
+    <section id="InferenceParameters"><h3>Controlling the output generation</h3>
+        <dl class="fa">
+            <dt><b>Max Tokens</b>: Limits the length of the generated output.</dt>
+            <dt><b>Temperature</b>: Controls randomness. Low (0.1) = deterministic/focused; High (0.8+) = creative/random.</dt>
+            <dt><b>Top-k</b>:  the model only considers the $k$ most likely next tokens at each step, instead of all possible tokens.</dt>
+            <dd>Effect: a smaller $k$ (e.g., $k$=5) makes the output highly predictable, safe, and focused, as it almost always chooses one of the few most probable words. A larger $k$ (e.g., $k$=100) increases diversity and creativity.</dd>
+            <dt><b>Top-p</b> (nucleus sampling): the model considers the smallest set of tokens whose cumulative probability sums up to the threshold $p$ (a value between 0.0 and 1.0).</dt>
+            <dd>Effect: a smaller $p$ (e.g., $p$=0.5) makes the output highly predictable and focused, keeping only the most probable tokens. A larger $p$ (e.g., $p$=0.95) increases diversity by including more low-probability tokens, allowing for more creative and varied text.</dd>
+            <dt>By adjusting these parameters, you can precisely control the balance between deterministic/coherent output and creative/diverse output.</dt>
+            <dt>Reference: <a href="https://poloclub.github.io/transformer-explainer/">Transformer explainer</a></dt>
+        </dl>
+    </section>
+    <section id="LLMLifecycle"><h3>LLM Training Lifecycle</h3>
+        <dl class="fa">
+            <dt>1. <b>Pre-training</b>: Computationally expensive phase learning language patterns from massive amount of data.</dt>
+            <dt>2. <b>Supervised Fine-Tuning (SFT)</b>: Tuning the model on high-quality instruction-response pairs to follow instructions.</dt>
+            <dt>3. <b>RLHF/RLAIF</b>: Reinforcement Learning from Human/AI Feedback to align the model with human preferences (e.g., safety, helpfulness).</dt>
+        </dl>
+    </section>
+    <section id="LLMBusinessUseCases"><h3>Business Use Cases</h3>
+        <dl class="fa">
+            <dt><b>Retrieval Augmented Generation (RAG)</b>: Connecting LLMs to company data (docs, databases) to answer internal queries accurately without hallucinations.</dt>
+            <dt><b>Customer Support Chatbots</b>: Automating Tier-1 support with intelligent agents that understand intent and context.</dt>
+            <dt><b>Content Generation</b>: detailed marketing copy, emails, and reports.</dt>
+            <dt><b>Sentiment Analysis</b>: Analyzing customer feedback at scale.</dt>
+        </dl>
+    </section>
+    <section id="LLMLeaderboard"><h3>LLM Leaderboards</h3>
+        <dl class="fa">
+            <dt><a href="https://huggingface.co/spaces/open-llm-leaderboard/open_llm_leaderboard#/">Open LLM Leaderboard @huggingface.co</a> - one of the most cited resource for tracking the quantitative, benchmark-based performance of models whose weights are released to the public</dt>
+            <dt><a href="https://lmarena.ai/leaderboard">lmarena.ai</a> - this leaderboard evaluates both open and proprietary models (including major commercial models) based on real-world, user-driven feedback.</dt>
+            <dt><a href="https://artificialanalysis.ai/leaderboards/models">LLM Leaderboard - Comparison of over 100 AI models from OpenAI, Google, DeepSeek & others</a></dt>
+        </dl>
+    </section>
+</section>
 
-<!-- <section><h3>Submission</h3>
-    <dl class="fa">
-        <dt>Please, prefix your filenames/archive with your name initials, before sending.</dt>
-        <dd>For instance: <b>iep_task1.py</b> or <b>iep_tasks.rar</b></dd>
-        <dt>Send files to <a href="mailto:progressbg.python.course@gmail.com?Subject=HW: IntroductionToLLM">progressbg.python.course@gmail.com</a></dt>
-    </dl>
-</section> -->
 
+<section class="main-section-title"><h1>Hands on: text generation demo with GPT2</h1></section>
+<section id="HandsOnTextGenerationDemoWithGpt2" class="sub-sections"><h2>Hands on: text generation demo with GPT2</h2>
+    <section><h3>Overview</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>In next example we will implement text generation using a pre-trained language model (<a href="https://huggingface.co/distilbert/distilgpt2">DistilGPT-2 @Hugging Face</a>).</dt>
+            <dt>The model and the code run on local machine which gives us full control and privacy.</dt>
+            <dd>By default, the model is downloaded into <code>~/.cache/huggingface</code> for Linux/MacOS, <code>C:\Users\&lt;YourUsername&gt;\.cache\huggingface\</code> for Windows</dd>
+            <dt>We will provide a starting phrase, and the model predicts what words should come next, similar to how autocomplete works on phone but more sophisticated.</dt>
+            <dt>The Transformers library gives us easy access to the pre-trained DistilGPT-2 model and its tokenizer, allowing us to load and use the model with just a few lines of code instead of training one from scratch.</dt>
+        </dl>
+    </section>
+    <section><h3>The code</h3>
+        <dl class="fa" style="min-width:80vw">
+            <pre><code rel="Python" class="python" style="min-height: 99vh;">
+                import torch
+                from transformers import AutoModelForCausalLM, AutoTokenizer
+
+                # --- Configuration ---
+                MODEL_NAME = "distilgpt2"  # A small, fast GPT-2 model
+
+
+                # 1. Setup Model and Tokenizer
+                def setup_lm():
+                    """Initializes the tokenizer and the pre-trained language model."""
+                    print(f"Setting up Language Model: {MODEL_NAME}...")
+
+                    # The tokenizer handles converting raw text into the numerical IDs the model understands.
+                    tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
+
+                    # The model is loaded with pre-trained weights for text generation (Causal LM).
+                    model = AutoModelForCausalLM.from_pretrained(MODEL_NAME)
+                    model.eval()  # Set to evaluation mode
+
+                    print("Model and Tokenizer loaded successfully.")
+                    return model, tokenizer
+
+
+                # 2. Prepare Input
+                def prepare_text_input(tokenizer, prompt_text):
+                    """Encodes the input text string into a PyTorch tensor of token IDs."""
+                    print(f"\nEncoding Prompt: '{prompt_text}'")
+
+                    # The tokenizer encodes the text. return_tensors='pt' ensures PyTorch tensor output.
+                    input_ids = tokenizer.encode(prompt_text, return_tensors="pt")
+
+                    return input_ids
+
+
+                # 3. Run Inference
+                def run_generation(model, tokenizer, input_ids, max_length=50):
+                    """Generates new text based on the input tokens."""
+                    print("Running text generation...")
+
+                    # Generates text. max_length specifies how long the final output sequence should be.
+                    with torch.no_grad():
+                        output_ids = model.generate(
+                            input_ids,
+                            max_length=max_length,
+                            do_sample=True,
+                            top_k=50,
+                            top_p=0.95,
+                            pad_token_id=tokenizer.eos_token_id,
+                        )
+                    return output_ids
+
+
+                # 4. Display Results
+                def display_results(tokenizer, generated_output_ids, prompt_length):
+                    """Decodes the output tensor into human-readable text."""
+
+                    # Decode the output tensor back into a string.
+                    full_text = tokenizer.decode(generated_output_ids[0], skip_special_tokens=True)
+
+                    # Separate the original prompt from the generated text
+                    original_prompt = full_text[:prompt_length]
+                    generated_text = full_text[prompt_length:].strip()
+
+                    print("\n--- Generation Results ---")
+                    print(f"Original Prompt: {original_prompt}")
+                    print("-" * 30, "\n")
+                    print(f"Generated Text: {generated_text}")
+                    print("-" * 30, "\n")
+
+
+                def main():
+                    model, tokenizer = setup_lm()
+
+                    # Text Input
+                    PROMPT = "The purpose of life is"
+
+                    input_ids = prepare_text_input(tokenizer, PROMPT)
+
+                    # Get the length of the prompt in tokens for cleaner display
+                    prompt_length = len(tokenizer.decode(input_ids[0], skip_special_tokens=True))
+
+                    output_ids = run_generation(model, tokenizer, input_ids, max_length=50)
+
+                    display_results(tokenizer, output_ids, prompt_length)
+
+
+                if __name__ == "__main__":
+                    main()
+
+            </code></pre>
+        </dl>
+    </section>
+</section>
+
+<section class="main-sesction-title" id="introduction-to-gen-ai-api"><h1>Introduction to LLM Frontier Models API</h1></section>
+<section class="sub-sections"><h2>How to use APIs on frontier LMM models?</h2>
+
+    <section id="what-is-an-api"><h3>What is an API? (For Beginners)</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>The "Waiter" Analogy</dt>
+            <dd>
+                Imagine you are at a restaurant. You (the user) are sitting at a table, and the kitchen (Google's servers) is in the back. You cannot walk into the kitchen and cook the food yourself.
+                <br><br>
+                You need a messenger. This messenger is the <strong>waiter</strong> (the API).
+                <ul>
+                    <li>You give the waiter your order (the <strong>API Request</strong>).</li>
+                    <li>The waiter takes it to the kitchen.</li>
+                    <li>The kitchen prepares the food (generates the text).</li>
+                    <li>The waiter brings the food back to you (the <strong>API Response</strong>).</li>
+                </ul>
+            </dd>
+            <dt>Why use the Google API?</dt>
+            <dd>Using the API allows you to integrate Google's Gemini models directly into your code. Unlike the web interface, the API is programmable, allowing you to build automated tools, chatbots, or data analyzers.</dd>
+        </dl>
+    </section>
+
+    <section id="api-keys-and-authentication"><h3>API Keys and Authentication</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Obtaining an API Key</dt>
+            <dd>To access the kitchen, you need a pass. Google manages this through <strong>Google AI Studio</strong>. You can generate an API key there for free. This key identifies your project and enforces rate limits.</dd>
+            <dt><b><span class="note">Security Warning</span></b></dt>
+            <dd>Your API key is a <strong>secret</strong>! Never commit it to GitHub or share it publicly. If someone steals it, they can use your quota.</dd>
+        </dl>
+    </section>
+    <section><h3>Using Google SDK with Python</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>To use Google genai models in our Python programs, first install the required packages:</dt>
+            <pre><code rel="Terminal" class="shell">
+                pip install google-genai python-dotenv
+            </code></pre>
+            <dt>Create a <code>.env</code> file in your project directory to store your API key securely:</dt>
+            <pre><code rel=".env" class="text">
+                GOOGLE_API_KEY=AIzaSy...your_actual_key_here
+            </code></pre>
+            <dt>The <code>google-genai</code> package provides the Python SDK for Google's Generative AI models, while <code>python-dotenv</code> helps load environment variables from the .env file, keeping your API key secure and out of your code.</dt>
+            <dt>Example code:</dt>
+            <pre><code rel="Python" class="python" style="min-height: 10vh;">
+                import os
+                from google import genai
+                from dotenv import load_dotenv
+
+                ### AUTHENTICATION
+                # Load environment variables from a .env file located in the same directory.
+                # Your .env file should contain: GOOGLE_API_KEY="AIzaSy..."
+                load_dotenv()
+
+                my_api_key = os.getenv("GOOGLE_API_KEY")
+
+                if not my_api_key:
+                    print("Error: GOOGLE_API_KEY not found in .env")
+                    exit()
+
+                client = genai.Client(api_key=my_api_key)
+
+                ### Query the model:
+                MODEL_NAME = "gemini-2.5-flash"
+                prompt = "Tell me a witty joke about Python programmers."
+
+                print("Sending request to Google...")
+                response = client.models.generate_content(model=MODEL_NAME, contents=prompt)
+
+                # print response
+                print("Response received:")
+                print(response.text)
+            </code></pre>
+        </dl>
+    </section>
+    <section id="api-settings-and-parameters"><h3>Model Selection</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Google offers different versions of Gemini models, like:
+                <ul>
+                    <li><strong>gemini-2.0-flash-lite</strong>: smallest and most cost effective model, built for at scale usage.</li>
+                    <li><strong>gemini-3-pro-preview</strong>: the best model in the world for multimodal understanding, and Google's most powerful agentic and vibe-coding model yet.</li>
+                </ul>
+            </dt>
+            <pre><code rel="Python" class="python" style="min-height: 1vh;">
+                import os
+                from google import genai
+                from dotenv import load_dotenv
+
+                # 1. Load the .env file
+                load_dotenv()
+                my_api_key = os.getenv("GOOGLE_API_KEY")
+
+                # Check if key exists to prevent vague errors
+                if not my_api_key:
+                    print("Error: GOOGLE_API_KEY not found. Check your .env file.")
+                    exit()
+
+                # 2. Initialize the Client with the key
+                client = genai.Client(api_key=my_api_key)
+
+                print("List of models that support generateContent:\n")
+                for m in client.models.list():
+                    for action in m.supported_actions:
+                        if action == "generateContent":
+                            print(m.name)
+
+            </code></pre>
+        </dl>
+    </section>
+
+    <section id="pricing-and-usage-limits"><h3>Pricing and The Free Tier</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>The "Free of Charge" Tier</dt>
+            <dd>Google offers a genuine <strong>Free Tier</strong> (unlike a temporary trial).
+                <ul>
+                    <li><strong>Cost:</strong> $0.00 / month.</li>
+                    <li><strong>Rate Limits:</strong> You are limited to a certain number of requests per minute (RPM) and requests per day (RPD). For Gemini 1.5 Flash, this is currently 15 RPM and 1,500 RPD (subject to change).</li>
+                    <li><strong>Data Usage:</strong> In the free tier, Google may use your inputs and outputs to improve their products. Do not send sensitive personal data in the free tier.</li>
+                </ul>
+            </dd>
+            <dt>Pay-as-you-go</dt>
+            <dd>If you need higher rate limits or <strong>data privacy</strong> (where Google does not train on your data), you switch to the paid plan. Pricing is based on tokens (characters/words) processed.</dd>
+            <dt>Handling Rate Limits</dt>
+            <dd>If you send requests too fast in the Free Tier, you will get a <code>429 Resource Exhausted</code> error. Your code should handle this gracefully.</dd>
+            <dt>Reference: <a href="https://ai.google.dev/gemini-api/docs/pricing">Gemini Developer API pricing
+
+</a></dt>
+        </dl>
+    </section>
+</section>
 
 
 <section class="disclaimer" data-background="/ProgressBG-ChatGPT_and_ML-Slides/outfit/images/for_slides/the_end_on_sand.jpg">
