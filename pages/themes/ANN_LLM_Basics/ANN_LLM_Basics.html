@@ -53,7 +53,7 @@
 ##################### SLIDES START #####################
 ########################################################
 -->
-<section><h1>Introduction to ANN, LLM and ChatGPT</h1></section>
+<section id="Introduction"><h1>Introduction to ANN, LLM and ChatGPT</h1></section>
 <section data-transition="zoom">
     <!-- linkedin badge -->
     <!--<script type="text/javascript" src="https://platform.linkedin.com/badges/js/profile.js" async defer></script>-->
@@ -79,9 +79,9 @@
 </section>
 
 
-<section data-min="__Y__" class="main-section-title"><h1>Overview</h1></section>
-<section class="sub-sections"><h2>Overview</h2>
-    <section>
+<section id="Overview" data-min="__Y__" class="main-section-title"><h1>Overview</h1></section>
+<section id="WhatIsANN" class="sub-sections"><h2>Overview</h2>
+    <section id="ANNDefinition">
         <dl class="fa">
             <dt>Artificial Neural Networks (ANNs) are a subfield of Machine Learning and AI that is inspired by the structure and function of the human brain.</dt>
             <dt>ANNs are composed of a large number of interconnected processing units called neurons, which are organized in layers.</dt>
@@ -89,14 +89,14 @@
         </dl>
         <a href="./images/DL.gif"><img src="./images/DL.gif" alt="" style="height: 50vh;"></a>
     </section>
-    <section><h3>The inspiration</h3>
+    <section id="BioVsArtificialNeuron"><h3>The inspiration</h3>
         <dl class="fa">
             <dt>Artificial Neural Networks (ANNs) are inspired by the structure and function of the human brain. The idea of ANNs is based on the concept that the brain is a network of interconnected neurons that communicate with each other to process and transmit information. </dt>
             <dt>Biological neurons communicate through electrochemical signals, while artificial neurons use mathematical functions to process inputs and produce outputs.</dt>
         </dl>
         <a href="./images/bioneuron_vs_artneuron.webp"><img src="./images/bioneuron_vs_artneuron.webp" alt="bioneuron_vs_artneuron" style="height: 80vh; margin-top:2em"></a>
     </section>
-    <section><h3>The Artificial Neuron (Perceptron Model)</h3>
+    <section id="PerceptronModel"><h3>The Artificial Neuron (Perceptron Model)</h3>
         <a href="./images/Perceptron.png"><img src="./images/Perceptron.png" alt="Perceptron.png"></a>
         <dl class="fa">
             <dt><strong>Input Signals ($\mathbf{x}$):</strong> The neuron receives multiple input data points, $x_1, x_2, \ldots, x_n$, which form the input vector $\mathbf{x}$.</dt>
@@ -108,9 +108,9 @@
     </section>
 </section>
 
-<section data-min="50" class="main-section-title"><h1>ANN Structure</h1></section>
-<section class="sub-sections"><h2>ANN Structure</h2>
-    <section>
+<section id="ANNStructure" data-min="50" class="main-section-title"><h1>ANN Structure</h1></section>
+<section id="ArchitectureOfANN" class="sub-sections"><h2>ANN Structure</h2>
+    <section id="NetworkGraph">
         <dl class="fa">
             <dt>The structure of an ANN can be described as a directed graph, where each neuron in one layer is connected to every neuron in the next layer. </dt>
             <dt>The input layer is where the data is fed into the network, and the output layer produces the result. </dt>
@@ -118,7 +118,7 @@
             <a href="./images/ANN_Structure.png"><img src="./images/ANN_Structure.png" alt="ANN_Structure.png"></a>
         </dl>
     </section>
-    <section><h3>Layers</h3>
+    <section id="LayersDefinition"><h3>Layers</h3>
         <dl class="fa">
             <dt>Input layer</dt>
             <dd>This is the layer where the input data is fed into the network.</dd>
@@ -135,7 +135,7 @@
         </dl>
     </section>
 
-    <section><h3>Example of a Dense Layer in Keras</h3>
+    <section id="DenseLayerKeras"><h3>Example of a Dense Layer in Keras</h3>
         <dl class="fa" style="min-width:80vw">
 
             <pre><code rel="Python" class="python" style="min-height: 1vh;">
@@ -157,16 +157,16 @@
     </section>
 </section>
 
-<section data-min="50" class="main-section-title"><h1>Activation Function</h1></section>
-<section class="sub-sections"><h2>Activation Function</h2>
-    <section>
+<section id="ActivationFunction" data-min="50" class="main-section-title"><h1>Activation Function</h1></section>
+<section id="RoleOfActivationFunctions" class="sub-sections"><h2>Activation Function</h2>
+    <section id="ActivationFunctionIntro">
         <dl class="fa">
             <dt>Activation functions are an essential part of Neural Networks as they are responsible for introducing non-linearity into the model. Without activation functions, Neural Networks would essentially be a series of linear operations, which would severely limit the model's capacity to learn complex patterns.</dt>
             <dt>There are several types of activation functions used in ANNs, including sigmoid, ReLU, and tanh. </dt>
             <dt>The choice of activation function depends on the problem being solved and the type of data being processed.</dt>
         </dl>
     </section>
-    <section><h3>Sigmoid Function</h3>
+    <section id="SigmoidFunction"><h3>Sigmoid Function</h3>
         <dl class="fa">
             <dt>
                 The Sigmoid function is one of the earliest and most widely used activation functions in Neural Networks. The Sigmoid function maps any input value to a value between 0 and 1, which makes it useful in binary classification problems. The mathematical formula for the Sigmoid function is given below:
@@ -181,7 +181,7 @@
         </dl>
         <img src="./images/sigmoit-plot.png" alt="">
     </section>
-    <section><h3>ReLU Function</h3>
+    <section id="ReLUFunction"><h3>ReLU Function</h3>
         <dl class="fa">
             <dt>The Rectified Linear Unit (ReLU) function is another popular activation function used in Neural Networks. The ReLU function maps any input value to either 0 or the input value itself, which makes it useful in cases where we want to introduce sparsity in the model. The mathematical formula for the ReLU function is given below:
 
@@ -194,7 +194,7 @@
 
         <img src="./images/ReLU-plot.png" alt="">
     </section>
-    <section><h3>Tanh Function</h3>
+    <section id="TanhFunction"><h3>Tanh Function</h3>
         <dl class="fa">
             <dt>The Tanh function is another popular activation function that maps any input value to a value between -1 and 1. The Tanh function is useful in cases where we want to introduce non-linearity and can help with normalization of the data. The mathematical formula for the Tanh function is given below:
 
@@ -225,9 +225,9 @@
     </section> -->
 </section>
 
-<section data-min="50" class="main-section-title"><h1>ANN training</h1></section>
-<section class="sub-sections"><h2>ANN training. Backpropagation.</h2>
-    <section>
+<section id="ANNTraining" data-min="50" class="main-section-title"><h1>ANN training</h1></section>
+<section id="BackpropagationExplained" class="sub-sections"><h2>ANN training. Backpropagation.</h2>
+    <section id="TrainingProcess">
         <dl class="fa">
             <dt>Training an ANN involves adjusting the weights of the connections between neurons to minimize the error between the predicted output and the actual output. </dt>
             <dt>This is done using a process called backpropagation, which involves calculating the gradient of the error with respect to each weight and bias in the network, and using this gradient to update the values of the weights and biases in the direction that reduces the error.</dt>
@@ -235,7 +235,7 @@
         <a href="./images/BackpropagationSimple.gif"><img src="./images/BackpropagationSimple.gif" alt="Backpropagation"></a>
         <p style="font-size:0.6em">Backpropagation illustration by <a href="https://machinelearningknowledge.ai">machinelearningknowledge.ai</a></p>
     </section>
-    <section><h3>Backpropagation Algorithm</h3>
+    <section id="BackpropagationAlgorithm"><h3>Backpropagation Algorithm</h3>
         <p>Here's how it works in simple terms:</p>
         <dl class="fa">
             <dt>1. Feedforward: The input data is fed into the network, and the output is calculated by passing it through a series of interconnected nodes, also known as neurons.</dt>
@@ -244,7 +244,7 @@
             <dt>4. Repeat: Steps 1-3 are repeated for each example in the training dataset until the error is minimized.</dt>
         </dl>
     </section>
-    <section><h3>Reference</h3>
+    <section id="BackpropagationReference"><h3>Reference</h3>
         <dl class="fa" style="min-width:80vw">
             <dt>"Backpropagation, intuitively" - a video from <a href="https://www.youtube.com/@3blue1brown">3blue1brown</a> </dt>
             <iframe width="1582" height="597" src="https://www.youtube.com/embed/Ilg3gGewQ5U" title="Backpropagation, intuitively | Deep Learning Chapter 3" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
@@ -252,9 +252,9 @@
     </section>
 </section>
 
-<section data-min="50" class="main-section-title"><h1>ANN Types</h1></section>
-<section class="sub-sections"><h2>ANN Types</h2>
-    <section><h3>Feedforward Neural Networks (FNNs)</h3>
+<section id="ANNTypes" data-min="50" class="main-section-title"><h1>ANN Types</h1></section>
+<section id="CommonANNArchitectures" class="sub-sections"><h2>ANN Types</h2>
+    <section id="FNNs"><h3>Feedforward Neural Networks (FNNs)</h3>
         <a href="./images/Feedforward_DigitClassification.gif"><img src="./images/Feedforward_DigitClassification.gif" alt="Feedforward Neural Network" style="width: 60vw"></a>
         <dl class="fa">
             <dt>Feedforward Neural Networks (FNNs) are the simplest type of neural network, where the data flows only in one direction, from the input layer to the output layer. </dt>
@@ -263,7 +263,7 @@
             <dt>The primary use case for FFNs is to act as a universal function approximator for supervised learning tasks like classification and regression, mapping fixed-size inputs to fixed-size outputs by learning complex, non-linear relationships.</dt>
         </dl>
     </section>
-   <section><h3>Convolutional Neural Networks (CNNs)</h3>
+   <section id="CNNs"><h3>Convolutional Neural Networks (CNNs)</h3>
        <a href="./images/Convolutional-Neural-Network.webp"><img src="./images/Convolutional-Neural-Network.webp" alt="Convolutional Neural Network Architecture"></a>
 
        <dl class="fa">
@@ -273,13 +273,13 @@
             <dt>They use a combination of Convolutional, <b>Pooling</b> (for downsampling), and <b>Fully Connected (Dense)</b> layers to perform tasks like image classification, object detection, and image segmentation.</dt>
         </dl>
     </section>
-    <section><h3>Reference</h3>
+    <section id="CNNReference"><h3>Reference</h3>
         <dl class="fa" style="min-width:80vw">
             <dt>The moment we stopped understanding AI [AlexNet]</dt>
             <iframe width="1218" height="685" src="https://www.youtube.com/embed/UZDiGooFs54" title="The moment we stopped understanding AI [AlexNet]" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </dl>
     </section>
-    <section><h3>Recurrent Neural Networks (RNNs)</h3>
+    <section id="RNNs"><h3>Recurrent Neural Networks (RNNs)</h3>
         <a href="./images/RNN_state.gif"><img src="./images/RNN_state.gif" alt="Recurrent Neural Network Architecture"></a>
         <dl class="fa">
             <dt>Recurrent Neural Networks (RNNs) are designed to process <b>sequential data</b> like time series, text, or speech, where the order of information is crucial.</dt>
@@ -288,7 +288,7 @@
             <dt>This allows RNNs to model the temporal dependencies in sequential data.</dt>
         </dl>
     </section>
-    <section><h3>Long Short-Term Memory Networks (LSTMs)</h3>
+    <section id="LSTMs"><h3>Long Short-Term Memory Networks (LSTMs)</h3>
         <a href="./images/LSTM.png"><img src="./images/LSTM.png" alt="LSTM"></a>
         <dl class="fa">
             <dt>LSTMs are an advanced type of Recurrent Neural Network designed to overcome the <b>vanishing gradient problem</b> of standard RNNs.</dt>
@@ -298,7 +298,7 @@
             <dt>This regulated flow allows LSTMs to effectively capture and remember **long-term dependencies** in sequences, making them ideal for complex tasks like machine translation and speech recognition.</dt>
         </dl>
     </section>
-    <section><h3>Generative Adversarial Networks (GANs)</h3>
+    <section id="GANs"><h3>Generative Adversarial Networks (GANs)</h3>
        <a href="./images/GAN.png"><img src="./images/GAN.png" alt="Generative Adversarial Network Architecture"></a>
        <dl class="fa">
            <dt>GANs are a class of deep learning models used for <b>generative tasks</b>, where the goal is to generate new data samples that resemble a given training dataset.</dt>
@@ -308,8 +308,8 @@
        </dl>
     </section>
 </section>
-<section><h2>The Transformer Architecture</h2>
-    <section><h3>Overview</h3>
+<section id="TransformerRevolution"><h2>The Transformer Architecture</h2>
+    <section id="TransformerOverview"><h3>Overview</h3>
         <dl class="fa">
             <dt>The Transformer architecture was introduced in the paper <a href="https://arxiv.org/html/1706.03762v7">"Attention is All You Need"</a> by Vaswani et al. in 2017.</dt>
             <dt>It has since become the foundation for many state-of-the-art NLP models including BERT, GPT, and others.</dt>
@@ -318,7 +318,7 @@
             <dt><b>Self-Attention</b>: It introduced the revolutionary Self-Attention mechanism. This allows the model to instantly weigh the importance of every other word in the sequence when processing a specific word. This gives the model powerful context</dt>
         </dl>
     </section>
-    <section><h3>Core Components</h3>
+    <section id="TransformerComponents"><h3>Core Components</h3>
         <div style="display: flex; align-items: center">
             <div>
                 <a href="./images/transformers.webp"><img src="./images/transformers.webp" alt="transformers.webp" style="width: 80vw;height: 90vh;"></a>
@@ -330,7 +330,7 @@
             </dl>
         </div>
     </section>
-    <section><h3>Reference</h3>
+    <section id="TransformerReference"><h3>Reference</h3>
         <dl class="fa" style="min-width:80vw">
             <dt>Transformers, the tech behind LLMs @3Blue1Brown</dt>
             <iframe width="1582" height="597" src="https://www.youtube.com/embed/wjZofJX0v4M" title="Transformers, the tech behind LLMs | Deep Learning Chapter 5" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
@@ -594,9 +594,9 @@
 </section>
 
 
-<section class="main-section-title"><h1>Hands on: Image Classification with ANN</h1></section>
-<section class="sub-sections"><h2>Hands on: Image Classification with ANN</h2>
-    <section>
+<section id="HandsOnImageClassification" class="main-section-title"><h1>Hands on: Image Classification with ANN</h1></section>
+<section id="PracticeImageClassification" class="sub-sections"><h2>Hands on: Image Classification with ANN</h2>
+    <section id="HandsOnImageClassificationCode">
         <dl class="fa" style="min-width:80vw">
             <dt>We will perform Image Classification using a pre-trained CNN model</dt>
             <dd><a href="https://docs.pytorch.org/vision/main/models/generated/torchvision.models.vgg16.html">VGG16 Model Documentation</a></dd>
