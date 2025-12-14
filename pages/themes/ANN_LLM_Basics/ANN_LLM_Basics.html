@@ -784,13 +784,13 @@
 
         </dl>
     </section>
-    <section><h3>How LLMs Work?</h3>
+    <section id="HowLLMsWork"><h3>How LLMs Work?</h3>
         <dl class="fa">
             <dt>During inference, LLMs generate text by sampling from the learned probability distribution of tokens, conditioned on the input prompt.</dt>
         </dl>
         <a href="./images/LLM_Next_Word_Prediction.png"><img src="./images/LLM_Next_Word_Prediction.png" alt="LLM_Next_Word_Prediction.png"></a>
     </section>
-    <section><h3>Reference</h3>
+    <section id="LLMReference"><h3>Reference</h3>
         <dl class="fa" style="min-width:80vw">
             <dt>Large Language Models explained briefly @3Blue1Brown</dt>
             <iframe src="https://www.youtube.com/embed/LPZh9BOjkQs" title="Large Language Models explained briefly" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="height: 70vh; margin-top: 1em;"></iframe>
@@ -808,7 +808,7 @@
             <dt><b>Parameters</b>: The internal variables (weights) learned during training. More parameters generally mean improved capabilities (e.g., Llama-3-8B vs Llama-3-70B).</dt>
         </dl>
     </section>
-    <section><h3>LLM Scaling Laws</h3>
+    <section id="LLMScalingLaws"><h3>LLM Scaling Laws</h3>
         <dl class="fa">
             <dt>LLM performance improves predictably with increased model size, dataset size, and compute resources.</dt>
             <dt>Doubling the number of parameters typically leads to a significant reduction in error rates across various NLP tasks.</dt>
@@ -854,9 +854,9 @@
 </section>
 
 
-<section class="main-section-title"><h1>Hands on: text generation demo with GPT2</h1></section>
+<section id="HandsOnTextGeneration" class="main-section-title"><h1>Hands on: text generation demo with GPT2</h1></section>
 <section id="HandsOnTextGenerationDemoWithGpt2" class="sub-sections"><h2>Hands on: text generation demo with GPT2</h2>
-    <section><h3>Overview</h3>
+    <section id="GPT2DemoOverview"><h3>Overview</h3>
         <dl class="fa" style="min-width:80vw">
             <dt>In next example we will implement text generation using a pre-trained language model (<a href="https://huggingface.co/distilbert/distilgpt2">DistilGPT-2 @Hugging Face</a>).</dt>
             <dt>The model and the code run on local machine which gives us full control and privacy.</dt>
@@ -865,7 +865,7 @@
             <dt>The Transformers library gives us easy access to the pre-trained DistilGPT-2 model and its tokenizer, allowing us to load and use the model with just a few lines of code instead of training one from scratch.</dt>
         </dl>
     </section>
-    <section><h3>The code</h3>
+    <section id="GPT2DemoCode"><h3>The code</h3>
         <dl class="fa" style="min-width:80vw">
             <pre><code rel="Python" class="python" style="min-height: 99vh;">
                 import torch
@@ -963,7 +963,7 @@
 </section>
 
 <section class="main-sesction-title" id="introduction-to-gen-ai-api"><h1>Introduction to LLM Frontier Models API</h1></section>
-<section class="sub-sections"><h2>How to use APIs on frontier LMM models?</h2>
+<section id="FrontierModelAPIs" class="sub-sections"><h2>How to use APIs on frontier LMM models?</h2>
 
     <section id="what-is-an-api"><h3>What is an API? (For Beginners)</h3>
         <dl class="fa" style="min-width:80vw">
@@ -992,7 +992,7 @@
             <dd>Your API key is a <strong>secret</strong>! Never commit it to GitHub or share it publicly. If someone steals it, they can use your quota.</dd>
         </dl>
     </section>
-    <section><h3>Using Google SDK with Python</h3>
+    <section id="GoogleSDKPython"><h3>Using Google SDK with Python</h3>
         <dl class="fa" style="min-width:80vw">
             <dt>To use Google genai models in our Python programs, first install the required packages:</dt>
             <pre><code rel="Terminal" class="shell">
