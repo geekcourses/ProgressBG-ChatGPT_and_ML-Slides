@@ -1,0 +1,816 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Prompt Engineering</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <link rel="shortcut icon" href="/ProgressBG-ChatGPT_and_ML-Slides/images/favicons/favicon-32.png">
+    <!-- css & themes include -->
+    <link rel="stylesheet" href="/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/css/reveal.css">
+    <link rel="stylesheet" href="/ProgressBG-ChatGPT_and_ML-Slides/outfit/css/themes/light.css" id="theme">
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? '/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/css/print/pdf.css' : '/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- add MathJax support -->
+    <script type="text/javascript" id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <base target="_blank">
+</head>
+
+<body>
+    <div class="reveal default center" data-transition-speed="default" data-background-transition="default">
+        <div class="top_links">
+            <a class="home_link" href="/ProgressBG-ChatGPT_and_ML-Slides/pages/agenda/agenda.html#PromptEngineering"
+                target="_top"><i class="fa fa-home"></i></a>
+            <span class="help_link" href="#"><i class="fa fa-question"></i></span>
+            <div class="help_text">
+                <div class="note">Keyboard shortcuts:</div>
+                <div><span>N/Space</span><span>Next Slide</span></div>
+                <div><span>P</span><span>Previous Slide</span></div>
+                <div><span>O</span><span>Slides Overview</span></div>
+                <div><span>ctrl+left click</span><span>Zoom Element</span></div>
+                <div class="print-howto"><br>If you want print version => add '<code>?print-pdf</code>' <br> at the end
+                    of slides URL (remove '#' fragment) and then print. <br>
+                    Like: https://ProgressBG-ChatGPT_and_ML-course.github.io/...CourseIntro.html?print-pdf </div>
+            </div>
+        </div>
+        <div class="footer theme_switch">
+            <a href="#"
+                onclick="document.getElementById('theme').setAttribute('href','/ProgressBG-ChatGPT_and_ML-Slides/outfit/css/themes/dark.css'); return false;">Dark</a>
+            <a href="#"
+                onclick="document.getElementById('theme').setAttribute('href','/ProgressBG-ChatGPT_and_ML-Slides/outfit/css/themes/light.css'); return false;">Light</a>
+            <a href="#"
+                onclick="document.getElementById('theme').setAttribute('href','/ProgressBG-ChatGPT_and_ML-Slides/outfit/css/themes/projector.css'); return false;">Projector</a>
+        </div>
+        <div class="slides">
+            <!--
+########################################################
+##################### SLIDES START #####################
+########################################################
+-->
+            <section><h1>Prompt Engineering</h1></section>
+            <section data-transition="zoom">
+                <!-- linkedin badge -->
+                <!--<script type="text/javascript" src="https://platform.linkedin.com/badges/js/profile.js" async defer></script>-->
+                <section class="copyright" data-transition="zoom">
+                    <div class="note">
+                        <p>Created for</p>
+                    </div>
+                    <div class="company">
+                        <a href="http://progressbg.net/програмиране-с-python-2/">
+                            <img style="height:80%"
+                                src="/ProgressBG-ChatGPT_and_ML-Slides/outfit/images/logos/ProgressBG_logo_529_127.png">
+                        </a>
+                    </div>
+                    <div class="author">
+                        <span class="note">Iva E. Popova, 2016-2025,</span>
+                        <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img
+                                alt="Creative Commons License" style="border-width:0"
+                                src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"></a>
+                    </div>
+                </section>
+                <section class="copyright" data-transition="zoom" style="margin-top: -2em;">
+                    <div class="company">
+                        <div class="LI-profile-badge" data-version="v1" data-size="large" data-locale="en_US"
+                            data-type="vertical" data-theme="dark" data-vanity="ivapopova"><a class="LI-simple-link"
+                                href='https://bg.linkedin.com/in/ivapopova?trk=profile-badge'>Iva E. Popova on
+                                LinkedIn</a></div>
+                    </div>
+                </section>
+            </section>
+
+
+            <section class="main-sesction-title" id="Introduction"><h1>Introduction to Prompt Engineering</h1></section>
+            <section class="sub-sections"><h2>Introduction to Prompt Engineering</h2>
+                <section id="WhatIsPrompt" data-min="2">
+                    <h3>What is prompt?</h3>
+                    <dl class="fa">
+                        <dt>A prompt is a set of instructions which you give to computer programs to get a desired
+                            result.</dt>
+                        <dd>In AI world it is simply the <b>input</b> you give to an AI model to get a <b>desired
+                                output</b>.</dd>
+                        <dt>Examples of Simple Prompts:</dt>
+                        <dd>"What is machine learning?"</dd>
+                        <dd>"Summarize this paragraph"</dd>
+                        <dd>"Write a professional email apologizing for a delay"</dd>
+                        <dd>"Create a marketing plan for a new product launch"</dd>
+                        <dd>"Design a user-friendly interface for a mobile app"</dd>
+                    </dl>
+                </section>
+                <section id="WhatIsPromptEngineering">
+                    <h3>What is prompt engineering?</h3>
+                    <dl class="fa">
+                        <dt>Prompt engineering is the <b>art and science</b> of designing and optimizing prompts to
+                            guide AI models, particularly LLMs, towards generating the desired responses.</dt>
+                        <dt>Skillfully crafted prompts enables <b>efficient</b> and <b>effective</b> communication with
+                            AI models.</dt>
+                        <dt>It is a critical skill for developers, researchers, and practitioners working with AI
+                            models.</dt>
+                        <dt><b>Key idea</b>: A model does not think or reason on its own - it responds only based on the prompt it receives.</dt>
+                    </dl>
+                </section>
+                <section id="WhyPromptEngineering"><h3>Why is Prompt Engineering Important?</h3>
+                    <dl class="fa">
+                        <dt>LLMs are probabilistic, not deterministic</dt>
+                        <dd>Small wording changes can affect outputs</dd>
+                        <dt>if you are vague, the answer will be vague. If you are specific, the answer will be specific.</dt>
+                        <dt>The <b>GIGO principle</b> applies: (Garbage In, Garbage Out)</dt>
+                        <dt>Example: <a href="https://chatgpt.com/share/69431ddb-2610-800f-a26e-ca67580998e8"
+                                target="_blank">Prompting ChatGPT to create a digram</a></dt>
+                    </dl>
+                </section>
+                <section id="UnderstandingAIThinking"><h3>Understanding how AI models think</h3>
+                    <p>Interpretability: Understanding how AI models think @<a href="https://www.youtube.com/@anthropic-ai">anthropic youtube channel</a></p>
+                    <iframe src="https://www.youtube.com/embed/fGKNUvivvnc" title="Interpretability: Understanding how AI models think" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </section>
+                <section id="PromptingWebLLMApplications"><h3>Prompting via Web Applications</h3>
+                    <dl class="fa" style="min-width:80vw">
+                        <dt>Examples: ChatGPT, Claude UI, Gemini UI</dt>
+                        <dd>Single text input box for user prompt</dd>
+                        <dd>System & safety prompts are hidden</dd>
+                        <dd>Conversation memory handled automatically</dd>
+                        <dd>Limited control over model behavior</dd>
+                        <dd>Output is helpful but not guaranteed to be consistent</dd>
+                        <dt>Best for:</dt>
+                        <dd>Learning prompt basics</dd>
+                        <dd>Exploration and experimentation</dd>
+                        <dd>Human-facing interactions</dd>
+                        <dt>📌 You are talking to the model.</dt>
+                    </dl>
+                </section>
+                <section id="APIPrompting"><h3>Prompting via APIs</h3>
+                    <dl class="fa" style="min-width:80vw">
+                        <dt>Examples: <a href="https://openai.com/api/">OpenAI API</a>, <a href="https://www.anthropic.com/">Anthropic API</a>, <a href="https://www.google.com/ai/gemini/">Gemini API</a></dt>
+                        <dd>Structured messages (system, user, assistant)</dd>
+                        <dd>Full control over system prompts</dd>
+                        <dd>Control over parameters (temperature, tokens)</dd>
+                        <dd>Manual management of context and memory</dd>
+                        <dd>Outputs can be validated and enforced</dd>
+                        <dt>Best for:</dt>
+                        <dd>Production systems</dd>
+                        <dd>Reliable, repeatable outputs</dd>
+                        <dd>Software and automation</dd>
+                        <dt>📌 You are engineering the model’s behavior.</dt>
+                    </dl>
+                </section>
+            </section>
+
+
+            <section class="main-section-title" id="CoreEcosystem"><h1>Prompts Core Ecosystem</h1></section>
+            <section class="sub-sections"><h2>Prompts Core Ecosystem</h2>
+                <section id="WhoAndWhere"><h3>Who and where?</h3>
+                    <dl class="fa" style="min-width:80vw">
+                        <dt>In modern LLMs prompt is rarely just a single sentence - it is a structured conversation.</dt>
+                        <dt>Before we write a single word, we must understand the "<b>Who</b>" and the "<b>Where</b>"</dt>
+                        <dt><b>System Prompt</b>:</dt>
+                        <dd>High-level instructions that define the model’s role, behavior, tone, and rules</dd>
+                        <dd>Usually set once at the beginning and persists throughout the conversation</dd>
+                        <dd>The user typically doesn't see or modify this (in chat interfaces)</dd>
+                        <dd>Acts as "meta-instructions" about how the AI should behave.</dd>
+                        <dt><b>User Prompt</b>:</dt>
+                        <dd>The actual request or query from the user</dd>
+                        <dd>What you type into ChatGPT or send via API</dd>
+                        <dd>Contains the specific task or question</dd>
+                        <dt><b>Assistant Prompt</b>:</dt>
+                        <dd>The AI’s previous responses. In APIs, you often include these to give the AI "memory" of the conversation.</dd>
+                    </dl>
+                </section>
+                <section id="EcosystemExample1"><h3>Example 1</h3>
+                    <table data-path-to-node="4"><thead><tr><td><span data-path-to-node="4,0,0,0">Role Component</span></td><td><span data-path-to-node="4,0,1,0">Content</span></td></tr></thead><tbody><tr><td><span data-path-to-node="4,1,0,0"><b data-path-to-node="4,1,0,0" data-index-in-node="0">System Prompt</b></span></td><td><span data-path-to-node="4,1,1,0">"You are an <b data-path-to-node="4,1,1,0" data-index-in-node="12">encouraging Python Tutor</b>. Do not give the full code immediately. Instead, explain the logic, provide a small hint, and ask the user a leading question to help them find the answer themselves."</span></td></tr><tr><td><span data-path-to-node="4,2,0,0"><b data-path-to-node="4,2,0,0" data-index-in-node="0">User Prompt</b></span></td><td><span data-path-to-node="4,2,1,0">"How do I reverse a list in Python?"</span></td></tr><tr><td><span data-path-to-node="4,3,0,0"><b data-path-to-node="4,3,0,0" data-index-in-node="0">Assistant Prompt</b></span></td><td><span data-path-to-node="4,3,1,0">"That’s a great question! In Python, there are a few ways to do this. Think about whether you want to change the original list or create a new one. Have you heard of the <code data-path-to-node="4,3,1,0" data-index-in-node="170">[::-1]</code> slicing trick, or were you looking for a specific method like <code data-path-to-node="4,3,1,0" data-index-in-node="239">.reverse()</code>?"</span></td></tr></tbody></table>
+                </section>
+            </section>
+
+            <section class="main-section-title" id="ContextWindow"><h1>Conversation Context (Context window)</h1></section>
+            <section class="sub-sections"><h2>Conversation Context (Context window)</h2>
+                <section id="WhatIsContextWindow"><h3>What is context window?</h3>
+                    <dl class="fa" style="min-width:80vw">
+                        <dt>In chat systems, context window is all of the information a model receives:</dt>
+                        <dd>System prompt</dd>
+                        <dd>All previous user messages</dd>
+                        <dd>All previous assistant messages</dd>
+                        <dt>Context is measured in <strong>tokens</strong>. 1M tokens ≈ 2,500 pages of text.</dt>
+                        <dt class="note">If something is not in the context window, the model does not know it!</dt>
+                    </dl>
+                </section>
+                <section id="ContextComparison"><h3>Frontier Model Context Window Size Comparison</h3>
+                    <dl class="fa" style="min-width:80vw">
+                        <dt>As of late 2025, context windows have seen an exponential leap.</dt>
+                        <dd>We have moved from the "page-level" memory of 2023 to "library-level" memory today.</dd>
+                        <table style="width:95%; margin: 20px auto; border-collapse: collapse; font-size: 0.85em;">
+                            <thead>
+                                <tr style="border-bottom: 2px solid #555;">
+                                    <th style="text-align:left; padding: 12px;">Model Family</th>
+                                    <th style="text-align:left; padding: 12px;">Context Window</th>
+                                    <th style="text-align:left; padding: 12px;">Real-World Scale</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td style="padding: 10px;"><strong>GPT-5.2</strong></td>
+                                    <td style="padding: 10px;">400,000 tokens</td>
+                                    <td style="padding: 10px;">~1,000 page technical manual</td>
+                                </tr>
+                                <tr style="background-color: rgba(255,255,255,0.05);">
+                                    <td style="padding: 10px;"><strong>Claude 4.5 Opus</strong></td>
+                                    <td style="padding: 10px;">1,000,000 tokens</td>
+                                    <td style="padding: 10px;">Entire literary trilogies</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 10px;"><strong>Gemini 2.5 Pro</strong></td>
+                                    <td style="padding: 10px;">2,000,000 tokens</td>
+                                    <td style="padding: 10px;">2 hours of video / Massive codebases</td>
+                                </tr>
+                                <tr style="background-color: rgba(255,255,255,0.05);">
+                                    <td style="padding: 10px;"><strong>Llama 4 (Scout)</strong></td>
+                                    <td style="padding: 10px;">10,000,000 tokens</td>
+                                    <td style="padding: 10px;">Full data archives / Legal discovery</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </dl>
+                </section>
+                <section id="HowContextIsBuilt"><h3>How Context is Built (The Payload)</h3>
+                    <p>Every message increases the <strong>Total Token Count</strong> of the next request.</p>
+
+                    <table style="width:80%; border-collapse: collapse; margin-top: 10px; font-size: 0.72em; line-height: 1.1;">
+                        <thead>
+                            <tr style="border-bottom: 2px solid #666; background-color: rgba(255,255,255,0.05);">
+                                <th style="padding: 8px; width: 5%;">Turn</th>
+                                <th style="padding: 8px; width: 20%;">User Input</th>
+                                <th style="padding: 8px; width: 40%;">Context Window (Sent to LLM)</th>
+                                <th style="padding: 8px; width: 10%;">~ Token Count</th>
+                                <th style="padding: 8px; width: 25%;">Model Response</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="padding: 8px; border-bottom: 1px solid #444; text-align:center;"><strong>1</strong></td>
+                                <td style="padding: 8px; border-bottom: 1px solid #444;">"My name is <b>Alex</b>."</td>
+                                <td style="padding: 8px; border-bottom: 1px solid #444; color: #999;">
+                                    <span style="color: #64b5f6;">[System]:</span> "You are a helpful AI."<br>
+                                    <span style="color: #81c784;">[User]:</span> "My name is Alex."
+                                </td>
+                                <td style="padding: 8px; border-bottom: 1px solid #444; text-align:center; font-weight:bold; color: #ff3b7c;">~20</td>
+                                <td style="padding: 8px; border-bottom: 1px solid #444; color: #ffb74d;">"Nice to meet you, Alex!"</td>
+                            </tr>
+                            <tr style="background-color: rgba(255,255,255,0.03);">
+                                <td style="padding: 8px; border-bottom: 1px solid #444; text-align:center;"><strong>2</strong></td>
+                                <td style="padding: 8px; border-bottom: 1px solid #444;">"What is my name?"</td>
+                                <td style="padding: 8px; border-bottom: 1px solid #444; color: #999;">
+                                    <span style="color: #64b5f6;">[System]:</span> ...<br>
+                                    <span style="color: #81c784;">[User]:</span> "My name is Alex."<br>
+                                    <span style="color: #ffb74d;">[Assistant]:</span> "Nice to meet you..."<br>
+                                    <span style="color: #81c784;">[User]:</span> "What is my name?"
+                                </td>
+                                <td style="padding: 8px; border-bottom: 1px solid #444; text-align:center; font-weight:bold; color: #ff3b7c;">~35</td>
+                                <td style="padding: 8px; border-bottom: 1px solid #444; color: #ffb74d;">"Your name is Alex."</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 8px; text-align:center;"><strong>3</strong></td>
+                                <td style="padding: 8px;">"Tell me a joke."</td>
+                                <td style="padding: 8px; color: #999;">
+                                    <span style="color: #64b5f6;">[System]:</span> ...<br>
+                                    <span style="color: #81c784;">[User]:</span> "My name is Alex."<br>
+                                    <span style="color: #ffb74d;">[Assistant]:</span> ...<br>
+                                    <span style="color: #81c784;">[User]:</span> "What is my name?"<br>
+                                    <span style="color: #ffb74d;">[Assistant]:</span> "Your name is Alex."<br>
+                                    <span style="color: #81c784;">[User]:</span> "Tell me a joke."
+                                </td>
+                                <td style="padding: 8px; text-align:center; font-weight:bold; color: #ff3b7c;">~55</td>
+                                <td style="padding: 8px; color: #ffb74d;">"Why did the..."</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <dl class="fa" style="min-width:80vw; margin-top: 15px;">
+                        <dt><strong>Context Window is finite:</strong> once the "window" is full, the oldest messages are deleted.</dt>                        
+                        <dd>If Turn 1 is deleted to save space, the model will "forget" Alex's name in Turn 4.</dd>
+                    </dl>
+                </section>
+            </section>
+
+
+            <section class="main-sesction-title" id="PromptEngineeringConcepts"><h1>Anatomy of a Prompt</h1></section>
+            <section class="sub-sections"><h2>Overview</h2>
+                <section id="PromptAnatomyDiagram">
+                    <a href="./images/Anatomy_of_a_Prompt.jpg" target="_blank">
+                        <img src="./images/Anatomy_of_a_Prompt.jpg" alt="Anatomy of a Prompt"
+                            style="height: 100vh; margin: 2rem auto; display: block;">
+                    </a>
+                </section>
+                <section id="PromptAnatomyDescription">
+                    <dl class="fa" style="min-width:80vw">
+                        <dt><b>Persona / Role</b></dt>
+                        <dd>Tells the AI <b>who</b> to be (e.g., "Act as a senior software engineer" or "You are a creative travel agent"). This sets the tone and expertise level.</dd>
+
+                        <dt><b>Task / Instruction</b></dt>
+                        <dd>Tells the AI <b>what</b> to do (e.g., "Write a blog post" or "Debug this code"). This is the core action.</dd>
+
+                        <dt><b>Context / Data</b>
+                        <dd>Provides the background info or specific materials the AI needs to work with (e.g., "Here is a list of product features" or "The target audience is 5-year-olds").</dd>
+
+                        <dt><b>Constraints / Parameters</b></dt>
+                        <dd>Sets the boundaries (e.g., "Under 200 words," "Don't use jargon," or "Use a professional tone").</dd>
+
+                        <dt><b>Output Format</b></dt>
+                        <dd>Defines how the result should look (e.g., "Give me a bulleted list," "Format as a Markdown table," or "Provide the answer in JSON").</dd>
+                    </dl>
+                </section>
+            </section>
+
+
+            <section class="main-sesction-title" id="TaskInstruction"><h1>Task / Instruction</h1></section>
+            <section class="sub-sections"><h2>Task / Instruction</h2>
+                <section id="TaskOverview"><h3>Task / Instruction Overview</h3>
+                    <dl class="fa">
+                        <dt>The Task or Instruction is the core of the prompt, defining the specific action the AI should perform.</dt>
+                        <dt>It should be clear, concise, and start with an imperative verb to minimize ambiguity.</dt>
+                        <dt>Examples:</dt>
+                        <dd>"Write a job description for a Software Engineer."</dd>
+                        <dd>"Create a 3-day workout plan for beginners."</dd>
+                        <dd>"Generate a list of 10 catchy blog titles about gardening."</dd>
+                    </dl>
+                </section>
+                <section id="TaskInPractice"><h3>Task / Instruction in practice: using the API (Developer Mode)</h3>
+                    <dl class="fa">
+                        <dt>Example OpenAI API Call </dt>
+                        <pre><code rel="Python" class="python" style="min-height: 1vh;">
+                            import openai
+
+                            response = openai.ChatCompletion.create(
+                                model="gpt-4o",
+                                messages=[
+                                    {"role": "user", "content": "Write a job description for a Software Engineer."}
+                                ]
+                            )
+
+                            print(response.choices[0].message.content)
+                        </code></pre>
+                        <dt>Example Gemini API Call</dt>
+                        <pre><code rel="Python" class="python" style="min-height: 1vh;">
+                            # 1. Initialize the Client
+                            client = genai.Client(api_key=my_api_key)
+
+                            # 2. Define the Task
+                            try:
+                                response = client.models.generate_content(
+                                    model="gemini-2.0-flash",
+                                    contents="Write a job description for a Software Engineer."
+                                )
+                                print(response.text)
+                            except Exception as e:
+                                print(f"An error occurred: {e}")
+                        </code></pre>
+                        <dd>Play with it in Google AI Studio: <a href="https://aistudio.google.com/">Google AI Studio</a></dd>
+                    </dl>
+                </section>
+            </section>
+
+
+            <section class="main-sesction-title" id="Persona"><h1>Persona/Roles</h1></section>
+            <section class="sub-sections"><h2>Persona/Roles</h2>
+                <section id="PersonaOverview"><h3>Persona/Roles Overview</h3>
+                    <dl class="fa">
+                        <dt>The Persona is a technique, that tells the AI to adopt a specific mindset, role.</dt>
+                        <dt>Typically it is written as a directive or instruction in the system prompt.</dt>
+                        <dt>Examples:</dt>
+                        <dd>"You are a Python tutor"</dd>
+                        <dd>"You are a travel guide"</dd>
+                        <dd>"You are a human resource expert"</dd>
+                    </dl>
+                </section>
+                <section id="PersonaWeb"><h3>Persona/Roles in practice: Using Standard ChatGPT (Web App)</h3>
+                    <dl class="fa">
+                        <dt>You just put the Persona in your first message.</dt>
+                        <dd>You are a witty nutritionist.</dd>
+                        <dd>Tell me about apple.</dd>
+                        <dt>Exercise: prompt <a href="https://chatgpt.com/">ChatGPT</a> with and without Persona (for each exercise use new chat). Compare results.</dt>
+                    </dl>
+                </section>
+                <section id="PersonaAPI"><h3>Persona/Roles in practice: using the API (Developer Mode)</h3>
+                    <dl class="fa">
+                        <dt>Example OpenAI API Call </dt>
+                        <pre><code rel="Python" class="python" style="min-height: 1vh;">
+                            import openai
+
+                            response = openai.ChatCompletion.create(
+                                model="gpt-4o",
+                                messages=[
+                                    {"role": "system", "content": "You are a witty nutritionist."},
+                                    {"role": "user", "content": "Tell me about apple."}
+                                ]
+                            )
+
+                            print(response.choices[0].message.content)
+                        </code></pre>
+                        <dt>Example Gemini API Call</dt>
+                        <pre><code rel="Python" class="python" style="min-height: 1vh;">
+                            # 1. Initialize the Client
+                            client = genai.Client(api_key=my_api_key)
+
+                            # 2. Define the System Instruction in the Config
+                            try:
+                                response = client.models.generate_content(
+                                    model="gemini-2.5-flash",
+                                    config={
+                                        "system_instruction": "You are a witty nutritionist."
+                                    },
+                                    contents="Tell me about apple."
+                                )
+                                print(response.text)
+                            except Exception as e:
+                                print(f"An error occurred: {e}")
+                        </code></pre>
+                        <dd>View it in Google AI Studio: <a href="https://aistudio.google.com/app/prompts?state=%7B%22ids%22:%5B%221dkD7k3Npxwj9dErKVYXIvwfIMXBSdTVa%22%5D,%22action%22:%22open%22,%22userId%22:%22106230714950304662457%22,%22resourceKeys%22:%7B%7D%7D&usp=sharing">Apple: Nature's Healthiest Fast Food</a></dd>
+                    </dl>
+                </section>
+                <section id="WhyPersonaFirst"><h3>Why Persona Must Precede Everything</h3>
+                    <dl class="fa">
+                        <dt>In modern LLM architecture, the Persona (or Role) is arguably the most critical "anchor," and placing it in the System Instruction (or at the top of the User prompt) is the best practice for professional engineering.</dt>
+                        <dt>When you place the Persona in the System Instruction, the model treats it as a "hard override" for its baseline behavior.</dt>
+                        <dt>Priority: Models like GPT-4o and Claude 3.5 are trained to give higher attention weight to the System role. It literally "pre-sets" the model's neural state before it even looks at your specific Task.</dt>
+                        <dt>Persistence: If you are having a long conversation, a Persona in the System message stays "active" across every turn. If you put the Persona in the User prompt, the model might "forget" it as the conversation grows and the context window shifts.</dt>
+                    </dl>
+                </section>
+            </section>
+
+
+            <section class="main-sesction-title" id="Context"><h1>Context / Data</h1></section>
+            <section class="sub-sections"><h2>Context / Data</h2>
+                <section id="ContextOverview"><h3>Context / Data Overview</h3>
+                    <dl class="fa">
+                        <dt>Context or Data provides the background info or reference material the AI needs.</dt>
+                        <dt>It anchors the AI to specific facts, helping to prevent generic or irrelevant results.</dt>
+                        <dt>Examples:</dt>
+                        <dd>"The company is a startup focused on eco-friendly packaging."</dd>
+                        <dd>"The target audience is tech-savvy Gen Z professionals."</dd>
+                        <dd>"Here is the raw data from our Q3 performance report: [Data]"</dd>
+                    </dl>
+                </section>
+                <section id="ContextWeb"><h3>Context / Data in practice: Using Standard ChatGPT (Web App)</h3>
+                    <dl class="fa">
+                        <dt>You provide the background information alongside your task.</dt>
+                        <dd>The company is a startup focused on eco-friendly packaging.</dd>
+                        <dd>Write a job description for a Software Engineer.</dd>
+                    </dl>
+                </section>
+                <section id="ContextAPI"><h3>Context / Data in practice: using the API (Developer Mode)</h3>
+                    <dl class="fa">
+                        <dt>Example OpenAI API Call </dt>
+                        <pre><code rel="Python" class="python" style="min-height: 1vh;">
+                            import openai
+
+                            response = openai.ChatCompletion.create(
+                                model="gpt-4o",
+                                messages=[
+                                    {"role": "user", "content": "Context: The company is a startup focused on eco-friendly packaging.\nTask: Write a job description for a Software Engineer."}
+                                ]
+                            )
+
+                            print(response.choices[0].message.content)
+                        </code></pre>
+                        <dt>Example Gemini API Call</dt>
+                        <pre><code rel="Python" class="python" style="min-height: 1vh;">
+                            # 1. Initialize the Client
+                            client = genai.Client(api_key=my_api_key)
+
+                            # 2. Provide Context and Task
+                            try:
+                                response = client.models.generate_content(
+                                    model="gemini-2.0-flash",
+                                    contents="Context: The company is a startup focused on eco-friendly packaging.\nTask: Write a job description for a Software Engineer."
+                                )
+                                print(response.text)
+                            except Exception as e:
+                                print(f"An error occurred: {e}")
+                        </code></pre>                        
+                    </dl>
+                </section>
+            </section>
+
+
+            <section class="main-sesction-title" id="Constraints"><h1>Constraints</h1></section>
+            <section class="sub-sections"><h2>Constraints</h2>
+                <section id="ConstraintsOverview"><h3>Constraints Overview</h3>
+                    <dl class="fa">
+                        <dt>Constraints define the boundaries, rules, and limitations the AI must follow.</dt>
+                        <dt>They help control the output's length, format, style, and "negative" behaviors (what NOT to do).</dt>
+                        <dt>Examples of common constraints:</dt>
+                        <dd>"Limit the response to under 50 words." (Length)</dd>
+                        <dd>"Do not use technical jargon or buzzwords." (Negative Constraint)</dd>                        
+                        <dd>"Explain this like I am five years old." (Style/Complexity)</dd>
+                        <dt>Negative Constraints (telling the AI what not to do) are often harder for LLMs to follow than positive ones.</dt>
+                        <dd>Weak Constraint: "Don't be wordy."</dd>
+                        <dd>Strong Constraint: "Use fewer than 30 words."</dd>
+                    </dl>
+                </section>
+                <section id="ConstraintsWeb"><h3>Constraints in practice: Using Standard ChatGPT (Web App)</h3>
+                    <dl class="fa">
+                        <dt>You combine your task with specific rules to narrow down the result.</dt>
+                        <dd>Task: Summarize the benefits of solar energy.</dd>
+                        <dd>Constraints: Use exactly three bullet points. Do not mention cost. Use a professional tone.</dd>
+                    </dl>
+                </section>
+                <section id="ConstraintsAPI"><h3>Constraints in practice: using the API (Developer Mode)</h3>
+                    <dl class="fa">
+                        <dt>Example OpenAI API Call (Using the System Role for Constraints)</dt>
+                        <pre><code rel="Python" class="python" style="min-height: 1vh;">
+                            import openai
+
+                            response = openai.ChatCompletion.create(
+                                model="gpt-4o",
+                                messages=[
+                                    {"role": "system", "content": "You are a helpful assistant. Constraint: Always respond in JSON. Constraint: Never use more than 20 words."},
+                                    {"role": "user", "content": "Explain what a neural network is."}
+                                ]
+                            )
+
+                            print(response.choices[0].message.content)
+                        </code></pre>
+                        <dt>Example Gemini API Call</dt>
+                        <pre><code rel="Python" class="python" style="min-height: 1vh;">
+                            # 1. Initialize the Client
+                            client = genai.Client(api_key=my_api_key)
+
+                            # 2. Provide Task and Constraints
+                            try:
+                                response = client.models.generate_content(
+                                    model="gemini-2.0-flash",
+                                    contents="Task: Write a product description for a coffee mug.\nConstraints: No emojis. Max 2 sentences. Use a sarcastic tone."
+                                )
+                                print(response.text)
+                            except Exception as e:
+                                print(f"An error occurred: {e}")
+                        </code></pre>                        
+                    </dl>
+                </section>
+            </section>
+
+            
+            <section class="main-section-title" id="GoldenStructure"><h1>The "Golden Structure" of a prompt?</h1></section>
+            <section class="sub-sections"><h2>The "Golden Structure" of a prompt?</h2>
+                <section id="GoldenStructureExplanation">
+                    <dl class="fa" style="min-width:80vw">
+                        <dt>In prompt engineering, there isn't one "universal" prompt structure that works for every LLM, but there is a widely accepted "Golden Structure" that prioritizes how Large Language Models (LLMs) process information.</dt>
+                        <ol style="font-size: 0.9em; margin-top: 1em;">
+                            <li>Persona (Role) - It establishes the baseline expertise, tone, and perspective the model must adopt before processing any other instructions.</li>
+                            <li>Context (Background) - It narrows the model's focus from its entire training database to the specific scenario or set of data relevant to your request.</li>
+                            <li>Task (The Action) - It provides the clear, central command that tells the model exactly what it needs to produce or solve.</li>
+                            <li>Constraints (Parameters) - It sets the "guardrails" (such as word count, tone, or restricted topics) to ensure the output remains safe and relevant.</li>
+                            <li>Output Format (The Structure) - It is placed last to exploit the model's "recency bias," ensuring it remembers the visual or structural requirements at the exact moment it begins generating text.</li>
+                        </ol>
+                    </dl>
+                    
+                </section>
+                <section id="Delimiters"><h3>Pro-Tip: The "Delimiters" Trick</h3>
+                    <dl class="fa" style="min-width:80vw">                        
+                        <dt>Regardless of the order, use delimiters to separate these sections. This helps the model distinguish between your instructions and the data it needs to process.</dt>
+                        <dt>The delimiters can be anything you want, but the consensus is to use:</dt>
+                        <dd><a href="https://www.w3schools.com/xml/xml_syntax.asp">XML tags</a> for precision</dd>
+                        <dd><a href="https://www.markdownguide.org/basic-syntax/">Markdown</a> for readability and token efficiency</dd>
+                    </dl>
+                </section>
+                <section id="ExampleXML"><h3>Example of a well-structured prompt (XML tags):</h3>
+                    <pre><code rel="Prompt" class="xml" style="min-height: 85vh;">
+                        &lt;persona&gt;
+                            You are an HR Consultant specializing in Employee Retention and Organizational Culture.
+                        &lt;/persona&gt;
+
+                        &lt;context&gt;
+                            A mid-sized tech company is experiencing a 20% turnover rate among Senior Developers over the last six months. We need to understand why they are leaving.
+                        &lt;/context&gt;
+
+                        &lt;task&gt;
+                            Draft a set of five targeted exit interview questions designed to uncover systemic issues rather than individual grievances.
+                        &lt;/task&gt;
+
+                        &lt;constraints&gt;
+                            - Limit to exactly 5 questions.
+                            - Avoid &quot;yes/no&quot; questions; they must be open-ended.
+                            - Use a neutral, non-confrontational tone.
+                            - Do not mention specific names or departments.
+                        &lt;/constraints&gt;
+
+                        &lt;format&gt;
+                            Present the questions in a numbered list. 
+                            Below each question, include a one-sentence &quot;Objective&quot; explaining what specific insight HR is trying to gain from that query.
+                        &lt;/format&gt;
+                    </code></pre>
+                </section>
+                <section id="ExampleMarkdown"><h3>Example of a well-structured prompt (Markdown):</h3>
+                    <pre><code rel="Prompt" class="markdown" style="min-height: 85vh;">
+                        ### Persona
+                        You are an HR Consultant specializing in Employee Retention and Organizational Culture.
+
+                        ### Context
+                        A mid-sized tech company is experiencing a 20% turnover rate among Senior Developers over the last six months. We need to understand why they are leaving.
+
+                        ### Task
+                        Draft a set of five targeted exit interview questions designed to uncover systemic issues rather than individual grievances.
+
+                        ### Constraints
+                        * Limit to exactly 5 questions.
+                        * Avoid "yes/no" questions; they must be open-ended.
+                        * Use a neutral, non-confrontational tone.
+                        * Do not mention specific names or departments.
+
+                        ### Output Format
+                        Present the questions in a numbered list. 
+                        Below each question, include a one-sentence "Objective" explaining what specific insight HR is trying to gain from that query.
+                    </code></pre>
+                </section>                
+            </section>
+            
+
+            <section class="main-sesction-title" id="AdvancedTechniques"><h1>Prompt Engineering Techniques: Few-Shot Prompting</h1></section>
+            <section class="sub-sections"><h2>Prompt Engineering Techniques: Few-Shot Prompting</h2>
+                <section id="FewShot"><h3>Overview</h3>
+                    <dl class="fa">
+                        <dt>In the world of AI, a "shot" is simply an example.</dt>
+                        <dt>When you give an AI a task without any examples, it’s called <b>Zero-Shot</b></dt>
+                        <dt>When you give it a few examples to follow, it’s called <b>Few-Shot</b>.</dt>
+                        <dt>Think of it like training a new intern:</dt>
+                        <dd>Zero-shot: "Here is your job description. Go do it."</dd>
+                        <dd>Few-shot: "Here is your job description. Here are 5 examples of how to do it. Go do it."</dd>
+                    </dl>
+                </section>
+                <section id="FewShotExample1"><h3>Example 1: Sentiment Analysis</h3>
+                    <dl class="fa" style="min-width:80vw">
+                        <dt>Suppose you want the AI to write "Grumpy Marketing Copy." If you just ask for "grumpy copy," it might be too mean or too silly. Few-shot helps you dial in the "vibe."</dt>
+                        <dt>The prompt:</dt>
+                        <pre><code rel="Prompt" class="text" style="min-height: 10vh;">
+                            Turn a product feature into a grumpy marketing slogan.
+                            Feature: 24-hour battery life.
+                            Slogan: Great, now you have no excuse to stop working.
+                            Feature: Waterproof casing.
+                            Slogan: Now you can drop it in the sink like the klutz you are.
+                            Feature: High-resolution camera.
+                            Slogan:                            
+                        </code></pre>
+                        <dt>The Result:</dt>
+                        <dd>The AI will likely respond: <b>"Now everyone can see your pores in terrifying detail."</b></dd>
+                    </dl>                    
+                </section>
+                <section id="WhenFewShot"><h3>When should you use Few-Shot?</h3>
+                    <dl class="fa">
+                        <dt><b>When the format matters</b>: If you need the output in a very specific JSON, CSV, or shorthand format.</dt>
+                        <dt><b>When the "vibe" is hard to describe</b>: It’s easier to show sarcasm or a specific brand voice than to describe it with adjectives.</dt>
+                        <dt><b>When the task is complex</b>: If you are asking the AI to perform logic or math, giving 2-3 examples of the steps helps it avoid mistakes.</dt>
+                    </dl>
+                </section>
+                <section id="FewShotProTips"><h3> Pro-Tips for Success</h3>
+                    <dl class="fa">
+                        <dt><b>Be Consistent</b>: If your examples use Input: and Output:, make sure every example uses those exact words.</dt>
+                        <dt><b>Keep it Diverse</b>: If you are doing sentiment analysis, give one positive, one negative, and one neutral example. If you only give positive examples, the AI might get "biased" and think everything should be positive.</dt>
+                        <dt><b>3 to 5 is the Sweet Spot</b>: You usually don't need 20 examples. 3 to 5 "shots" are usually enough for the AI to catch the pattern.</dt>
+                    </dl>
+                </section>                
+            </section>
+
+
+            <section class="sub-sections" id="CoT"><h1>Prompt Engineering Techniques: Chain of Thought (CoT)</h1></section>
+            <section class="sub-sections"><h2>Prompt Engineering Techniques: Chain of Thought (CoT)</h2>
+                <section id="CoTOverview"><h3>Overview</h3>
+                    <dl class="fa">
+                        <dt>Chain of Thought (CoT) is a technique where you ask the AI to explain its reasoning step by step.</dt>
+                        <dt>It helps the AI think through the problem and justify its answer.</dt>
+                        <dt>Think of it this way: If I ask you, "What is 143 times 27?" and demand an answer in one second, you’ll likely guess and get it wrong. But if I give you a piece of paper and say, "Show your work," you’ll multiply the digits step-by-step and arrive at the correct answer.</dt>
+                        <dt><b>Chain of Thought is simply asking the AI to "show its work."</b></dt>
+                        <dt><a href="https://aistudio.google.com/app/prompts?state=%7B%22ids%22:%5B%221v8TXKybpTZIKN_q4iokGKlBbB3MRf4hz%22%5D,%22action%22:%22open%22,%22userId%22:%22116282904608410015901%22,%22resourceKeys%22:%7B%7D%7D&usp=sharing">Example why do we need CoT</a></dt>
+                    </dl>
+                </section>
+                <section id="HowToWriteCoT"><h3>How to write CoT prompts</h3>
+                    <dl class="fa">
+                        <dt>Writing CoT prompts is about moving from "Question → Answer" to "Question → Reasoning Path → Answer."</dt>
+                        <dt>The "Magic Phrase": this is the simplest way. Just add a trigger phrase at the end of your prompt, like:.</dt>
+                        <dd>"Think step by step."</dd>
+                        <dd>"Show your work."</dd>
+                        <dd>"Explain your reasoning."</dd>  
+                        <dt>Self-Criticism CoT: Sometimes the AI thinks step-by-step but still makes a mistake in the middle. You can prompt it to verify its own chain, like:</dt>                      
+                        <dd>"Solve this math logic puzzle. First, work out the solution step-by-step. Then, look back at your steps and try to find a reason why your answer might be wrong. Finally, provide your confirmed answer."</dd>
+                    </dl>
+                </section>
+            </section>
+
+
+            <section class="main-sesction-title" id="Reliability"><h1>Reliability & Hallucinations</h1></section>
+            <section class="sub-sections"><h2>Handling Hallucinations</h2>
+                <section id="Hallucinations">
+                    <h3>What are Hallucinations?</h3>
+                    <dl class="fa">
+                        <dt>A hallucination occurs when a Large Language Model (LLM) generates text that is factually incorrect, nonsensical, yet presented with absolute confidence.</dt>                        
+                        <dt><b>Why does it happen?</b></dt>
+                        <dd>LLMs don't "know" facts. They have a "probability map" of words.</dd>
+                        <dt>Example:</dt>
+                        <dd>You ask an AI, "Who won the 2028 Super Bowl?"</dd>
+                        <dd>Hallucination: "The Kansas City Chiefs won the 2028 Super Bowl, defeating the San Francisco 49ers with a score of 31-24." </dd>
+                    </dl>
+                </section>
+                <section id="Mitigation">
+                    <h3>Mitigation Strategies</h3>
+                    <dl class="fa">
+                        <dt>1. Grounding (Source of Truth)</dt>
+                        <dd>Don't ask "What does company policy say?". Instead, Paste the policy into the prompt and ask
+                            "Based on the text below, what does the policy say?".</dd>
+                        <dt>2. The "I Don't Know" Clause</dt>
+                        <dd>Explicitly tell the model: <b>"If you cannot find the answer in the text provided, simply
+                                say 'I don't know'. Do not hallucinate."</b></dd>
+                        <dt>3. Verification / Citations</dt>
+                        <dd>Ask the model to provide the quote or sentence number where it found the information.</dd>
+                        <dt>4. Low Temperature</dt>
+                        <dd>Set `temperature=0` using the API to reduce randomness.</dd>
+                    </dl>
+                </section>                
+            </section>
+
+
+            <!-- <section id="hw">
+                <section>
+                    <h1>Homework</h1>
+                </section>
+                <section id="task1">
+                    <h3>Homework</h3>
+                    <dl class="fa">
+                        <dt>Task 1: The "Unhelpful" Assistant</dt>
+                        <dd>Create a Python script (using either OpenAI or Gemini) with a system prompt that makes the
+                            AI respond ONLY in emojis.</dd>
+                        <dt>Task 2: Hallucination Check</dt>
+                        <dd>Ask the model about a fake event (e.g., "The 2024 Olympics in Antarctica") and try to use
+                            Prompt Engineering to make it admit it's not real, rather than making up details.</dd>
+                    </dl>
+                </section>
+            </section> -->
+
+            <section class="disclaimer"
+                data-background="/ProgressBG-ChatGPT_and_ML-Slides/outfit/images/for_slides/the_end_on_sand.jpg">
+                <p>These slides are based on</p>
+                <p>customised version of </p>
+                <p><a href="http://hakim.se/">Hakimel</a>'s <a href="http://lab.hakim.se/reveal-js">reveal.js</a></p>
+                <p>framework</p>
+            </section>
+            <!--
+########################################################
+##################### SLIDES END   #####################
+########################################################
+-->
+        </div>
+    </div>
+    <!-- Custom processing -->
+    <script src="/ProgressBG-ChatGPT_and_ML-Slides/outfit/js/slides.js"></script>
+    <!-- external scripts -->
+    <script src="/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/lib/js/head.min.js"></script>
+    <script src="/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/js/reveal.js"></script>
+    <!-- init reveal -->
+    <script>
+        // Full list of configuration options available at:
+        // https://github.com/hakimel/reveal.js#configuration
+        var highlightjsTabSize = '  ';
+        Reveal.initialize({
+            controls: true,
+            progress: true,
+            slideNumber: 'c/t',
+            keyboard: true,
+            history: true,
+            center: true,
+            width: 1920,
+            height: 1280,
+            // Bounds for smallest/largest possible scale to apply to content
+            // minScale: .5,
+            maxScale: 1,
+            // slide transition
+            transition: 'concave', // none/fade/slide/convex/concave/zoom
+            // Factor of the display size that should remain empty around the content
+            margin: 0.1,
+            // shift+mouse click to zoom in/out element
+            zoomKey: 'ctrl',
+            // theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+            // transition: Reveal.getQueryHash().transition || 'default'
+            // Optional reveal.js plugins
+            dependencies: [
+                { src: '/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/lib/js/classList.js', condition: function () { return !document.body.classList; } },
+                { src: '/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/plugin/markdown/marked.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+                { src: '/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/plugin/markdown/markdown.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+                { src: '/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/plugin/highlight/highlight.js', async: true, callback: function () { hljs.configure(); hljs.initHighlightingOnLoad(); } },
+                { src: '/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/plugin/zoom-js/zoom.js', async: true },
+                { src: '/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/plugin/notes/notes.js', async: true },
+                { src: '/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/plugin/math/math.js', async: true }
+            ]
+        });
+    </script>
+</body>
+
+</html>
