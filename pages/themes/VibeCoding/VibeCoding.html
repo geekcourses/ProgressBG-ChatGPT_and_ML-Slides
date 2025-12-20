@@ -1,0 +1,412 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>VibeCoding</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <link rel="shortcut icon" href="/ProgressBG-ChatGPT_and_ML-Slides/images/favicons/favicon-32.png">
+    <!-- css & themes include -->
+    <link rel="stylesheet" href="/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/css/reveal.css">
+    <link rel="stylesheet" href="/ProgressBG-ChatGPT_and_ML-Slides/outfit/css/themes/light.css" id="theme">
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match( /print-pdf/gi ) ? '/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/css/print/pdf.css' : '/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/css/print/paper.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- add MathJax support -->
+    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <base target="_blank">
+</head>
+<body>
+    <div class="reveal default center" data-transition-speed="default" data-background-transition="default">
+        <div class="top_links">
+            <a class="home_link" href="/ProgressBG-ChatGPT_and_ML-Slides/pages/agenda/agenda.html#VibeCoding" target="_top"><i class="fa fa-home"></i></a>
+            <span class="help_link" href="#"><i class="fa fa-question"></i></span>
+            <div class="help_text">
+                <div class="note">Keyboard shortcuts:</div>
+                <div><span>N/Space</span><span>Next Slide</span></div>
+                <div><span>P</span><span>Previous Slide</span></div>
+                <div><span>O</span><span>Slides Overview</span></div>
+                <div><span>ctrl+left click</span><span>Zoom Element</span></div>
+                <div class="print-howto"><br>If you want print version => add '<code>?print-pdf</code>' <br> at the end of slides URL (remove '#' fragment) and then print. <br>
+                Like: https://ProgressBG-ChatGPT_and_ML-course.github.io/...CourseIntro.html?print-pdf </div>
+            </div>
+        </div>
+        <div class="footer theme_switch">
+            <a href="#" onclick="document.getElementById('theme').setAttribute('href','/ProgressBG-ChatGPT_and_ML-Slides/outfit/css/themes/dark.css'); return false;">Dark</a>
+            <a href="#" onclick="document.getElementById('theme').setAttribute('href','/ProgressBG-ChatGPT_and_ML-Slides/outfit/css/themes/light.css'); return false;">Light</a>
+            <a href="#" onclick="document.getElementById('theme').setAttribute('href','/ProgressBG-ChatGPT_and_ML-Slides/outfit/css/themes/projector.css'); return false;">Projector</a>
+        </div>
+        <div class="slides">
+<!--
+########################################################
+##################### SLIDES START #####################
+########################################################
+-->
+<section><h1>Vibe Coding</h1></section>
+<section data-transition="zoom">
+    <!-- linkedin badge -->
+    <!--<script type="text/javascript" src="https://platform.linkedin.com/badges/js/profile.js" async defer></script>-->
+    <section class="copyright" data-transition="zoom">
+        <div class="note">
+            <p>Created for</p>
+        </div>
+        <div class="company">
+            <a href="http://progressbg.net/програмиране-с-python-2/">
+            <img style="height:80%" src="/ProgressBG-ChatGPT_and_ML-Slides/outfit/images/logos/ProgressBG_logo_529_127.png">
+            </a>
+        </div>
+        <div class="author">
+            <span class="note">Iva E. Popova, 2016-2025,</span>
+            <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"></a>
+        </div>
+    </section>
+    <section class="copyright" data-transition="zoom" style="margin-top: -2em;">
+        <div class="company">
+             <div class="LI-profile-badge"  data-version="v1" data-size="large" data-locale="en_US" data-type="vertical" data-theme="dark" data-vanity="ivapopova"><a class="LI-simple-link" href='https://bg.linkedin.com/in/ivapopova?trk=profile-badge'>Iva E. Popova on LinkedIn</a></div>
+        </div>
+    </section>
+</section>
+
+
+
+<section class="main-sesction-title" id="Introduction_to_Vibe_Coding"><h1>Introduction to Vibe Coding</h1></section>
+<section class="sub-sections"><h2>Introduction to Vibe Coding</h2>
+    <section>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Vibe Coding is a shift where the programmer focuses on the <strong>intent</strong> and the <strong>outcome</strong> (the "vibe") rather than the syntax.</dt>
+            <dd>The Programmer act as the Architect; the LLM acts as the Contractor.</dd>
+            <dt>The term "Vibe Coding" was coined by AI researcher <a href="https://x.com/karpathy/status/1886192184808149383?lang=en">Andrej Karpathy</a> in early 2025.</dt>
+            <a href="./images/KarpathyVibeCodingXPost.png"><img src="./images/KarpathyVibeCodingXPost.png"></a>
+        </dl>
+    </section>
+    <section><h3>Example: Data Visualization</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Instead of looking up Matplotlib syntax, you describe what the chart should <em>feel</em> like.</dt>
+            <pre><code rel="Prompt" class="text">
+                "Create a Python script that generates some random sales data 
+                for 12 months. Plot it as a dark-themed cyberpunk neon line chart.
+                Make it look cool and futuristic."
+            </code></pre>
+            <dt>And the LLM will generate the code:</dt>
+            <pre><code rel="Code" class="python">
+                import matplotlib.pyplot as plt
+                import numpy as np
+                import calendar
+
+                # The LLM handles the specific style configurations
+                plt.style.use('dark_background')
+                months = list(calendar.month_name)[1:]
+                sales = np.random.randint(1000, 5000, 12)
+
+                plt.figure(figsize=(10, 6))
+                plt.plot(months, sales, color='#00ff41', linewidth=3, marker='o', 
+                         markerfacecolor='#fff', markersize=8)
+                plt.title("CYBER SALES 2077", fontsize=20, color='#00ff41')
+                plt.grid(color='#2A2A2A', linestyle='--', linewidth=0.5)
+                plt.show()
+            </code></pre>
+        </dl>
+    </section>
+    <section><h3>How It Works (The Vibe Coding Loop)</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Vibe coding turns the development cycle into a conversation:</dt>
+            <ol style="font-size: 0.9em;">
+                <li><b>Prompt</b>: "<i>Build a React app that tracks my daily water intake. Make it blue and bubbly.</i>"</li>
+                <li><b>Generation</b>: The AI generates the file structure, CSS, and logic.</li>
+                <li><b>Vibe Check (Testing)</b>: You run the app. It looks okay, but the bubbles are static.</li>
+                <li><b>Iteration</b>: You say, "<i>Make the bubbles float up.</i>" You do not touch the CSS file yourself.</li>
+                <li><b>Handling Errors</b>: If the app crashes, you simply copy the scary red error text, paste it into the chat, and say "<i>Fix this.</i>"</li>
+            </ol>
+        </dl>
+    </section>
+</section>
+
+<section class="main-section-title"><h1>Overview of the Vibe Coding Ecosystem (2025)</h1></section>
+<section class="sub-sections"><h2>Overview of the Vibe Coding Ecosystem (2025)</h2>
+    <section>
+        <dl class="fa" style="min-width:80vw">
+            <dt>The "Vibe Coding" landscape has fractured into specialized tools, each serving a different stage of the creation process—from instant prototyping in the browser to deep, agentic architecture in the IDE.</dt>
+            <table border="1" cellpadding="10" cellspacing="0" style="border-collapse: collapse; width: 100%; font-family: Arial, sans-serif; font-size: .7em;">
+              <thead>
+                <tr style="background-color: #f2f2f2; text-align: left;">
+                  <th>Category</th>
+                  <th>Tool</th>
+                  <th>The "Vibe" / Role</th>
+                  <th>Best For...</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td rowspan="2"><strong>Cloud Native</strong><br><span style="font-size: 0.9em; color: #666;">(Zero Setup)</span></td>
+                  <td><strong>Bolt.new</strong></td>
+                  <td>
+                    <em>"Instant App Generator"</em><br>
+                    Runs entirely in the browser using WebContainers. You prompt, it renders a live full-stack app instantly. No localhost required.
+                  </td>
+                  <td>Rapid prototyping, MVPs, and non-technical founders building complete web apps from scratch.</td>
+                </tr>
+                <tr>
+                  <td><strong>Replit</strong></td>
+                  <td>
+                    <em>"The Autonomous Factory"</em><br>
+                    Features <strong>Replit Agent</strong>, which acts as a project manager. It plans, codes, and deploys. Strong on collaboration and "always on" cloud hosting.
+                  </td>
+                  <td>Beginners and teams who want to go from "Idea" to "Deployed URL" without touching a terminal.</td>
+                </tr>
+
+                <tr>
+                  <td rowspan="3"><strong>IDE</strong><br><span style="font-size: 0.9em; color: #666;">(Deep Work)</span></td>
+                  <td><strong>Cursor</strong></td>
+                  <td>
+                    <em>"The Pro's Scalpel"</em><br>
+                    A fork of VS Code. Its <strong>Composer</strong> feature (Cmd+I) allows it to edit multiple files simultaneously. It is the current "gold standard" for professional vibe coding.
+                  </td>
+                  <td>Professional developers who need the power of an IDE but the speed of AI. Local-first development.</td>
+                </tr>
+                <tr>
+                  <td><strong>Google Antigravity</strong></td>
+                  <td>
+                    <em>"Mission Control"</em><br>
+                    Released late 2025. An "Agent-First IDE" where you manage a team of autonomous agents rather than typing code. Introduces <strong>Artifacts</strong> to verify agent work.
+                  </td>
+                  <td>Managing complex, multi-agent workflows where the human acts purely as a supervisor/auditor.</td>
+                </tr>
+                <tr>
+                  <td><strong>GitHub Copilot</strong></td>
+                  <td>
+                    <em>"The Enterprise Standard"</em><br>
+                    Integrated into VS Code. While historically an autocomplete tool, <strong>Copilot Workspace</strong> has evolved it into a plan-and-execute agent ecosystem.
+                  </td>
+                  <td>Enterprise environments requiring strict security compliance and deep GitHub ecosystem integration.</td>
+                </tr>
+
+                <tr>
+                  <td><strong>Terminal</strong><br><span style="font-size: 0.9em; color: #666;">(Power User)</span></td>
+                  <td><strong>Claude Code</strong></td>
+                  <td>
+                    <em>"The Senior Engineer in Your Shell"</em><br>
+                    An autonomous CLI agent by Anthropic. It lives in your terminal, reads your file system, and executes complex refactors or bug fixes via command line.
+                  </td>
+                  <td>DevOps, backend engineering, and power users who prefer the terminal over a GUI.</td>
+                </tr>
+              </tbody>
+            </table>
+        </dl>
+    </section>
+</section>
+
+
+<section class="main-section-title"><h1>Google Antigravity</h1></section>
+<section class="sub-sections"><h2>Google Antigravity</h2>
+    <section><h3>The "Mission Control" for Vibe Coding</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Released in November 2025 alongside Gemini 3, Google Antigravity represents the next evolution of the vibe coding ecosystem. </dt>
+            <dd>While tools like Cursor are "AI-powered text editors," Antigravity is an "<b>Agent-First IDE</b>."</dd>
+            <dt>The core philosophy is that you shouldn't just be typing code with an AI assistant; you should be managing a team of autonomous agents who write/test/debug the code for you.</dt>            
+        </dl>
+    </section>
+</section>
+
+<section class="main-section-title"><h1>Key Features</h1></section>
+<section class="sub-sections"><h2>Key Features</h2>
+    <section><h3>Multi-Agent Orchestration</h3>
+        <dl class="fa" style="min-width:80vw">            
+            <dt>You can have multiple agents working on different branches or parts of your codebase simultaneously.</dt>
+            <dt>Example: </dt>
+            <dd>You tell Agent A to "Update the UI to match the new design," </dd>
+            <dd>You tell Agent B to "Write unit tests for the backend API."</dd>
+            <dd>Both work in parallel while you sip coffee.</dd>
+            <a href="./images/AntigravityAgentmanager.png"><img src="./images/AntigravityAgentmanager.png"></a>
+        </dl>
+    </section>
+    <section><h3>Artifacts (Trust but Verify)</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Because you aren't writing the code, trusting the AI is hard. Antigravity solves this with Artifacts—structured deliverables the agent presents to you for approval before merging code</dt>
+            <dd><b>The Plan</b>: A checklist of what the agent intends to do.</dd>
+            <dd><b>The Diff</b>: A clean view of code changes.</dd>
+            <dd><b>The Proof</b>: Screenshots or browser recordings of the agent testing the app to prove it works.</dd>
+        </dl>
+    </section>
+    <section><h3>Built-in Browser & "Vibe Check"</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Antigravity includes a headless browser that agents can control.</dt>
+            <dd><b>Self-Correction</b>: The agent writes code, opens the internal browser, sees an error (or a button that looks wrong), and fixes it without you asking.</dd>
+            <dd><b>Visual Debugging</b>: It can record a video of itself clicking through the app, which you can watch to verify the "vibe."</dd>
+        </dl>
+    </section>
+</section>
+
+<section class="main-section-title"><h1>Antigravity vs. Cursor</h1></section>
+<section class="sub-sections"><h2>Antigravity vs. Cursor</h2>
+    <section>
+        <dl class="fa" style="min-width:80vw">
+            <table style="width: 100%; border-collapse: collapse; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; box-shadow: 0 4px 6px rgba(0,0,0,0.1); background-color: white; font-size: .7em;" >
+                <thead>
+                    <tr style="background-color: #f8f9fa;">
+                        <th style="width: 20%; text-align: left; padding: 16px; border-bottom: 2px solid #e9ecef; color: #333; font-weight: 700;">Feature</th>
+                        <th style="width: 40%; text-align: left; padding: 16px; border-bottom: 2px solid #e9ecef; color: #0d6efd; font-weight: 700;">Cursor 2.0 (Composer)</th>
+                        <th style="width: 40%; text-align: left; padding: 16px; border-bottom: 2px solid #e9ecef; color: #db4437; font-weight: 700;">Google Antigravity</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="padding: 14px 16px; border-bottom: 1px solid #e9ecef; vertical-align: top; color: #4a4a4a; font-weight: 600;">Agent Architecture</td>
+                        <td style="padding: 14px 16px; border-bottom: 1px solid #e9ecef; vertical-align: top; color: #4a4a4a; line-height: 1.5;">
+                            <strong>Horizontal (Parallel)</strong><br>
+                            Spins up multiple independent agents simultaneously. They don't talk to each other; they compete to solve your prompt.
+                        </td>
+                        <td style="padding: 14px 16px; border-bottom: 1px solid #e9ecef; vertical-align: top; color: #4a4a4a; line-height: 1.5;">
+                            <strong>Vertical (Hierarchical)</strong><br>
+                            Spins up a "Manager Agent" that delegates tasks to specialized sub-agents (QA, Backend) who collaborate and plan together.
+                        </td>
+                    </tr>
+                    
+                    <tr style="background-color: #fafafa;">
+                        <td style="padding: 14px 16px; border-bottom: 1px solid #e9ecef; vertical-align: top; color: #4a4a4a; font-weight: 600;">The "Vibe" / Role</td>
+                        <td style="padding: 14px 16px; border-bottom: 1px solid #e9ecef; vertical-align: top; color: #4a4a4a; line-height: 1.5;">
+                            <span style="display: inline-block; padding: 4px 8px; border-radius: 4px; font-size: 0.85em; font-weight: 600; margin-bottom: 4px; background-color: #e7f1ff; color: #0d6efd;">The Tech Lead</span><br>
+                            You assign a task, the AI generates 3 different solutions (PRs), and you review/merge the best code.
+                        </td>
+                        <td style="padding: 14px 16px; border-bottom: 1px solid #e9ecef; vertical-align: top; color: #4a4a4a; line-height: 1.5;">
+                            <span style="display: inline-block; padding: 4px 8px; border-radius: 4px; font-size: 0.85em; font-weight: 600; margin-bottom: 4px; background-color: #fce8e6; color: #db4437;">The Product Manager</span><br>
+                            You define the specs. The "Agency" builds, tests, and presents a working demo for approval.
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td style="padding: 14px 16px; border-bottom: 1px solid #e9ecef; vertical-align: top; color: #4a4a4a; font-weight: 600;">Killer Feature</td>
+                        <td style="padding: 14px 16px; border-bottom: 1px solid #e9ecef; vertical-align: top; color: #4a4a4a; line-height: 1.5;">
+                            <strong>"Best-of-N" Coding</strong><br>
+                            Ask for a refactor and get 3 different implementation options instantly. You pick the cleanest one.
+                        </td>
+                        <td style="padding: 14px 16px; border-bottom: 1px solid #e9ecef; vertical-align: top; color: #4a4a4a; line-height: 1.5;">
+                            <strong>Visual Proof (Artifacts)</strong><br>
+                            Agents provide screenshots or video recordings of them interacting with the app to prove the fix works.
+                        </td>
+                    </tr>
+                    
+                    <tr style="background-color: #fafafa;">
+                        <td style="padding: 14px 16px; border-bottom: none; vertical-align: top; color: #4a4a4a; font-weight: 600;">Isolation Tech</td>
+                        <td style="padding: 14px 16px; border-bottom: none; vertical-align: top; color: #4a4a4a; line-height: 1.5;">
+                            <strong>Git Worktrees</strong><br>
+                            Uses local Git branches to keep parallel agent experiments isolated until you hit "Apply."
+                        </td>
+                        <td style="padding: 14px 16px; border-bottom: none; vertical-align: top; color: #4a4a4a; line-height: 1.5;">
+                            <strong>Cloud Sandboxes</strong><br>
+                            Agents run in ephemeral cloud environments with their own headless browsers and terminals.
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <dt>Use Cursor 2.0 if: You want to <b>explore options</b>. You want to say "Refactor this component" and see 3 different ways to do it, then pick the cleanest code. You still want to be the one hitting the "Merge" button.</dt>
+            <dt>Use Antigravity if: You want to <b>delegate responsibility</b>. You want to say "Add a login page" and trust the system to handle the backend, frontend, and database schema coordination without you reviewing every file.</dt>
+        </dl>        
+    </section>
+</section>
+
+
+<section class="main-section-title"><h1>Hands-On: Vibe code the Todo List App</h1></section>
+<section class="sub-sections"><h2>Hands-On: Vibe code the Todo List App</h2>
+    <section><h3>Hands-On: Vibe code the Todo List App</h3>
+        <dl class="fa">
+            <dt>Use Antigravity to build a <a href="https://www.google.com/search?q=what+is+a+todo+list+app&sca_esv=96955b911253f63e&sxsrf=AE3TifOX8xuldumQDxcVO4SCM3mk7_iDpA%3A1766268793118&ei=eR9Hadv2BreNi-gPz4uFgAs&ved=0ahUKEwibl_f_l82RAxW3xgIHHc9FAbAQ4dUDCBE&uact=5&oq=what+is+a+todo+list+app&gs_lp=Egxnd3Mtd2l6LXNlcnAiF3doYXQgaXMgYSB0b2RvIGxpc3QgYXBwMgYQABgHGB4yBBAAGB4yBhAAGAgYHjIGEAAYCBgeMgsQABiABBiGAxiKBTILEAAYgAQYhgMYigUyCBAAGIAEGKIEMgUQABjvBUiTElDnDFjwDnABeAGQAQCYAa4BoAGZAqoBAzAuMrgBA8gBAPgBAZgCA6AC5wLCAgoQABiwAxjWBBhHwgIIEAAYBxgIGB6YAwCIBgGQBgiSBwMxLjKgB9AKsgcDMC4yuAfHAsIHBTMtMS4yyAc9gAgA&sclient=gws-wiz-serp">Todo List App</a></dt>            
+        </dl>
+    </section>
+</section>
+<section id="hw">
+    <section><h1>Homework</h1></section>
+    <section id="task1"><h3>Homework</h3>
+        <dl class="fa">
+            <dt>The tasks are given in next <a href="__URL__">file</a></dt>
+            <dt>You can copy it and work directly on it. Just put your code under "### Your code here".</dt>
+        </dl>
+    </section>
+</section>
+
+
+
+<!-- <section class="main-sesction-title" id="hw"><h1>Exercises</h1></section>
+<section class="sub-sections"><h2>Task1</h2>
+    <section><h3>The Task</h3>
+
+    </section>
+</section> -->
+
+<!-- <section><h3>Submission</h3>
+    <dl class="fa">
+        <dt>Please, prefix your filenames/archive with your name initials, before sending.</dt>
+        <dd>For instance: <b>iep_task1.py</b> or <b>iep_tasks.rar</b></dd>
+        <dt>Send files to <a href="mailto:progressbg.python.course@gmail.com?Subject=HW: VibeCoding">progressbg.python.course@gmail.com</a></dt>
+    </dl>
+</section> -->
+
+
+
+<section class="disclaimer" data-background="/ProgressBG-ChatGPT_and_ML-Slides/outfit/images/for_slides/the_end_on_sand.jpg">
+     <p>These slides are based on</p>
+     <p>customised version of </p>
+     <p><a href="http://hakim.se/">Hakimel</a>'s <a href="http://lab.hakim.se/reveal-js">reveal.js</a></p>
+     <p>framework</p>
+</section>
+<!--
+########################################################
+##################### SLIDES END   #####################
+########################################################
+-->
+        </div>
+    </div>
+    <!-- Custom processing -->
+    <script src="/ProgressBG-ChatGPT_and_ML-Slides/outfit/js/slides.js"></script>
+    <!-- external scripts -->
+    <script src="/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/lib/js/head.min.js"></script>
+    <script src="/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/js/reveal.js"></script>
+     <!-- init reveal -->
+    <script>
+        // Full list of configuration options available at:
+        // https://github.com/hakimel/reveal.js#configuration
+        var highlightjsTabSize = '  ';
+        Reveal.initialize({
+            controls: true,
+            progress: true,
+            slideNumber: 'c/t',
+            keyboard: true,
+            history: true,
+            center: true,
+            width: 1920,
+            height: 1280,
+            // Bounds for smallest/largest possible scale to apply to content
+            // minScale: .5,
+            maxScale: 1,
+            // slide transition
+            transition: 'concave', // none/fade/slide/convex/concave/zoom
+            // Factor of the display size that should remain empty around the content
+            margin: 0.1,
+            // shift+mouse click to zoom in/out element
+            zoomKey: 'ctrl',
+            // theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+            // transition: Reveal.getQueryHash().transition || 'default'
+            // Optional reveal.js plugins
+            dependencies: [
+                { src: '/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                { src: '/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                { src: '/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                { src: '/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.configure(); hljs.initHighlightingOnLoad(); } },
+                { src: '/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/plugin/zoom-js/zoom.js', async: true },
+                { src: '/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/plugin/notes/notes.js', async: true },
+                { src: '/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/plugin/math/math.js', async: true }
+            ]
+        });
+    </script>
+</body>
+</html>
