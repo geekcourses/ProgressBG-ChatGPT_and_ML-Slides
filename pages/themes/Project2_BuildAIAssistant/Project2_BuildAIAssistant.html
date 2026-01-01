@@ -1,0 +1,1455 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Project 2: Build AI Assistant</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <link rel="shortcut icon" href="/ProgressBG-ChatGPT_and_ML-Slides/images/favicons/favicon-32.png">
+    <!-- css & themes include -->
+    <link rel="stylesheet" href="/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/css/reveal.css">
+    <link rel="stylesheet" href="/ProgressBG-ChatGPT_and_ML-Slides/outfit/css/themes/light.css" id="theme">
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match( /print-pdf/gi ) ? '/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/css/print/pdf.css' : '/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/css/print/paper.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- add MathJax support -->
+    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <base target="_blank">
+</head>
+<body>
+    <div class="reveal default center" data-transition-speed="default" data-background-transition="default">
+        <div class="top_links">
+            <a class="home_link" href="/ProgressBG-ChatGPT_and_ML-Slides/pages/agenda/agenda.html#Project2_BuildAIAssistant" target="_top"><i class="fa fa-home"></i></a>
+            <span class="help_link" href="#"><i class="fa fa-question"></i></span>
+            <div class="help_text">
+                <div class="note">Keyboard shortcuts:</div>
+                <div><span>N/Space</span><span>Next Slide</span></div>
+                <div><span>P</span><span>Previous Slide</span></div>
+                <div><span>O</span><span>Slides Overview</span></div>
+                <div><span>ctrl+left click</span><span>Zoom Element</span></div>
+                <div class="print-howto"><br>If you want print version => add '<code>?print-pdf</code>' <br> at the end of slides URL (remove '#' fragment) and then print. <br>
+                Like: https://ProgressBG-ChatGPT_and_ML-course.github.io/...CourseIntro.html?print-pdf </div>
+            </div>
+        </div>
+        <div class="footer theme_switch">
+            <a href="#" onclick="document.getElementById('theme').setAttribute('href','/ProgressBG-ChatGPT_and_ML-Slides/outfit/css/themes/dark.css'); return false;">Dark</a>
+            <a href="#" onclick="document.getElementById('theme').setAttribute('href','/ProgressBG-ChatGPT_and_ML-Slides/outfit/css/themes/light.css'); return false;">Light</a>
+            <a href="#" onclick="document.getElementById('theme').setAttribute('href','/ProgressBG-ChatGPT_and_ML-Slides/outfit/css/themes/projector.css'); return false;">Projector</a>
+        </div>
+        <div class="slides">
+<!--
+########################################################
+##################### SLIDES START #####################
+########################################################
+-->
+<section id="Project2_BuildAIAssistant"><h1>Project 2: Build AI Assistant</h1></section>
+<section data-transition="zoom">
+    <!-- linkedin badge -->
+    <!--<script type="text/javascript" src="https://platform.linkedin.com/badges/js/profile.js" async defer></script>-->
+    <section class="copyright" data-transition="zoom">
+        <div class="note">
+            <p>Created for</p>
+        </div>
+        <div class="company">
+            <a href="http://progressbg.net/програмиране-с-python-2/">
+            <img style="height:80%" src="/ProgressBG-ChatGPT_and_ML-Slides/outfit/images/logos/ProgressBG_logo_529_127.png">
+            </a>
+        </div>
+        <div class="author">
+            <span class="note">Iva E. Popova, 2016-2025,</span>
+            <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"></a>
+        </div>
+    </section>
+    <section class="copyright" data-transition="zoom" style="margin-top: -2em;">
+        <div class="company">
+             <div class="LI-profile-badge"  data-version="v1" data-size="large" data-locale="en_US" data-type="vertical" data-theme="dark" data-vanity="ivapopova"><a class="LI-simple-link" href='https://bg.linkedin.com/in/ivapopova?trk=profile-badge'>Iva E. Popova on LinkedIn</a></div>
+        </div>
+    </section>
+</section>
+
+
+<!-- <section class="main-section-title"><h1>Objective: Build Sentiment Aware AI assistant</h1></section>
+<section class="sub-sections"><h2>Objective: Build Sentiment Aware AI assistant</h2>
+    <section><h3>Build an AI assistant</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt></dt>
+        </dl>
+    </section>
+</section> -->
+
+<section class="main-section-title"><h1>Core Concepts of Conversational AI</h1></section>
+<section class="sub-sections"><h2>Core Concepts of Conversational AI</h2>
+    <section><h3>Overview</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>A chatbot is essentially a while loop that never stops until the user says "quit". It needs two things:</dt>
+            <dd>Memory: A list to store the history of what was said.</dd>
+            <dd>The Loop: Ask for input → Process → Print response → Repeat.</dd>
+        </dl>
+    </section>
+    <section><h3>Memory</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>By default, LLMs are <b>stateless</b>. This means the model does not remember what you said two minutes ago. Every time you send a message, it’s like meeting the AI for the first time. To make it a "chatbot," we must provide it with a Memory by sending the previous parts of the conversation back to the model with every new prompt.</dt>
+            <dt>Memory is the history of the conversation.</dt>
+            <dd>It is a list of messages that are sent to the AI model.</dd>
+            <dd>It is a list of messages that are received from the AI model.</dd>
+        </dl>
+    </section>
+    <section><h3>The Loop</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>A chatbot isn't just a single execution; it’s a While Loop. The program stays open, waiting for input, processing it, and displaying the output until a specific "exit" command is given.</dt>
+            <dt><b>Ask for input</b> → <b>Process</b> → <b>Print response</b> → <b>Repeat</b>.</dt>
+            <dd><b>Ask for input</b>: Get user input.</dd>
+            <dd><b>Process</b>: Call AI API (Gemini)</dd>
+            <dd><b>Print response</b>: Print the response from the AI model.</dd>
+            <dd><b>Repeat</b>: Go back to <b>Ask for input</b>.</dd>
+        </dl>
+    </section>
+    <section><h3>Example of a simple CLI Chatbot (Simulation, no AI yet)</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Next script simulates a conversation without any AI yet</dt>
+            <pre><code rel="Python" class="python" style="min-height: 80vh;">
+                # 1. Initialize Memory (The "Context Window")
+                chat_history = []
+
+                print("--- CLI Chatbot (Type 'quit' to exit) ---")
+
+                # 2. The Conversation Loop
+                while True:
+                    # 1. Get User Input
+                    user_input = input("You: ")
+
+                    # 2. Check for exit condition
+                    if user_input.lower() in ["quit", "exit"]:
+                        print("Bot: Goodbye!")
+                        break
+
+                    # 3. Update Memory (User)
+                    chat_history.append({"role": "user", "content": user_input})
+
+                    # 4. Simulate the AI Response
+                    # (This is where we will later call the Sentiment Model + LLM)
+                    bot_response = f"Echo: {user_input}" 
+                    # --------------------------------
+
+                    # 5. Update Memory (Bot)
+                    chat_history.append({"role": "assistant", "content": bot_response})
+
+                    # 6. Print Response
+                    print(f"Bot: {bot_response}")
+
+                    # 7. Print Chat History
+                    print("\n--- Chat History ---")
+                    for message in chat_history:
+                        print(f"{message['role']}: {message['content']}")
+                    print("-------------------")
+            </code></pre>
+        </dl>
+    </section>
+</section>
+
+
+<section class="main-section-title"><h1>Build a simple CLI Chatbot Gemini API</h1></section>
+<section class="sub-sections"><h2>Build a simple CLI Chatbot Gemini API</h2>    
+    <section><h3>Client Initialization: The Environment Setup</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Before we talk to the AI, we need our "ID badge" (the API Key).</dt>
+            <dd class="note">We never hardcode API keys directly into our script for security reasons.</dd>
+            <dd>Instead, we'll use a <code>.env</code> file and the dotenv library to load them into the system's memory privately.</dd>
+            <pre><code rel="Python" class="python" style="min-height: 1vh;">
+                import os
+                from dotenv import load_dotenv, find_dotenv
+
+                load_dotenv(find_dotenv())
+
+                api_key = os.getenv("GOOGLE_API_KEY")
+            </code></pre>
+            <dd><code>find_dotenv</code> will search for the <code>.env</code> file in the current directory and its parent directories.</dd>
+            <dd>Once found, <code>load_dotenv</code> will load the environment variables into the system's memory.</dd>
+            <dd>Then we can access the API key using <code>os.getenv("GOOGLE_API_KEY")</code>.</dd>
+        </dl>
+    </section>
+    <section><h3>Client Initialization</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Next, we need to initialize the client.</dt>
+            <pre><code rel="Python" class="python" style="min-height: 1vh;">
+                def get_chatbot_client():
+                """Initializes and returns the GenAI client."""
+                load_dotenv(find_dotenv())
+                api_key = os.getenv("GOOGLE_API_KEY")
+
+                if not api_key:
+                    print("ERROR: GOOGLE_API_KEY not found.")
+                    sys.exit(1)
+
+                try:
+                    return genai.Client(api_key=api_key)
+                except Exception as e:
+                    print(f"Failed to initialize Gemini Client: {e}")
+                    sys.exit(1)
+
+            </code></pre>
+            <dt>Once the client is initialized, it acts as a persistent bridge. You don't need to recreate it for every message; you create it once at the start of your program and use it throughout the session.</dt>
+        </dl>
+    </section>
+    <section><h3>Model Selection</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>We can select the model we want to use, by setting its name in a variable.</dt>
+            <pre><code rel="Python" class="python" style="min-height: 1vh;">
+                MODEL = "gemini-2.5-flash"
+            </code></pre>
+            <dt>It is useful first to list available models, so we can check if the model we want to use is available.</dt>
+            <pre><code rel="Python" class="python" style="min-height: 1vh;">
+                def list_available_chat_models(client):
+                    """
+                    Returns a list of models authorized for your API key/tier
+                    that are suitable for a chatbot (Gemini & Gemma).
+                    """
+                    chat_models = []
+                    
+                    # client.models.list() only returns models your API Key is authorized to use.
+                    for model in client.models.list():
+                        name_lower = model.name.lower()
+                        
+                        # 1. Must support content generation
+                        can_gen = model.supported_actions and "generateContent" in model.supported_actions
+                        
+                        # 2. Must be a chatbot family (Gemini or Gemma)
+                        is_chatbot_family = "gemini" in name_lower or "gemma" in name_lower
+                        
+                        # 3. Exclude Image-only models (Imagen)
+                        is_not_image = "imagen" not in name_lower
+
+                        if can_gen and is_chatbot_family and is_not_image:
+                            chat_models.append({
+                                "id": model.name,
+                                "display_name": model.display_name,
+                                "input_limit": model.input_token_limit
+                            })
+                            
+                    return chat_models
+            </code></pre>
+        </dl>
+    </section>
+    <section><h3>Initializing the Memory</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>We need to initialize the memory to store the conversation history, before the chat loop starts.</dt>
+            <pre><code rel="Python" class="python" style="min-height: 1vh;">
+                chat_history = []
+            </code></pre>
+            <dd>This list is the chatbot's Short-Term Memory. Since the API is "stateless," we must manually store every message exchanged so we can send the whole history back to Gemini every time we ask a new question.</dd>
+        </dl>
+    </section>
+    <section><h3>Init the Chat Loop and get user input</h3>
+        <dl class="fa" style="min-width:80vw">            
+            <pre><code rel="Python" class="python" style="min-height: 1vh;">
+                while True:
+                    # 1. Get User Input
+                    user_input = input("\nYou: ")
+
+                    # 2. Check for exit condition
+                    if user_input.lower() in ["quit", "exit"]:
+                        print("Bot: Goodbye!")
+                        break
+            </code></pre>
+        </dl>
+    </section>
+    <section><h3>Update the Memory</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Now we need to update the memory with the user's input.</dt>
+            <dt>We take the user input, wrap it in the required Gemini Message Structure, and push it into our chat_history list.</dt>
+            <pre><code rel="Python" class="python" style="min-height: 1vh;">
+                chat_history.append(types.Content(role="user", parts=[types.Part(text=user_input)]))
+            </code></pre>
+        </dl>
+    </section>
+    <section><h3 class="advanced">The Message Structure (Types)</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Gemini doesn't just take a list of strings; it expects a specific data structure.</dt>
+            <dd><b>types.Content</b> is a class that represents a message in the conversation.</dd>
+            <dd><b>types.Part</b> is a class that represents a part of the message.</dd>
+            <dd><b>role</b>: Identifies who is speaking ("user" or "model").</dd>
+            <dd><b>parts</b>: A list of the actual content (usually text).</dd>
+            <pre><code rel="Python" class="python" style="min-height: 1vh;">
+                message = types.Content(role="user", parts=[types.Part(text=user_input)])
+            </code></pre>
+            <dd>For example, if the user types "Hello", the message would be:</dd>
+            <pre><code rel="Python" class="python" style="min-height: 1vh;">
+                message = types.Content(role="user", parts=[types.Part(text="Hello")])
+            </code></pre>
+            <dd>And if the bot replies with "Hello", the message would be:</dd>
+            <pre><code rel="Python" class="python" style="min-height: 1vh;">
+                message = types.Content(role="model", parts=[types.Part(text="Hello")])
+            </code></pre>
+        </dl>
+    </section>
+    <section><h3>The API Request</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>This is the moment where the actual "intelligence" happens. We take our stored history and send it across the internet to Google's servers.</dt>
+            <dt>To send the payload, we use the <code>client.models.generate_content</code> method.</dt>
+            <dd>Notice that we don't just send the last user message; we send the entire chat_history.</dd>
+            <pre><code rel="Python" class="python" style="min-height: 1vh;">
+                response = client.models.generate_content(
+                    model=MODEL,
+                    contents=chat_history,
+                    config=types.GenerateContentConfig(
+                        temperature=0.7
+                    )
+                )
+            </code></pre>
+            <dd>With <code>config</code> parameter we can pass additional parameters to the API.</dd>
+        </dl>
+    </section>
+    <section><h3>Error Handling (The Try/Except Block)</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>APIs can fail. The internet might go down, or you might hit a rate limit.</dt>
+            <dt>The Code: We wrap the call in a try...except block.</dt>
+            <pre><code rel="Python" class="python" style="min-height: 1vh;">
+                try:
+                    response = client.models.generate_content(
+                        model=MODEL,
+                        contents=chat_history,
+                        config=types.GenerateContentConfig(
+                            temperature=0.7
+                        )
+                    )
+                    bot_text = response.text
+                except Exception as e:
+                    bot_text = f"Error: {e}"
+            </code></pre>   
+            <dt>The Benefit: Instead of the program crashing and losing the whole conversation, the bot simply reports: "Error: [Description]" and allows the user to try again.</dt>
+        </dl>
+    </section>
+    <section><h3>Completing the Memory Cycle</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Now we need to update the memory with the bot's response.</dt>
+            <dt>We take the bot's response, wrap it in the required Gemini Message Structure, and push it into our chat_history list.</dt>
+            <pre><code rel="Python" class="python" style="min-height: 1vh;">
+                chat_history.append(types.Content(role="model", parts=[types.Part(text=bot_text)]))
+            </code></pre>
+            <dd>We assign the role "model". This tells the AI in the next turn which parts of the history were its own previous answers. If you forget this step, the bot will "forget" what it just said to you.</dd>
+        </dl>
+    </section>
+    <section><h3>The Full Cycle Summary</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt><b>Input</b>: User types a message.</dt>
+            <dt><b>Save Memory</b>: Script saves user message to history.</dt>
+            <dt><b>Request</b>: Script sends the full history to Google.</dt>
+            <dt><b>Receive</b>: Google sends back a response.</dt>
+            <dt><b>Save Memory</b>: Script saves the AI response to history.</dt>
+            <dt><b>Output</b>: Script prints the AI response for the user to read.</dt>
+        </dl>
+    </section>  
+    <section><h3>Full code: the chatbot app</h3>
+        <pre><code rel="Python" class="python" style="min-height: 100vh;">
+            from google import genai
+            from google.genai import types
+            from model_manager import get_chatbot_client, get_best_model
+
+
+            # ---------------------------------------------------------------------------- #
+            #                               Main chatbot loop                              #
+            # ---------------------------------------------------------------------------- #
+            client = get_chatbot_client()
+            MODEL = get_best_model(client, preferred_model="gemini-2.5-flash-lite")
+
+            print(f"   (Auto-selected Model: {MODEL})")
+
+            chat_history = []
+
+            print("--- Sentiment-Aware Gemini Chat (Type 'quit' to exit) ---")
+
+            while True:
+                # 1. Get User Input
+                user_input = input("\nYou: ")
+
+                # 2. Check for exit condition
+                if user_input.lower() in ["quit", "exit"]:
+                    print("Bot: Goodbye!")
+                    break
+
+                # 3. Update Memory (User)    
+                chat_history.append(types.Content(role="user", parts=[types.Part(text=user_input)]))
+
+                # 4. Call AI API (Gemini)
+                try:
+                    response = client.models.generate_content(
+                        model=MODEL,
+                        contents=chat_history,
+                        config=types.GenerateContentConfig(
+                            temperature=0.7
+                        )
+                    )
+                    bot_text = response.text
+                except Exception as e:
+                    bot_text = f"Error: {e}"
+
+                # 6. Update Memory (Bot)
+                chat_history.append(types.Content(role="model", parts=[types.Part(text=bot_text)]))
+
+                # 7. Print Response
+                print(f"Bot: {bot_text}")
+
+                # 8. (Optional) Print Chat History Debug
+                # print(chat_history)
+        </code></pre>
+    </section>  
+    <section><h3>Full code: model_manager module</h3>
+        <pre><code rel="Python" class="python" style="min-height: 100 vh;">
+            from google import genai
+            import os
+            import sys
+            from dotenv import load_dotenv, find_dotenv
+
+            def get_chatbot_client():
+                """Initializes and returns the GenAI client."""
+                load_dotenv(find_dotenv())
+                api_key = os.getenv("GOOGLE_API_KEY")
+
+                if not api_key:
+                    print("ERROR: GOOGLE_API_KEY not found.")
+                    sys.exit(1)
+
+                try:
+                    return genai.Client(api_key=api_key)
+                except Exception as e:
+                    print(f"Failed to initialize Gemini Client: {e}")
+                    sys.exit(1)
+
+            def list_available_chat_models(client):
+                """
+                Returns a list of models authorized for your API key/tier
+                that are suitable for a chatbot (Gemini & Gemma).
+                """
+                chat_models = []
+
+                # client.models.list() only returns models your API Key is authorized to use.
+                for model in client.models.list():
+                    name_lower = model.name.lower()
+
+                    # 1. Must support content generation
+                    can_gen = model.supported_actions and "generateContent" in model.supported_actions
+
+                    # 2. Must be a chatbot family (Gemini or Gemma)
+                    is_chatbot_family = "gemini" in name_lower or "gemma" in name_lower
+
+                    # 3. Exclude Image-only models (Imagen)
+                    is_not_image = "imagen" not in name_lower
+
+                    if can_gen and is_chatbot_family and is_not_image:
+                        chat_models.append({
+                            "id": model.name,
+                            "display_name": model.display_name,
+                            "input_limit": model.input_token_limit
+                        })
+
+                return chat_models
+
+            def get_best_model(client, preferred_model="gemini-1.5-flash"):
+                """
+                Tries to find your preferred model. If not available in your tier,
+                it falls back to the first available Gemini model.
+                """
+                available = list_available_chat_models(client)
+
+                if not available:
+                    raise RuntimeError("No chat-compatible models found for this API Key/Tier.")
+
+                # Check for preferred model (handling the 'models/' prefix)
+                for m in available:
+                    if preferred_model in m['id']:
+                        return m['id']
+
+                # Fallback to the first available model in your authorized list
+                return available[0]['id']
+
+            # --- Example Usage ---
+            if __name__ == "__main__":
+                ai_client = get_chatbot_client()
+
+                try:
+                    # This will automatically pick a model your tier allows
+                    model_to_use = get_best_model(ai_client, "gemini-1.5-pro")
+                    print(f"SUCCESS: Using model '{model_to_use}'")
+                except Exception as e:
+                    print(f"Error: {e}")
+        </code></pre>
+    </section>
+</section>
+
+
+<section class="main-section-title"><h1>Build a simple CLI Chatbot with Local Model</h1></section>
+<section class="sub-sections"><h2>Build a simple CLI Chatbot with Local Model</h2>
+    <section><h3>Why Run Models Locally?</h3>
+        <dl class="fa">
+            <dt><b>Privacy and Security:</b> Your data never leaves your environment.</dt>
+            <dd>This is essential for healthcare, legal, or finance industries.</dd>            
+            <dt><b>Latency:</b> Faster responses since you don't wait for API responses.</dt>
+            <dd>Especially useful for production-scale applications.</dd>
+            <dt><b>Control:</b> You have full control over the model's behavior and data.</dt>            
+            <dt><b>Cost:</b> Avoids API calls and associated costs.</dt>     
+            <dt><b>Offline Access:</b> You can chat with your AI in a remote research outpost or an airplane with zero internet.</dt>       
+        </dl>
+    </section>
+    <section><h3>The Trade-off: Hardware vs. Performance</h3>
+        <dl class="fa">
+            <dt><b>Hardware:</b> Running an LLM locally requires a decent GPU (Graphics Card) with enough VRAM (Video RAM).</dt>
+            <dd>8GB VRAM: Can run small 7B or 8B parameter models (like Llama 3) comfortably.</dd>
+            <dd>16GB+ VRAM: Can handle medium models or faster response times.</dd>
+        </dl>
+    </section>
+    <section><h3>Hardware Check</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Ensure your computer meets these minimum requirements for a smooth experience:</dt>
+            <dd><b>RAM:</b> 16GB minimum (8GB can work for very small models, but it will be slow).</dd>
+            <dd><b>GPU:</b> An NVIDIA GPU with at least 8GB of VRAM is ideal, or a Mac with Apple Silicon (M1, M2, M3, M4). Worst case scenario, you can use a CPU, but it will be slow.</dd>
+            <dd><b>Storage:</b> At least 10GB of free space (models range from 2GB to 50GB+).</dd>
+        </dl>
+    </section>
+</section>
+<section><h2>Running Small Language Models locally: from scratch</h2>
+    <section>
+        <dl class="fa" style="min-width:80vw">            
+            <dt>Next script demonstrates how to load a 4-bit quantized model and execute it on an Intel CPU using the OpenVINO toolkit.</dt>
+            <pre><code rel="Python" class="python" style="min-height: 100vh;">
+                from optimum.intel import OVModelForCausalLM
+                from transformers import AutoTokenizer, TextStreamer
+                import torch
+
+                # Model Configuration
+                # We use a pre-optimized OpenVINO version of the Phi-3 model.
+                # INT4 quantization is used to reduce memory footprint and increase throughput.
+                model_id = "OpenVINO/Phi-3-mini-4k-instruct-int4-ov"
+
+                # Tokenizer Initialization
+                tokenizer = AutoTokenizer.from_pretrained(model_id)
+
+                # Model Loading & Hardware Selection
+                # 'export=False' indicates the model is already in OpenVINO IR format.
+                # 'device="GPU"' offloads mathematical operations to the hardware accelerator.
+                # 'compile=True' optimizes the execution graph for the specific hardware target.
+                model = OVModelForCausalLM.from_pretrained(
+                    model_id, 
+                    export=False, 
+                    device="CPU", 
+                    compile=True
+                )
+
+                # Streamer Implementation
+                # A streamer allows for real-time output by decoding tokens as they are generated,
+                # rather than waiting for the entire sequence to complete.
+                streamer = TextStreamer(tokenizer, skip_prompt=True, skip_special_tokens=True)
+
+                # Conversation State Management
+                messages = [
+                    {"role": "system", "content": "You are a helpful AI assistant."}
+                ]
+
+                print("\n--- Local AI Chatbot is Active ---")
+
+                while True:
+                    # Capture user input
+                    user_input = input("\nUser: ")
+                    if user_input.lower() in ["exit", "quit"]: break
+
+                    # Update conversation history with user prompt
+                    messages.append({"role": "user", "content": user_input})
+
+                    # Prompt Engineering & Template Application
+                    # Formats the message list into a specific string structure required by the model.
+                    prompt = tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
+                    
+                    # Encode the text into tensors on the CPU (the model handles the transfer to GPU).
+                    inputs = tokenizer(prompt, return_tensors="pt")
+
+                    print("Assistant: ", end="", flush=True)
+
+                    # Autoregressive Generation
+                    # The model predicts the next token in the sequence until an EOS (End of String) is reached.
+                    output_tokens = model.generate(
+                        **inputs, 
+                        streamer=streamer, 
+                        max_new_tokens=512, 
+                        temperature=0.7, 
+                        do_sample=True
+                    )
+
+                    # Post-Processing & History Update
+                    # Decode only the generated response to maintain a clean conversation log.
+                    full_response = tokenizer.decode(output_tokens[0], skip_special_tokens=True)
+                    ai_only = full_response.split("assistant")[-1].strip()
+                    messages.append({"role": "assistant", "content": ai_only})
+            </code></pre>
+        </dl>
+    </section>
+</section>
+<section><h2>Running Large Language Models locally with Ollama</h2>
+    <section><h3>Overview</h3>
+        <dl class="fa">
+            <dt>Ollama is an open-source tool that lets you run and manage powerful models like Llama 3 or Mistral directly on your laptop or server.</dt>
+            <dt>Ollama is best to describe it as a "Model Server." While the previous script (OpenVINO/Transformers) is like building a car from scratch where you manage the engine and wheels yourself, Ollama is like a public transit system. It runs in the background as a service, and your Python script simply sends a "request" to it.</dt>
+
+        </dl>
+    </section>
+    <section><h3>How it works?</h3>
+        <ol style="font-size: 1em;">
+            <li>You install Ollama</li>
+            <li>You pull a model (e.g. <code>llama3</code>, <code>mistral</code>)</li>
+            <li>Ollama:
+                <ol>
+                    <li>Optimizes the model for your hardware</li>
+                    <li>Runs it in the background</li>
+                </ol>
+            </li>
+            <li>You interact via:
+                <ol>
+                    <li>Terminal</li>
+                    <li>API</li>
+                    <li>Apps like LangChain, Open WebUI, Continue, etc.</li>
+                </ol>
+            </li>
+        </ol>
+    </section>
+    <section><h3>Install and Run the Ollama App (The Server)</h3>
+        <dl class="fa">
+            <dt>Download and install Ollama from <a href="https://ollama.com/" target="_blank">https://ollama.com/</a></dt>
+            <dt>Run the Ollama app</dt>
+            <dd>it starts a "background service" (a server) that listens on your computer at http://localhost:11434.</dd>
+            <dt>Install the model you want to use</dt>
+            <dd>Before your script can use a model like phi3, it must be saved on your hard drive.</dd>
+            <pre><code rel="Python" class="python" style="min-height: 1vh;">
+                ollama pull phi3
+            </code></pre>
+            <dd>List installed models</dd>            
+            <pre><code rel="Python" class="python" style="min-height: 1vh;">
+                ollama list
+            </code></pre>            
+        </dl>
+    </section>
+    <section><h3>Start the Ollama App (The Server)</h3>
+        <dl class="fa">
+            <dt>In order to use Ollama, you need to start the Ollama app (the server)</dt>
+            <dd><b>Windows</b>: Click the Start Menu, search for Ollama, and run it. You will see a small Ollama icon (a llama head) appear in your System Tray (bottom right, near the clock).</dd>
+            <dd><b>macOS</b>: Open Finder > Applications > Ollama. A llama icon will appear in your Menu Bar at the top of the screen.</dd>
+            <dd><b>Linux</b>: Ollama usually runs as a background service (systemd). If it isn't running, you can start the server manually by typing <code>ollama serve</code> in your terminal.</dd>
+            <dt>Verify the server is running</dt>
+            <dd>Open a web browser and navigate to http://localhost:11434. You should see "Ollama is running".</dd>
+        </dl>
+    </section>
+    <section><h3>Downloading the Model</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Once the server is open, they need to download the "brain" (the model). In the terminal, type:</dt>
+            <pre><code rel="Terminal" class="bash">
+                ollama pull phi3
+            </code></pre>
+            <dt>Default Models Storage Paths</dt>
+            <dd><b>Windows</b>:  C:\Users\<YourUsername>\.ollama\models</dd>
+            <dd><b>macOS</b>: ~/.ollama/models (located in your User home folder)</dd>
+            <dd><b>Linux (Manual)</b>: ~/.ollama/models</dd>
+            <dd><b>Linux (Service)</b>: /usr/share/ollama/.ollama/models</dd>
+        </dl>
+    </section>
+    <section><h3>Building a Chatbot with Ollama</h3>
+        <dl class="fa">
+            <dt>You must install the Ollama Python package</dt>
+            <pre><code rel="Terminal" class="bash">
+                pip install ollama
+            </code></pre>
+            <dt>Here is a simple example of how to use Ollama:</dt>
+            <pre><code rel="Python" class="python" style="min-height: 1vh;">
+                import ollama
+
+                # 1. Configuration
+                # Note: Ollama manages the model files for us. 
+                # We just need the name of the model we pulled via 'ollama pull phi3'.
+                model_name = "phi3"
+
+                # 2. Conversation State
+                # Just like the previous example, we maintain a history list to provide context.
+                messages = [
+                    {"role": "system", "content": "You are a helpful assistant running via Ollama."}
+                ]
+
+                print(f"\n--- Ollama Chat Engine Active (Model: {model_name}) ---")
+
+                while True:
+                    # Capture user input
+                    user_input = input("\nUser: ")
+                    if user_input.lower() in ["exit", "quit"]: break
+
+                    # Append user message to history
+                    messages.append({"role": "user", "content": user_input})
+
+                    print("Assistant: ", end="", flush=True)
+
+                    # 3. Requesting a Streaming Response
+                    # Instead of managing tensors and devices, we call 'ollama.chat'.
+                    # 'stream=True' returns an iterable object that yields the response piece by piece.
+                    full_response = ""
+                    stream = ollama.chat(
+                        model=model_name,
+                        messages=messages,
+                        stream=True,
+                    )
+
+                    # 4. Processing the Stream
+                    # We iterate through the 'chunks' sent by the Ollama server.
+                    for chunk in stream:
+                        content = chunk['message']['content']
+                        print(content, end="", flush=True)
+                        full_response += content
+
+                    # 5. History Update
+                    # We save the complete answer so the model "remembers" it in the next turn.
+                    messages.append({"role": "assistant", "content": full_response})
+                    print() # New line for the next turn
+            </code></pre>   
+        </dl>
+    </section>
+</section>
+
+
+<section class="main-section-title"><h1>Build a Sentiment Aware Chatbot</h1></section>
+<section class="sub-sections"><h2>Designing the logic: connecting local ML with Gemini</h2>
+    <section id="HybridArchitecture"><h3>Hybrid AI Architecture</h3>
+        <dl class="fa" style="font-size: 1em;">
+            <dt><b>Step 1: User Input</b></dt>
+            <dd>The raw text or command provided by the user is received by the application.</dd>
+            <dt><b>Step 2: Local ML Model (Sentiment Analysis)</b></dt>
+            <dd>A fast, local model (Logistic Regression/SVM) processes the text to determine the "vibe" or intent (e.g., Positive vs. Negative).</dd>
+            <dt><b>Step 3: Prompt Engineering (Dynamic Context)</b></dt>
+            <dd>The sentiment label is used to dynamically construct a <b>System Prompt</b>. We inject instructions on how the AI should behave based on the detected mood.</dd>
+            <dt><b>Step 4: LLM Cloud API (ChatGPT/Gemini)</b></dt>
+            <dd>The engineered prompt and user input are sent to the LLM. It generates a high-quality human-like response using the provided personality context.</dd>
+            <dt><b>Step 5: AI Response</b></dt>
+            <dd>The final contextualized answer is delivered back to the user.</dd>
+        </dl>
+        <img src="/ProgressBG-ChatGPT_and_ML-Slides/pages/themes/Project2_BuildAIAssistant/images/hybrid_logic.png" alt="Hybrid AI Assistant Architecture" style="margin-top: 0.5em; width: 60vw;">
+    </section>
+    <section><h3>Simple demo</h3>
+        <pre><code rel="Python" class="python" style="min-height: 1vh;">
+            import os
+            import sys
+            from dotenv import load_dotenv, find_dotenv
+            from google import genai
+            from google.genai import types
+            from dotenv import load_dotenv, find_dotenv
+
+            # --- HELPER FUNCTIONS ---
+            def get_chatbot_client():
+                """Initializes and returns the GenAI client."""
+                load_dotenv(find_dotenv())
+                api_key = os.getenv("GOOGLE_API_KEY")
+
+                if not api_key:
+                    print("ERROR: GOOGLE_API_KEY not found.")
+                    sys.exit(1)
+
+                try:
+                    return genai.Client(api_key=api_key)
+                except Exception as e:
+                    print(f"Failed to initialize Gemini Client: {e}")
+                    sys.exit(1)
+
+            def analyze_sentiment(text):
+                """
+                Returns: 'POSITIVE', 'NEGATIVE', or 'NEUTRAL'
+                """
+                text = text.lower()
+                if any(w in text for w in ["bad", "hate", "terrible", "angry", "slow"]):
+                    return "NEGATIVE"
+                elif any(w in text for w in ["good", "love", "great", "happy", "fast"]):
+                    return "POSITIVE"
+                return "NEUTRAL"
+
+            def get_dynamic_instruction(sentiment):
+                if sentiment == "NEGATIVE":
+                    return "You are a Senior Support Agent. The user is frustrated. Apologize and be concise."
+                elif sentiment == "POSITIVE":
+                    return "You are an energetic Brand Ambassador! The user is happy. Use emojis!"
+                else:
+                    return "You are a helpful AI assistant. Be clear and direct."
+
+
+
+            # ---------------------------------------------------------------------------- #
+            #                               Main chatbot loop                              #
+            # ---------------------------------------------------------------------------- #
+            client = get_chatbot_client()
+            MODEL = "gemini-2.5-flash"
+
+            print(f"   (Model: {MODEL})")
+
+            chat_history = []
+
+            print("--- Sentiment-Aware Gemini Chat (Type 'quit' to exit) ---")
+
+            while True:
+                # 1. Get User Input
+                user_input = input("\nYou: ")
+
+                # 2. Check for exit condition
+                if user_input.lower() in ["quit", "exit"]:
+                    print("Bot: Goodbye!")
+                    break
+
+                # 3. Update Memory (User)    
+                chat_history.append(types.Content(role="user", parts=[types.Part(text=user_input)]))
+
+                # 4. Analyze Sentiment & Prepare Context    
+                current_mood = analyze_sentiment(user_input)
+                system_instruction = get_dynamic_instruction(current_mood)
+                print(f"   (System: Detected mood '{current_mood}' -> Adjusting Personality...)")
+
+                # 5. Call AI API (Gemini)
+                try:
+                    response = client.models.generate_content(
+                        model=MODEL,
+                        contents=chat_history,
+                        config=types.GenerateContentConfig(
+                            system_instruction=system_instruction,
+                            temperature=0.7
+                        )
+                    )
+                    bot_text = response.text
+                except Exception as e:
+                    bot_text = f"Error: {e}"
+
+                # 6. Update Memory (Bot)
+                chat_history.append(types.Content(role="model", parts=[types.Part(text=bot_text)]))
+
+                # 7. Print Response
+                print(f"Bot: {bot_text}")
+
+                # 8. (Optional) Print Chat History Debug
+                # print(chat_history)
+        </code></pre>
+    </section>
+</section>
+
+<section class="main-section-title" id="RecapSentimentAnalysis"><h1>Building and saving an ML model for Sentiment Analysis</h1></section>
+<section class="sub-sections"><h2>Building and saving an ML model for Sentiment Analysis</h2>
+    <section id="MLWorkflowRecap"><h3>Model Persistence</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>We will use the Sentiment Analysis model we built in the previous project. But after we are satisfied with the model, we'll have to save it to disk. This is called <b>Model Persistence</b>.</dt>
+            <dt>There are several ways to save a model, but we'll use <b>joblib</b> for this project.</dt>
+            <dt>Joblib is a Python library that provides utilities for saving and loading Python objects to and from disk.</dt>
+            <pre><code rel="Python" class="python" style="min-height: 40vh;">
+                import joblib
+
+                # After training:
+                joblib.dump(model, 'sentiment_model.pkl')
+                joblib.dump(vectorizer, 'vectorizer.pkl')
+
+                print("Assets saved to disk.")
+
+                # In the production script:
+                loaded_model = joblib.load('sentiment_model.pkl')
+                loaded_vectorizer = joblib.load('vectorizer.pkl')
+
+                new_text = ["I love this project!"]
+                prediction = loaded_model.predict(loaded_vectorizer.transform(new_text))
+            </code></pre>
+        </dl>        
+    </section>
+    <section><h3>Full code: Build and Save Sentiment Analysis model trained on IMDB reviews</h3>
+        <pre><code rel="Python" class="python" style="min-height: 40vh;">
+            """
+            Complete Sentiment Analysis System
+            Demonstrates the full NLP pipeline: preprocessing -> vectorization -> training -> evaluation
+            """
+
+            import os
+            import string
+
+            import joblib
+            import kagglehub
+            import matplotlib.pyplot as plt
+            import nltk
+            import numpy as np
+            import pandas as pd
+            # opt-in to the future pandas downcasting behavior
+            pd.set_option("future.no_silent_downcasting", True)
+            import seaborn as sns
+            from nltk.corpus import stopwords
+            from nltk.stem import WordNetLemmatizer
+            from nltk.tokenize import word_tokenize
+            from sklearn.feature_extraction.text import TfidfVectorizer
+            from sklearn.linear_model import LogisticRegression
+            from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
+            from sklearn.model_selection import train_test_split
+
+            # Note: Install required packages first:
+            # pip install kagglehub numpy pandas scikit-learn matplotlib seaborn nltk joblib
+
+            # Download required NLTK data (run once)
+            nltk.download("punkt", quiet=True)
+            nltk.download("punkt_tab", quiet=True)
+            nltk.download("stopwords", quiet=True)
+            nltk.download("wordnet", quiet=True)
+
+
+            # ============================================================================
+            # DATA LOADING
+            # ============================================================================
+            def load_imdb_dataset():
+                """Download and load the IMDB 50K movie reviews dataset"""
+                # Download latest version from Kaggle
+                path = kagglehub.dataset_download(
+                    "lakshmi25npathi/imdb-dataset-of-50k-movie-reviews"
+                )
+
+                print(f"Dataset downloaded to: {path}")
+
+                df = pd.read_csv(f"{path}/IMDB Dataset.csv")
+                return df
+
+
+            # ============================================================================
+            # TEXT PREPROCESSING
+            # ============================================================================
+            def preprocess_text(text):
+                """
+                Complete text preprocessing pipeline
+
+                Args:
+                    text (str): Raw text input
+
+                Returns:
+                    str: Cleaned and processed text
+                """
+                # 1. Convert to lowercase
+                text = text.lower()
+
+                # 2. Remove punctuation
+                text = text.translate(str.maketrans("", "", string.punctuation))
+
+                # 3. Tokenize into words
+                tokens = word_tokenize(text)
+
+                # 4. Remove stopwords (but keep negations!)
+                stop_words = set(stopwords.words("english")) - {
+                    "not",
+                    "no",
+                    "nor",
+                    "neither",
+                    "never",
+                }
+                tokens = [word for word in tokens if word not in stop_words]
+
+                # 5. Lemmatization (reduce words to base form)
+                lemmatizer = WordNetLemmatizer()
+                tokens = [lemmatizer.lemmatize(word) for word in tokens]
+
+                # 6. Join tokens back into string
+                return " ".join(tokens)
+
+
+            # ============================================================================
+            # MODEL ANALYSIS & VISUALIZATION
+            # ============================================================================
+            def show_feature_importance(vectorizer, classifier, n=10):
+                """Display most important features for each class"""
+                feature_names = vectorizer.get_feature_names_out()
+                coefs = classifier.coef_[0]
+
+                # Most positive features
+                top_positive_indices = np.argsort(coefs)[-n:]
+                print(f"\n{'=' * 60}")
+                print(f"Top {n} words indicating POSITIVE sentiment:")
+                print("=" * 60)
+                for idx in reversed(top_positive_indices):
+                    print(f"  {feature_names[idx]:20s} : {coefs[idx]:6.3f}")
+
+                # Most negative features
+                top_negative_indices = np.argsort(coefs)[:n]
+                print(f"\n{'=' * 60}")
+                print(f"Top {n} words indicating NEGATIVE sentiment:")
+                print("=" * 60)
+                for idx in top_negative_indices:
+                    print(f"  {feature_names[idx]:20s} : {coefs[idx]:6.3f}")
+
+
+            def plot_confusion_matrix(y_true, y_pred):
+                """Plot confusion matrix using seaborn"""
+                cm = confusion_matrix(y_true, y_pred)
+
+                plt.figure(figsize=(8, 6))
+                sns.heatmap(
+                    cm,
+                    annot=True,
+                    fmt="d",
+                    cmap="Blues",
+                    xticklabels=["Negative", "Positive"],
+                    yticklabels=["Negative", "Positive"],
+                    cbar_kws={"label": "Count"},
+                )
+                plt.title("Confusion Matrix", fontsize=16, fontweight="bold")
+                plt.ylabel("True Label", fontsize=12)
+                plt.xlabel("Predicted Label", fontsize=12)
+                plt.tight_layout()
+                plt.show()
+
+
+            # ============================================================================
+            # INFERENCE
+            # ============================================================================
+            def predict_sentiment(text, vectorizer, model):
+                """
+                Predict sentiment of new text
+
+                Args:
+                    text (str): Input text
+                    vectorizer: Trained TF-IDF vectorizer
+                    model: Trained classifier
+
+                Returns:
+                    tuple: (sentiment, confidence)
+                """
+                # Preprocess the text
+                cleaned = preprocess_text(text)
+
+                # Vectorize
+                vectorized = vectorizer.transform([cleaned])
+
+                # Predict
+                prediction = model.predict(vectorized)[0]
+                probabilities = model.predict_proba(vectorized)[0]
+
+                sentiment = "Positive 😊" if prediction == 1 else "Negative 😞"
+                confidence = probabilities[int(prediction)] * 100
+
+                return sentiment, confidence
+
+
+            def save_model(vectorizer, model, folder="models"):
+                """Save the trained vectorizer and model to disk using joblib"""
+                if not os.path.exists(folder):
+                    os.makedirs(folder)
+                    print(f"\n   Created folder: {folder}/")
+
+                v_path = os.path.join(folder, "vectorizer.joblib")
+                m_path = os.path.join(folder, "classifier.joblib")
+
+                joblib.dump(vectorizer, v_path)
+                joblib.dump(model, m_path)
+
+                print(f"   Model and vectorizer saved to {folder}/")
+
+
+            # ============================================================================
+            # MAIN PIPELINE
+            # ============================================================================
+            def main():
+                print("=" * 80)
+                print("SENTIMENT ANALYSIS PIPELINE - COMPLETE DEMONSTRATION")
+                print("=" * 80)
+
+                # STEP 1: Load and Prepare Data
+                print("\n[1/7] Loading dataset...")
+                df = load_imdb_dataset()
+
+                # Encode string labels to numerical labels
+                df["sentiment"] = (
+                    df["sentiment"].replace({"positive": 1, "negative": 0}).astype(int)
+                )
+
+                print(f"   Dataset size: {len(df)} reviews")
+                print(f"   Positive reviews: {sum(df['sentiment'] == 1)}")
+                print(f"   Negative reviews: {sum(df['sentiment'] == 0)}")
+
+                # Show example
+                print("\n   Example review:")
+                print(f"   Original: {df['review'].iloc[0][:150]}...")
+
+                # STEP 2: Preprocess Text (Cleaning, Tokenization, Lemmatization)
+                print("\n[2/7] Preprocessing text...")
+                # For speed in demonstration, you might want to use a subset: df = df.sample(5000)
+                # df = df.head(1000) # Uncomment for faster testing
+                df["cleaned_review"] = df["review"].apply(preprocess_text)
+                print(f"   Cleaned:  {df['cleaned_review'].iloc[0][:150]}...")
+
+                # STEP 3: Split Data into Training and Testing Sets
+                print("\n[3/7] Splitting data into train/test sets...")
+                X = df["cleaned_review"]
+                y = df["sentiment"]
+
+                X_train, X_test, y_train, y_test = train_test_split(
+                    X, y, test_size=0.2, random_state=42, stratify=y
+                )
+                print(f"   Training set: {len(X_train)} reviews")
+                print(f"   Test set: {len(X_test)} reviews")
+
+                # STEP 4: Feature Extraction (Vectorization using TF-IDF)
+                print("\n[4/7] Vectorizing text using TF-IDF...")
+                vectorizer = TfidfVectorizer(
+                    max_features=5000,  # Limit to top 5000 features
+                    ngram_range=(1, 2),  # Use unigrams and bigrams
+                    min_df=5,  # Minimum document frequency
+                    max_df=0.8,  # Maximum document frequency
+                )
+
+                X_train_tfidf = vectorizer.fit_transform(X_train)
+                X_test_tfidf = vectorizer.transform(X_test)
+
+                print(f"   Vocabulary size: {len(vectorizer.get_feature_names_out())}")
+                print(f"   Training matrix shape: {X_train_tfidf.shape}")
+
+                # STEP 5: Model Training
+                print("\n[5/7] Training Logistic Regression model...")
+                model = LogisticRegression(random_state=42, max_iter=1000)
+                model.fit(X_train_tfidf, y_train)
+                print("   Model training complete!")
+
+                # STEP 6: Model Evaluation
+                print("\n[6/7] Evaluating model performance...")
+                y_pred = model.predict(X_test_tfidf)
+
+                accuracy = accuracy_score(y_test, y_pred)
+                print(f"\n   Accuracy: {accuracy:.2%}")
+
+                print("\n   Classification Report:")
+                print(
+                    classification_report(
+                        y_test, y_pred, target_names=["Negative", "Positive"], digits=3
+                    )
+                )
+
+                # Visualize analysis
+                plot_confusion_matrix(y_test, y_pred)
+                show_feature_importance(vectorizer, model, n=10)
+
+                # STEP 7: Inference on New Reviews
+                print("\n" + "=" * 80)
+                print("[7/7] Testing with new reviews...")
+                print("=" * 80)
+
+                new_reviews = [
+                    "This movie was absolutely brilliant! I loved every second!",
+                    "Waste of time. Terrible acting and boring plot.",
+                    "Not bad, but could have been better. Average movie.",
+                    "Fantastic cinematography and great performances!",
+                    "I regret watching this. Complete disaster.",
+                ]
+
+                for i, review in enumerate(new_reviews, 1):
+                    sentiment, confidence = predict_sentiment(review, vectorizer, model)
+                    print(f"\nReview {i}:")
+                    print(f'  Text: "{review}"')
+                    print(f"  Prediction: {sentiment}")
+                    print(f"  Confidence: {confidence:.1f}%")
+
+                # STEP 8: Save the Model
+                print("\n[8/8] Saving model and vectorizer...")
+                save_model(vectorizer, model)
+
+                print("\n" + "=" * 80)
+                print("ANALYSIS COMPLETE!")
+                print("=" * 80)
+
+                return vectorizer, model
+
+
+            # ============================================================================
+            # ENTRY POINT
+            # ============================================================================
+            if __name__ == "__main__":
+                vectorizer, model = main()
+
+                # # Interactive testing (optional)
+                # print("\n" + "=" * 80)
+                # print("Interactive Mode - Test your own reviews!")
+                # print("=" * 80)
+                # print("Enter 'quit' to exit\n")
+
+                # while True:
+                #     user_input = input("Enter a movie review: ").strip()
+
+                #     if user_input.lower() in ["quit", "exit", "q"]:
+                #         print("\nGoodbye!")
+                #         break
+
+                #     if not user_input:
+                #         continue
+
+                #     sentiment, confidence = predict_sentiment(user_input, vectorizer, model)
+                #     print(f"→ Sentiment: {sentiment} (Confidence: {confidence:.1f}%)\n")
+
+        </code></pre>
+        <dl class="fa" style="min-width:80vw">
+            <dt>You can download the model from </dt>
+            <dd><a href="https://github.com/geekcourses/ProgressBG-ChatGPT_and_ML-Slides/raw/refs/heads/main/pages/themes/Project2_BuildAIAssistant/examples/SA_with_sklearn_nltk/models/classifier.joblib">classifier.joblib</a></dd>
+
+            
+            <dt>and the vectorizer from </dt>
+            <dd><a href="https://github.com/geekcourses/ProgressBG-ChatGPT_and_ML-Slides/raw/refs/heads/main/pages/themes/Project2_BuildAIAssistant/examples/SA_with_sklearn_nltk/models/vectorizer.joblib">vectorizer.joblib</a></dd>
+        </dl>
+    </section>    
+</section>
+
+<section class="main-section-title"><h1>Sentiment Aware Chatbot with HuggingFace Transformers + Google Gemini</h1></section>
+<section class="sub-sections"><h2>Sentiment Aware Chatbot with HuggingFace Transformers + Google Gemini</h2>
+    <section>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Next example demonstrates a hybrid architecture where the local Hugging Face model is used for sentiment analysis, and the remote Google Gemini model is used for generating responses.</dt>
+        </dl>
+        <pre><code rel="Python" class="python" style="min-height: 1vh;">
+            import os
+            from google import genai
+            from google.genai import types
+            from transformers import pipeline
+            from dotenv import load_dotenv
+
+            # Load environment variables from .env file. Ensures GOOGLE_API_KEY is there.
+            load_dotenv()
+
+            class SentimentAnalyzer:
+                """Encapsulates the local Hugging Face emotion pipeline."""
+                def __init__(self, model_name:str="j-hartmann/emotion-english-distilroberta-base", device:int=-1):
+                    print(f"Loading local sentiment model '{model_name}' (device={device})...")
+                    self._pipeline = pipeline("text-classification", model=model_name, device=device)
+
+                def analyze(self, text: str) -> str:
+                    """Return the top label for the input text."""
+                    result = self._pipeline(text)[0]
+                    return str(result["label"])
+
+            class GeminiLLM:
+                """Encapsulates Gemini API setup and response generation."""
+                def __init__(self, model_name:str="gemini-2.5-flash", api_key:str|None=None):
+                    print(f"Setting up Gemini API '{model_name}'...")
+                    if api_key is None:
+                        api_key = os.getenv("GOOGLE_API_KEY")
+
+                    self.client = genai.Client(api_key=api_key)
+                    self.model_name = model_name
+
+                def list_available_models(self) -> list:
+                    """List all available models from the Gemini API."""
+                    try:
+                        models = self.client.models.list()
+                        return [m.name for m in models]
+                    except Exception as e:
+                        print(f"Error listing models: {e}")
+                        return []
+
+                def generate_response(self, system_msg: str, user_input: str) -> str|None:
+                    """Generate a response using the Gemini API with system and user messages."""
+                    try:
+                        response = self.client.models.generate_content(
+                            model=self.model_name,
+                            contents=user_input,
+                            config=types.GenerateContentConfig(
+                                system_instruction=system_msg,
+                                temperature=0.7
+                            )
+                        )
+                        return response.text
+                    except Exception as e:
+                        if "404" in str(e) or "not found" in str(e).lower():
+                            print(f"\nModel '{self.model_name}' not found.")
+                            print("Available models:")
+                            models = self.list_available_models()
+                            if models:
+                                for model in models:
+                                    print(f"  - {model}")
+                            else:
+                                print("  Could not retrieve model list.")
+                            raise
+                        else:
+                            raise
+
+
+            class ChatApp:
+                """Orchestrates sentiment analysis, LLM response generation, and CLI interaction."""
+                def __init__(self,
+                             emo_model="j-hartmann/emotion-english-distilroberta-base",
+                             emo_device=-1,
+                             llm_model="gemini-2.5-flash",
+                             api_key=None):
+                    self.sentiment_analyzer = SentimentAnalyzer(model_name=emo_model, device=emo_device)
+                    self.llm = GeminiLLM(model_name=llm_model, api_key=api_key)
+
+                def get_system_message(self, sentiment: str) -> str:
+                    """Return context-aware system message based on detected sentiment."""
+                    if sentiment == "anger":
+                        return "The user is ANGRY. Be extremely empathetic, de-escalate, and keep it brief."
+                    elif sentiment == "joy":
+                        return "The user is HAPPY. Be enthusiastic and match their high energy!"
+                    elif sentiment == "sadness":
+                        return "The user is SAD. Provide a supportive, gentle, and comforting response."
+                    else:
+                        return "The user is neutral. Provide a professional and helpful response."
+
+                def run_chat(self):
+                    print("\n--- Emotion-Aware Bot Started (Local Sentiment + Gemini API) ---")
+                    print("Type 'exit' to quit.\n")
+
+                    while True:
+                        try:
+                            user_input = input("You: ")
+                            if user_input.lower() in ['exit', 'quit']:
+                                break
+
+                            # Detect sentiment
+                            detected = self.sentiment_analyzer.analyze(user_input)
+                            system_msg = self.get_system_message(detected)
+
+                            # Generate response with Gemini API
+                            response = self.llm.generate_response(system_msg, user_input)
+
+                            print(f"Bot [{detected}]: {response}\n")
+                        except Exception as e:
+                            print(f"Error: {e}\n")
+                            break
+
+
+            if __name__ == "__main__":
+                # Allow simple overrides via environment variables (keeps original defaults)
+                EMO_MODEL = os.getenv("EMO_MODEL", "j-hartmann/emotion-english-distilroberta-base")
+                EMO_DEVICE = int(os.getenv("EMO_DEVICE", "-1"))
+                LLM_MODEL = os.getenv("LLM_MODEL", "gemini-3-flash-preview")
+
+                app = ChatApp(emo_model=EMO_MODEL, emo_device=EMO_DEVICE, llm_model=LLM_MODEL)
+                app.run_chat()
+        </code></pre>
+    </section>
+</section>
+
+
+<section class="main-section-title"><h1>Sentiment Aware Chatbot with HuggingFace Transformers + Ollama</h1></section>
+<section class="sub-sections"><h2>Sentiment Aware Chatbot with HuggingFace Transformers + Ollama</h2>
+    <section>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Next architecture uses the HuggingFace pipeline as a specialized "Perception Layer" and Ollama as the "Reasoning Layer."</dt>
+            <pre><code rel="Python" class="python" style="min-height: 1vh;">
+                import ollama
+                from transformers import pipeline
+
+                # 1. Configuration
+                # Make sure you have run 'ollama pull phi3' or your preferred model
+                LLM_MODEL = "phi3:latest"
+                EMO_MODEL = "j-hartmann/emotion-english-distilroberta-base"
+
+                # 2. Setup Local Perception (HuggingFace)
+                print(f"Loading {EMO_MODEL}...")
+                sentiment_pipe = pipeline("text-classification", model=EMO_MODEL)
+
+                # 3. Message History
+                messages = []
+
+                print(f"\n--- Hybrid Local Bot Active (LLM: {LLM_MODEL}) ---")
+
+                while True:
+                    user_input = input("\nYou: ")
+                    if user_input.lower() in ["exit", "quit"]: break
+
+                    # --- STEP 1: Local Emotion Detection ---
+                    # The pipeline returns a list like: [{'label': 'joy', 'score': 0.98}]
+                    emotion_result = sentiment_pipe(user_input)[0]
+                    detected_emotion = emotion_result['label']
+
+                    # --- STEP 2: Dynamic System Instruction ---
+                    # We change the bot's "personality" based on the detected emotion
+                    if detected_emotion == "anger":
+                        system_prompt = "The user is ANGRY. Be calm, empathetic, and try to de-escalate."
+                    elif detected_emotion == "joy":
+                        system_prompt = "The user is HAPPY. Be energetic and share their excitement!"
+                    elif detected_emotion == "sadness":
+                        system_prompt = "The user is SAD. Be supportive, gentle, and very comforting."
+                    else:
+                        system_prompt = "Be a helpful and professional AI assistant."
+
+                    # --- STEP 3: Local LLM Generation (Ollama) ---
+                    # We inject the prompt for this specific turn
+                    messages.append({"role": "user", "content": user_input})
+
+                    print(f"[{detected_emotion.upper()}] AI: ", end="", flush=True)
+
+                    # Use streaming for a better UI experience
+                    stream = ollama.chat(
+                        model=LLM_MODEL,
+                        messages=[{"role": "system", "content": system_prompt}] + messages,
+                        stream=True,
+                    )
+
+                    full_response = ""
+                    for chunk in stream:
+                        content = chunk['message']['content']
+                        print(content, end="", flush=True)
+                        full_response += content
+
+                    messages.append({"role": "assistant", "content": full_response})
+                    print()
+            </code></pre>
+        </dl>
+    </section>
+</section>
+
+<section class="disclaimer" data-background="/ProgressBG-ChatGPT_and_ML-Slides/outfit/images/for_slides/the_end_on_sand.jpg">
+     <p>These slides are based on</p>
+     <p>customised version of </p>
+     <p><a href="http://hakim.se/">Hakimel</a>'s <a href="http://lab.hakim.se/reveal-js">reveal.js</a></p>
+     <p>framework</p>
+</section>
+<!--
+########################################################
+##################### SLIDES END   #####################
+########################################################
+-->
+        </div>
+    </div>
+    <!-- Custom processing -->
+    <script src="/ProgressBG-ChatGPT_and_ML-Slides/outfit/js/slides.js"></script>
+    <!-- external scripts -->
+    <script src="/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/lib/js/head.min.js"></script>
+    <script src="/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/js/reveal.js"></script>
+     <!-- init reveal -->
+    <script>
+        // Full list of configuration options available at:
+        // https://github.com/hakimel/reveal.js#configuration
+        var highlightjsTabSize = '  ';
+        Reveal.initialize({
+            controls: true,
+            progress: true,
+            slideNumber: 'c/t',
+            keyboard: true,
+            history: true,
+            center: true,
+            width: 1920,
+            height: 1280,
+            // Bounds for smallest/largest possible scale to apply to content
+            // minScale: .5,
+            maxScale: 1,
+            // slide transition
+            transition: 'concave', // none/fade/slide/convex/concave/zoom
+            // Factor of the display size that should remain empty around the content
+            margin: 0.1,
+            // shift+mouse click to zoom in/out element
+            zoomKey: 'ctrl',
+            // theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+            // transition: Reveal.getQueryHash().transition || 'default'
+            // Optional reveal.js plugins
+            dependencies: [
+                { src: '/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                { src: '/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                { src: '/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                { src: '/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.configure(); hljs.initHighlightingOnLoad(); } },
+                { src: '/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/plugin/zoom-js/zoom.js', async: true },
+                { src: '/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/plugin/notes/notes.js', async: true },
+                { src: '/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/plugin/math/math.js', async: true }
+            ]
+        });
+    </script>
+</body>
+</html>
