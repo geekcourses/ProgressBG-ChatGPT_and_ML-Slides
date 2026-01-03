@@ -1,0 +1,387 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Cloud Deployment for AI Assistants</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <link rel="shortcut icon" href="/ProgressBG-ChatGPT_and_ML-Slides/images/favicons/favicon-32.png">
+    <!-- css & themes include -->
+    <link rel="stylesheet" href="/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/css/reveal.css">
+    <link rel="stylesheet" href="/ProgressBG-ChatGPT_and_ML-Slides/outfit/css/themes/light.css" id="theme">
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match( /print-pdf/gi ) ? '/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/css/print/pdf.css' : '/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/css/print/paper.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+    <style>
+        .reveal section img { background:none; border:none; box-shadow:none; }
+        .flex-container { display: flex; align-items: center; justify-content: space-around; }
+        .flex-item { flex: 1; }
+        .note-box { background: #f0f7ff; border-left: 5px solid #007bff; padding: 15px; margin: 20px 0; border-radius: 5px; font-style: italic; }
+        .warning-box { background: #fff5f5; border-left: 5px solid #ff4d4d; padding: 15px; margin: 20px 0; border-radius: 5px; }
+    </style>
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- add MathJax support -->
+    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <base target="_blank">
+</head>
+<body>
+    <div class="reveal default center" data-transition-speed="default" data-background-transition="default">
+        <div class="top_links">
+            <a class="home_link" href="/ProgressBG-ChatGPT_and_ML-Slides/pages/agenda/agenda.html#Deploiment" target="_top"><i class="fa fa-home"></i></a>
+            <span class="help_link" href="#"><i class="fa fa-question"></i></span>
+            <div class="help_text">
+                <div class="note">Keyboard shortcuts:</div>
+                <div><span>N/Space</span><span>Next Slide</span></div>
+                <div><span>P</span><span>Previous Slide</span></div>
+                <div><span>O</span><span>Slides Overview</span></div>
+                <div><span>ctrl+left click</span><span>Zoom Element</span></div>
+                <div class="print-howto"><br>If you want print version => add '<code>?print-pdf</code>' <br> at the end of slides URL (remove '#' fragment) and then print. <br>
+                Like: https://ProgressBG-ChatGPT_and_ML-course.github.io/...CourseIntro.html?print-pdf </div>
+            </div>
+        </div>
+        <div class="footer theme_switch">
+            <a href="#" onclick="document.getElementById('theme').setAttribute('href','/ProgressBG-ChatGPT_and_ML-Slides/outfit/css/themes/dark.css'); return false;">Dark</a>
+            <a href="#" onclick="document.getElementById('theme').setAttribute('href','/ProgressBG-ChatGPT_and_ML-Slides/outfit/css/themes/light.css'); return false;">Light</a>
+            <a href="#" onclick="document.getElementById('theme').setAttribute('href','/ProgressBG-ChatGPT_and_ML-Slides/outfit/css/themes/projector.css'); return false;">Projector</a>
+        </div>
+        <div class="slides">
+<!--
+########################################################
+##################### SLIDES START #####################
+########################################################
+-->
+<section id="Deploiment">
+    <h1>Cloud Deployment: Taking your AI Assistant from your laptop to the world</h1>
+</section>
+
+<section data-transition="zoom">
+    <section class="copyright" data-transition="zoom">
+        <div class="note">
+            <p>Created for</p>
+        </div>
+        <div class="company">
+            <a href="http://progressbg.net/програмиране-с-python-2/">
+            <img style="height:80%" src="/ProgressBG-ChatGPT_and_ML-Slides/outfit/images/logos/ProgressBG_logo_529_127.png">
+            </a>
+        </div>
+        <div class="author">
+            <span class="note">Iva E. Popova, 2016-2025,</span>
+            <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"></a>
+        </div>
+    </section>
+</section>
+
+<section class="main-section-title" id="IntroToDeployment"><h1>1. Introduction to Deployment</h1></section>
+<section class="sub-sections"><h2>1. Introduction to Deployment</h2>
+    <section><h3>What does "Deployment" actually mean?</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Up until now, your code lives on <b>YOUR</b> computer (Localhost).</dt>
+            <dd>Only you can see it.</dd>
+            <dd>It stops working when you close your laptop.</dd>
+            <dt><b>Deployment</b> is the process of moving your code to a <b>Server</b> (The Cloud).</dt>
+            <dd>A server is just a computer that is <b>always on</b> and <b>connected to the internet</b>.</dd>
+            <img src="/ProgressBG-ChatGPT_and_ML-Slides/pages/themes/Deploiment/images/cloud_deployment_overview.png" alt="Cloud Deployment Overview" style="display: block; height: 60vh; margin-top: 20px;">
+        </dl>
+    </section>
+    <section><h3>The Deployment Concept</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>To deploy a project, you must package your <b>Source Code</b> and a <b>Dependency List</b> so the Cloud environment can replicate your local setup!</dt>
+        </dl>
+    </section>
+</section>
+
+<section class="main-section-title" id="ExampleProject"><h1>The Project: Simple Sentiment AI Assistant</h1></section>
+<section class="sub-sections"><h2>The Demo Project: Simple Sentiment AI Assistant</h2>
+    <section>
+        <dl class="fa" style="min-width:80vw">
+            <dt>We will deploy the Sentiment-Aware Chatbot from the previous lecture.</dt>
+        </dl>
+        <pre><code rel="my_ai_assistant.py" class="python" style="min-height: 80vh;">
+            import streamlit as st
+            import ollama
+            from transformers import pipeline
+
+            # --- 1. CONFIGURATION & SETUP ---
+            st.set_page_config(page_title="Hybrid Sentiment Bot", layout="wide")
+            LLM_MODEL = "phi3:latest"
+            EMO_MODEL = "j-hartmann/emotion-english-distilroberta-base"
+
+            # --- 2. HELPER FUNCTIONS (The Logic) ---
+
+            @st.cache_resource
+            def get_analyzer():
+                """Loads the emotion detection model once and caches it."""
+                return pipeline("text-classification", model=EMO_MODEL)
+
+            def get_system_instruction(emotion):
+                """Returns the personality instructions based on emotion."""
+                # Define how the bot should behave for each emotion
+                behaviors = {
+                    "anger":   "The user is ANGRY. Be calm, empathetic, and try to de-escalate.",
+                    "joy":     "The user is HAPPY. Be energetic and share their excitement!",
+                    "sadness": "The user is SAD. Be supportive, gentle, and very comforting.",
+                    "default": "Be a helpful and professional AI assistant."
+                }
+                return behaviors.get(emotion, behaviors["default"])
+
+            # --- 3. STATE & UI ---
+
+            st.title("🤖 Emotional Support Bot")
+
+            # Initialize Session State
+            if "messages" not in st.session_state:
+                st.session_state.messages = []
+            if "current_emotion" not in st.session_state:
+                st.session_state.current_emotion = "Neutral"
+
+            # 1. Create an EMPTY slot in the sidebar at the top
+            with st.sidebar:
+                st.header("Analytics")
+                # Give it a variable name so we can talk to it later
+                metric_placeholder = st.empty()
+
+                if st.button("Reset Chat"):
+                    st.session_state.messages = []
+                    st.rerun()
+
+            # Draw Chat History
+            for msg in st.session_state.messages:
+                st.chat_message(msg["role"]).write(msg["content"])
+
+            # --- 4. MAIN CHAT LOOP ---
+
+            if user_input := st.chat_input("How are you feeling?"):
+
+                # Step A: Show User Input
+                st.chat_message("user").write(user_input)
+                st.session_state.messages.append({"role": "user", "content": user_input})
+
+                # Step B: Analyze Emotion
+                analyzer = get_analyzer()
+                result = analyzer(user_input)[0]
+                emotion_label = result['label']
+
+                # Update the sidebar state immediately
+                metric_placeholder.metric("Detected Emotion", emotion_label.upper())
+
+                # Step C: Generate AI Response
+                system_prompt = get_system_instruction(emotion_label)
+
+                with st.chat_message("assistant"):
+                    response_box = st.empty()
+                    full_text = ""
+
+                    # Connect to Ollama with the specific system prompt
+                    stream = ollama.chat(
+                        model=LLM_MODEL,
+                        messages=[{"role": "system", "content": system_prompt}] + st.session_state.messages,
+                        stream=True,
+                    )
+
+                    # Stream the text to the screen
+                    for chunk in stream:
+                        full_text += chunk['message']['content']
+                        response_box.markdown(full_text + "▌") # Adds a cursor effect
+
+                    response_box.markdown(full_text)
+
+                # Step D: Save and Refresh
+                st.session_state.messages.append({"role": "assistant", "content": full_text})
+        </code></pre>
+    </section>
+
+    <section id="ProjectStructure"><h3>Project Structure</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Before we touch the cloud, your folder must look like this:</dt>
+            <pre><code rel="Files" class="text">
+my_ai_assistant_folder/
+├── my_ai_assistant.py  <-- The script we just wrote
+├── requirements.txt    <-- The Dependency List (Coming next!)
+├── .gitignore          <-- The Version Control Filter
+└── .env                <-- Your API keys (STAY LOCAL!)
+            </code></pre>
+            <dt><b>Rule #1:</b> Keep your project in its OWN folder. Don't mix it with other homework files.</dt>
+        </dl>
+    </section>
+</section>
+
+<section class="main-section-title" id="LocalGit"><h1>3. Making it a Git Repo (Local Setup)</h1></section>
+<section class="sub-sections"><h2>Making it a Git Repo (Local Setup)</h2>
+    <section><h3>The .gitignore Shield</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Create a file named <code>.gitignore</code> and add these lines:</dt>
+            <pre><code rel=".gitignore" class="text">
+                .env
+                __pycache__/
+                venv/
+                .venv/
+            </code></pre>
+            <dd class="warning-box"><b>CRITICAL:</b> This prevents Git from ever seeing your secret keys or temporary files.</dd>
+        </dl>
+    </section>
+
+    <section><h3>Initialize & Commit</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Run these in your terminal within the project folder:</dt>
+            <pre><code rel="Terminal" class="bash">
+                # 1. Initialize Git in this folder
+                git init
+
+                # 2. Stage all files
+                git add .
+
+                # 3. Create your first save point
+                git commit -m "Initial project structure ready"
+            </code></pre>
+        </dl>
+    </section>
+</section>
+
+<section class="main-section-title" id="PreparingForCloud"><h1>4. Preparing for the Cloud</h1></section>
+<section class="sub-sections"><h2>Preparing for the Cloud</h2>
+    <section id="DependencyManagement"><h3>Generating requirements.txt</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>The Cloud Server needs a <b>Dependency List</b> to know which libraries to install.</dt>
+
+            <dt><b>Option A: For Simple Apps (Standard)</b><br>You can auto-generate this list using the terminal:</dt>
+            <pre><code rel="Terminal" class="bash">
+                pip freeze > requirements.txt
+            </code></pre>
+
+            <dt><b>Option B: For AI/ML Apps (Recommended)</b><br>Auto-generation often includes hardware-specific versions (like `torch+cpu`) that cause errors on the cloud. For AI apps, it is better to create the file manually and list only the libraries you import:</dt>
+            <pre><code rel="requirements.txt" class="text">
+streamlit
+google-genai
+transformers
+torch
+huggingface_hub
+            </code></pre>
+
+            <dt>Now your folder contains the <b>Source Code</b> AND the correct <b>Dependency List</b>.</dt>
+        </dl>
+    </section>
+</section>
+
+<section class="main-section-title" id="GithubUpload"><h1>5. Upload to GitHub & Deploy</h1></section>
+<section class="sub-sections"><h2>Upload to GitHub & Deploy</h2>
+    <section><h3>Uploading to GitHub (The Final Bridge)</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>1. Create a repository on <a href="https://github.com/new">GitHub</a>.</dt>
+            <dt>2. Connect your local folder to GitHub and Push:</dt>
+            <pre><code rel="Terminal" class="bash">
+# Replace 'yourname' with your actual GitHub username
+git branch -M main
+git remote add origin https://github.com/yourname/my-ai-chatbot.git
+git push -u origin main
+            </code></pre>
+        </dl>
+    </section>
+
+    <section id="PracticalSession"><h3>Launching on Streamlit</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>1. Visit <a href="https://share.streamlit.io/">share.streamlit.io</a> and click "Create App".</dt>
+            <dt>2. Select your repository and the main file (<code>my_ai_assistant.py</code>).</dt>
+            <dt>3. <b>Inject environment variables</b> (Advanced Settings -> Secrets):</dt>
+            <pre><code rel="Secrets" class="toml">
+                GOOGLE_API_KEY = "your_actual_key_from_google_studio"
+            </code></pre>
+            <dt>4. Click <b>Deploy</b> and watch your assistant go live!</dt>
+            <dt>Reference: <a href="https://docs.streamlit.io/deploy/streamlit-community-cloud/get-started">Getting Started with Streamlit Community Cloud</a></dt>
+        </dl>
+    </section>
+</section>
+
+<section class="main-section-title" id="TestingAndSharing"><h1>6. Testing and Sharing</h1></section>
+<section class="sub-sections"><h2>6. Testing and Sharing</h2>
+    <section id="Validation"><h3>Final Checks</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Once you see "Your app is live!":</dt>
+            <dd>1. Type a message. Does the AI respond?</dd>
+            <dd>2. Check if the sentiment logic/personality still works.</dd>
+            <dd>3. Open the link on your <b>Mobile Phone</b>. Streamlit is responsive!</dd>
+        </dl>
+    </section>
+    <section id="Sharing"><h3>Sharing your Achievement</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>You now have a URL like: <code>https://my-ai-chatbot.streamlit.app</code></dt>
+            <dt><b>Where to put it?</b></dt>
+            <dd>LinkedIn "Projects" section</dd>
+            <dd>Your Portfolio / CV</dd>
+            <dd>Share with family and friends!</dd>
+        </dl>
+    </section>
+</section>
+
+
+<section id="hw">
+    <section><h1>Homework</h1></section>
+    <section id="task1"><h3>GO LIVE! 🚀</h3>
+        <dl class="fa">
+            <dt>Your task is to deploy your <b>Sentiment Aware Assistant</b>:</dt>
+            <dd>1. Ensure your code is clean and handles API errors.</dd>
+            <dd>2. Create <code>requirements.txt</code>.</dd>
+            <dd>3. Deploy to Streamlit Cloud.</dd>
+            <dd>4. Send the URL to the course instructor for review!</dd>
+        </dl>
+    </section>
+</section>
+
+<section class="disclaimer" data-background="/ProgressBG-ChatGPT_and_ML-Slides/outfit/images/for_slides/the_end_on_sand.jpg">
+     <p>These slides are based on</p>
+     <p>customised version of </p>
+     <p><a href="http://hakim.se/">Hakimel</a>'s <a href="http://lab.hakim.se/reveal-js">reveal.js</a></p>
+     <p>framework</p>
+</section>
+<!--
+########################################################
+##################### SLIDES END   #####################
+########################################################
+-->
+        </div>
+    </div>
+    <!-- Custom processing -->
+    <script src="/ProgressBG-ChatGPT_and_ML-Slides/outfit/js/slides.js"></script>
+    <!-- external scripts -->
+    <script src="/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/lib/js/head.min.js"></script>
+    <script src="/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/js/reveal.js"></script>
+     <!-- init reveal -->
+    <script>
+        // Full list of configuration options available at:
+        // https://github.com/hakimel.js#configuration
+        var highlightjsTabSize = '  ';
+        Reveal.initialize({
+            controls: true,
+            progress: true,
+            slideNumber: 'c/t',
+            keyboard: true,
+            history: true,
+            center: true,
+            width: 1920,
+            height: 1280,
+            maxScale: 1,
+            transition: 'concave', // none/fade/slide/convex/concave/zoom
+            margin: 0.1,
+            zoomKey: 'ctrl',
+            dependencies: [
+                { src: '/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                { src: '/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                { src: '/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                { src: '/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.configure(); hljs.initHighlightingOnLoad(); } },
+                { src: '/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/plugin/zoom-js/zoom.js', async: true },
+                { src: '/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/plugin/notes/notes.js', async: true },
+                { src: '/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/plugin/math/math.js', async: true }
+            ]
+        });
+    </script>
+</body>
+</html>

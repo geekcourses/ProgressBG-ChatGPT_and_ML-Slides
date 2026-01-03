@@ -161,123 +161,436 @@
             </code></pre>
             <dd>Run it using: <code>streamlit run app.py</code></dd>
         </dl>
-    </section>
-    <section><h3>Example: Simple 2-Column Layout</h3>
+    </section>    
+</section>
+
+<section class="main-section-title"><h1>Common Streamlit Widgets</h1></section>
+<section class="sub-sections"><h2>Common Streamlit Widgets</h2>
+    <section><h3>Displaying Text and Media</h3>
         <dl class="fa">
+            <dt style="width: 50vw;">Text Elements</dt>
             <pre><code rel="Python" class="python" style="min-height: 1vh;">
                 import streamlit as st
 
-                st.title("Simple Column Layout")
-
-                # 1. Create two columns of equal width
-                col1, col2 = st.columns(2)
-
-                # 2. Add content to the first column
-                with col1:
-                    st.header("Column A")
-                    st.write("This is the left side.")
-                    st.button("Click Left")
-
-                # 3. Add content to the second column
-                with col2:
-                    st.header("Column B")
-                    st.write("This is the right side.")
-                    st.button("Click Right")
+                st.title("My Streamlit App")
+                st.header("Section Header")
+                st.subheader("Subsection")
+                st.text("Plain text")
+                st.markdown("**Markdown** is _supported_")
             </code></pre>
-            <dd>Run it using: <code>streamlit run app.py</code></dd>
+            <dt style="width: 50vw;">Media Elements</dt>
+            <pre><code rel="Python" class="python" style="min-height: 1vh;">
+                import streamlit as st
+
+                st.image("https://via.placeholder.com/150")
+                st.audio("https://via.placeholder.com/150")
+                st.video("https://via.placeholder.com/150")
+            </code></pre>
+        </dl>
+    </section>
+    <section><h3>User Input Widgets</h3>
+        <dl class="fa">
+            <dt>User Input widgets are the core of Streamlit UIs. Each widget returns a value.</dt>
+            <pre><code rel="Python" class="python" style="min-height: 1vh;">
+                import streamlit as st
+
+                name = st.text_input("Enter your name")
+                age = st.number_input("Enter your age", min_value=0)
+                choice = st.selectbox("Choose one", ["A", "B", "C"])
+                slider = st.slider("Pick a value", 0, 100)
+                checked = st.checkbox("I agree")
+                button = st.button("Submit")
+            </code></pre>
+        </dl>
+    </section>
+    <section><h3>Chat Elements</h3>
+        <dl class="fa">
+            <dt>Chat elements are used to create a chat interface.</dt>
+            <dt>More on their behavior will be discussed further.</dt>
+            <pre><code rel="Python" class="python" style="min-height: 1vh;">
+                import streamlit as st
+
+                st.chat_input("Enter your message")
+                st.chat_message("user").write("Hello")
+                st.chat_message("assistant").write("Hello")
+            </code></pre>
+            <dt><code>st.chat_input</code> is automatically pinned to the bottom.</dt>
+            <dt>Use <code>st.chat_message</code> to create a chat message.</dt>
+        </dl>
+    </section>
+    <section><h3>User Input vs. Chat Elements</h3>
+        <table border="1" style="border-collapse: collapse; width: 100%; font-family: sans-serif; font-size: 0.8em;">
+            <thead>
+                <tr style="background-color: #f2f2f2; text-align: left;">
+                <th style="padding: 10px; border: 1px solid #ddd;">Feature</th>
+                <th style="padding: 10px; border: 1px solid #ddd;">User Input (e.g., st.text_input)</th>
+                <th style="padding: 10px; border: 1px solid #ddd;">Chat Elements (e.g., st.chat_input)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                <td style="padding: 10px; border: 1px solid #ddd; font-weight: bold;">Placement</td>
+                <td style="padding: 10px; border: 1px solid #ddd;">Appears exactly where called in the code.</td>
+                <td style="padding: 10px; border: 1px solid #ddd;"><code>st.chat_input</code> is automatically pinned to the bottom.</td>
+                </tr>
+                <tr>
+                <td style="padding: 10px; border: 1px solid #ddd; font-weight: bold;">Visual Style</td>
+                <td style="padding: 10px; border: 1px solid #ddd;">Standard form widgets (label + input).</td>
+                <td style="padding: 10px; border: 1px solid #ddd;">Designed to look like a chat app (bubbles, avatars).</td>
+                </tr>
+                <tr>
+                <td style="padding: 10px; border: 1px solid #ddd; font-weight: bold;">Primary Use</td>
+                <td style="padding: 10px; border: 1px solid #ddd;">Forms, settings, data filtering.</td>
+                <td style="padding: 10px; border: 1px solid #ddd;">Conversational AI, messaging interfaces.</td>
+                </tr>
+                <tr>
+                <td style="padding: 10px; border: 1px solid #ddd; font-weight: bold;">Interaction</td>
+                <td style="padding: 10px; border: 1px solid #ddd;">Returns its current state on every rerun.</td>
+                <td style="padding: 10px; border: 1px solid #ddd;"><code>st.chat_input</code> returns value ONLY when the user presses Enter/Submit.</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    <section><h3>Layout and Page Structure</h3>
+        <dl class="fa">
+            <dt><b>Columns</b></dt>
+            <dd>Use these to place elements side-by-side (e.g., a chart next to a table). It divides the horizontal space into proportional segments.</dd>
+            <dt><b>Containers</b></dt>
+            <dd>Use containers to group related elements together. They can be nested and styled with borders or other attributes.</dd>
+            <dt><b>Expander</b></dt>
+            <dd>Use expanders to hide or show content. They are useful for showing additional details or for creating a collapsible section.</dd>
+            <pre><code rel="Python" class="python" style="min-height: 1vh;">
+                import streamlit as st
+                
+                with st.container(border=True):
+                    st.write("Grouped content")
+                    col1, col2 = st.columns(2)
+                    with col1:
+                        st.write("Left column")
+                    with col2:
+                        st.write("Right column")
+
+                with st.expander("More details"):
+                    st.write("Hidden details 1")
+                    st.write("Hidden details 2")
+            </code></pre>
+        </dl>
+    </section>
+    <section><h3>Sidebar Navigation</h3>
+        <dl class="fa">
+            <dt>Streamlit provides a way to navigate between different pages in your app using the sidebar.</dt>
+            <pre><code rel="Python" class="python" style="min-height: 1vh;">
+                import streamlit as st
+                
+                st.sidebar.title("Navigation")
+                page = st.sidebar.selectbox("Select a page", ["Home", "Page 1", "Page 2"])
+                
+                if page == "Home":
+                    st.title("Home")
+                elif page == "Page 1":
+                    st.title("Page 1")
+                elif page == "Page 2":
+                    st.title("Page 2")
+            </code></pre>
+        </dl>
+    </section>    
+</section>
+<section><h2>Displaying Data</h2>
+    <section><h3>Tables and DataFrames</h3>
+        <dl class="fa">
+            <dt>Streamlit provides a way to display tables and dataframes in your app.</dt>
+            <pre><code rel="Python" class="python" style="min-height: 1vh;">
+                import streamlit as st
+                import pandas as pd
+
+                df = pd.DataFrame({"A": [1, 2], "B": [3, 4]})
+
+                st.dataframe(df) # Interactive
+                st.table(df) # Static
+            </code></pre>
+        </dl>
+    </section>
+    <section><h3>Charts</h3>
+        <dl class="fa">
+            <dt>Streamlit provides a way to display charts in your app.</dt>
+            <pre><code rel="Python" class="python" style="min-height: 1vh;">
+                import streamlit as st
+                import pandas as pd
+
+                df = pd.DataFrame({"A": [1, 2], "B": [3, 4]})
+
+                st.line_chart(df)
+                st.bar_chart(df)
+            </code></pre>
+        </dl>
+    </section>
+</section>
+<section><h2>Forms and Grouped Input</h2>
+    <section><h3>Forms</h3>
+        <dl class="fa">
+            <dt>Streamlit provides a way to group input widgets in a form.</dt>
+            <pre><code rel="Python" class="python" style="min-height: 1vh;">
+                import streamlit as st
+
+                with st.form("my_form"):
+                    st.write("Inside the form")
+                    slider_val = st.slider("Form slider")
+                    checkbox_val = st.checkbox("Form checkbox")
+                    
+                    # Every form must have a submit button.
+                    submitted = st.form_submit_button("Submit")
+                    if submitted:
+                        st.write("slider", slider_val, "checkbox", checkbox_val)
+            </code></pre>
         </dl>
     </section>
 </section>
 
 
-<section class="main-section-title"><h1>Build Sentiment-Aware Chatbot with Streamlit UI</h1></section>
-<section class="sub-sections"><h2>Build Sentiment-Aware Chatbot with Streamlit UI</h2>
-    <section>
+<section class="main-section-title"><h1>Understanding Session State</h1></section>
+<section class="sub-sections"><h2>Understanding Session State</h2>
+    <section><h3>The "Rerun" Problem</h3>
+        <dl class="fa">
+            <dt>Streamlit executes your script from top to bottom on every user interaction.</dt>
+            <dd>This means that regular Python variables are <b>re-initialized</b> to their default values every time a button is clicked or a slider is moved.</dd>
+            <dt>Example of the Problem:</dt>
+            <pre><code rel="Python" class="python" style="min-height: 1vh;">
+                import streamlit as st
+
+                count = 0
+                if st.button("Increment"):
+                    count += 1
+
+                st.write(f"Count: {count}") # Will ALWAYS be 1 after click, then back to 0!
+            </code></pre>
+            <dt>The solution is to use Session State.</dt>            
+        </dl>
+    </section>
+    <section><h3>What is Session State?</h3>
+        <dl class="fa">
+            <dt>Session State is a way to share variables between reruns, for each user session.</dt>
+            <dd>Think of it as a <b>persistent dictionary</b> that Streamlit maintains for the duration of the user's connection.</dd>
+            <dt>Key Characteristics:</dt>
+            <dd>It is <b>Isolated</b>: Each user has their own independent state.</dd>
+            <dd>It is <b>Persistent</b>: Data survives the "top-to-bottom" rerun of the script.</dd>
+            <dd>It is <b>Dictionary-based</b>: You access variables using keys (e.g., <code>st.session_state["my_key"]</code>).</dd>
+        </dl>
+    </section>
+    <section><h3>How to Use Session State</h3>
+        <dl class="fa">
+            <dt>1. Initialization</dt>
+            <dd>Always check if a key exists before using it to avoid errors on the first run.</dd>
+            <pre><code rel="Python" class="python" style="min-height: 1vh;">
+                if "count" not in st.session_state:
+                    st.session_state.count = 0
+            </code></pre>
+            <dt>2. Updating and Reading</dt>
+            <pre><code rel="Python" class="python" style="min-height: 1vh;">
+                if st.button("Increment"):
+                    st.session_state.count += 1
+
+                st.write(f"Current Count: {st.session_state.count}")
+            </code></pre>
+        </dl>
+    </section>
+</section>
+
+
+<section class="main-section-title"><h1>Chat Interface Elements</h1></section>
+<section class="sub-sections"><h2>Display vs. Input</h2>
+    <section><h3>The Chat Building Blocks</h3>
+        <dl class="fa">
+            <dt>Streamlit provides two distinct elements to build conversational apps:</dt>
+            <dt><b>st.chat_input (The Input)</b></dt>
+            <dd>A sticked to the bottom user input box.</dd>
+            <dt><b>st.chat_message (The Output)</b></dt>
+            <dd>A container that displays the conversation history.</dd>
+        </dl>
+    </section>
+
+    <section><h3>1. The Input Widget (st.chat_input)</h3>
+        <dl class="fa">
+            <dt>The input widget is the interaction point. It is <b>pinned to the bottom</b>.</dt>
+            <dd>It halts the script until the user presses Enter.</dd>
+            <dt><b>Inline Processing</b>: Use the "walrus operator" (<code>:=</code>) to capture the input and act on it immediately.</dt>
+            <pre><code rel="Python" class="python" style="min-height: 1vh;">
+# The script stops here and waits for the user
+if prompt := st.chat_input("Type your message here..."):
+    st.write(f"Received: {prompt}")
+            </code></pre>
+        </dl>
+    </section>
+
+    <section><h3>2. The Output Container (st.chat_message)</h3>
+        <dl class="fa">
+            <dt>Once we have input, we need to display it nicely.</dt>
+            <dt><code>st.chat_message</code> creates a container with a background color and an avatar.</dt>
+            <dt><b>The "Role" Logic</b>: You must assign a role to every message.</dt>
+            <dd><b>"user"</b>: Shows a person icon (User's messages).</dd>
+            <dd><b>"assistant"</b>: Shows a robot icon (AI's responses).</dd>
+            <pre><code rel="Python" class="python" style="min-height: 1vh;">
+                import streamlit as st
+
+                # Output user message
+                with st.chat_message("user"):
+                    st.write("Hello World")
+
+                # Output assistant message
+                with st.chat_message("assistant"):
+                    st.write("Hello Human!")
+
+            </code></pre>
+        </dl>
+    </section>
+
+    <section><h3>Persistence & State</h3>
+        <dl class="fa">
+            <dt>Chat elements are <b>stateless</b> by default.</dt>
+            <dd>When <code>st.chat_input</code> triggers a rerun, the old messages vanish.</dd>
+            <dt><b>The Solution</b>: You must store the conversation in <code>st.session_state</code> and redraw it at the top of the script.</dt>            
+        </dl>
+    </section>
+
+    <section><h3>Example: The Full Chat Loop</h3>
+        <pre><code rel="Python" class="python" style="min-height: 1vh;">
+            import streamlit as st
+            import time
+            import random
+
+            st.title("🤖 Fake LLM Chat")
+
+            # 1. Initialize history
+            if "messages" not in st.session_state:
+                st.session_state.messages = []
+
+            # 2. Render history (Redraw previous messages)
+            for msg in st.session_state.messages:
+                st.chat_message(msg["role"]).write(msg["content"])
+
+            # 3. Handle new input
+            if prompt := st.chat_input("Say something..."):
+                # A. Display User Message
+                st.chat_message("user").write(prompt)
+                st.session_state.messages.append({"role": "user", "content": prompt})
+
+                # B. Generate & Display Assistant Response
+                with st.chat_message("assistant"):
+                    with st.spinner("Thinking..."):
+                        time.sleep(1)  # Fake delay
+
+                        # Simple fake logic to mimic intelligence
+                        responses = [
+                            f"That's interesting! You said: '{prompt}'. Tell me more.",
+                            "I am just a simple script, but I agree."                
+                        ]
+                        response_text = random.choice(responses)
+
+                        st.write(response_text)
+
+                # C. Save Assistant Response to history
+                st.session_state.messages.append({"role": "assistant", "content": response_text})
+        </code></pre>
+    </section>
+</section>
+
+<section class="main-section-title"><h1>Build Sentiment-Aware Chatbot UI with Streamlit</h1></section>
+<section class="sub-sections"><h2>Build Sentiment-Aware Chatbot UI with Streamlit</h2>
+    <section id="SentimentBot">
         <dl class="fa" style="min-width:80vw">
             <dt>To convert our Ollama + HuggingFace Hybrid Bot into a professional-looking web application, we will use Streamlit's chat elements.</dt>
-            <dt>Note, that the script uses @st.cache_resource to ensure the 300MB sentiment model is only loaded into memory once, making the app much faster for your students to use.</dt>
+            <dt>Note, that the script uses @st.cache_resource to ensure the 300MB sentiment model is only loaded into memory once, making the app much faster to use.</dt>
             <pre><code rel="Python" class="python" style="min-height: 1vh;">
                 import streamlit as st
                 import ollama
                 from transformers import pipeline
 
-                # --- 1. SETTINGS & MODEL LOADING ---
+                # --- 1. CONFIGURATION & SETUP ---
                 st.set_page_config(page_title="Hybrid Sentiment Bot", layout="wide")
-
                 LLM_MODEL = "phi3:latest"
                 EMO_MODEL = "j-hartmann/emotion-english-distilroberta-base"
 
-                # Cache the model so it doesn't reload on every interaction
+                # --- 2. HELPER FUNCTIONS (The Logic) ---
+
                 @st.cache_resource
-                def load_models():
-                    st.write(f"🔄 Loading {EMO_MODEL} into memory...")
+                def get_analyzer():
+                    """Loads the emotion detection model once and caches it."""
                     return pipeline("text-classification", model=EMO_MODEL)
 
-                sentiment_pipe = load_models()
+                def get_system_instruction(emotion):
+                    """Returns the personality instructions based on emotion."""
+                    # Define how the bot should behave for each emotion
+                    behaviors = {
+                        "anger":   "The user is ANGRY. Be calm, empathetic, and try to de-escalate.",
+                        "joy":     "The user is HAPPY. Be energetic and share their excitement!",
+                        "sadness": "The user is SAD. Be supportive, gentle, and very comforting.",
+                        "default": "Be a helpful and professional AI assistant."
+                    }
+                    return behaviors.get(emotion, behaviors["default"])
 
-                # --- 2. SESSION STATE (Memory) ---
+                # --- 3. STATE & UI ---
+
+                st.title("🤖 Emotional Support Bot")
+
+                # Initialize Session State
                 if "messages" not in st.session_state:
                     st.session_state.messages = []
-                if "last_emotion" not in st.session_state:
-                    st.session_state.last_emotion = "None"
+                if "current_emotion" not in st.session_state:
+                    st.session_state.current_emotion = "Neutral"
 
-                # --- 3. UI LAYOUT ---
-                st.title("🤖 Hybrid Sentiment-Aware Assistant")
-
-                # Sidebar for status and metrics
+                # 1. Create an EMPTY slot in the sidebar at the top
                 with st.sidebar:
                     st.header("Analytics")
-                    st.metric("Detected Emotion", st.session_state.last_emotion.upper())
-                    if st.button("Clear Chat"):
+                    # Give it a variable name so we can talk to it later
+                    metric_placeholder = st.empty()
+
+                    if st.button("Reset Chat"):
                         st.session_state.messages = []
                         st.rerun()
 
-                # Display chat history
-                for message in st.session_state.messages:
-                    with st.chat_message(message["role"]):
-                        st.markdown(message["content"])
+                # Draw Chat History
+                for msg in st.session_state.messages:
+                    st.chat_message(msg["role"]).write(msg["content"])
 
-                # --- 4. CHAT LOGIC ---
-                if prompt := st.chat_input("How are you feeling today?"):
-                    # Step 1: Detect Emotion
-                    emotion_result = sentiment_pipe(prompt)[0]
-                    label = emotion_result['label']
-                    st.session_state.last_emotion = label
+                # --- 4. MAIN CHAT LOOP ---
 
-                    # Display user message
-                    with st.chat_message("user"):
-                        st.markdown(prompt)
-                    st.session_state.messages.append({"role": "user", "content": prompt})
+                if user_input := st.chat_input("How are you feeling?"):
 
-                    # Step 2: Set dynamic system prompt based on your logic
-                    tone_map = {
-                        "anger": "The user is ANGRY. Be calm, empathetic, and try to de-escalate.",
-                        "joy": "The user is HAPPY. Be energetic and share their excitement!",
-                        "sadness": "The user is SAD. Be supportive, gentle, and very comforting."
-                    }
-                    system_prompt = tone_map.get(label, "Be a helpful and professional AI assistant.")
+                    # Step A: Show User Input
+                    st.chat_message("user").write(user_input)
+                    st.session_state.messages.append({"role": "user", "content": user_input})
 
-                    # Step 3: Generate Ollama Response
+                    # Step B: Analyze Emotion
+                    analyzer = get_analyzer()
+                    result = analyzer(user_input)[0]
+                    emotion_label = result['label']
+
+                    # Update the sidebar state immediately
+                    metric_placeholder.metric("Detected Emotion", emotion_label.upper())
+
+                    # Step C: Generate AI Response
+                    system_prompt = get_system_instruction(emotion_label)
+
                     with st.chat_message("assistant"):
-                        response_placeholder = st.empty()
-                        full_response = ""
+                        response_box = st.empty()
+                        full_text = ""
 
-                        # Stream the output from Ollama
+                        # Connect to Ollama with the specific system prompt
                         stream = ollama.chat(
                             model=LLM_MODEL,
                             messages=[{"role": "system", "content": system_prompt}] + st.session_state.messages,
                             stream=True,
                         )
 
+                        # Stream the text to the screen
                         for chunk in stream:
-                            content = chunk['message']['content']
-                            full_response += content
-                            response_placeholder.markdown(full_response + "▌")
+                            full_text += chunk['message']['content']
+                            response_box.markdown(full_text + "▌") # Adds a cursor effect
 
-                        response_placeholder.markdown(full_response)
+                        response_box.markdown(full_text)
 
-                    st.session_state.messages.append({"role": "assistant", "content": full_response})
-                    st.rerun() # Refresh to update the sidebar metric
+                    # Step D: Save and Refresh
+                    st.session_state.messages.append({"role": "assistant", "content": full_text})
+
             </code></pre>
         </dl>
     </section>
