@@ -1,0 +1,5 @@
+If the application fails to launch, first ensure your operating system is up to date.
+
+For Windows 11 users, verify that Windows Defender is not blocking the executable.
+
+Clearing the application cache in the AppData/Local folder often resolves sync issues.

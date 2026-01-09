@@ -1,0 +1,5 @@
+To reset your password, click 'Forgot Password' on the login screen.
+
+Two-factor authentication (2FA) is mandatory for all administrative accounts.
+
+Never share your temporary login codes with support agents.

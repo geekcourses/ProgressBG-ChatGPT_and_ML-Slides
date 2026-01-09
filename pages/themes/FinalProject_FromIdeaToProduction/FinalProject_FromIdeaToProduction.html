@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Final Project and Portfolio</title>
+    <title>Final Project: From Idea to Production</title>
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -30,7 +30,7 @@
 <body>
     <div class="reveal default center" data-transition-speed="default" data-background-transition="default">
         <div class="top_links">
-            <a class="home_link" href="/ProgressBG-ChatGPT_and_ML-Slides/pages/agenda/agenda.html#FinalProjectAndPortfolio" target="_top"><i class="fa fa-home"></i></a>
+            <a class="home_link" href="/ProgressBG-ChatGPT_and_ML-Slides/pages/agenda/agenda.html#FinalProject_FromIdeaToProduction" target="_top"><i class="fa fa-home"></i></a>
             <span class="help_link" href="#"><i class="fa fa-question"></i></span>
             <div class="help_text">
                 <div class="note">Keyboard shortcuts:</div>
@@ -53,7 +53,7 @@
 ##################### SLIDES START #####################
 ########################################################
 -->
-<section><h1>Final Project and Portfolio</h1></section>
+<section><h1>Final Project:<br> From Idea to Production</h1></section>
 <section data-transition="zoom">
     <section class="copyright" data-transition="zoom">
         <div class="note">
@@ -68,6 +68,26 @@
             <span class="note">Iva E. Popova, 2023-2026,</span>
             <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"></a>
         </div>
+    </section>
+</section>
+
+<section class="main-section-title"><h1>Introduction</h1></section>
+<section class="sub-sections"><h2>Introduction</h2>
+    <section><h3>Introduction</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Modern AI systems are not just models.</dt>
+            <dd>They are <b>products</b>, <b>applications</b>, and <b>operational systems embedded in human workflows</b>.</dd>
+            <dt>Many AI projects fail not just because:</dt>
+            <dd>the model was weak</dd>
+            <dd>the prompts were bad</dd>
+            <dd>the technology was immature</dd>
+            <dt>They fail because:</dt>
+            <dd>the assistant’s role was unclear</dd>
+            <dd>empathy and trust were not designed</dd>
+            <dd>the lifecycle was fragmented</dd>
+            <dd>the system was impossible to maintain</dd>
+            <dd>documentation was ignored</dd>
+        </dl>
     </section>
 </section>
 
@@ -91,17 +111,73 @@
     </section>
     <section><h3>The Minimum Viable Product (MVP) Approach</h3>
         <dl class="fa" style="min-width:80vw">
-            <dt>Don't try to build the next ChatGPT in two weeks. Focus on a <b>Minimum Viable Product</b>.</dt>
-            <dd><b>Core Loop</b>: Input (User) -> Process (AI/ML) -> Output (Response/Action).</dd>
-            <dd><b>Phase 1</b>: Basic logic and CLI interface.</dd>
-            <dd><b>Phase 2</b>: Web UI with Streamlit.</dd>
-            <dd><b>Phase 3</b>: Deployment and "Vibe Check."</dd>
+            <dt>Focus on the <b>Core Value</b>: What is the single most important thing your app does?</dt>
+            <dd><b>The "Hair-on-Fire" Problem</b>: Solve one painful problem well, rather than 10 problems poorly.</dd>
+            <dd><b>Vertical Slicing</b>: Build a complete "User Input -> AI Logic -> UI Output" flow for one feature first.</dd>
+            <dt>The MVP Evolution:</dt>
+            <dd>1. <b>Concierge MVP</b>: Manually testing prompts in the playground.</dd>
+            <dd>2. <b>Functional MVP</b>: A CLI tool that performs the core logic.</dd>
+            <dd>3. <b>Polished MVP</b>: A Streamlit app with clean UI and error handling.</dd>
+        </dl>
+    </section>
+    <section><h3>Value Validation vs. Technical Completion</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Don't fall into the "Feature Trap."</dt>
+            <dd><b>Validation</b>: Use a "Vibe Check" to see if the AI actually solves the user's frustration <em>before</em> building a complex database.</dd>
+            <dd><b>Technical Debt</b>: It's okay to have messy code in Phase 1, as long as the <b>Prompt</b> is robust.</dd>
+            <dt>Guiding Rule:</dt>
+            <dd>If your user doesn't say "Wow" in the first 30 seconds, you are building the wrong MVP.</dd>
+        </dl>
+    </section>
+    <section><h3>Structuring Your AI Project</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Organization is key for maintenance and "Vibe Checking."</dt>
+            <dd><b>Root Directory</b>: Keep it clean. Logic goes into folders.</dd>
+            <dd><b>Dependency Management</b>: <code>requirements.txt</code> or <code>pyproject.toml</code>.</dd>
+            <dd><b>Configuration</b>: Use <code>.env</code> for API keys — <b>NEVER</b> hardcode them.</dd>
+            <dt>Recommended Tree Structure:</dt>
+            <pre><code class="bash">
+my_ai_project/
+├── .env                  # API Keys (gitignored!)
+├── requirements.txt      # List of packages
+├── app.py                # Main Entry Point (Streamlit)
+├── utils/                # Helper functions
+│   ├── ai_logic.py       # Prompting & LLM calls
+│   └── data_tools.py     # Processing data/APIs
+└── data/                 # Local datasets or PDF docs
+            </code></pre>
+        </dl>
+    </section>
+    <section><h3>Example: Structuring the Sentiment Chatbot</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>How to map features to files:</dt>
+            <dd><code>utils/sentiment.py</code>: Logic for detecting mood (e.g., using <code>j-hartmann/emotion-english-distilroberta-base</code> from Hugging Face).</dd>
+            <dd><code>utils/prompter.py</code>: Functions that take "Mood + Message" and return a Gemini response.</dd>
+            <dd><code>app.py</code>: The Streamlit code that manages the chat state and layout.</dd>
+            <dt>Why this works:</dt>
+            <dd>You can test <code>sentiment.py</code> independently without running the whole UI.</dd>
+        </dl>
+    </section>
+    <section><h3>Prompts as Code</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Prompts are the "Source Code" of AI behavior. Manage them like code.</dt>
+            <dd><b>Don't hardcode</b> long strings directly in <code>app.py</code> if possible.</dd>
+            <dd><b>Constants File</b>: Put system instructions in <code>utils/prompts.py</code>.</dd>
+            <dd><b>Version Control</b>: Track changes to prompts in Git. A small change in wording can change the "Vibe" significantly.</dd>
+            <dt>Example (<code>utils/prompts.py</code>):</dt>
+            <pre><code class="python">
+SYSTEM_INSTRUCTION = """
+You are a sentiment-aware assistant. 
+If user is ANGRY, respond with extreme empathy.
+If user is HAPPY, be enthusiastic.
+"""
+            </code></pre>
         </dl>
     </section>
     <section><h3>Example: Sentiment-aware Chatbot MVP</h3>
         <dl class="fa" style="min-width:80vw">
             <dt>How the MVP phases look for our chatbot:</dt>
-            <dd><b>Phase 1 (Logic)</b>: Python script using <code>TextBlob</code> or <code>Hugging Face</code> to detect "Angry" and print a "How can I help you? (Extra polite)" message.</dd>
+            <dd><b>Phase 1 (Logic)</b>: Python script using <code>Hugging Face</code> (e.g. <code>emotion-english-distilroberta-base</code>) to detect "Angry" and print a "How can I help you? (Extra polite)" message.</dd>
             <dd><b>Phase 2 (UI)</b>: A Streamlit chat window with a sidebar showing the current "Sentiment Score" for the user.</dd>
             <dd><b>Phase 3 (Deploy)</b>: Live link on Streamlit Cloud where anyone can test the bot's patience.</dd>
         </dl>

@@ -1,0 +1,521 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Advanced Topics: RAG with LangChain</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <link rel="shortcut icon" href="/ProgressBG-ChatGPT_and_ML-Slides/images/favicons/favicon-32.png">
+    <!-- css & themes include -->
+    <link rel="stylesheet" href="/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/css/reveal.css">
+    <link rel="stylesheet" href="/ProgressBG-ChatGPT_and_ML-Slides/outfit/css/themes/light.css" id="theme">
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match( /print-pdf/gi ) ? '/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/css/print/pdf.css' : '/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/css/print/paper.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+    <!-- add MathJax support -->
+    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <base target="_blank">
+</head>
+<body>
+    <div class="reveal default center" data-transition-speed="default" data-background-transition="default">
+        <div class="top_links">
+            <a class="home_link" href="/ProgressBG-ChatGPT_and_ML-Slides/pages/agenda/agenda.html#AdvancedTopics_RAG_with_LangChain" target="_top"><i class="fa fa-home"></i></a>
+            <span class="help_link" href="#"><i class="fa fa-question"></i></span>
+            <div class="help_text">
+                <div class="note">Keyboard shortcuts:</div>
+                <div><span>N/Space</span><span>Next Slide</span></div>
+                <div><span>P</span><span>Previous Slide</span></div>
+                <div><span>O</span><span>Slides Overview</span></div>
+                <div><span>ctrl+left click</span><span>Zoom Element</span></div>
+                <div class="print-howto"><br>If you want print version => add '<code>?print-pdf</code>' <br> at the end of slides URL (remove '#' fragment) and then print. <br>
+                Like: https://ProgressBG-ChatGPT_and_ML-course.github.io/...CourseIntro.html?print-pdf </div>
+            </div>
+        </div>
+        <div class="footer theme_switch">
+            <a href="#" onclick="document.getElementById('theme').setAttribute('href','/ProgressBG-ChatGPT_and_ML-Slides/outfit/css/themes/dark.css'); return false;">Dark</a>
+            <a href="#" onclick="document.getElementById('theme').setAttribute('href','/ProgressBG-ChatGPT_and_ML-Slides/outfit/css/themes/light.css'); return false;">Light</a>
+            <a href="#" onclick="document.getElementById('theme').setAttribute('href','/ProgressBG-ChatGPT_and_ML-Slides/outfit/css/themes/projector.css'); return false;">Projector</a>
+        </div>
+        <div class="slides">
+<!--
+########################################################
+##################### SLIDES START #####################
+########################################################
+-->
+<section><h1>Advanced Topics:<br>RAG with LangChain</h1></section>
+<section data-transition="zoom">
+    <section class="copyright" data-transition="zoom">
+        <div class="note">
+            <p>Created for</p>
+        </div>
+        <div class="company">
+            <a href="http://progressbg.net/програмиране-с-python-2/">
+            <img style="height:80%" src="/ProgressBG-ChatGPT_and_ML-Slides/outfit/images/logos/ProgressBG_logo_529_127.png">
+            </a>
+        </div>
+        <div class="author">
+            <span class="note">Iva E. Popova, 2023-2026,</span>
+            <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"></a>
+        </div>
+    </section>
+</section>
+
+<section class="main-section-title" id="IntroToRAG"><h1>Introduction to RAG</h1></section>
+<section class="sub-sections"><h2>Introduction to RAG</h2>
+    <section><h3>What is RAG?</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt><b>Retrieval-Augmented Generation</b> (RAG)</dt>
+            <dd>A technique to grant LLMs access to specific, up-to-date data without retraining.</dd>
+            <dt>Why use RAG?</dt>
+            <ul>
+                <li><b>Overcoming Knowledge Cutoffs</b>: No more "My training data ends in 2023."</li>
+                <li><b>Reducing Hallucinations</b>: The model cites its sources.</li>
+                <li><b>Data Privacy</b>: Use your own proprietary documents safely.</li>
+            </ul>
+        </dl>
+    </section>
+    <section><h3>The RAG Workflow</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt><b>Data Ingestion</b> (The Left Side): Before a user ever asks a question, your data must be prepared</dt>
+            <dd>Your data, which can be unstructured documents like PDFs, HTML, JSON, etc. or structured data like DB, API calls, is processed into an "Index" (often a Vector Database). During this phase, information is "chunked" into smaller pieces and converted into numerical vectors that represent their meaning.</dd>
+            <dt><b>The Retrieval Phase</b> (The Top & Middle)</dt>
+            <dd>A User submits a query. This query is searched in the Index to find matches. The system looks for "relevant data" that is semantically similar to what the user asked.</dd>
+            <dt><b>The Generation Phase</b> (The Right Side)</dt>
+            <dd>The LLM is given the retrieved data, the user's query and system prompt. It generates a response based on the information it has access to.</dd>
+            <a href="./images/llamaindex_rag_overview.png"><img src="./images/llamaindex_rag_overview.png" alt="RAG Workflow" style="height: 60vh;"></a>
+        </dl>
+    </section>    
+</section>
+
+<section class="main-section-title"><h1>Building Index</h1></section>
+<section class="sub-sections"><h2>Building Index</h2>
+    <section><h3>Overview</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Building an index is the foundational "preparation" phase of a RAG system.</dt>
+            <dt>It transforms raw, unstructured data (like PDFs), databases, or API responses into a highly organized, searchable format that an AI can understand and query in milliseconds.</dt>
+            <dt>The indexing process follows a specific pipeline, often referred to as the Data Ingestion or Indexing Pipeline.</dt>
+        </dl>
+    </section>
+    <section><h3>Data Preparation</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Before information can be searched, it must be cleaned and standardized so the LLM doesn't process "noisy" or messy data.</dt>
+            <dd><b>Data Collection</b>: Pulling information from various sources such as local PDF files, spreadsheets, internal wikis, or external APIs.</dd>
+            <dd><b>Cleaning</b>: Removing extra whitespace, headers, footers, navigation menus, or unparseable symbols to ensure only high-quality content remains.</dd>
+            
+        </dl>
+    </section>
+    <section><h3>Chunking</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Large documents are too long for an LLM to read all at once. They must be broken down into smaller segments called chunks.</dt>
+            <dd><b>Fixed-Size Chunking</b>: Splitting text every N characters or tokens. This is simple but can accidentally cut a sentence in half.</dd>
+            <dd><b>Semantic/Recursive Chunking</b>: Using natural boundaries like paragraph breaks, headers, or bullet points to keep related ideas together.</dd>
+            <dd><b>Overlap</b>: Including 10–20% of the previous chunk in the next one to maintain context and ensure information isn't "lost" at the split point.</dd>
+        </dl>
+    </section>
+    <section><h3>Embedding</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Once you have small chunks of text, they need to be converted into a language the computer can search mathematically.</dt>
+            <dd><b>Embedding</b>: A specialized "Embedding Model" takes each text chunk and converts it into a vector (a long list of numbers). These numbers represent the meaning of the text—similar topics will have similar numbers.</dd>
+            <dd><b>Metadata Tagging</b>: Attaching labels to each chunk—such as its source, date, or author—to allow for advanced filtering later (e.g., "only search documents from 2024").</dd>
+        </dl>
+    </section>
+    <section><h3>Vector Store</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>The embeddings and their metadata are stored in a Vector Database (like Chroma, Pinecone, Milvus, etc).</dt>
+            <dt>The database creates an internal <b>Index</b> that groups similar vectors into clusters, allowing the system to find relevant information by searching only the most likely "neighborhoods" rather than scanning every single document.</dt>
+            <dt>As of early 2026, the vector database market has matured into three main categories:</dt>
+            <dd>Managed/Serverless: for speed and ease</dd>
+            <dd>Cloud-Native/Open-Source: for scale and control</dd>
+            <dd>Extensions: for those wanting to keep data in existing systems</dd>
+        </dl>
+    </section> 
+    <section><h3>Comparison of leading Vector DBs</h3>
+        <table border="1" cellpadding="4" style="border-collapse: collapse; width: 100%; font-family: Arial, sans-serif; font-size: 0.8em;">
+          <thead>
+            <tr style="background-color: #f2f2f2;">
+              <th>Database</th>
+              <th>Type</th>
+              <th>Core Strengths</th>
+              <th>Best For</th>
+              <th>Key Limitations</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Pinecone</strong></td>
+              <td>Managed (SaaS)</td>
+              <td>Zero-ops, serverless architecture, highly optimized for low-latency RAG.</td>
+              <td>Startups &amp; Enterprises wanting speed to market without infra management.</td>
+              <td>Proprietary; higher cost at massive scales; data must reside in their cloud.</td>
+            </tr>
+            <tr>
+              <td><strong>Milvus</strong></td>
+              <td>Open Source / Cloud-Native</td>
+              <td>Extreme scalability (billions of vectors), GPU acceleration, rich indexing options.</td>
+              <td>Enterprise-grade production systems with massive data requirements.</td>
+              <td>High operational complexity for self-hosting; steep learning curve.</td>
+            </tr>
+            <tr>
+              <td><strong>Weaviate</strong></td>
+              <td>Open Source / Hybrid</td>
+              <td>Excellent hybrid search (vector + keyword), GraphQL API, modular architecture.</td>
+              <td>Knowledge graphs and apps requiring complex filtering and semantic relationships.</td>
+              <td>Can be resource-heavy; query performance can vary with complex schemas.</td>
+            </tr>
+            <tr>
+              <td><strong>Qdrant</strong></td>
+              <td>Open Source (Rust)</td>
+              <td>High memory efficiency, powerful metadata filtering, written in Rust for performance.</td>
+              <td>High-performance RAG apps requiring advanced boolean/geospatial filters.</td>
+              <td>Smaller ecosystem compared to Milvus; documentation is improving but lean.</td>
+            </tr>
+            <tr>
+              <td><strong>Chroma</strong></td>
+              <td>Open Source (Lite)</td>
+              <td>Developer-first, minimal setup (3 lines of code), Python-native.</td>
+              <td>Rapid prototyping, research, and small-to-medium local RAG projects.</td>
+              <td>Lacks enterprise features like horizontal scaling and advanced security.</td>
+            </tr>
+            <tr>
+              <td><strong>pgvector</strong></td>
+              <td>PG Extension</td>
+              <td>Keeps vectors and relational data together; leverages existing PostgreSQL skills.</td>
+              <td>Teams already using PostgreSQL who want to add vector search without a new service.</td>
+              <td>Lower performance than purpose-built DBs; fewer specialized index types.</td>
+            </tr>
+          </tbody>
+        </table>
+    
+    </section>  
+</section>
+
+<section class="main-section-title"><h1>Augmentation and Retrieval</h1></section>
+<section class="sub-sections"><h2>Augmentation and Retrieval</h2>
+    <section><h3>Converting the Query</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>When user asks a question, the system cannot search the Vector DB using plain text.</dt>
+            <dt>Vectorization: The user's query is sent to the same Embedding Model used during the indexing phase.</dt>
+            <dt>The Query Vector: This converts user's question into a numerical search vector </dt>
+        </dl>
+    </section>
+    <section><h3>The Search (Similarity Matching)</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>The system then compares user's "query vector" against all the "document vectors" stored in the Vector DB.</dt>
+            <dd>Semantic Search: It doesn't just look for exact word matches; it looks for mathematical "closeness". For example, a query about "canine health" will naturally find chunks about "dog nutrition" because their vectors are physically close in the database.</dd>
+            <dd>Top-K Retrieval: The system identifies the "Top K" most relevant chunks (usually the top 3 to 5 snippets).</dd>
+        </dl>
+    </section>
+    <section><h3>The Augmentation (Building the Prompt)</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>This is the "A" in RAG. The system now "augments" the original request with the fresh data it just found.</dt>
+            <dd>The Context Window: The system pulls the text associated with those top vectors and labels them as "Relevant Data" or "Context".</dd>
+            <dd>Assembling the Package: the system combines the Prompt (Instructions) + Query (User Question) + Relevant Data into one final block of text.</dd>
+        </dl>
+    </section>
+    <section><h3>The Retrieval (Generating the Answer)</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>The system then sends this final text to the LLM, which generates a Response that is grounded in your specific data (Database, Documents, or API) and sends it back to the user.</dt>            
+        </dl>
+    </section>
+</section>
+
+<section class="main-section-title"><h1>Evaluation</h1></section>
+<section class="sub-sections"><h2>Evaluation</h2>
+    <section><h3>The Three Pillars of Evaluation</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt><b>Faithfulness (Groundedness)</b>: Does the answer come only from the retrieved context?. This prevents the LLM from hallucinating or using its own outdated training data.</dt>
+            <dt><b>Answer Relevance</b>: Does the response actually address the user's original query?</dt>
+            <dt><b>Context Precision</b>: Did the retrieval system find the best possible chunks from your database, or was the information irrelevant?</dt>
+        </dl>
+    </section>
+    <section><h3>How to Improve the Flow</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>If the evaluation shows the system is failing, you can adjust several "knobs" we discussed:</dt>
+            <dd><b>Change Chunking</b>: Make chunks larger or smaller to give the LLM more or less context.</dd>
+            <dd><b>Fine-tune Embeddings</b>: Train the embedding model to better understand your specific industry jargon (e.g., medical or legal terms).</dd>
+            <dd><b>Prompt Engineering</b>: Change the "instructions" to be stricter about only using the provided data.</dd>
+        </dl>
+    </section>
+</section>
+
+
+<section class="main-section-title" id="LangChainBuilding"><h1>Building Customer Support RAG with LangChain</h1></section>
+<section class="sub-sections"><h2>Project Overview</h2>
+    <section><h3>Project Description</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>The Customer Support RAG project demonstrates how to build a production-ready "Retrieval-Augmented Generation" system. Instead of relying on a model's general knowledge (which might be outdated or include hallucinations), this assistant is grounded in specific company documentation regarding Billing, Account Security, and Technical Troubleshooting.</dt>                      
+        </dl>
+    </section>
+    <section><h3>The documents</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>For this example we will use next text files</dt>
+            <pre><code rel="account_security.txt" class="text">
+                To reset your password, click 'Forgot Password' on the login screen.
+
+                Two-factor authentication (2FA) is mandatory for all administrative accounts.
+
+                Never share your temporary login codes with support agents.
+            </code></pre>
+            <pre><code rel="billing_policy.txt" class="text">
+                Customers can request a full refund within 30 days of purchase if the service has not been fully utilized.
+
+                Refunds take 5-10 business days to process.
+
+                We accept all major credit cards and PayPal.
+            </code></pre>
+            <pre><code rel="technical_troubleshooting.txt" class="text">
+                If the application fails to launch, first ensure your operating system is up to date.
+
+                For Windows 11 users, verify that Windows Defender is not blocking the executable.
+
+                Clearing the application cache in the AppData/Local folder often resolves sync issues.
+            </code></pre>
+            
+        </dl>
+    </section>    
+    <section><h3>Tech Stack</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt><b>Orchestration</b>: LangChain (using LCEL - LangChain Expression Language).</dt>
+            <dt><b>LLM (Brain)</b>: Google Gemini (1.5 Flash / 2.5 Flash Lite).</dt>
+            <dt><b>Embeddings</b>: HuggingFace (Local).</dt>
+            <dt><b>Vector Database</b>: ChromaDB.</dt>     
+        </dl>
+    </section>
+    <section><h3>What is LangChain?</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>An open-source framework for building LLM applications.</dt>
+            <dd>It provides <b>Chains</b> to link different AI components together.</dd>
+            <dd>Standardizes the integration with Vector DBs, LLMs, and Document Loaders.</dd>
+        </dl>
+    </section>
+    <section><h3>LCEL</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>LCEL stands for LangChain Expression Language. It is a declarative way to compose chains using a "pipeline" style, inspired by Unix pipes (|).</dt>
+            <dt>The core of LCEL is the pipe operator (|). It takes the output from the left side and feeds it directly into the input of the right side.</dt>
+            <dt>For example, you can chain a <b>prompt</b>, <b>model</b>, and <b>StrOutputParser</b> like this:</dt>
+            <pre><code rel="lcel.txt" class="text">
+                # A simple chain: Format prompt -> Send to Model -> Convert to String
+                chain = prompt | model | StrOutputParser()
+            </code></pre>
+            <dt>Chains can be nested and combined to create complex workflows.</dt>
+            <pre><code rel="lcel.txt" class="text">
+                # A more complex chain: Format prompt -> Send to Model -> Convert to String -> Parse JSON
+                chain = prompt | model | StrOutputParser() | json_parser
+            </code></pre>            
+        </dl>
+    </section>
+    <section><h3>The 5 Core Components</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dd>1. <b>Document Loaders</b>: Read PDFs, HTML, or JSON.</dd>
+            <dd>2. <b>Text Splitters</b>: Break long docs into "Chunks" the LLM can digest.</dd>
+            <dd>3. <b>Embeddings</b>: Convert text into numerical vectors (coordinates).</dd>
+            <dd>4. <b>Vector Stores</b>: Databases for fast vector search (Chroma, FAISS).</dd>
+            <dd>5. <b>Retriever</b>: The logic used to pull relevant chunks for a prompt.</dd>
+        </dl>
+    </section>
+    
+    <section><h3>Indexing Phase</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt><b>Load</b>: Import raw text files from the support_docs folder.</dt>
+            <dt><b>Split</b>: Break down long documents into meaningful "chunks" using a RecursiveCharacterTextSplitter.</dt>
+            <dt><b>Embed</b>: Convert text chunks into numerical vectors using a local HuggingFace model (all-MiniLM-L6-v2).</dt>
+            <dt><b>Store</b>: Save these vectors into ChromaDB, a persistent vector database.</dt>
+        </dl>
+    </section>
+    <section><h3>Indexing Phase Code</h3>
+        <pre><code rel="vector_store.py" class="python" style="min-height: 1vh;">
+            from langchain_community.document_loaders import TextLoader, DirectoryLoader
+            from langchain_text_splitters import RecursiveCharacterTextSplitter
+            from langchain_huggingface import HuggingFaceEmbeddings
+            from langchain_chroma import Chroma
+
+            # Load the documents from your folder
+            loader = DirectoryLoader('../support_docs', glob="./*.txt", loader_cls=TextLoader)
+            raw_documents = loader.load()
+
+            # Create a text splitter that splits on paragraphs
+            text_splitter = RecursiveCharacterTextSplitter(
+                chunk_size=50,  # Maximum size of each chunk
+                chunk_overlap=0,  # No overlap between chunks
+                separators=["\n\n"],  # Split on double newlines (paragraphs) first
+                length_function=len,
+            )
+
+            # Split the text
+            docs = text_splitter.split_documents(raw_documents)
+
+            # Initialize the Embedding Model (Local HuggingFace)
+            embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
+
+            # 'persist_directory saves the index so you don't have to re-index every time.
+            vectorstore = Chroma.from_documents(
+                documents=docs,
+                embedding=embeddings,
+                persist_directory="./chroma_db"
+            )
+
+            print(f"Successfully indexed {len(docs)} chunks into ChromaDB.")
+        </code></pre>
+    </section>
+    <section><h3>The Retrieval & Generation Phase</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt><b>Retrieve</b>: When a user asks a question, the system searches ChromaDB for the top 3 most relevant text chunks.</dt>
+            <dt><b>Augment</b>: The system inserts these chunks into a custom prompt template.</dt>
+            <dt><b>Generate</b>: The Google Gemini API receives the context-rich prompt and generates a concise, professional response.</dt>
+        </dl>
+    </section>
+    <section><h3>The Retrieval & Generation Phase Code</h3>
+        <pre><code rel="main.py" class="python" style="min-height: 1vh;">
+            import os
+            from dotenv import load_dotenv
+            from langchain_google_genai import ChatGoogleGenerativeAI
+            from langchain_chroma import Chroma
+            from langchain_huggingface import HuggingFaceEmbeddings
+            from langchain_core.output_parsers import StrOutputParser
+            from langchain_core.runnables import RunnablePassthrough
+            from langchain_core.prompts import PromptTemplate
+
+            # Load environment variables (like GOOGLE_API_KEY)
+            load_dotenv()
+
+            def get_llm_client():
+                return ChatGoogleGenerativeAI(
+                    model="gemini-2.5-flash-lite", 
+                    temperature=0,
+                )
+
+            def format_docs(docs):
+                return "\n\n".join(doc.page_content for doc in docs)
+
+            def get_retriever(embeddings):
+                return Chroma(
+                    persist_directory="./chroma_db",
+                    embedding_function=embeddings
+                ).as_retriever(search_kwargs={"k": 3})
+
+            def get_embeddings():
+                return HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
+
+            def get_vector_store(embeddings):
+                if not os.path.exists("./chroma_db"):
+                    print("Error: 'chroma_db' directory not found. Please run 'vector_store.py' first.")
+                    return
+
+                return Chroma(
+                    persist_directory="./chroma_db",
+                    embedding_function=embeddings
+                )
+
+            def get_prompt():
+                template = """You are a helpful customer support assistant. 
+            Use the following pieces of retrieved context to answer the user's question.
+            If you don't know the answer based on the context, just say that you don't know. 
+            Do not try to make up an answer. 
+
+            Context:
+            {context}
+
+            Question: {question}
+
+            Helpful Answer:"""
+                return PromptTemplate.from_template(template)
+
+            def get_rag_chain(llm, retriever):
+                prompt = get_prompt()
+
+                chain = (
+                    {"context": retriever | format_docs, "question": RunnablePassthrough()}
+                    | prompt
+                    | llm
+                    | StrOutputParser()
+                )
+
+                return chain
+
+            def main():
+                embeddings = get_embeddings()
+                retriever = get_retriever(embeddings)
+                llm = get_llm_client()
+                rag_chain = get_rag_chain(llm, retriever)
+
+                print("\n--- Customer Support RAG Bot (Gemini & LCEL) ---")
+                print("Type 'exit' or 'quit' to stop.\n")
+
+                while True:
+                    query = input("Ask a question: ")
+
+                    if query.lower() in ["exit", "quit"]:
+                        print("Goodbye!")
+                        break
+
+                    if not query.strip():
+                        continue
+
+                    try:
+                        response = rag_chain.invoke(query)
+
+                        print(f"\nAI: {response}\n")
+
+                    except Exception as e:
+                        print(f"An error occurred: {e}")
+
+            if __name__ == "__main__":
+                main()
+
+        </code></pre>
+    </section>
+</section>
+
+<section class="disclaimer" data-background="/ProgressBG-ChatGPT_and_ML-Slides/outfit/images/for_slides/the_end_on_sand.jpg">
+     <p>These slides are based on</p>
+     <p>customised version of </p>
+     <p><a href="http://hakim.se/">Hakimel</a>'s <a href="http://lab.hakim.se/reveal-js">reveal.js</a></p>
+     <p>framework</p>
+</section>
+<!--
+########################################################
+##################### SLIDES START #####################
+########################################################
+-->
+        </div>
+    </div>
+    <!-- Custom processing -->
+    <script src="/ProgressBG-ChatGPT_and_ML-Slides/outfit/js/slides.js"></script>
+    <!-- external scripts -->
+    <script src="/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/lib/js/head.min.js"></script>
+    <script src="/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/js/reveal.js"></script>
+     <!-- init reveal -->
+    <script>
+        var highlightjsTabSize = '  ';
+        Reveal.initialize({
+            controls: true,
+            progress: true,
+            slideNumber: 'c/t',
+            keyboard: true,
+            history: true,
+            center: true,
+            width: 1920,
+            height: 1280,
+            maxScale: 1,
+            transition: 'concave', // none/fade/slide/convex/concave/zoom
+            margin: 0.1,
+            zoomKey: 'ctrl',
+            dependencies: [
+                { src: '/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                { src: '/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                { src: '/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                { src: '/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.configure(); hljs.initHighlightingOnLoad(); } },
+                { src: '/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/plugin/zoom-js/zoom.js', async: true },
+                { src: '/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/plugin/notes/notes.js', async: true },
+                { src: '/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/plugin/math/math.js', async: true }
+            ]
+        });
+    </script>
+</body>
+</html>
