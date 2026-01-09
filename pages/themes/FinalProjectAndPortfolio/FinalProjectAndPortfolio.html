@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Final Project and Portfolio</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <link rel="shortcut icon" href="/ProgressBG-ChatGPT_and_ML-Slides/images/favicons/favicon-32.png">
+    <!-- css & themes include -->
+    <link rel="stylesheet" href="/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/css/reveal.css">
+    <link rel="stylesheet" href="/ProgressBG-ChatGPT_and_ML-Slides/outfit/css/themes/light.css" id="theme">
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match( /print-pdf/gi ) ? '/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/css/print/pdf.css' : '/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/css/print/paper.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- add MathJax support -->
+    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <base target="_blank">
+</head>
+<body>
+    <div class="reveal default center" data-transition-speed="default" data-background-transition="default">
+        <div class="top_links">
+            <a class="home_link" href="/ProgressBG-ChatGPT_and_ML-Slides/pages/agenda/agenda.html#FinalProjectAndPortfolio" target="_top"><i class="fa fa-home"></i></a>
+            <span class="help_link" href="#"><i class="fa fa-question"></i></span>
+            <div class="help_text">
+                <div class="note">Keyboard shortcuts:</div>
+                <div><span>N/Space</span><span>Next Slide</span></div>
+                <div><span>P</span><span>Previous Slide</span></div>
+                <div><span>O</span><span>Slides Overview</span></div>
+                <div><span>ctrl+left click</span><span>Zoom Element</span></div>
+                <div class="print-howto"><br>If you want print version => add '<code>?print-pdf</code>' <br> at the end of slides URL (remove '#' fragment) and then print. <br>
+                Like: https://ProgressBG-ChatGPT_and_ML-course.github.io/...CourseIntro.html?print-pdf </div>
+            </div>
+        </div>
+        <div class="footer theme_switch">
+            <a href="#" onclick="document.getElementById('theme').setAttribute('href','/ProgressBG-ChatGPT_and_ML-Slides/outfit/css/themes/dark.css'); return false;">Dark</a>
+            <a href="#" onclick="document.getElementById('theme').setAttribute('href','/ProgressBG-ChatGPT_and_ML-Slides/outfit/css/themes/light.css'); return false;">Light</a>
+            <a href="#" onclick="document.getElementById('theme').setAttribute('href','/ProgressBG-ChatGPT_and_ML-Slides/outfit/css/themes/projector.css'); return false;">Projector</a>
+        </div>
+        <div class="slides">
+<!--
+########################################################
+##################### SLIDES START #####################
+########################################################
+-->
+<section><h1>Final Project and Portfolio</h1></section>
+<section data-transition="zoom">
+    <section class="copyright" data-transition="zoom">
+        <div class="note">
+            <p>Created for</p>
+        </div>
+        <div class="company">
+            <a href="http://progressbg.net/програмиране-с-python-2/">
+            <img style="height:80%" src="/ProgressBG-ChatGPT_and_ML-Slides/outfit/images/logos/ProgressBG_logo_529_127.png">
+            </a>
+        </div>
+        <div class="author">
+            <span class="note">Iva E. Popova, 2016-2025,</span>
+            <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"></a>
+        </div>
+    </section>
+</section>
+
+<section class="main-section-title" id="ProjectIdeation"><h1>Project Ideation & Planning</h1></section>
+<section class="sub-sections"><h2>Project Ideation & Planning</h2>
+    <section><h3>Selecting Your Idea</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Pick a problem that interests you or a process you want to automate.</dt>
+            <dd><b>Passion</b>: Are you into finance, health, music, or gaming?</dd>
+            <dd><b>Pain Point</b>: What's a repetitive task that AI could handle?</dd>
+            <dd><b>Data / Model Availability</b>: Can you find a dataset, an API, or a specialized model (e.g., from <a href="https://huggingface.co/models">Hugging Face</a>) for this?</dd>
+            <dt>Example Ideas:</dt>
+            <ul>
+                <li>AI Nutritionist (Image recognition + Nutrition API)</li>
+                <li>Automated News Summarizer for a specific niche</li>
+                <li>Customized Language Learning Mentor</li>
+                <li>Personal Finance Assistant with trend analysis</li>
+                <li>Sentiment-aware Customer Service Chatbot (Tone adjustment based on user mood)</li>
+            </ul>
+        </dl>
+    </section>
+    <section><h3>The Minimum Viable Product (MVP) Approach</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Don't try to build the next ChatGPT in two weeks. Focus on a <b>Minimum Viable Product</b>.</dt>
+            <dd><b>Core Loop</b>: Input (User) -> Process (AI/ML) -> Output (Response/Action).</dd>
+            <dd><b>Phase 1</b>: Basic logic and CLI interface.</dd>
+            <dd><b>Phase 2</b>: Web UI with Streamlit.</dd>
+            <dd><b>Phase 3</b>: Deployment and "Vibe Check."</dd>
+        </dl>
+    </section>
+    <section><h3>Example: Sentiment-aware Chatbot MVP</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>How the MVP phases look for our chatbot:</dt>
+            <dd><b>Phase 1 (Logic)</b>: Python script using <code>TextBlob</code> or <code>Hugging Face</code> to detect "Angry" and print a "How can I help you? (Extra polite)" message.</dd>
+            <dd><b>Phase 2 (UI)</b>: A Streamlit chat window with a sidebar showing the current "Sentiment Score" for the user.</dd>
+            <dd><b>Phase 3 (Deploy)</b>: Live link on Streamlit Cloud where anyone can test the bot's patience.</dd>
+        </dl>
+    </section>
+</section>
+
+<section class="main-section-title" id="ModernTools"><h1>Modern AI Tools for Rapid Prototyping</h1></section>
+<section class="sub-sections"><h2>Modern AI Tools for Rapid Prototyping</h2>
+    <section><h3>Leveraging Vibe Coding</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Use the tools we've explored to speed up development:</dt>
+            <dd><b>Claude / ChatGPT</b>: For brainstorming architecture and edge cases.</dd>
+            <dd><b>Bolt.new / Replit</b>: Overcoming "Blank Page" syndrome by generating a template instantly.</dd>
+            <dd><b>Cursor / Antigravity</b>: For writing the core Python logic and handling complex prompts.</dd>
+            <dt>Pro-tip: Focus on the "Vibe." Describe the experience you want the user to have, and let the agents handle the boilerplate.</dt>
+        </dl>
+    </section>
+    <section><h3>The "Vibe Check" (Human-in-the-Loop)</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>With AI-generated code, traditional testing isn't enough. You need <b>Human-in-the-Loop</b> validation.</dt>
+            <dd><b>Beyond Syntax</b>: It’s not just about "Does the code run?" but "Is the outcome correct?"</dd>
+            <dd><b>The Editor's Role</b>: You act as the <em>Editor-in-Chief</em>. The AI drafts; you approve, tweak, or reject.</dd>
+            <dt>Key Validation Areas:</dt>
+            <ul>
+                <li><b>Tone & Personality</b>: Does the assistant sound like it was intended to?</li>
+                <li><b>UX & Flow</b>: Is the interaction intuitive and the "vibe" consistent?</li>
+                <li><b>Hallucination Check</b>: Did the AI make up facts or ignore constraints?</li>
+            </ul>
+            <dt><i>"If the code works but the vibe is off, the project isn't finished."</i></dt>
+        </dl>
+    </section>
+    <section><h3>Example: Vibe-Checking the Response</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Scenario: User is frustrated about a late delivery.</dt>
+            <dd><b>The AI Draft</b>: "I'm sorry. Your package is late. Give me your order number."</dd>
+            <dd><b>The Vibe Check</b>: "This feels too cold and robotic. We need more empathy because the user is angry."</dd>
+            <dd><b>The Adjustment</b>: Tweak the Gemini System Prompt to: <em>"If sentiment is negative, start with a sincere apology and prioritize human-like warmth."</em></dd>
+        </dl>
+    </section>
+    </section>
+</section>
+
+<section class="main-section-title" id="EndToEndLifecycle"><h1>The End-to-End ML Lifecycle</h1></section>
+<section class="sub-sections"><h2>The End-to-End ML Lifecycle</h2>
+    <section><h3>From Data to Deployment</h3>
+        <dl class="fa" style="min-width:80vw">
+            <ol>
+                <li><b>Data Ingestion</b>: APIs, Scrapers, or CSVs.</li>
+                <li><b>Preprocessing</b>: Cleaning text, scaling numbers, handling missing values (Pandas).</li>
+                <li><b>Inference</b>: Using Gemini/OpenAI API or local models (Ollama).</li>
+                <li><b>RAG (Optional)</b>: Connecting your model to custom PDF/Txt data.</li>
+                <li><b>UI</b>: Streamlit or Bolt for the user interface.</li>
+                <li><b>Monitoring</b>: Simple logging to track AI performance and potential hallucinations.</li>
+            </ol>
+        </dl>
+    </section>
+    <section><h3>Example: The Lifecycle of "EmpathBot"</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>How the pieces fit together:</dt>
+            <ul>
+                <li><b>Data</b>: Using <a href="https://huggingface.co/datasets/financial_phrasebank">Hugging Face Datasets</a> to test sentiment logic.</li>
+                <li><b>Model</b>: <code>gemini-pro</code> for generating responses, with a local <code>DistilBERT</code> model (from HF) for fast sentiment classification.</li>
+                <li><b>RAG</b>: Connecting to a <code>FAQ.pdf</code> so the bot gives accurate policy answers while being "nice."</li>
+            </ul>
+        </dl>
+    </section>
+</section>
+
+<section class="main-section-title" id="ShowcasingYourWork"><h1>Showcasing Your Work</h1></section>
+<section class="sub-sections"><h2>Showcasing Your Work</h2>
+    <section><h3>Documentation is King</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>A great project with bad documentation is invisible.</dt>
+            <dd><b>README.md</b>: Clear title, screenshots/videos, installation steps, and "How it works" section.</dd>
+            <dd><b>Architecture Diagram</b>: Show how data flows from user to AI and back.</dd>
+            <dd><b>Live Demo</b>: A URL (Streamlit Cloud, Replit) is worth 1000 lines of code.</dd>
+        </dl>
+    </section>
+    <section><h3>Example: "EmpathBot" README</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>A winning project presentation:</dt>
+            <dd><b>Title</b>: "EmpathBot: A Sentiment-Aware Support Agent."</dd>
+            <dd><b>Visuals</b>: A GIF of the bot turning "Blue" (sad) or "Red" (angry) based on user input.</dd>
+            <dd><b>Architecture</b>: A simple diagram showing: User -> HF Sentiment Model -> System Prompt -> Gemini -> UI.</dd>
+        </dl>
+    </section>
+</section>
+
+<section class="main-section-title" id="HandsOnPlanning"><h1>Hands-On: Plan Your AI MVP</h1></section>
+<section class="sub-sections"><h2>Hands-On: Plan Your AI MVP</h2>
+    <section><h3>Activity: Brainstorming with an AI Agent</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Use an AI assistant (Claude, ChatGPT, or Antigravity) to refine your idea:</dt>
+            <dd>1. Describe your interest area.</dd>
+            <dd>2. Ask: "What are 3 AI-powered MVP ideas for this niche that I can build in 2 weeks?"</dd>
+            <dd>3. Pick one and ask for a <b>Step-by-Step implementation plan</b>.</dd>
+            <dd>4. Draft your system architecture diagram using Mermaid.js syntax.</dd>
+        </dl>
+    </section>
+</section>
+
+<section class="disclaimer" data-background="/ProgressBG-ChatGPT_and_ML-Slides/outfit/images/for_slides/the_end_on_sand.jpg">
+     <p>These slides are based on</p>
+     <p>customised version of </p>
+     <p><a href="http://hakim.se/">Hakimel</a>'s <a href="http://lab.hakim.se/reveal-js">reveal.js</a></p>
+     <p>framework</p>
+</section>
+<!--
+########################################################
+##################### SLIDES END   #####################
+########################################################
+-->
+        </div>
+    </div>
+    <!-- Custom processing -->
+    <script src="/ProgressBG-ChatGPT_and_ML-Slides/outfit/js/slides.js"></script>
+    <!-- external scripts -->
+    <script src="/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/lib/js/head.min.js"></script>
+    <script src="/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/js/reveal.js"></script>
+     <!-- init reveal -->
+    <script>
+        // Full list of configuration options available at:
+        // https://github.com/hakimel/reveal.js#configuration
+        var highlightjsTabSize = '  ';
+        Reveal.initialize({
+            controls: true,
+            progress: true,
+            slideNumber: 'c/t',
+            keyboard: true,
+            history: true,
+            center: true,
+            width: 1920,
+            height: 1280,
+            maxScale: 1,
+            transition: 'concave', // none/fade/slide/convex/concave/zoom
+            margin: 0.1,
+            zoomKey: 'ctrl',
+            dependencies: [
+                { src: '/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                { src: '/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                { src: '/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                { src: '/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.configure(); hljs.initHighlightingOnLoad(); } },
+                { src: '/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/plugin/zoom-js/zoom.js', async: true },
+                { src: '/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/plugin/notes/notes.js', async: true },
+                { src: '/ProgressBG-ChatGPT_and_ML-Slides/lib/reveal.js/plugin/math/math.js', async: true }
+            ]
+        });
+    </script>
+</body>
+</html>
